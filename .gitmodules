@@ -1,0 +1,12 @@
+[submodule "EndlessDelivery Unity/Assets/ULTRAKILL Prefabs"]
+	path = EndlessDelivery Unity/Assets/ULTRAKILL Prefabs
+	url = https://github.com/Tundra-Editor/Prefabs.git
+[submodule "EndlessDelivery Unity/Assets/Common"]
+	path = EndlessDelivery Unity/Assets/Common
+	url = https://github.com/Tundra-Editor/Assets.git
+[submodule "EndlessDelivery Unity/Assets/AddressableAssetsData"]
+	path = EndlessDelivery Unity/Assets/AddressableAssetsData
+	url = https://github.com/Tundra-Editor/AddressableAssetsData.git
+[submodule "EndlessDelivery Unity/Assets/Components"]
+	path = EndlessDelivery Unity/Assets/Components
+	url = https://github.com/Tundra-Editor/Components.git
