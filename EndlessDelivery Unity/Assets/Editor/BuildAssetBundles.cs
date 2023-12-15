@@ -159,7 +159,7 @@ namespace Assets.Editor
 				Directory.CreateDirectory(RESULT_PATH);
 			}
 
-			// AddBundles();
+			AddBundles();
 			
 			// Save Data Info
 			Dictionary<string, List<string>> dataInfo = new Dictionary<string, List<string>>();
@@ -198,7 +198,7 @@ namespace Assets.Editor
 		private static void AddBundles()
 		{
 			var settings = AddressableAssetSettingsDefaultObject.Settings;
-			settings.MonoScriptBundleCustomNaming = AddressableManager.MonoScriptBundleName;
+			settings.MonoScriptBundleCustomNaming = AddressableManager.MonoScriptBundleName.Replace("_monoscripts.bundle", string.Empty);
 
 			AssetDatabase.RemoveUnusedAssetBundleNames();
 			foreach (string bundle in AssetDatabase.GetAllAssetBundleNames())
