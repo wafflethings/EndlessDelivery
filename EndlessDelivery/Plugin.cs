@@ -2,6 +2,7 @@
 using BepInEx;
 using EndlessDelivery.Assets;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace EndlessDelivery
 {
@@ -15,8 +16,16 @@ namespace EndlessDelivery
         public void Start()
         {
             Debug.Log($"{Name} has started !!");
-            
+
             AddressableManager.Setup();
+        }
+
+        public void Update()
+        {
+            if (InputManager.instance != null && InputManager.Instance.InputSource.Fire2.IsPressed && InputManager.Instance.InputSource.Fire1.IsPressed)
+            {
+                Addressables.LoadSceneAsync("Assets/Scenes/Test Scene.unity").WaitForCompletion();
+            }
         }
     }
 }

@@ -153,13 +153,14 @@ namespace Assets.Editor
 		[MenuItem("Ultracrypt Extensions/Build AssetBundles")]
 		public static void Build()
 		{
-			//LoadAndReplaceDefaultAssets();
 
 			if (!Directory.Exists(RESULT_PATH))
 			{
 				Directory.CreateDirectory(RESULT_PATH);
 			}
 
+			// AddBundles();
+			
 			// Save Data Info
 			Dictionary<string, List<string>> dataInfo = new Dictionary<string, List<string>>();
 			//AddData<Scene>(dataInfo, "Assets/Scenes");
@@ -192,6 +193,36 @@ namespace Assets.Editor
 							.Select((path) => path.Replace('\\', '/'))
 							.ToList();
 			dataInfo.Add(typeof(T).FullName, value);
+		}
+		
+		private static void AddBundles()
+		{
+			var settings = AddressableAssetSettingsDefaultObject.Settings;
+			settings.MonoScriptBundleCustomNaming = AddressableManager.MonoScriptBundleName;
+
+			AssetDatabase.RemoveUnusedAssetBundleNames();
+			foreach (string bundle in AssetDatabase.GetAllAssetBundleNames())
+			{
+				settings.RemoveGroup(settings.FindGroup(bundle));
+				var group = settings.CreateGroup(bundle, false, false, false, null, typeof(BundledAssetGroupSchema));
+
+				var groupSchema = group.GetSchema<BundledAssetGroupSchema>();
+				groupSchema.IncludeInBuild = true;
+				groupSchema.IncludeAddressInCatalog = true;
+				groupSchema.BuildPath.SetVariableByName(settings, "RemoteBuildPath");
+				groupSchema.LoadPath.SetVariableByName(settings, "RemoteLoadPath");
+				groupSchema.BundleNaming = BundledAssetGroupSchema.BundleNamingStyle.NoHash;
+				groupSchema.UseAssetBundleCrcForCachedBundles = false;
+				groupSchema.UseAssetBundleCrc = false;
+
+				group.Settings.profileSettings.SetValue(group.Settings.activeProfileId, "RemoteBuildPath", "Built Bundles");
+				group.Settings.profileSettings.SetValue(group.Settings.activeProfileId, "RemoteLoadPath", AddressableManager.AssetPathLocation);
+
+				foreach (string path in AssetDatabase.GetAssetPathsFromAssetBundle(bundle))
+				{
+					settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(path), group, false, true);
+				}
+			}
 		}
 	}
 }

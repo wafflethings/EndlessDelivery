@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 
 namespace EndlessDelivery.Assets
@@ -16,6 +17,7 @@ namespace EndlessDelivery.Assets
         public static void Setup()
         {
             Addressables.LoadContentCatalogAsync(CatalogPath, true).WaitForCompletion();
+            Debug.Log("Added catalog i think");
         }
     }
 }
