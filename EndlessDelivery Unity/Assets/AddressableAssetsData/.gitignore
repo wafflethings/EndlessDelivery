@@ -2,24 +2,3 @@ Windows/
 Windows.meta
 Linux/
 Linux.meta
-
-/AssetGroups/*
-!/AssetGroups/Assets*
-!/AssetGroups/Music*
-!/AssetGroups/Other*
-!/AssetGroups/Built In Data*
-!/AssetGroups/Game Prefabs*
-
-!/AssetGroups/Schemas.meta
-!/AssetGroups/Schemas/
-/AssetGroups/Schemas/*
-!/AssetGroups/Schemas/Assets_*
-!/AssetGroups/Schemas/Music_*
-!/AssetGroups/Schemas/Other_*
-!/AssetGroups/Schemas/Built In Data_*
-
-# Ignore non-template
-AddressableAssetSettings.asset
-AddressableAssetSettings.asset.template.meta
-AddressableAssetSettings.asset.meta.template.meta
-AddressableAssetSettings.asset.meta
