@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections;
+using EndlessDelivery.Gameplay;
+using EndlessDelivery.Utils;
 using TMPro;
 using UnityEngine;
 
@@ -7,100 +9,111 @@ namespace EndlessDelivery.Components
 {
     public class Chimney : MonoBehaviour
     {
-        public WeaponVariant VariantColour;
+        [field: SerializeField] public WeaponVariant VariantColour { get; private set; }
         public GameObject Glow;
         public TMP_Text DeliveredText;
         public int AmountToDeliver;
         public AudioSource DeliverSound;
         public Animator Animator;
-        
+        [HideInInspector] public Room Room;
+
+        private Collider _collider;
         private Renderer _glowRenderer;
         private float _glowAlpha;
         private Coroutine _currentAnimation;
-        private int _amountDelivered;
 
-        public bool Done => _amountDelivered >= AmountToDeliver;
-        private Color _colour => ColorBlindSettings.Instance.variationColors[(int)VariantColour];
-        
         private void Start()
+        {
+            _collider = GetComponent<Collider>();
+            SetRenderer();
+            SetColour(VariantColour);
+        }
+
+        private void SetRenderer()
         {
             _glowRenderer = Glow.GetComponent<Renderer>();
             _glowAlpha = _glowRenderer.material.GetFloat("_OpacScale");
-            _glowRenderer.material.color = _colour;
+        }
+
+        public void SetColour(WeaponVariant colour)
+        {
+            if (_glowRenderer == null)
+            {
+                SetRenderer();
+            }
+
+            VariantColour = colour;
+            _glowRenderer.material.color = ColorBlindSettings.Instance.variationColors[(int)VariantColour];
         }
 
         private void Update()
         {
-            DeliveredText.text = $"{_amountDelivered}/{AmountToDeliver}";
+            DeliveredText.text = $"{Room.AmountDelivered[VariantColour]}/{AmountToDeliver}";
         }
 
-        public void Complete()
+        public void DeliverEffect()
         {
-            _amountDelivered++;
             DeliverSound.Play();
-            
+
             if (_currentAnimation != null)
             {
                 StopCoroutine(_currentAnimation);
             }
 
-            _currentAnimation = StartCoroutine(CompleteAnimation());
+            _currentAnimation = StartCoroutine(DeliverEffectAnimation());
         }
 
-        private IEnumerator CompleteAnimation()
+        private IEnumerator DeliverEffectAnimation()
         {
             Animator.Play("Glow Animation");
 
-           yield return new WaitForSeconds((1 / 60f) * 10); //10frames
-           
-           Material glowMaterial = _glowRenderer.material;
-           
-           
-           while (glowMaterial.GetFloat("_OpacScale") != 0)
-           {
-               glowMaterial.SetFloat("_OpacScale", Mathf.MoveTowards(glowMaterial.GetFloat("_OpacScale"), 0, Time.deltaTime * 2));
-               yield return null;
-           }
+            yield return new WaitForSeconds((1 / 60f) * 10); //10frames
 
-           if (!Done)
-           {
-               yield return new WaitForSeconds(1f);
+            Material glowMaterial = _glowRenderer.material;
+            
+            while (glowMaterial.GetFloat("_OpacScale") != 0)
+            {
+                glowMaterial.SetFloat("_OpacScale", Mathf.MoveTowards(glowMaterial.GetFloat("_OpacScale"), 0, Time.deltaTime * 2));
+                yield return null;
+            }
 
-               while (glowMaterial.GetFloat("_OpacScale") != _glowAlpha)
-               {
-                   glowMaterial.SetFloat("_OpacScale", Mathf.MoveTowards(glowMaterial.GetFloat("_OpacScale"), _glowAlpha, Time.deltaTime));
-                   yield return null;
-               }
-           }
-           else
-           {
-               yield return new WaitForSeconds(0.25f);
-               Vector3 target = DeliveredText.transform.localScale;
-               target.y = 0;
-               
-               while (DeliveredText.transform.localScale.y != 0)
-               {
-                   DeliveredText.transform.localScale = Vector3.MoveTowards(DeliveredText.transform.localScale, target, Time.deltaTime * 2);
-                   yield return null;
-               }
-           }
+            if (!Room.Done(VariantColour))
+            {
+                yield return new WaitForSeconds(1f);
+
+                while (glowMaterial.GetFloat("_OpacScale") != _glowAlpha)
+                {
+                    glowMaterial.SetFloat("_OpacScale", Mathf.MoveTowards(glowMaterial.GetFloat("_OpacScale"), _glowAlpha, Time.deltaTime));
+                    yield return null;
+                }
+            }
+            else
+            {
+                Vector3 target = DeliveredText.transform.localScale;
+                target.y = 0;
+
+                while (glowMaterial.GetFloat("_OpacScale") != _glowAlpha / 2)
+                {
+                    glowMaterial.SetFloat("_OpacScale", Mathf.MoveTowards(glowMaterial.GetFloat("_OpacScale"), _glowAlpha / 2, Time.deltaTime));
+                    yield return null;
+                }
+
+                while (DeliveredText.transform.localScale.y != 0)
+                {
+                    DeliveredText.transform.localScale = Vector3.MoveTowards(DeliveredText.transform.localScale, target, Time.deltaTime * 2);
+                    yield return null;
+                }
+            }
         }
-        
+
         private void OnTriggerEnter(Collider collider)
         {
             if (collider.TryGetComponent(out Present present))
             {
                 if (present.VariantColour == VariantColour && !present.Destroyed)
                 {
-                    present.Destroy();
-                    Complete();
-                }
-                else
-                {
-                    Vector3 playerVector = (NewMovement.Instance.transform.position - present.transform.position) * 2.5f;
-                    playerVector.y = 0;
-                    Vector3 newVelocity = (Vector3.up * 25) + (playerVector);
-                    present.GetComponent<Rigidbody>().velocity = newVelocity;
+                    present.Deliver(this);
+                    DeliverEffect();
                 }
             }
         }

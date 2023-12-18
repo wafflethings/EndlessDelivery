@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: silly_test
+  m_Name: endlessdelivery_core
   m_EditorClassIdentifier: 
-  m_GroupName: silly_test
+  m_GroupName: endlessdelivery_core
   m_Data:
     m_SerializedData: []
-  m_GUID: 4d51c366fd296eb48895d46be5fec920
+  m_GUID: 226d64a4e6ad62549b0379b1d557f017
   m_SerializeEntries:
-  - m_GUID: eb2f5b8a0095d804193d0025340a9671
-    m_Address: Assets/Scenes/Test Scene.unity
+  - m_GUID: d768d5ab57576234bbefa0f8da31de9e
+    m_Address: Assets/Delivery/Prefabs/HUD/Present Panel.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -26,4 +26,4 @@ MonoBehaviour:
   m_Settings: {fileID: 11400000, guid: 2a337ff27534e164b86034852d6c1576, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 6385831750a6bfa47b962ed7f271faad, type: 2}
+    - {fileID: 11400000, guid: 1db4a05ca18207746834d29fb94965b1, type: 2}

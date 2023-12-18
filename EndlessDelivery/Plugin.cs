@@ -1,6 +1,7 @@
 ﻿using System;
 using BepInEx;
 using EndlessDelivery.Assets;
+using EndlessDelivery.Utils;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -18,13 +19,14 @@ namespace EndlessDelivery
             Debug.Log($"{Name} has started !!");
 
             AddressableManager.Setup();
+            PatchThis.AddPatches();
         }
 
         public void Update()
         {
             if (InputManager.instance != null && InputManager.Instance.InputSource.Fire2.IsPressed && InputManager.Instance.InputSource.Fire1.WasPerformedThisFrame)
             {
-                Addressables.LoadSceneAsync("Assets/Scenes/Test Scene.unity").WaitForCompletion();
+                AddressableManager.LoadScene("Assets/Scenes/Test Scene.unity");
             }
         }
     }

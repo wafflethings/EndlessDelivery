@@ -165,11 +165,12 @@ namespace Assets.Editor
 			Dictionary<string, List<string>> dataInfo = new Dictionary<string, List<string>>();
 			//AddData<Scene>(dataInfo, "Assets/Scenes");
 
-			using (StreamWriter writer = new StreamWriter(File.OpenWrite($"{RESULT_PATH}/data.json")))
+			/*using (StreamWriter writer = new StreamWriter(File.OpenWrite($"{RESULT_PATH}/data.json")))
 			{
 				JsonSerializer serializer = new JsonSerializer();
 				serializer.Serialize(new JsonTextWriter(writer) { Formatting = Formatting.Indented }, dataInfo);
-			}
+			}*/
+			
 			Debug.LogWarning($"BUNDLE DATA: {AddressableManager.MonoScriptBundleName} {AddressableManager.AssetPathLocation}");
 			AddressableAssetSettings.BuildPlayerContent();
 			

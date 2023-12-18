@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using EndlessDelivery.Gameplay;
+using EndlessDelivery.Utils;
 using UnityEngine;
 
 namespace EndlessDelivery.Components
@@ -6,6 +8,7 @@ namespace EndlessDelivery.Components
     public class Present : MonoBehaviour
     {
         public WeaponVariant VariantColour;
+        public GameObject Particles;
         private ItemIdentifier _item;
         [HideInInspector] public bool Destroyed;
         
@@ -14,11 +17,20 @@ namespace EndlessDelivery.Components
         private void Start()
         {
             _item = GetComponent<ItemIdentifier>();
+            SetColour(VariantColour);
+        }
+
+        public void SetColour(WeaponVariant colour)
+        {
+            VariantColour = colour;
             GetComponent<Renderer>().material.color = _colour;
         }
 
-        public void Destroy()
+        public void Deliver(Chimney chimney)
         {
+            chimney.Room.AmountDelivered[VariantColour]++;
+            GameManager.Instance.AddTime(5);
+            CreateParticles();
             Destroyed = true;
             
             if (_item.hooked)
@@ -32,14 +44,21 @@ namespace EndlessDelivery.Components
             }
 
             Destroy(_item);
-
+            GetComponent<Collider>().enabled = false;
+            GetComponent<Rigidbody>().detectCollisions = false;
             StartCoroutine(DestroyAnimation());
+        }
+
+        public void CreateParticles()
+        {
+            ParticleSystem particles = Instantiate(Particles, transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
+            particles.GetComponentInChildren<Light>().color = _colour;
+            particles.startColor = _colour; //i dont care if this is deprecated, fuck unity
         }
 
         private IEnumerator DestroyAnimation()
         {
             yield return new WaitForSeconds(0.25f);
-            Destroy(GetComponent<Rigidbody>());
             
             while (transform.localScale != Vector3.zero)
             {
@@ -48,6 +67,21 @@ namespace EndlessDelivery.Components
             }
             
             Destroy(gameObject);
+        }
+        
+        private void OnTriggerStay(Collider collider)
+        {
+            if (Destroyed)
+            {
+                return;
+            }
+            
+            if (collider.TryGetComponent(out Chimney chimney) && chimney.VariantColour != VariantColour)
+            {
+                Vector3 playerVector = (NewMovement.Instance.transform.position - transform.position) * 2.5f;
+                Vector3 newVelocity = (Vector3.up * 25) + (playerVector.Only(Axis.X, Axis.Z));
+                GetComponent<Rigidbody>().velocity = newVelocity;
+            }
         }
     }
 }

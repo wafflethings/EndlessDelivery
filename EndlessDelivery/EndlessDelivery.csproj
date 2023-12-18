@@ -31,11 +31,11 @@
       <Reference Include="0Harmony">
         <HintPath>lib\BepInEx\0Harmony.dll</HintPath>
       </Reference>
-      <Reference Include="0Harmony20">
-        <HintPath>lib\BepInEx\0Harmony20.dll</HintPath>
-      </Reference>
       <Reference Include="Assembly-CSharp">
         <HintPath>lib\Managed\Assembly-CSharp.dll</HintPath>
+      </Reference>
+      <Reference Include="AtlasLib">
+        <HintPath>lib\Other\AtlasLib.dll</HintPath>
       </Reference>
       <Reference Include="BepInEx">
         <HintPath>lib\BepInEx\BepInEx.dll</HintPath>
@@ -93,6 +93,9 @@
       </Reference>
       <Reference Include="UnityEngine.CoreModule">
         <HintPath>lib\Managed\UnityEngine.CoreModule.dll</HintPath>
+      </Reference>
+      <Reference Include="UnityEngine.ParticleSystemModule">
+        <HintPath>lib\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
       </Reference>
       <Reference Include="UnityEngine.PhysicsModule">
         <HintPath>lib\Managed\UnityEngine.PhysicsModule.dll</HintPath>
