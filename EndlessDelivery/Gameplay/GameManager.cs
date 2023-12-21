@@ -1,26 +1,40 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using EndlessDelivery.Assets;
 using EndlessDelivery.Hud;
+using EndlessDelivery.Scores;
+using EndlessDelivery.UI;
+using EndlessDelivery.Utils;
+using HarmonyLib;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace EndlessDelivery.Gameplay
 {
+    [PatchThis($"{Plugin.GUID}.GameManager")]
     public class GameManager : MonoSingleton<GameManager>
     {
         public const float StartTime = 45;
         public const float TimeAddLength = 0.5f;
 
+        public NavMeshSurface Navmesh;
         public AudioSource TimeAddSound;
+        public List<Room> RoomPool;
         
         public bool GameStarted { get; private set; }
         public float TimeLeft { get; private set; }
         public float TimeElapsed { get; private set; }
-        public float DeliveredPresents { get; private set; }
+        public int DeliveredPresents { get; set; }
+        public int RoomsEntered { get; private set; }
         public Room CurrentRoom { get; private set; }
+        public Room PreviousRoom { get; private set; }
         public bool TimerActive { get; private set; }
+        public int PointsPerWave { get; private set; } = 10;
+        public Score CurrentScore => new(RoomsEntered - 1, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed);
         
         private Coroutine _pauseCoroutine;
 
-        public void Update()
+        private void Update()
         {
             if (GameStarted && GunControl.Instance.activated)
             {
@@ -54,17 +68,49 @@ namespace EndlessDelivery.Gameplay
             TimerActive = true;
         }
 
+        public Room GenerateNewRoom()
+        {
+            Collider collider = CurrentRoom.GetComponent<Collider>();
+            return Instantiate(RoomPool.Pick().gameObject, CurrentRoom.gameObject.transform.position + (Vector3.right * collider.bounds.size.x * 2), Quaternion.identity)
+                .GetComponent<Room>();
+        }
+
+        public void RoomEnd()
+        {
+            PointsPerWave += 3 + RoomsEntered / 3;
+            SetRoom(GenerateNewRoom());
+            AddTime(15f);
+            Navmesh.BuildNavMesh();
+        }
+        
         public void SetRoom(Room room)
         {
-            CurrentRoom = room;
-            if (!GameStarted)
+            if (CurrentRoom != room)
             {
-                StartGame();
+                PreviousRoom = CurrentRoom;
+                CurrentRoom = room;
+                room.Initialize();
+            }
+
+            if (room.RoomHasGameplay && !room.RoomAlreadyVisited)
+            {
+                if (!GameStarted)
+                {
+                    StartGame();
+                }
+                
+                RoomsEntered++;
+                room.RoomAlreadyVisited = true;
             }
         }
 
         public void StartGame()
         {
+            if (GameStarted)
+            {
+                return;
+            }
+            
             PresentTimeHud.Instance.gameObject.SetActive(true);
             TimeLeft = StartTime;
             TimerActive = true;
@@ -73,8 +119,54 @@ namespace EndlessDelivery.Gameplay
 
         public void EndGame()
         {
-            NewMovement.Instance.GetHurt(1000, false);
+            if (!GameStarted)
+            {
+                return;
+            }
+            
+            if (!NewMovement.Instance.dead)
+            {
+                NewMovement.Instance.GetHurt(1000, false);
+            }
+
+            NewMovement.Instance.blackScreen.gameObject.SetActive(false);
+            NewMovement.Instance.hp = 100; // to prevent restart working - StatsManager.Update 
             GameStarted = false;
+            
+            //if more rooms, or more deliveries
+            if (CurrentScore.Rooms > Score.Highscore.Rooms || ((CurrentScore.Rooms == Score.Highscore.Rooms) && CurrentScore.Deliveries >= Score.Highscore.Deliveries))
+            {
+                Score.Highscore = CurrentScore;
+                EndScreen.Instance.NewBest = true;
+            }
+            
+            EndScreen.Instance.Appear();
+            GameProgressSaver.AddMoney(CurrentScore.MoneyGain);
+        }
+        
+        private static NavMeshData InitializeBakeData(NavMeshSurface surface)
+        {
+            return NavMeshBuilder.BuildNavMeshData(surface.GetBuildSettings(), new List<NavMeshBuildSource>(), new Bounds(), surface.transform.position, surface.transform.rotation);
+        }
+        
+        [HarmonyPatch(typeof(SeasonalHats), nameof(SeasonalHats.Start)), HarmonyPrefix]
+        private static void EnableHats(SeasonalHats __instance)
+        {
+            if (AddressableManager.InSceneFromThisMod)
+            {
+                __instance.easter.SetActive(false);
+                __instance.halloween.SetActive(false);
+                __instance.christmas.SetActive(true);
+            }
+        }
+
+        [HarmonyPatch(typeof(NewMovement), nameof(NewMovement.GetHurt)), HarmonyPostfix]
+        private static void CustomDeath(NewMovement __instance)
+        {
+            if (__instance.dead && AddressableManager.InSceneFromThisMod)
+            {
+                Instance.EndGame();
+            }
         }
     }
 }

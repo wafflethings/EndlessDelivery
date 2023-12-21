@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1244015126, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: Projectile
+  m_EditorClassIdentifier: 
+  Class: 1
+  Enemies:
+  - {fileID: 11400000, guid: 824018765437e2347ad4697e7312c6f4, type: 2}
+  - {fileID: 11400000, guid: d7c9345f8a34acf41ad88302967669c7, type: 2}
+  - {fileID: 11400000, guid: fd2adfd8c8f730a4496a38ba44756a2c, type: 2}
+  - {fileID: 11400000, guid: 3ff8f2ed5576a0d4c856a244acf64c18, type: 2}

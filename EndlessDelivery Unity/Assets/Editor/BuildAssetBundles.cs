@@ -14,6 +14,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
+using EndlessDelivery.Gameplay.EnemyGeneration;
 
 namespace Assets.Editor 
 {
@@ -163,13 +164,14 @@ namespace Assets.Editor
 			
 			// Save Data Info
 			Dictionary<string, List<string>> dataInfo = new Dictionary<string, List<string>>();
-			//AddData<Scene>(dataInfo, "Assets/Scenes");
+			AddData<Scene>(dataInfo, "Assets/Delivery/Scenes");
+			AddData<EnemyGroup>(dataInfo, "Assets/Delivery/EnemyGroups");
 
-			/*using (StreamWriter writer = new StreamWriter(File.OpenWrite($"{RESULT_PATH}/data.json")))
+			using (StreamWriter writer = new StreamWriter(File.OpenWrite($"{RESULT_PATH}/data.json")))
 			{
 				JsonSerializer serializer = new JsonSerializer();
 				serializer.Serialize(new JsonTextWriter(writer) { Formatting = Formatting.Indented }, dataInfo);
-			}*/
+			}
 			
 			Debug.LogWarning($"BUNDLE DATA: {AddressableManager.MonoScriptBundleName} {AddressableManager.AssetPathLocation}");
 			AddressableAssetSettings.BuildPlayerContent();

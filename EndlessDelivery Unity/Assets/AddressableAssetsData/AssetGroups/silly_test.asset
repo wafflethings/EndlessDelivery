@@ -15,10 +15,10 @@ MonoBehaviour:
   m_GroupName: silly_test
   m_Data:
     m_SerializedData: []
-  m_GUID: 4d51c366fd296eb48895d46be5fec920
+  m_GUID: db9b968395df57a4aae54b0dd403f299
   m_SerializeEntries:
   - m_GUID: eb2f5b8a0095d804193d0025340a9671
-    m_Address: Assets/Scenes/Test Scene.unity
+    m_Address: Assets/Delivery/Scenes/Test Scene.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

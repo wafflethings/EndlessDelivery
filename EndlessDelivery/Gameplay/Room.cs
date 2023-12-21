@@ -1,19 +1,30 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using AtlasLib.Utils;
 using EndlessDelivery.Components;
+using EndlessDelivery.Gameplay.EnemyGeneration;
 using EndlessDelivery.Utils;
+using HarmonyLib;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace EndlessDelivery.Gameplay
 {
     public class Room : MonoBehaviour
     {
+        public GameObject SpawnPoint;
+        public ActivateArena Arena;
+        public EnemySpawnPoint[] SpawnPoints;
+        public bool RoomHasGameplay = true;
+        [HideInInspector] public bool RoomAlreadyVisited;
+        [Space(15)]
         public List<Chimney> Chimneys = new();
         [Space(15)]
         public List<Present> Presents = new();
-        public List<int> PresentColourAmounts = new();
+        [HideInInspector] public int[] PresentColourAmounts = {0, 0, 0, 0};
+        
+        [HideInInspector] public List<Collider> EnvColliders = new();
 
         public Dictionary<WeaponVariant, Chimney> AllChimneys = new()
         {
@@ -30,20 +41,52 @@ namespace EndlessDelivery.Gameplay
             { WeaponVariant.RedVariant, 0 },
             { WeaponVariant.GoldVariant, 0 }
         };
+        
+        private bool _roomActivated = false;
+        private Dictionary<EnemyType, int> _amountSpawned = new();
+        private int _pointsLeft;
+        private int _meleeSpawnsUsed;
+        private int _projectileSpawnsUsed;
+
 
         public bool Done(WeaponVariant colour)
         {
             return AmountDelivered[colour] == PresentColourAmounts[(int)colour];
         }
 
-        public bool ChimneysDone => Chimneys.All(c => Done(c.VariantColour));
+        public bool ChimneysDone => AmountDelivered.All(kvp => PresentColourAmounts[(int)kvp.Key] == kvp.Value);
 
-        public void Start()
+        public void Deliver(WeaponVariant colour)
         {
+            GameManager.Instance.DeliveredPresents++;
+            AmountDelivered[colour]++;
+
+            if (ChimneysDone)
+            {
+                CompleteRoom();
+            }
+        }
+
+        private void CompleteRoom()
+        {
+            foreach (Chimney chimney in AllChimneys.Values)
+            {
+                chimney?.JumpPad.gameObject.SetActive(false);
+            }
+        }
+
+        public void Initialize()
+        {
+            if (RoomHasGameplay)
+            {
+                PresentColourAmounts = GenerationEquations.DistributeBetween(4, GenerationEquations.PresentAmount(GameManager.Instance.RoomsEntered));
+            }
+
             DecideChimneyColours();
             DecidePresentColours();
-            
-            for (int i = 0; i < PresentColourAmounts.Count; i++)
+            DecideSpawnPointEnemies();
+
+            for (int i = 0; i < PresentColourAmounts.Length; i++)
             {
                 Chimney chimney = AllChimneys[(WeaponVariant)i];
 
@@ -52,9 +95,22 @@ namespace EndlessDelivery.Gameplay
                     chimney.AmountToDeliver = PresentColourAmounts[i];
                 }
             }
+
+            if (ChimneysDone)
+            {
+                CompleteRoom();
+            }
+
+            foreach (Collider col in GetComponentsInChildren<Collider>(true))
+            {
+                if (LayerMaskDefaults.Get(LMD.Environment).Contains(col.gameObject.layer))
+                {
+                    EnvColliders.Add(col);
+                }
+            }
         }
 
-        public void DecideChimneyColours()
+        private void DecideChimneyColours()
         {
             WeaponVariant colour = 0;
             
@@ -67,10 +123,10 @@ namespace EndlessDelivery.Gameplay
             }
         }
         
-        public void DecidePresentColours()
+        private void DecidePresentColours()
         {
             Dictionary<WeaponVariant, int> amounts = new();
-            for (int i = 0; i < PresentColourAmounts.Count; i++)
+            for (int i = 0; i < PresentColourAmounts.Length; i++)
             {
                 if (PresentColourAmounts[i] != 0)
                 {
@@ -98,11 +154,205 @@ namespace EndlessDelivery.Gameplay
             }
         }
 
-        public void OnTriggerEnter(Collider collider)
+        private void DecideSpawnPointEnemies()
         {
-            if (collider.GetComponent<NewMovement>() != null)
+            _pointsLeft = GameManager.Instance.PointsPerWave;
+            Debug.Log($"Spawning enemies: starts with {_pointsLeft}");
+            
+            List<EnemySpawnPoint> projectileSpawns = SpawnPoints.Where(sp => sp.Class == DeliveryEnemyClass.Projectile).ShuffleAndToList();
+            List<EnemySpawnPoint> meleeSpawns = SpawnPoints.Where(sp => sp.Class == DeliveryEnemyClass.Melee).ShuffleAndToList();
+
+            if (GameManager.Instance.RoomsEntered > 10)
             {
+                int maxUncommonsAndSpecials = GameManager.Instance.RoomsEntered / 10;
+                DecideUncommons(meleeSpawns, ref maxUncommonsAndSpecials);
+
+                if (GameManager.Instance.RoomsEntered > 15)
+                {
+                    DecideSpecials(meleeSpawns, ref maxUncommonsAndSpecials);
+                }
+            }
+
+            DecideNormalMeleeAndProjectile(projectileSpawns, meleeSpawns);
+        }
+
+        private void DecideUncommons(List<EnemySpawnPoint> spawns, ref int max)
+        {
+            int uncommonAmount = UnityEngine.Random.Range(1, max + 1);
+            max -= uncommonAmount;
+            
+            Debug.Log($"Spawning {uncommonAmount} uncommons!");
+            List<EndlessEnemy> uncommons = GetPotentialEnemies(EnemyGroup.Groups[DeliveryEnemyClass.Uncommon]).ShuffleAndToList();
+
+            foreach (EndlessEnemy enemy in uncommons)
+            {
+                Debug.Log($"    uc{enemy.prefab.name}");
+            }
+            while (uncommons.Count > 2)
+            {
+                uncommons.RemoveAt(uncommons.Count - 1);
+            }
+
+            if (uncommons.Count == 0)
+            {
+                return;
+            }
+
+            if (uncommons.Count == 1)
+            {
+                uncommons.Add(uncommons[0]);
+            }
+            
+            Debug.Log($"Uncommons are {uncommons[0].prefab.name} and {uncommons[1].prefab.name}!!");
+
+            for (int i = 0; i < uncommonAmount; i++)
+            {
+                if (_meleeSpawnsUsed == spawns.Count)
+                {
+                    Debug.Log($"broke2 with {_pointsLeft}");
+                    break;
+                }
+                
+                if (GetRealCost(uncommons[0]) >= _pointsLeft && GetRealCost(uncommons[1]) >= _pointsLeft)
+                {
+                    Debug.Log("uncommon break");
+                    break;
+                }
+                
+                int whichUncommon = UnityEngine.Random.value > 0.5f ? 0 : 1;
+                
+                if (GetRealCost(uncommons[0]) >= _pointsLeft)
+                {
+                    whichUncommon = 1;
+                }
+                
+                if (GetRealCost(uncommons[1]) >= _pointsLeft)
+                {
+                    whichUncommon = 0;
+                }
+                
+                SetSpawnPoint(spawns[_meleeSpawnsUsed], uncommons[whichUncommon], DeliveryEnemyClass.Melee);
+            }
+        }
+        
+        private void DecideSpecials(List<EnemySpawnPoint> spawns, ref int max)
+        {
+            int specialAmount = UnityEngine.Random.Range(0, max + 1);
+            max -= specialAmount;
+            
+            Debug.Log($"Spawning {specialAmount} specials!");
+            foreach (EndlessEnemy enemy in GetPotentialEnemies(EnemyGroup.Groups[DeliveryEnemyClass.Special]).ShuffleAndToList())
+            {
+                Debug.Log($"   {enemy}");
+            }
+            
+            for (int i = 0; i < specialAmount; i++)
+            {
+                if (_meleeSpawnsUsed == spawns.Count)
+                {
+                    Debug.Log($"broke1 with {_pointsLeft}");
+                    break;
+                }
+                
+                List<EndlessEnemy> specials = GetPotentialEnemies(EnemyGroup.Groups[DeliveryEnemyClass.Special]).ShuffleAndToList();
+                if (specials.Count == 0)
+                {
+                    break;
+                }
+                SetSpawnPoint(spawns[_meleeSpawnsUsed], specials[0], DeliveryEnemyClass.Melee);
+            }
+        }
+
+        // this fills in the leftovers; what hasnt been used for specials or uncommons
+        private void DecideNormalMeleeAndProjectile(List<EnemySpawnPoint> projectile, List<EnemySpawnPoint> melee)
+        {
+            while (_pointsLeft != 0)
+            {
+                Debug.Log($"has {_pointsLeft} points left!");
+                if (_projectileSpawnsUsed == projectile.Count && _meleeSpawnsUsed == melee.Count)
+                {
+                    Debug.Log($"broke with {_pointsLeft}");
+                    break;
+                }
+                
+                DeliveryEnemyClass type = UnityEngine.Random.value < 0.5 ? DeliveryEnemyClass.Melee : DeliveryEnemyClass.Projectile;
+
+                if (_projectileSpawnsUsed >= projectile.Count)
+                {
+                    type = DeliveryEnemyClass.Melee;
+                }
+                
+                if (_meleeSpawnsUsed >= melee.Count)
+                {
+                    type = DeliveryEnemyClass.Projectile;
+                }
+
+                IEnumerable<EndlessEnemy> enemies = GetPotentialEnemies(EnemyGroup.Groups[type]);
+                foreach (EndlessEnemy enemy in enemies)
+                {
+                    Debug.Log($"   pm {enemy.prefab.name}");
+                }
+                EndlessEnemy randomEnemy = enemies.ToList().Pick();
+
+                if (randomEnemy == null)
+                {
+                    //enemy is only null when the list provided to pick has no items
+                    break;
+                }
+                
+                EnemySpawnPoint spawnPoint = type == DeliveryEnemyClass.Melee ? melee[_meleeSpawnsUsed] : projectile[_projectileSpawnsUsed];
+                SetSpawnPoint(spawnPoint, randomEnemy, type);
+                Debug.Log($"now at {_pointsLeft}");
+            }
+        }
+
+        private IEnumerable<EndlessEnemy> GetPotentialEnemies(EnemyGroup group)
+        {
+            foreach (EndlessEnemy enemy in group.Enemies)
+            {
+                if (enemy.spawnWave <= GameManager.Instance.RoomsEntered && GetRealCost(enemy) <= _pointsLeft)
+                {
+                    yield return enemy;
+                }
+            }
+        }
+        
+        private void SetSpawnPoint(EnemySpawnPoint point, EndlessEnemy enemy, DeliveryEnemyClass spawnType)
+        {
+            point.Enemy = enemy.prefab;
+            _pointsLeft -= GetRealCost(enemy);
+            Debug.Log($"just spent {GetRealCost(enemy)}");
+            _amountSpawned.TryAdd(enemy.enemyType, 0);
+            _amountSpawned[enemy.enemyType]++;
+
+            switch (spawnType)
+            {
+                case DeliveryEnemyClass.Melee:
+                    _meleeSpawnsUsed++;
+                    break;
+                
+                case DeliveryEnemyClass.Projectile:
+                    _projectileSpawnsUsed++;
+                    break;
+            }
+
+            //i hope this isnt too slow
+            Arena.enemies = Arena.enemies.AddToArray(point.gameObject);
+        }
+
+        private int GetRealCost(EndlessEnemy enemy)
+        {
+            int amountSpawned = _amountSpawned.ContainsKey(enemy.enemyType) ? _amountSpawned[enemy.enemyType] : 0;
+            return enemy.spawnCost + (enemy.costIncreasePerSpawn * amountSpawned);
+        } 
+
+        private void OnTriggerEnter(Collider collider)
+        {
+            if (collider.GetComponent<NewMovement>() != null && !_roomActivated)
+            {
+                _roomActivated = true;
                 GameManager.Instance.SetRoom(this);
+                Arena?.Activate();
             }
         }
     }

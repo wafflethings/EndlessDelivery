@@ -28,7 +28,7 @@ namespace EndlessDelivery.Components
 
         public void Deliver(Chimney chimney)
         {
-            chimney.Room.AmountDelivered[VariantColour]++;
+            chimney.Room.Deliver(VariantColour);
             GameManager.Instance.AddTime(5);
             CreateParticles();
             Destroyed = true;

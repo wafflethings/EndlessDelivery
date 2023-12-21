@@ -1,5 +1,145 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1852249130698422023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2544839558767395980}
+  - component: {fileID: 5417340199126905432}
+  - component: {fileID: 6165867198589015169}
+  m_Layer: 0
+  m_Name: Music
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &2544839558767395980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852249130698422023}
+  m_LocalRotation: {x: -1, y: -0, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: -450.7083, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 6371098800511447944}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &5417340199126905432
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852249130698422023}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 7c2acb5e096d1904bb204f1886a37446, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6165867198589015169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852249130698422023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab6a78733858cd54ca5102b12cd88fef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6371098800511437835
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,7 +152,7 @@ GameObject:
   - component: {fileID: 6371098800511444893}
   - component: {fileID: 6371098800511424205}
   m_Layer: 13
-  m_Name: Text
+  m_Name: Kills Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,8 +397,9 @@ GameObject:
   - component: {fileID: 6371098800511444965}
   - component: {fileID: 6371098800511424035}
   - component: {fileID: 6371098800511443994}
+  - component: {fileID: 7603499754312626330}
   m_Layer: 13
-  m_Name: Text (1)
+  m_Name: Kills Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -420,6 +561,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7603499754312626330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371098800511437840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1887888406, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
+  Text: {fileID: 6371098800511424035}
+  Target: 0
+  Format: '{0}'
+  StartValue: 
+  ChangePerSecond: 20
+  IsTimestamp: 0
+  Done: 0
 --- !u!1 &6371098800511437841
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +592,7 @@ GameObject:
   - component: {fileID: 6371098800511447944}
   - component: {fileID: 6371098800511447556}
   - component: {fileID: 6371098800511424032}
+  - component: {fileID: 6835109934099656989}
   m_Layer: 13
   m_Name: Delivery End Screen
   m_TagString: Untagged
@@ -450,6 +612,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 6371098800511447949}
+  - {fileID: 2544839558767395980}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0.0009977818, z: 0}
@@ -501,6 +664,46 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &6835109934099656989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371098800511437841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1812598756, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ToAppear:
+  - {fileID: 6371098800511437850}
+  - {fileID: 6371098800511438382}
+  - {fileID: 6371098800511438049}
+  - {fileID: 6371098800511438272}
+  - {fileID: 6371098800511438022}
+  - {fileID: 6371098800511438546}
+  - {fileID: 6371098800511437927}
+  - {fileID: 6371098800511437840}
+  - {fileID: 6371098800511437896}
+  - {fileID: 6371098800511437859}
+  - {fileID: 6371098800511437920}
+  - {fileID: 6371098800511438280}
+  AudioObject: {fileID: 1852249130698422023}
+  HighscoreFlash: {fileID: 6371098800511424053}
+  Delay: 0.25
+  SkippingDelay: 0.05
+  Rooms: {fileID: 6906916176557903704}
+  Kills: {fileID: 7603499754312626330}
+  Deliveries: {fileID: 6672221456239026708}
+  TimeElapsed: {fileID: 30676873809545923}
+  BestRooms: {fileID: 6371098800511424415}
+  BestKills: {fileID: 6371098800511422566}
+  BestDeliveries: {fileID: 6371098800511424102}
+  BestTimeElapsed: {fileID: 6371098800511424107}
+  MoneyGainText: {fileID: 1578041286635316549}
+  NewBest: 0
+  CurrentText: {fileID: 0}
 --- !u!1 &6371098800511437850
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,9 +715,8 @@ GameObject:
   - component: {fileID: 6371098800511447949}
   - component: {fileID: 6371098800511444969}
   - component: {fileID: 6371098800511424040}
-  - component: {fileID: 6371098800511424043}
   m_Layer: 13
-  m_Name: Panel
+  m_Name: Main Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -581,57 +783,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6371098800511424043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6371098800511437850}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c6dd52e9d197ef4684e57077b15c9c3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveText: {fileID: 6371098800511424063}
-  killsText: {fileID: 6371098800511424035}
-  styleText: {fileID: 6371098800511424126}
-  timeText: {fileID: 6371098800511424152}
-  bestWaveText: {fileID: 6371098800511424415}
-  bestKillsText: {fileID: 6371098800511422566}
-  bestStyleText: {fileID: 6371098800511424102}
-  bestTimeText: {fileID: 6371098800511424107}
-  pointsText: {fileID: 6371098800511424359}
-  totalPoints: 0
-  toAppear:
-  - {fileID: 6371098800511438280}
-  - {fileID: 6371098800511438382}
-  - {fileID: 6371098800511438049}
-  - {fileID: 6371098800511438272}
-  - {fileID: 6371098800511438022}
-  - {fileID: 6371098800511438546}
-  - {fileID: 6371098800511437927}
-  - {fileID: 6371098800511437840}
-  - {fileID: 6371098800511437896}
-  - {fileID: 6371098800511437859}
-  savedTime: 0
-  savedWaves: 0
-  savedKills: 0
-  savedStyle: 0
-  previousElements:
-  - {fileID: 6371098800511438022}
-  - {fileID: 6371098800511438546}
-  - {fileID: 6371098800511438280}
-  highScoreElement: {fileID: 6371098800511438137}
-  friendContainer: {fileID: 6371098800511438024}
-  globalContainer: {fileID: 6371098800511438313}
-  friendPlaceholder: {fileID: 6371098800511438118}
-  globalPlaceholder: {fileID: 6371098800511438084}
-  template: {fileID: 6371098800511437836}
-  tRank: {fileID: 6371098800511424176}
-  tUsername: {fileID: 6371098800511422615}
-  tScore: {fileID: 6371098800511424161}
-  tPercent: {fileID: 6371098800511424440}
 --- !u!1 &6371098800511437859
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,8 +795,9 @@ GameObject:
   - component: {fileID: 6371098800511444925}
   - component: {fileID: 6371098800511424152}
   - component: {fileID: 6371098800511443989}
+  - component: {fileID: 30676873809545923}
   m_Layer: 13
-  m_Name: Text (1)
+  m_Name: Time Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -807,6 +959,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &30676873809545923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371098800511437859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1887888406, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 1
+  Text: {fileID: 6371098800511424152}
+  Target: 0
+  Format: '{0}'
+  StartValue: 
+  ChangePerSecond: 100
+  IsTimestamp: 1
+  Done: 0
 --- !u!1 &6371098800511437878
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,7 +991,7 @@ GameObject:
   - component: {fileID: 6371098800511444879}
   - component: {fileID: 6371098800511424240}
   m_Layer: 13
-  m_Name: Text
+  m_Name: Time Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -897,7 +1069,7 @@ GameObject:
   - component: {fileID: 6371098800511444947}
   - component: {fileID: 6371098800511424108}
   m_Layer: 13
-  m_Name: Text
+  m_Name: Deliveries Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -975,8 +1147,9 @@ GameObject:
   - component: {fileID: 6371098800511444954}
   - component: {fileID: 6371098800511424126}
   - component: {fileID: 6371098800511443998}
+  - component: {fileID: 6672221456239026708}
   m_Layer: 13
-  m_Name: Text (1)
+  m_Name: Deliveries Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1138,6 +1311,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6672221456239026708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371098800511437896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1887888406, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
+  Text: {fileID: 6371098800511424126}
+  Target: 0
+  Format: '{0}'
+  StartValue: 
+  ChangePerSecond: 20
+  IsTimestamp: 0
+  Done: 0
 --- !u!1 &6371098800511437897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,7 +1343,7 @@ GameObject:
   - component: {fileID: 6371098800511444955}
   - component: {fileID: 6371098800511424127}
   m_Layer: 13
-  m_Name: Text
+  m_Name: Rooms Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1228,13 +1421,14 @@ GameObject:
   - component: {fileID: 6371098800511444977}
   - component: {fileID: 6371098800511424053}
   - component: {fileID: 6371098800511443995}
+  - component: {fileID: 5014111464891553623}
   m_Layer: 13
-  m_Name: Panel
+  m_Name: HS Flash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6371098800511447962
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1387,6 +1581,49 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5014111464891553623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371098800511437920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc7f2d30648aed44a1281ca9533bf5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oneTime: 1
+  disableOnExit: 0
+  dontActivateOnEnable: 0
+  reactivateOnEnable: 0
+  forEnemies: 0
+  notIfEnemiesDisabled: 0
+  onlyIfPlayerIsAlive: 0
+  delay: 0
+  ignoreColliders: []
+  obac: {fileID: 0}
+  onlyCheckObacOnce: 0
+  events:
+    toActivateObjects: []
+    toDisActivateObjects: []
+    onActivate:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6835109934099656989}
+          m_MethodName: DoFlashIfApplicable
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onDisActivate:
+      m_PersistentCalls:
+        m_Calls: []
 --- !u!1 &6371098800511437927
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,8 +1636,9 @@ GameObject:
   - component: {fileID: 6371098800511444980}
   - component: {fileID: 6371098800511424063}
   - component: {fileID: 6371098800511443992}
+  - component: {fileID: 6906916176557903704}
   m_Layer: 13
-  m_Name: Text (1)
+  m_Name: Rooms Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1562,6 +1800,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6906916176557903704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371098800511437927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1887888406, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
+  Text: {fileID: 6371098800511424063}
+  Target: 0
+  Format: '{0}'
+  StartValue: 
+  ChangePerSecond: 20
+  IsTimestamp: 0
+  Done: 0
 --- !u!1 &6371098800511437940
 GameObject:
   m_ObjectHideFlags: 0
@@ -1664,7 +1922,7 @@ GameObject:
   - component: {fileID: 6371098800511444937}
   - component: {fileID: 6371098800511424102}
   m_Layer: 13
-  m_Name: Text (1)
+  m_Name: Deliveries Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1835,7 +2093,7 @@ GameObject:
   - component: {fileID: 6371098800511444941}
   - component: {fileID: 6371098800511424110}
   m_Layer: 13
-  m_Name: Text
+  m_Name: Kills Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1913,7 +2171,7 @@ GameObject:
   - component: {fileID: 6371098800511444943}
   - component: {fileID: 6371098800511424107}
   m_Layer: 13
-  m_Name: Text (1)
+  m_Name: Time Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2225,7 +2483,7 @@ GameObject:
   - component: {fileID: 6371098800511444901}
   - component: {fileID: 6371098800511424169}
   m_Layer: 13
-  m_Name: Panel
+  m_Name: New Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2555,7 +2813,7 @@ GameObject:
   - component: {fileID: 6371098800511444912}
   - component: {fileID: 6371098800511424134}
   m_Layer: 13
-  m_Name: Text
+  m_Name: Deliveries Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2724,7 +2982,7 @@ GameObject:
   - component: {fileID: 6371098800511423865}
   - component: {fileID: 6371098800511443988}
   m_Layer: 13
-  m_Name: Text
+  m_Name: Title Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2789,7 +3047,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: THE CYBER GRIND
+  m_Text: ENDLESS DELIVERY
 --- !u!82 &6371098800511443988
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3132,7 +3390,7 @@ GameObject:
   - component: {fileID: 6371098800511443133}
   - component: {fileID: 6371098800511422620}
   m_Layer: 13
-  m_Name: Text
+  m_Name: Time Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3720,7 +3978,7 @@ GameObject:
   - component: {fileID: 6371098800511444744}
   - component: {fileID: 6371098800511424415}
   m_Layer: 13
-  m_Name: Text (1)
+  m_Name: Rooms Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4036,7 +4294,7 @@ GameObject:
   - component: {fileID: 6371098800511444786}
   - component: {fileID: 6371098800511424431}
   m_Layer: 13
-  m_Name: Text
+  m_Name: Rooms Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4272,7 +4530,7 @@ GameObject:
   - component: {fileID: 6371098800511424271}
   - component: {fileID: 6371098800511444066}
   m_Layer: 13
-  m_Name: Text (1)
+  m_Name: Difficulty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4337,7 +4595,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -- TEST --
+  m_Text: -- YIPPEE! --
 --- !u!114 &6371098800511424271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4868,8 +5126,9 @@ GameObject:
   - component: {fileID: 6371098800511444810}
   - component: {fileID: 6371098800511424359}
   - component: {fileID: 6371098800511444065}
+  - component: {fileID: 1578041286635316549}
   m_Layer: 13
-  m_Name: Text
+  m_Name: Point Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4945,11 +5204,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a03813b7bfbd96e4fa9717e5a0b5576e, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_audioClip: {fileID: 8300000, guid: 0872c888d2d118345ace3cdc9d96f158, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.4
   m_Pitch: 3
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -4957,7 +5216,7 @@ AudioSource:
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
-  Pan2D: 0.25
+  Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -5031,6 +5290,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1578041286635316549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6371098800511438291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1887888406, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Type: 0
+  Text: {fileID: 6371098800511424359}
+  Target: 0
+  Format: +{0}<color=orange>P</color>
+  StartValue: +0<color=orange>P</color>
+  ChangePerSecond: 500
+  IsTimestamp: 0
+  Done: 0
 --- !u!1 &6371098800511438304
 GameObject:
   m_ObjectHideFlags: 0
@@ -5869,7 +6148,7 @@ GameObject:
   - component: {fileID: 6371098800511442979}
   - component: {fileID: 6371098800511422561}
   m_Layer: 13
-  m_Name: Panel (1)
+  m_Name: Best Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5945,7 +6224,7 @@ GameObject:
   - component: {fileID: 6371098800511442976}
   - component: {fileID: 6371098800511422566}
   m_Layer: 13
-  m_Name: Text (1)
+  m_Name: Kills Number
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

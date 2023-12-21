@@ -13,18 +13,19 @@ namespace EndlessDelivery.Components
         public GameObject Glow;
         public TMP_Text DeliveredText;
         public int AmountToDeliver;
+        public JumpPad JumpPad;
         public AudioSource DeliverSound;
         public Animator Animator;
+        public GameObject Teleporter;
         [HideInInspector] public Room Room;
 
-        private Collider _collider;
+        private static Vector3 _tpOffset;
         private Renderer _glowRenderer;
         private float _glowAlpha;
         private Coroutine _currentAnimation;
 
         private void Start()
         {
-            _collider = GetComponent<Collider>();
             SetRenderer();
             SetColour(VariantColour);
         }
@@ -51,7 +52,7 @@ namespace EndlessDelivery.Components
             DeliveredText.text = $"{Room.AmountDelivered[VariantColour]}/{AmountToDeliver}";
         }
 
-        public void DeliverEffect()
+        private void DeliverEffect()
         {
             DeliverSound.Play();
 
@@ -116,6 +117,42 @@ namespace EndlessDelivery.Components
                     DeliverEffect();
                 }
             }
+
+            if (collider.GetComponent<NewMovement>() != null && Room.ChimneysDone)
+            {
+                GameManager.Instance.RoomEnd();
+                ChimneyEnter();
+            }
+        }
+        
+        public void ChimneyEnter()
+        {
+            _tpOffset = NewMovement.Instance.transform.position - Teleporter.transform.position;
+            NewMovement.Instance.rb.velocity = NewMovement.Instance.rb.velocity.Only(Axis.Y);
+            NewMovement.Instance.enabled = false;
+            NewMovement.Instance.gc.enabled = false;
+            
+            foreach (Collider collider in GameManager.Instance.PreviousRoom.EnvColliders)
+            {
+                Physics.IgnoreCollision(NewMovement.Instance.playerCollider, collider, true);    
+            }
+            
+            NewMovement.Instance.GetComponent<KeepInBounds>().enabled = false;
+        }
+
+        // called by event in Assets/Delivery/Prefabs/Level/Chimney/Chimney Room Enter.prefab > Pit/Reenable Player/BoxCollider
+        public void ChimneyLeave()
+        {
+            NewMovement.Instance.enabled = true;
+            NewMovement.Instance.gc.enabled = true;
+            NewMovement.Instance.GetComponent<KeepInBounds>().enabled = true;
+        }
+
+        // called by event in Assets/Delivery/Prefabs/Level/Chimney/Chimney.prefab > Pit/Teleport Zone/BoxCollider
+        public void WarpPlayerToNextRoom()
+        {
+            Destroy(GameManager.Instance.PreviousRoom.gameObject);
+            NewMovement.Instance.transform.position = GameManager.Instance.CurrentRoom.SpawnPoint.transform.position + _tpOffset.Only(Axis.X, Axis.Z);
         }
     }
 }

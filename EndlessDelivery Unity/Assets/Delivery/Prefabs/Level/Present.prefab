@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 8414710919386700978}
   - component: {fileID: 5548713524085987455}
   - component: {fileID: 2575776612193277079}
+  - component: {fileID: 5095818404798359436}
   m_Layer: 22
   m_Name: Present
   m_TagString: Untagged
@@ -711,3 +712,15 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
+--- !u!114 &5095818404798359436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859807330288288585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1393707231, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

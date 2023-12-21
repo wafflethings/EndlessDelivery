@@ -15,8 +15,38 @@ MonoBehaviour:
   m_GroupName: endlessdelivery_core
   m_Data:
     m_SerializedData: []
-  m_GUID: 226d64a4e6ad62549b0379b1d557f017
+  m_GUID: 78f5c9627750f1f4dbc99b06ee940938
   m_SerializeEntries:
+  - m_GUID: 490594f29adc7fd4688e116eb11c54c9
+    m_Address: Assets/Delivery/EnemyGroups/Melee.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4a54ba10f17a54449fdebdd8962feef
+    m_Address: Assets/Delivery/EnemyGroups/Projectile.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf002ae2e30074d408d23778eea60ca7
+    m_Address: Assets/Delivery/EnemyGroups/Special.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 640d23097a8478d4b999860ae82ce7f8
+    m_Address: Assets/Delivery/EnemyGroups/Uncommon.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6583bb9adf9f6bf4f8cc5f6bce3ab489
+    m_Address: Assets/Delivery/Prefabs/HUD/Black Fade.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51662cf2b8d14c74e8ee04a13bb85c45
+    m_Address: Assets/Delivery/Prefabs/HUD/Delivery End Screen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d768d5ab57576234bbefa0f8da31de9e
     m_Address: Assets/Delivery/Prefabs/HUD/Present Panel.prefab
     m_ReadOnly: 0

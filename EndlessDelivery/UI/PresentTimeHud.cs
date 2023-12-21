@@ -56,7 +56,7 @@ namespace EndlessDelivery.Hud
                 }
 
                 float seconds = Mathf.Lerp(_lastSetSeconds, GameManager.Instance.TimeLeft, _lerpProgress);
-                Timer.text = TimeSpan.FromSeconds(seconds).ToString(@"mm\:ss\:fff", new CultureInfo("en-US"));
+                Timer.text = TimeSpan.FromSeconds(seconds).Formatted();
                 Timer.fontSize = _originalFontSize * (1 + (_lerpProgress * 0.15f));
                 _lerpProgress += Time.deltaTime / GameManager.TimeAddLength;
             }

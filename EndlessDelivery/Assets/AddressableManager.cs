@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
+using AtlasLib.Utils;
+using EndlessDelivery.Gameplay.EnemyGeneration;
 using EndlessDelivery.Utils;
 using HarmonyLib;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.SceneManagement;
 
 namespace EndlessDelivery.Assets
 {
@@ -13,17 +19,50 @@ namespace EndlessDelivery.Assets
     {
         public static string AssetPathLocation => "{" + $"{typeof(AddressableManager).FullName}.{nameof(AssetPath)}" + "}"; //should eval to "{EndlessDelivery.Assets.AdressableManager.AssetPath}"
         public static string MonoScriptBundleName => "monoscript_endlessdelivery_monoscripts.bundle";
-        public static string AssetPath => Path.Combine(ModFolder, "Assets");
+        public static string AssetPath => Path.Combine(PathUtils.ModPath(), "Assets");
         public static string CatalogPath => Path.Combine(AssetPath, "catalog.json");
-        public static string ModFolder => Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-        
+        public static string ModDataPath => Path.Combine(AssetPath, "data.json");
+        public static bool InSceneFromThisMod => _scenesFromThisMod.Contains(SceneHelper.CurrentScene);
+        private static List<string> _scenesFromThisMod; 
         private static bool _dontSanitizeScenes;
         
         public static void Setup()
         {
             Addressables.LoadContentCatalogAsync(CatalogPath, true).WaitForCompletion();
-            Debug.Log("Added catalog i think");
+            LoadDataFile();
         }
+        
+        private static void LoadDataFile()
+        {
+            // i stole this from teamdoodz - ultracrypt v1 ModAssets:LoadDataFile;
+            
+            Dictionary<string, List<string>> data = null;
+            using (StreamReader reader = new(File.OpenRead(ModDataPath)))
+            {
+                JsonSerializer serializer = new();
+                data = serializer.Deserialize<Dictionary<string, List<string>>>(new JsonTextReader(reader));
+            }
+
+            if (data.ContainsKey(typeof(EnemyGroup).FullName))
+            {
+                EnemyGroup.SetGroups(GetDataOfType<EnemyGroup>(data));
+            }
+            
+            if (data.ContainsKey(typeof(Scene).FullName))
+            {
+                _scenesFromThisMod = data[typeof(Scene).FullName];
+            }
+        }
+        
+        private static IEnumerable<T> GetDataOfType<T>(Dictionary<string, List<string>> data) where T : UnityEngine.Object
+        {
+            if (!data.ContainsKey(typeof(T).FullName))
+                return Array.Empty<T>(); //Prevent index out of range tbh
+
+            return data[typeof(T).FullName].Select(Load<T>);
+        }
+
+
 
         public static T Load<T>(string path)
         {
