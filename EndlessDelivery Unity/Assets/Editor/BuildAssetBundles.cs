@@ -165,7 +165,7 @@ namespace Assets.Editor
 			// Save Data Info
 			Dictionary<string, List<string>> dataInfo = new Dictionary<string, List<string>>();
 			AddData<Scene>(dataInfo, "Assets/Delivery/Scenes");
-			AddData<EnemyGroup>(dataInfo, "Assets/Delivery/EnemyGroups");
+			AddData<EnemyGroup>(dataInfo, "Assets/Delivery/ScriptableObjects/EnemyGroups");
 
 			using (StreamWriter writer = new StreamWriter(File.OpenWrite($"{RESULT_PATH}/data.json")))
 			{

@@ -19,7 +19,7 @@ namespace EndlessDelivery.Gameplay
 
         public NavMeshSurface Navmesh;
         public AudioSource TimeAddSound;
-        public List<Room> RoomPool;
+        public RoomPool RoomPool;
         
         public bool GameStarted { get; private set; }
         public float TimeLeft { get; private set; }
@@ -29,7 +29,7 @@ namespace EndlessDelivery.Gameplay
         public Room CurrentRoom { get; private set; }
         public Room PreviousRoom { get; private set; }
         public bool TimerActive { get; private set; }
-        public int PointsPerWave { get; private set; } = 10;
+        public int PointsPerWave { get; private set; } = 100;
         public Score CurrentScore => new(RoomsEntered - 1, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed);
         
         private Coroutine _pauseCoroutine;
@@ -48,7 +48,7 @@ namespace EndlessDelivery.Gameplay
             }
         }
 
-        public void AddTime(float seconds)
+        public void AddTime(float seconds, string reason)
         {
             TimeAddSound?.Play();
             TimerActive = false;
@@ -58,6 +58,8 @@ namespace EndlessDelivery.Gameplay
                 StopCoroutine(_pauseCoroutine);
             }
             _pauseCoroutine = StartCoroutine(UnpauseTimer());
+            
+            StyleHUD.Instance.AddPoints(5, $"{reason} <size=25>({seconds}s)</size>");
             
             TimeLeft += seconds;
         }
@@ -71,7 +73,7 @@ namespace EndlessDelivery.Gameplay
         public Room GenerateNewRoom()
         {
             Collider collider = CurrentRoom.GetComponent<Collider>();
-            return Instantiate(RoomPool.Pick().gameObject, CurrentRoom.gameObject.transform.position + (Vector3.right * collider.bounds.size.x * 2), Quaternion.identity)
+            return Instantiate(RoomPool.Rooms.Pick().Prefab, CurrentRoom.gameObject.transform.position + (Vector3.right * collider.bounds.size.x * 2), Quaternion.identity)
                 .GetComponent<Room>();
         }
 
@@ -79,8 +81,8 @@ namespace EndlessDelivery.Gameplay
         {
             PointsPerWave += 3 + RoomsEntered / 3;
             SetRoom(GenerateNewRoom());
-            AddTime(15f);
             Navmesh.BuildNavMesh();
+            // BlackFade.Instance.Flash(0.125f);
         }
         
         public void SetRoom(Room room)
@@ -142,11 +144,6 @@ namespace EndlessDelivery.Gameplay
             
             EndScreen.Instance.Appear();
             GameProgressSaver.AddMoney(CurrentScore.MoneyGain);
-        }
-        
-        private static NavMeshData InitializeBakeData(NavMeshSurface surface)
-        {
-            return NavMeshBuilder.BuildNavMeshData(surface.GetBuildSettings(), new List<NavMeshBuildSource>(), new Bounds(), surface.transform.position, surface.transform.rotation);
         }
         
         [HarmonyPatch(typeof(SeasonalHats), nameof(SeasonalHats.Start)), HarmonyPrefix]

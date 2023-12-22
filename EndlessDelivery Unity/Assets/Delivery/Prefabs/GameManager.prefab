@@ -47,8 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Navmesh: {fileID: 1834910850876080960}
   TimeAddSound: {fileID: 31919647010259794}
-  RoomPool:
-  - {fileID: 5142735560282619819, guid: e328c782c948c714ea85f85abbcefa71, type: 3}
+  RoomPool: {fileID: 11400000, guid: dfc1e7f6f4635d142878b2cd3c932f89, type: 2}
 --- !u!1 &31919647010259795
 GameObject:
   m_ObjectHideFlags: 0

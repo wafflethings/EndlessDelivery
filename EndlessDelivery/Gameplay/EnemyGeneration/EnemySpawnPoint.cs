@@ -9,6 +9,7 @@ namespace EndlessDelivery.Gameplay.EnemyGeneration
         [Header("SpawnPoints should only be Melee, Projectile, or Boss.")]
         public DeliveryEnemyClass Class;
         [HideInInspector] public GameObject Enemy;
+        [HideInInspector] public Room Room;
 
         private void Awake()
         {
@@ -17,7 +18,7 @@ namespace EndlessDelivery.Gameplay.EnemyGeneration
 
         private void OnEnable()
         {
-            Instantiate(Enemy, transform);
+            Room.Enemies.Add(Instantiate(Enemy, transform).GetComponent<EnemyIdentifier>());
         }
     }
 }

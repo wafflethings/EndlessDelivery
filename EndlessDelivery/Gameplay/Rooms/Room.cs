@@ -19,12 +19,14 @@ namespace EndlessDelivery.Gameplay
         public bool RoomHasGameplay = true;
         [HideInInspector] public bool RoomAlreadyVisited;
         [Space(15)]
+        [Header("Make sure that you have 4 chimneys, one for each colour.")]
         public List<Chimney> Chimneys = new();
         [Space(15)]
+        [Header("Make sure that you have 10 presents (10 is the maximum, random ones will be chosen)")]
         public List<Present> Presents = new();
         [HideInInspector] public int[] PresentColourAmounts = {0, 0, 0, 0};
-        
         [HideInInspector] public List<Collider> EnvColliders = new();
+        [HideInInspector] public List<EnemyIdentifier> Enemies = new();
 
         public Dictionary<WeaponVariant, Chimney> AllChimneys = new()
         {
@@ -42,19 +44,21 @@ namespace EndlessDelivery.Gameplay
             { WeaponVariant.GoldVariant, 0 }
         };
         
+
         private bool _roomActivated = false;
         private Dictionary<EnemyType, int> _amountSpawned = new();
         private int _pointsLeft;
         private int _meleeSpawnsUsed;
         private int _projectileSpawnsUsed;
+        private int _wavesSinceSpecial;
 
-
+        public bool ChimneysDone => AmountDelivered.All(kvp => PresentColourAmounts[(int)kvp.Key] == kvp.Value);
+        public bool AllDead => Enemies.All(enemy => enemy?.dead ?? true);
+        
         public bool Done(WeaponVariant colour)
         {
             return AmountDelivered[colour] == PresentColourAmounts[(int)colour];
         }
-
-        public bool ChimneysDone => AmountDelivered.All(kvp => PresentColourAmounts[(int)kvp.Key] == kvp.Value);
 
         public void Deliver(WeaponVariant colour)
         {
@@ -134,7 +138,7 @@ namespace EndlessDelivery.Gameplay
                 }
             }
 
-            foreach (Present present in Presents)
+            foreach (Present present in Presents.Shuffle())
             {
                 if (amounts.Count != 0)
                 {
@@ -162,12 +166,12 @@ namespace EndlessDelivery.Gameplay
             List<EnemySpawnPoint> projectileSpawns = SpawnPoints.Where(sp => sp.Class == DeliveryEnemyClass.Projectile).ShuffleAndToList();
             List<EnemySpawnPoint> meleeSpawns = SpawnPoints.Where(sp => sp.Class == DeliveryEnemyClass.Melee).ShuffleAndToList();
 
-            if (GameManager.Instance.RoomsEntered > 10)
+            if (GameManager.Instance.RoomsEntered > 0)
             {
-                int maxUncommonsAndSpecials = GameManager.Instance.RoomsEntered / 10;
+                int maxUncommonsAndSpecials = (GameManager.Instance.RoomsEntered / 10) + 1;
                 DecideUncommons(meleeSpawns, ref maxUncommonsAndSpecials);
 
-                if (GameManager.Instance.RoomsEntered > 15)
+                if (GameManager.Instance.RoomsEntered >= 5)
                 {
                     DecideSpecials(meleeSpawns, ref maxUncommonsAndSpecials);
                 }
@@ -238,6 +242,14 @@ namespace EndlessDelivery.Gameplay
         private void DecideSpecials(List<EnemySpawnPoint> spawns, ref int max)
         {
             int specialAmount = UnityEngine.Random.Range(0, max + 1);
+            if (specialAmount == 0)
+            {
+                if (UnityEngine.Random.value < 1f - (1f / _wavesSinceSpecial))
+                {
+                    specialAmount++;
+                }
+                _wavesSinceSpecial++;
+            }
             max -= specialAmount;
             
             Debug.Log($"Spawning {specialAmount} specials!");
@@ -310,7 +322,7 @@ namespace EndlessDelivery.Gameplay
         {
             foreach (EndlessEnemy enemy in group.Enemies)
             {
-                if (enemy.spawnWave <= GameManager.Instance.RoomsEntered && GetRealCost(enemy) <= _pointsLeft)
+                if (enemy.spawnWave - 10 <= GameManager.Instance.RoomsEntered && GetRealCost(enemy) <= _pointsLeft)
                 {
                     yield return enemy;
                 }
@@ -319,6 +331,7 @@ namespace EndlessDelivery.Gameplay
         
         private void SetSpawnPoint(EnemySpawnPoint point, EndlessEnemy enemy, DeliveryEnemyClass spawnType)
         {
+            point.Room = this;
             point.Enemy = enemy.prefab;
             _pointsLeft -= GetRealCost(enemy);
             Debug.Log($"just spent {GetRealCost(enemy)}");

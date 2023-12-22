@@ -7,8 +7,10 @@ namespace EndlessDelivery.Gameplay
         // https://www.desmos.com/calculator/5bot6npkk1
         public static int PresentAmount(int wave)
         {
-            Debug.Log($"{wave} presents {6 + Mathf.CeilToInt(Mathf.Log(wave / 4f, 6.5f) * 4)}");
-            return Mathf.Clamp(Mathf.CeilToInt(Mathf.Log(wave, 6.5f) * 4), 4, 12);
+            int amount = Mathf.CeilToInt(Mathf.Log(wave, 6.5f) * 3);
+            amount = Mathf.Clamp(amount, 4, 10);
+            Debug.Log($"{wave} presents: {amount}");
+            return amount;
         }
 
         public static int[] DistributeBetween(int amount, int number)

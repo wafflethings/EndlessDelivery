@@ -138,6 +138,18 @@ namespace EndlessDelivery.Components
             }
             
             NewMovement.Instance.GetComponent<KeepInBounds>().enabled = false;
+
+            if (Room.RoomHasGameplay)
+            {
+                if (Room.AllDead)
+                {
+                    GameManager.Instance.AddTime(8f, "<color=orange>FULL CLEAR</color>");
+                }
+                else
+                {
+                    GameManager.Instance.AddTime(5, "<color=orange>ROOM CLEAR</color>");
+                }
+            }
         }
 
         // called by event in Assets/Delivery/Prefabs/Level/Chimney/Chimney Room Enter.prefab > Pit/Reenable Player/BoxCollider
