@@ -15,8 +15,13 @@ MonoBehaviour:
   m_GroupName: endlessdelivery_rooms
   m_Data:
     m_SerializedData: []
-  m_GUID: 544ec7cfeb2b6f44199bc08d943f5b11
+  m_GUID: e624be817d884b149adfb807509a1fc6
   m_SerializeEntries:
+  - m_GUID: c8c5713853d34294e98ea66940f3cb33
+    m_Address: Assets/Delivery/Prefabs/Rooms/Avarage British Neighbourhood.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e328c782c948c714ea85f85abbcefa71
     m_Address: Assets/Delivery/Prefabs/Rooms/Silly Room.prefab
     m_ReadOnly: 0
