@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 2071588819, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
-  m_Name: Room Pool
+  m_Script: {fileID: 1630573294, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: Avarage British Neighbourhood
   m_EditorClassIdentifier: 
-  Rooms:
-  - {fileID: 11400000, guid: 13d846925eb721f41b0a511674d240d4, type: 2}
-  - {fileID: 11400000, guid: ee3eb973cd702bc4aaf249ad835018db, type: 2}
+  Name: Avarage British Neighbourhood
+  Author: zelzmiy
+  Prefab: {fileID: 2466590807989662660, guid: c8c5713853d34294e98ea66940f3cb33, type: 3}
