@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: endlessdelivery_core
   m_Data:
     m_SerializedData: []
-  m_GUID: 873339bfdfa1f964fab05770dfa54cb2
+  m_GUID: 0648a3efb9588d248b7bbd797f802346
   m_SerializeEntries:
   - m_GUID: 6583bb9adf9f6bf4f8cc5f6bce3ab489
     m_Address: Assets/Delivery/Prefabs/HUD/Black Fade.prefab
@@ -24,6 +24,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 51662cf2b8d14c74e8ee04a13bb85c45
     m_Address: Assets/Delivery/Prefabs/HUD/Delivery End Screen.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 532f402283e3a3344a38b40d52a21cbb
+    m_Address: Assets/Delivery/Prefabs/HUD/Jolly Chapter Select Button.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

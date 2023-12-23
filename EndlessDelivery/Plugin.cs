@@ -21,13 +21,5 @@ namespace EndlessDelivery
             AddressableManager.Setup();
             PatchThis.AddPatches();
         }
-
-        public void Update()
-        {
-            if (InputManager.instance != null && InputManager.Instance.InputSource.Fire2.IsPressed && InputManager.Instance.InputSource.Fire1.WasPerformedThisFrame)
-            {
-                AddressableManager.LoadScene("Assets/Delivery/Scenes/Test Scene.unity");
-            }
-        }
     }
 }

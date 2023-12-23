@@ -123,6 +123,11 @@ namespace EndlessDelivery.Components
                 GameManager.Instance.RoomEnd();
                 ChimneyEnter();
             }
+
+            if (collider.gameObject.TryGetComponent(out EnemyIdentifierIdentifier eidid) && (eidid.eid?.dead ?? true))
+            {
+                Destroy(collider.gameObject);
+            }
         }
         
         public void ChimneyEnter()
