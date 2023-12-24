@@ -38,6 +38,12 @@ namespace EndlessDelivery.UI
 
         private void Update()
         {
+            if (EndScreen.Instance.Skipping)
+            {
+                _currentValue = Target;
+                SetText();
+            }
+            
             if (Target == _currentValue)
             {
                 SetText();

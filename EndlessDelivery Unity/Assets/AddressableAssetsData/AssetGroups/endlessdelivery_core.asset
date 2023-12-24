@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: endlessdelivery_core
   m_Data:
     m_SerializedData: []
-  m_GUID: 3e4cb65dd6bec174baf548140d9bcc4f
+  m_GUID: d56768a1ca8564e42b4b13d5a4dec7a3
   m_SerializeEntries:
   - m_GUID: 6583bb9adf9f6bf4f8cc5f6bce3ab489
     m_Address: Assets/Delivery/Prefabs/HUD/Black Fade.prefab
@@ -34,6 +34,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d768d5ab57576234bbefa0f8da31de9e
     m_Address: Assets/Delivery/Prefabs/HUD/Present Panel.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb2f5b8a0095d804193d0025340a9671
+    m_Address: Assets/Delivery/Scenes/Game Scene.unity
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

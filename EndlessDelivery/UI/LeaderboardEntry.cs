@@ -7,20 +7,21 @@ namespace EndlessDelivery.UI
 {
     public class LeaderboardEntry : MonoBehaviour
     {
-        public Text RankNumber;
-        public Text Username;
-        public Text Rooms;
-        public Text Delivered;
+        [Header("All monobehaviours here should implement IText")]
+        public MonoBehaviour RankNumber;
+        public MonoBehaviour Username;
+        public MonoBehaviour Rooms;
+        public MonoBehaviour Delivered;
         public Image ProfileActual;
 
         public void SetValuesAndEnable(ScoreResult scoreResult)
         {
             Friend user = new(scoreResult.SteamId);
             
-            RankNumber.text = (scoreResult.Index + 1).ToString();
-            Username.text = user.Name;
-            Rooms.text = scoreResult.Score.Rooms.ToString();
-            Delivered.text = $"({scoreResult.Score.Deliveries})";
+            ((IText)RankNumber).SetText((scoreResult.Index + 1).ToString());
+            ((IText)Username).SetText(user.Name);
+            ((IText)Rooms).SetText(scoreResult.Score.Rooms.ToString());
+            ((IText)Delivered).SetText($"({scoreResult.Score.Deliveries})");
             SetAvatar(user);
             
             gameObject.SetActive(true);
