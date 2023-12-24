@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: endlessdelivery_rooms
   m_Data:
     m_SerializedData: []
-  m_GUID: e94318a0aac2ffc40b52f4ac80a0054e
+  m_GUID: 3d1053fc4b613534a94b3ab745cd1783
   m_SerializeEntries:
   - m_GUID: c8c5713853d34294e98ea66940f3cb33
     m_Address: Assets/Delivery/Prefabs/Rooms/Avarage British Neighbourhood.prefab
@@ -29,6 +29,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 088d10aaea6fecd41ae90469b12cd751
     m_Address: Assets/Delivery/Prefabs/Rooms/Start Room.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c04b07d159852ed4b930b1481e7bcde5
+    m_Address: Assets/Delivery/Prefabs/Rooms/Tilted Towers.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

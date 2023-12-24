@@ -13,8 +13,7 @@ namespace EndlessDelivery.Scores.Server
     public class Endpoints
     {
         private static readonly HttpClient _client = new();
-        private const string Url = "http://localhost:7048/";
-        private const string HostName = "localhost";
+        private const string Url = "http://159.65.214.169/";
         private const string ScoresGetRange = Url + "scores/get_range?start={0}&count={1}";
         private const string ScoresGetAmount = Url + "scores/get_length";
         private const string ScoresGetPosition = Url + "scores/get_position?steamId={0}";
@@ -22,11 +21,9 @@ namespace EndlessDelivery.Scores.Server
 
         public static async Task<bool> IsServerOnline()
         {
-            return true;
-            
             Ping ping = new();
             Debug.Log("pinging");
-            PingReply reply = await ping.SendPingAsync(HostName, 10 * 1000);
+            PingReply reply = await ping.SendPingAsync(Url, 10 * 1000);
             Debug.Log("pinged");
             return reply.Status == IPStatus.Success;
         }
