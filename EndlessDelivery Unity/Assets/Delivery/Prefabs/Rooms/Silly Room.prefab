@@ -219,6 +219,7 @@ MonoBehaviour:
   - {fileID: 747130468618201369}
   PresentColourAmounts: 01000000020000000100000002000000
   EnvColliders: []
+  Enemies: []
 --- !u!65 &5142735560282619821
 BoxCollider:
   m_ObjectHideFlags: 0
