@@ -8,13 +8,13 @@ namespace EndlessDelivery.UI
     {
         private TMP_Text _text;
 
-        private void Start()
-        {
-            _text = GetComponent<TMP_Text>();
-        }
-        
         public void SetText(string text)
         {
+            if (_text == null)
+            {
+                _text = GetComponent<TMP_Text>();
+            }
+            
             _text.text = text;
         }
     }

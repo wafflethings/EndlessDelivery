@@ -27,7 +27,7 @@ namespace EndlessDelivery.UI
             
             GameObject jollyButton = Object.Instantiate(AddressableManager.Load<GameObject>("Assets/Delivery/Prefabs/HUD/Jolly Chapter Select Button.prefab"), 
                 chapterSelect.transform);
-            jollyButton.GetComponent<Button>().onClick.AddListener(() => AddressableManager.LoadScene("Assets/Delivery/Scenes/Test Scene.unity"));
+            jollyButton.GetComponent<Button>().onClick.AddListener(() => AddressableManager.LoadScene("Assets/Delivery/Scenes/Game Scene.unity"));
         }
     }
 }

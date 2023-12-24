@@ -7,13 +7,13 @@ namespace EndlessDelivery.UI
     {
         private Text _text;
 
-        private void Start()
-        {
-            _text = GetComponent<Text>();
-        }
-        
         public void SetText(string text)
         {
+            if (_text == null)
+            {
+                _text = GetComponent<Text>();
+            }
+            
             _text.text = text;
         }
     }

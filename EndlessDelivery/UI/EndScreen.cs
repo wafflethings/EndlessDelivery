@@ -108,12 +108,12 @@ namespace EndlessDelivery.UI
                 return;
             }
             
-            if (CurrentText?.Done ?? true && _currentIndex != ToAppear.Length)
+            if (CurrentText?.Done ?? true)
             {
                 _timeSinceComplete += Time.unscaledDeltaTime;
             }
 
-            if (_timeSinceComplete >= (!Skipping ? Delay : SkippingDelay))
+            if ((_timeSinceComplete >= (!Skipping ? Delay : SkippingDelay) && _currentIndex != ToAppear.Length) || Skipping)
             {
                 ShowNext();
                 _timeSinceComplete = 0;
