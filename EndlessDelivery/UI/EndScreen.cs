@@ -30,6 +30,9 @@ namespace EndlessDelivery.UI
         public Text BestTimeElapsed;
         [Space(10)] 
         public ReachValueText MoneyGainText;
+        [Space(10)] 
+        public GameObject Leaderboard;
+        public GameObject EverythingButLeaderboard;
         
         [HideInInspector] public bool NewBest;
         [HideInInspector] public ReachValueText CurrentText;
@@ -37,6 +40,7 @@ namespace EndlessDelivery.UI
         private float _timeSinceComplete;
         private bool _appearedSelf;
         private bool _complete;
+        private bool _leaderboardShown;
 
         public bool Skipping => InputManager.Instance.InputSource.Fire1.WasPerformedThisFrame || InputManager.Instance.InputSource.Jump.WasPerformedThisFrame;
 
@@ -104,7 +108,7 @@ namespace EndlessDelivery.UI
                 return;
             }
             
-            if (CurrentText?.Done ?? true)
+            if (CurrentText?.Done ?? true && _currentIndex != ToAppear.Length)
             {
                 _timeSinceComplete += Time.unscaledDeltaTime;
             }
@@ -120,8 +124,17 @@ namespace EndlessDelivery.UI
         {
             if (_currentIndex == ToAppear.Length)
             {
-                NewMovement.Instance.hp = 0; // needs to be at 0 to respawn!! - StatsManager.Update 
-                _complete = true;
+                if (!_leaderboardShown)
+                {
+                    Leaderboard.SetActive(true);
+                    EverythingButLeaderboard.SetActive(false);
+                    _leaderboardShown = true;
+                }
+                else
+                {
+                    NewMovement.Instance.hp = 0; // needs to be at 0 to respawn!! - StatsManager.Update 
+                    _complete = true;
+                }
                 return;
             }
 

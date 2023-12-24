@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using EndlessDelivery.Assets;
 using EndlessDelivery.Hud;
 using EndlessDelivery.Scores;
+using EndlessDelivery.Scores.Server;
 using EndlessDelivery.UI;
 using EndlessDelivery.Utils;
 using HarmonyLib;
@@ -29,7 +30,7 @@ namespace EndlessDelivery.Gameplay
         public Room CurrentRoom { get; private set; }
         public Room PreviousRoom { get; private set; }
         public bool TimerActive { get; private set; }
-        public int PointsPerWave { get; private set; } = 100;
+        public int PointsPerWave { get; private set; } = 80;
         public Score CurrentScore => new(RoomsEntered - 1, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed);
         
         private Coroutine _pauseCoroutine;
@@ -136,7 +137,7 @@ namespace EndlessDelivery.Gameplay
             GameStarted = false;
             
             //if more rooms, or more deliveries
-            if (CurrentScore.Rooms > Score.Highscore.Rooms || ((CurrentScore.Rooms == Score.Highscore.Rooms) && CurrentScore.Deliveries >= Score.Highscore.Deliveries))
+            if (Score.IsLargerThanHighscore(CurrentScore) && !CheatsController.Instance.cheatsEnabled)
             {
                 Score.Highscore = CurrentScore;
                 EndScreen.Instance.NewBest = true;
