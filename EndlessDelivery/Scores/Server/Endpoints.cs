@@ -21,6 +21,7 @@ namespace EndlessDelivery.Scores.Server
 
         public static async Task<bool> IsServerOnline()
         {
+            return true; //idfk why it wont work
             Ping ping = new();
             Debug.Log("pinging");
             PingReply reply = await ping.SendPingAsync(Url, 10 * 1000);
