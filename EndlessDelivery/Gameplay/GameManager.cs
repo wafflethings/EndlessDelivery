@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using EndlessDelivery.Assets;
-using EndlessDelivery.Hud;
 using EndlessDelivery.Scores;
 using EndlessDelivery.Scores.Server;
 using EndlessDelivery.UI;
