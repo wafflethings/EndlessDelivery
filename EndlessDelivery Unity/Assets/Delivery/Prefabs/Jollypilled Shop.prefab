@@ -2214,9 +2214,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "This mod is developed entirely by <color=orange>Waffle</color>. \n\nSome
-    rooms are created by <color=orange>Fri <color=white>and Zelzmiy.\n\nSpecial thanks
-    to <color=orange>Agent, Glitchy, and Js</color> for helping me get the server
-    working."
+    rooms are created by <color=orange>Fri <color=white>and <color=orange>Zelzmiy</color>.\n\nSpecial
+    thanks to <color=orange>Agent, Glitchy, and Js</color> for helping me get the
+    server working."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c665f735df1f4db43a715b3cb44a57c0, type: 2}
   m_sharedMaterial: {fileID: -5045613266839568270, guid: c665f735df1f4db43a715b3cb44a57c0,
