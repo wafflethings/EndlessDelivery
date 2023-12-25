@@ -166,12 +166,12 @@ namespace EndlessDelivery.Gameplay
             List<EnemySpawnPoint> projectileSpawns = SpawnPoints.Where(sp => sp.Class == DeliveryEnemyClass.Projectile).ShuffleAndToList();
             List<EnemySpawnPoint> meleeSpawns = SpawnPoints.Where(sp => sp.Class == DeliveryEnemyClass.Melee).ShuffleAndToList();
 
-            if (GameManager.Instance.RoomsEntered > 0)
+            if (GameManager.Instance.RoomsEntered > 10)
             {
                 int maxUncommonsAndSpecials = (GameManager.Instance.RoomsEntered / 10) + 1;
                 DecideUncommons(meleeSpawns, ref maxUncommonsAndSpecials);
 
-                if (GameManager.Instance.RoomsEntered >= 5)
+                if (GameManager.Instance.RoomsEntered >= 15)
                 {
                     DecideSpecials(meleeSpawns, ref maxUncommonsAndSpecials);
                 }
@@ -322,7 +322,7 @@ namespace EndlessDelivery.Gameplay
         {
             foreach (EndlessEnemy enemy in group.Enemies)
             {
-                if (enemy.spawnWave - 10 <= GameManager.Instance.RoomsEntered && GetRealCost(enemy) <= _pointsLeft)
+                if (enemy.spawnWave <= GameManager.Instance.RoomsEntered && GetRealCost(enemy) <= _pointsLeft)
                 {
                     yield return enemy;
                 }
