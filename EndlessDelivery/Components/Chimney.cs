@@ -17,6 +17,7 @@ namespace EndlessDelivery.Components
         public AudioSource DeliverSound;
         public Animator Animator;
         public GameObject Teleporter;
+        public ParticleSystem Particles;
         [HideInInspector] public Room Room;
 
         private static Vector3 _tpOffset;
@@ -44,11 +45,17 @@ namespace EndlessDelivery.Components
             }
 
             VariantColour = colour;
+            Particles.startColor = ColorBlindSettings.Instance.variationColors[(int)VariantColour];
             _glowRenderer.material.color = ColorBlindSettings.Instance.variationColors[(int)VariantColour];
         }
 
         private void Update()
         {
+            if (DeliveredText == null || Room == null)
+            {
+                return;
+            }
+
             DeliveredText.text = $"{Room.AmountDelivered[VariantColour]}/{AmountToDeliver}";
         }
 
@@ -148,11 +155,11 @@ namespace EndlessDelivery.Components
             {
                 if (Room.AllDead)
                 {
-                    GameManager.Instance.AddTime(8f, "<color=orange>FULL CLEAR</color>");
+                    GameManager.Instance.AddTime(12f, "<color=orange>FULL CLEAR</color>");
                 }
                 else
                 {
-                    GameManager.Instance.AddTime(5, "<color=orange>ROOM CLEAR</color>");
+                    GameManager.Instance.AddTime(8, "<color=orange>ROOM CLEAR</color>");
                 }
             }
         }

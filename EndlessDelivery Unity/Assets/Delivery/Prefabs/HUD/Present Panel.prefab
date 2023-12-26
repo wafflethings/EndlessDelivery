@@ -789,7 +789,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 258351202828008385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1224176544, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Script: {fileID: -1768317254, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   PresentImages:
@@ -798,8 +798,8 @@ MonoBehaviour:
   - {fileID: 258351202326960877}
   - {fileID: 258351202259790858}
   Timer: {fileID: 258351203120645444}
-  TimerColour: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  TimerDangerColour: {r: 0.75, g: 0, b: 0, a: 1}
+  TimerColour: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+  TimerDangerColour: {r: 0.5019608, g: 0, b: 0, a: 1}
 --- !u!222 &258351202828008389
 CanvasRenderer:
   m_ObjectHideFlags: 0

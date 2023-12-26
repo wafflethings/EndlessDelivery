@@ -11,7 +11,7 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
-namespace EndlessDelivery.Hud
+namespace EndlessDelivery.UI
 {
     [PatchThis($"{Plugin.GUID}.PresentTimeHud")]
     public class PresentTimeHud : MonoSingleton<PresentTimeHud>

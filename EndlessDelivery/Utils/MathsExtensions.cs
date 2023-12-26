@@ -49,7 +49,7 @@ namespace EndlessDelivery.Utils
                 return (T)(object)null;
             }
             
-            return array[Random.Range(0, array.Length - 1)];
+            return array[Random.Range(0, array.Length )];
         }
 
         public static T Pick<T>(this List<T> list)
@@ -59,7 +59,7 @@ namespace EndlessDelivery.Utils
                 return (T)(object)null;
             }
             
-            return list[Random.Range(0, list.Count - 1)];
+            return list[Random.Range(0, list.Count)];
         }
 
         public static Vector3 Only(this Vector3 vector, params Axis[] axes)

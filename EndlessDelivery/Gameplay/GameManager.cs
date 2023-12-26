@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using EndlessDelivery.Assets;
-using EndlessDelivery.Hud;
 using EndlessDelivery.Scores;
 using EndlessDelivery.Scores.Server;
 using EndlessDelivery.UI;
@@ -30,10 +30,11 @@ namespace EndlessDelivery.Gameplay
         public Room CurrentRoom { get; private set; }
         public Room PreviousRoom { get; private set; }
         public bool TimerActive { get; private set; }
-        public int PointsPerWave { get; private set; } = 80;
+        public int PointsPerWave { get; private set; } = 10;
         public Score CurrentScore => new(RoomsEntered - 1, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed);
         
         private Coroutine _pauseCoroutine;
+        private List<RoomData> _remainingRooms = new();
 
         private void Update()
         {
@@ -60,7 +61,7 @@ namespace EndlessDelivery.Gameplay
             }
             _pauseCoroutine = StartCoroutine(UnpauseTimer());
             
-            StyleHUD.Instance.AddPoints(5, $"{reason} <size=25>({seconds}s)</size>");
+            StyleHUD.Instance.AddPoints(5, $"{reason} <size=20>({seconds}s)</size>");
             
             TimeLeft += seconds;
         }
@@ -74,8 +75,20 @@ namespace EndlessDelivery.Gameplay
         public Room GenerateNewRoom()
         {
             Collider collider = CurrentRoom.GetComponent<Collider>();
-            return Instantiate(RoomPool.Rooms.Pick().Prefab, CurrentRoom.gameObject.transform.position + (Vector3.right * collider.bounds.size.x * 2), Quaternion.identity)
+            return Instantiate(GetRandomRoom().Prefab, CurrentRoom.gameObject.transform.position + (Vector3.right * collider.bounds.size.x * 2), Quaternion.identity)
                 .GetComponent<Room>();
+        }
+
+        public RoomData GetRandomRoom()
+        {
+            if (_remainingRooms.Count == 0)
+            {
+                _remainingRooms.AddRange(RoomPool.Rooms);
+            }
+
+            RoomData picked = _remainingRooms.Pick();
+            _remainingRooms.Remove(picked);
+            return picked;
         }
 
         public void RoomEnd()
@@ -115,6 +128,8 @@ namespace EndlessDelivery.Gameplay
             }
             
             PresentTimeHud.Instance.gameObject.SetActive(true);
+            StatsManager.Instance.GetComponentInChildren<MusicManager>(true).gameObject.SetActive(true);
+            MusicManager.Instance.StartMusic();
             TimeLeft = StartTime;
             TimerActive = true;
             GameStarted = true;

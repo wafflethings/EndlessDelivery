@@ -15,10 +15,15 @@ MonoBehaviour:
   m_GroupName: endlessdelivery_rooms
   m_Data:
     m_SerializedData: []
-  m_GUID: a536092d9283ea54b949b0e2521f7195
+  m_GUID: 5a677a854fb17ca499d91833a8f9741d
   m_SerializeEntries:
   - m_GUID: c8c5713853d34294e98ea66940f3cb33
     m_Address: Assets/Delivery/Prefabs/Rooms/Avarage British Neighbourhood.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f4f84a318c91e9c439aed30c73bc70f8
+    m_Address: Assets/Delivery/Prefabs/Rooms/Lazy Lake.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -29,6 +34,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 088d10aaea6fecd41ae90469b12cd751
     m_Address: Assets/Delivery/Prefabs/Rooms/Start Room.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e246549cae47894288afed40e3d3b8c
+    m_Address: Assets/Delivery/Prefabs/Rooms/The Grotto.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c04b07d159852ed4b930b1481e7bcde5
+    m_Address: Assets/Delivery/Prefabs/Rooms/Tilted Towers.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

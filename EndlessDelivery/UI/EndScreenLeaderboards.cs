@@ -23,6 +23,16 @@ namespace EndlessDelivery.UI
 
         private async Task DoStuff()
         {
+            if (PrefsManager.Instance.GetInt("difficulty") != 3)
+            {
+                foreach (Text text in ConnectingToServerText)
+                {
+                    text.text = "LEADERBOARDS ARE ONLY ON VIOLENT (FOR NOW)";
+                }
+                
+                return;
+            }
+            
             if (!await Endpoints.IsServerOnline())
             {
                 foreach (Text text in ConnectingToServerText)
@@ -33,7 +43,7 @@ namespace EndlessDelivery.UI
                 return;
             }
 
-            int playerPosition = 0;
+            int playerPosition;
             
             if (EndScreen.Instance.NewBest)
             {
