@@ -3434,54 +3434,54 @@ MonoBehaviour:
   m_SharedTextures: []
   m_Positions:
   - {x: -23.5, y: 0, z: 8.25}
-  - {x: 1, y: 0, z: 8.25}
+  - {x: 1.0935421, y: 0, z: 8.25}
   - {x: -23.5, y: 1, z: 8.25}
-  - {x: 1, y: 1, z: 8.25}
-  - {x: 1, y: 0, z: 8.25}
-  - {x: 1, y: 0, z: -9}
-  - {x: 1, y: 1, z: 8.25}
-  - {x: 1, y: 1, z: -9}
-  - {x: 1, y: 0, z: -9}
+  - {x: 1.0935421, y: 1, z: 8.25}
+  - {x: 1.0935421, y: 0, z: 8.25}
+  - {x: 1.0935421, y: 0, z: -9}
+  - {x: 1.0935421, y: 1, z: 8.25}
+  - {x: 1.0935421, y: 1, z: -9}
+  - {x: 1.0935421, y: 0, z: -9}
   - {x: -23.5, y: 0, z: -9}
-  - {x: 1, y: 1, z: -9}
+  - {x: 1.0935421, y: 1, z: -9}
   - {x: -23.5, y: 1, z: -9}
   - {x: -23.5, y: 0, z: -9}
   - {x: -23.5, y: 0, z: 8.25}
   - {x: -23.5, y: 1, z: -9}
   - {x: -23.5, y: 1, z: 8.25}
   - {x: -23.5, y: 1, z: 8.25}
-  - {x: 1, y: 1, z: 8.25}
+  - {x: 1.0935421, y: 1, z: 8.25}
   - {x: -23.5, y: 1, z: -9}
-  - {x: 1, y: 1, z: -9}
+  - {x: 1.0935421, y: 1, z: -9}
   - {x: -23.5, y: 0, z: -9}
-  - {x: 1, y: 0, z: -9}
+  - {x: 1.0935421, y: 0, z: -9}
   - {x: -23.5, y: 0, z: 8.25}
-  - {x: 1, y: 0, z: 8.25}
+  - {x: 1.0935421, y: 0, z: 8.25}
   m_Textures0:
   - {x: 23.5, y: 0}
-  - {x: -1, y: 0}
+  - {x: -1.0935421, y: 0}
   - {x: 23.5, y: 1}
-  - {x: -1, y: 1}
+  - {x: -1.0935421, y: 1}
   - {x: 8.25, y: 0}
   - {x: -9, y: 0}
   - {x: 8.25, y: 1}
   - {x: -9, y: 1}
-  - {x: 1, y: 0}
+  - {x: 1.0935421, y: 0}
   - {x: -23.5, y: 0}
-  - {x: 1, y: 1}
+  - {x: 1.0935421, y: 1}
   - {x: -23.5, y: 1}
   - {x: 9, y: 0}
   - {x: -8.25, y: 0}
   - {x: 9, y: 1}
   - {x: -8.25, y: 1}
   - {x: -23.5, y: 8.25}
-  - {x: 1, y: 8.25}
+  - {x: 1.0935421, y: 8.25}
   - {x: -23.5, y: -9}
-  - {x: 1, y: -9}
+  - {x: 1.0935421, y: -9}
   - {x: 23.5, y: -9}
-  - {x: -1, y: -9}
+  - {x: -1.0935421, y: -9}
   - {x: 23.5, y: 8.25}
-  - {x: -1, y: 8.25}
+  - {x: -1.0935421, y: 8.25}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
@@ -18405,7 +18405,7 @@ PrefabInstance:
     - target: {fileID: 9017133953199056241, guid: 54737a5e7d08b0a4293b5f10679d7739,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.5
+      value: -7.28
       objectReference: {fileID: 0}
     - target: {fileID: 9017133953199056241, guid: 54737a5e7d08b0a4293b5f10679d7739,
         type: 3}
@@ -24578,6 +24578,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879846001323317819, guid: 9d82aebc26057af4ab210de34f5d66ef,
+        type: 3}
+      propertyPath: m_SelectedEdges.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879846001323317819, guid: 9d82aebc26057af4ab210de34f5d66ef,
+        type: 3}
+      propertyPath: m_SelectedFaces.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7879846001323317819, guid: 9d82aebc26057af4ab210de34f5d66ef,
+        type: 3}
+      propertyPath: m_SelectedVertices.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7879846001626046513, guid: 9d82aebc26057af4ab210de34f5d66ef,
         type: 3}
