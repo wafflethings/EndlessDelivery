@@ -24,6 +24,7 @@ namespace EndlessDelivery.Components
         private Renderer _glowRenderer;
         private float _glowAlpha;
         private Coroutine _currentAnimation;
+        private bool _chimneyEntered;
 
         private Color _color => ColourSetter.DefaultColours[(int)VariantColour];
 
@@ -142,6 +143,11 @@ namespace EndlessDelivery.Components
         
         public void ChimneyEnter()
         {
+            if (_chimneyEntered)
+            {
+                return;
+            }
+            
             NewMovement.Instance.rb.velocity = NewMovement.Instance.rb.velocity.Only(Axis.Y);
             NewMovement.Instance.enabled = false;
             NewMovement.Instance.gc.enabled = false;
@@ -159,6 +165,7 @@ namespace EndlessDelivery.Components
             }
 
             PlayerChimneyFixer.Instance.EnterChimney(this);
+            _chimneyEntered = true;
         }
         
         // called by event in Assets/Delivery/Prefabs/Level/Chimney/Chimney Room Enter.prefab > Pit/Reenable Player/BoxCollider

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: endlessdelivery_rooms
   m_Data:
     m_SerializedData: []
-  m_GUID: 5772b56a81492e6439c110b404e9f152
+  m_GUID: a981d8a785361c8479f148716d950853
   m_SerializeEntries:
   - m_GUID: 2c9f4d18dc5744f4a99c08079c3e4c76
     m_Address: Assets/Delivery/Prefabs/HUD/Classic Present Hud.prefab
@@ -24,6 +24,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8c5713853d34294e98ea66940f3cb33
     m_Address: Assets/Delivery/Prefabs/Rooms/Avarage British Neighbourhood.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c8c1ebb5290a05e4b86a08a2c7f0beef
+    m_Address: Assets/Delivery/Prefabs/Rooms/Highrise.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
