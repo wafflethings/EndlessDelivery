@@ -43,18 +43,12 @@ namespace EndlessDelivery.UI
                 return;
             }
 
-            int playerPosition;
-            
             if (EndScreen.Instance.NewBest)
             {
-                playerPosition = await Endpoints.SendScoreAndReturnPosition(Score.Highscore);
+                await Endpoints.SendScoreAndReturnPosition(Score.Highscore);
             }
-            else
-            {
-                playerPosition = await Endpoints.GetUserPosition(SteamClient.SteamId);
-            }
-
-            List<ScoreResult> nearScores = await Endpoints.GetUserPage(playerPosition);
+            
+            List<ScoreResult> nearScores = await Endpoints.GetUserPage(await Endpoints.GetUserPosition(SteamClient.SteamId));
             List<ScoreResult> topScores = await Endpoints.GetScoreRange(0, 10);
 
             foreach (ScoreResult scoreResult in nearScores)

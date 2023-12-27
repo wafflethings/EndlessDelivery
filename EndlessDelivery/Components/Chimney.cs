@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using EndlessDelivery.Gameplay;
+using EndlessDelivery.UI;
 using EndlessDelivery.Utils;
 using TMPro;
 using UnityEngine;
@@ -19,11 +20,13 @@ namespace EndlessDelivery.Components
         public GameObject Teleporter;
         public ParticleSystem Particles;
         [HideInInspector] public Room Room;
-
-        private static Vector3 _tpOffset;
+        
         private Renderer _glowRenderer;
         private float _glowAlpha;
         private Coroutine _currentAnimation;
+        private bool _chimneyEntered;
+
+        private Color _color => ColourSetter.DefaultColours[(int)VariantColour];
 
         private void Start()
         {
@@ -45,8 +48,8 @@ namespace EndlessDelivery.Components
             }
 
             VariantColour = colour;
-            Particles.startColor = ColorBlindSettings.Instance.variationColors[(int)VariantColour];
-            _glowRenderer.material.color = ColorBlindSettings.Instance.variationColors[(int)VariantColour];
+            Particles.startColor = _color;
+            _glowRenderer.material.color = _color;
         }
 
         private void Update()
@@ -57,6 +60,7 @@ namespace EndlessDelivery.Components
             }
 
             DeliveredText.text = $"{Room.AmountDelivered[VariantColour]}/{AmountToDeliver}";
+            DeliveredText.color = _color;
         }
 
         private void DeliverEffect()
@@ -139,7 +143,11 @@ namespace EndlessDelivery.Components
         
         public void ChimneyEnter()
         {
-            _tpOffset = NewMovement.Instance.transform.position - Teleporter.transform.position;
+            if (_chimneyEntered)
+            {
+                return;
+            }
+            
             NewMovement.Instance.rb.velocity = NewMovement.Instance.rb.velocity.Only(Axis.Y);
             NewMovement.Instance.enabled = false;
             NewMovement.Instance.gc.enabled = false;
@@ -153,30 +161,29 @@ namespace EndlessDelivery.Components
 
             if (Room.RoomHasGameplay)
             {
-                if (Room.AllDead)
-                {
-                    GameManager.Instance.AddTime(12f, "<color=orange>FULL CLEAR</color>");
-                }
-                else
-                {
-                    GameManager.Instance.AddTime(8, "<color=orange>ROOM CLEAR</color>");
-                }
+                GameManager.Instance.AddTime(8, "<color=orange>ROOM CLEAR</color>");
             }
-        }
 
+            PlayerChimneyFixer.Instance.EnterChimney(this);
+            _chimneyEntered = true;
+        }
+        
         // called by event in Assets/Delivery/Prefabs/Level/Chimney/Chimney Room Enter.prefab > Pit/Reenable Player/BoxCollider
         public void ChimneyLeave()
         {
             NewMovement.Instance.enabled = true;
             NewMovement.Instance.gc.enabled = true;
             NewMovement.Instance.GetComponent<KeepInBounds>().enabled = true;
+            PlayerChimneyFixer.Instance.Exit();
         }
 
         // called by event in Assets/Delivery/Prefabs/Level/Chimney/Chimney.prefab > Pit/Teleport Zone/BoxCollider
         public void WarpPlayerToNextRoom()
         {
             Destroy(GameManager.Instance.PreviousRoom.gameObject);
-            NewMovement.Instance.transform.position = GameManager.Instance.CurrentRoom.SpawnPoint.transform.position + _tpOffset.Only(Axis.X, Axis.Z);
+            Vector3 tpOffset = NewMovement.Instance.transform.position - Teleporter.transform.position;
+            NewMovement.Instance.transform.position = GameManager.Instance.CurrentRoom.SpawnPoint.transform.position + tpOffset.Only(Axis.X, Axis.Z);
+            PlayerChimneyFixer.Instance.EnterChimney(null);
         }
     }
 }

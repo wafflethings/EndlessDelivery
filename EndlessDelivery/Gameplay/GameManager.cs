@@ -47,6 +47,13 @@ namespace EndlessDelivery.Gameplay
                 {
                     EndGame();
                 }
+
+                if (!CurrentRoom.RoomCleared && CurrentRoom.RoomActivated && EnemyTracker.Instance.enemies.All(enemy => enemy.dead))
+                {
+                    CurrentRoom.RoomCleared = true;
+                    MusicManager.Instance.PlayCleanMusic();
+                    AddTime(4, "<color=orange>FULL CLEAR</color>");
+                }
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using EndlessDelivery.Scores.Server;
+﻿using System.Threading.Tasks;
+using EndlessDelivery.Scores.Server;
 using Steamworks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,7 +15,7 @@ namespace EndlessDelivery.UI
         public MonoBehaviour Delivered;
         public Image ProfileActual;
 
-        public void SetValuesAndEnable(ScoreResult scoreResult)
+        public async void SetValuesAndEnable(ScoreResult scoreResult)
         {
             Friend user = new(scoreResult.SteamId);
             

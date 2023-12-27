@@ -4,9 +4,16 @@ namespace EndlessDelivery.Components
 {
     public class PreventItemHooking : MonoBehaviour
     {
+        public float EnableWhippingAtDistance = 7;
+        
         private void Update()
         {
-            if (gameObject.layer == 13) //alwaysontop; means it is held, do not change
+            if (gameObject.layer == 13) //alwaysontop; means it is held, so we do not change
+            {
+                return;
+            }
+
+            if (Vector3.Distance(transform.position, NewMovement.instance.transform.position) <= EnableWhippingAtDistance)
             {
                 return;
             }

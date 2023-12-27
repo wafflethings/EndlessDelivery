@@ -1,4 +1,7 @@
-﻿namespace EndlessDelivery.Scores.Server
+﻿using System.Runtime.Serialization;
+using Newtonsoft.Json;
+
+namespace EndlessDelivery.Scores.Server
 {
     public class ScoreResult
     {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EndlessDelivery;
 using EndlessDelivery.Scores;
 using EndlessDeliveryScoreServer.Models;
 using Microsoft.AspNetCore.Http;
@@ -43,8 +44,15 @@ namespace EndlessDeliveryScoreServer.Controllers
                 {
                     count = scoreModels.Count - start;
                 }
+
+                List<ScoreModel> models = scoreModels.GetRange(start, count);
+
+                //foreach (ScoreModel model in models)
+               // {
+                    //model.Format = (await Program.Supabase.From<SpecialUserModel>().Match(new SpecialUserModel {SteamId = model.SteamId})?.Single())?.NameFormat ?? "{0}";
+               // }
                 
-                return JsonConvert.SerializeObject(scoreModels.GetRange(start, count));
+                return JsonConvert.SerializeObject(models);
             }
             catch (Exception ex)
             {
@@ -81,13 +89,23 @@ namespace EndlessDeliveryScoreServer.Controllers
         }
         
         [HttpGet("add_score")]
-        public async Task<IActionResult> Add(string score, string ticket)
+        public async Task<IActionResult> Add(string score, string ticket, string version)
         {
+            if (version != Plugin.Version)
+            {
+                return Json(StatusCode(StatusCodes.Status426UpgradeRequired, $"Version {Plugin.Version} required; please update."));
+            }
+            
             try
             {
                 AuthenticateUserTicketResponse auth = await Authentication.GetAuth(ticket);
                 ulong id = ulong.Parse(auth.response.@params.OwnerSteamId);
 
+                if (await IsUserBanned(id))
+                {
+                    return Json(StatusCode(StatusCodes.Status403Forbidden, "You have been banned."));
+                }
+                
                 ScoreModel newScore = new()
                 {
                     SteamId = id,
@@ -116,6 +134,23 @@ namespace EndlessDeliveryScoreServer.Controllers
                 index++;
                 await sm.Update<ScoreModel>();
             }
+        }
+
+        private async Task<bool> IsUserBanned(ulong steamId)
+        {
+            ModeledResponse<SpecialUserModel> models = await Program.Supabase.From<SpecialUserModel>().Get();
+            List<SpecialUserModel> specialUsers = models.Models;
+            
+            //foreach is bad but linq is worse and this table shouldnt have many
+            foreach (SpecialUserModel user in specialUsers)
+            {
+                if (user.SteamId == steamId && user.IsBanned)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

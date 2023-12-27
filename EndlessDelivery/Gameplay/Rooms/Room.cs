@@ -24,9 +24,12 @@ namespace EndlessDelivery.Gameplay
         [Space(15)]
         [Header("Make sure that you have 10 presents (10 is the maximum, random ones will be chosen)")]
         public List<Present> Presents = new();
+        
         [HideInInspector] public int[] PresentColourAmounts = {0, 0, 0, 0};
         [HideInInspector] public List<Collider> EnvColliders = new();
         [HideInInspector] public List<EnemyIdentifier> Enemies = new();
+        [HideInInspector] public bool RoomCleared;
+        [HideInInspector] public bool RoomActivated;
 
         public Dictionary<WeaponVariant, Chimney> AllChimneys = new()
         {
@@ -44,15 +47,13 @@ namespace EndlessDelivery.Gameplay
             { WeaponVariant.GoldVariant, 0 }
         };
         
-
-        private bool _roomActivated = false;
         private Dictionary<EnemyType, int> _amountSpawned = new();
         private int _pointsLeft;
         private int _meleeSpawnsUsed;
         private int _projectileSpawnsUsed;
         private int _wavesSinceSpecial;
 
-        public bool ChimneysDone => AmountDelivered.All(kvp => PresentColourAmounts[(int)kvp.Key] == kvp.Value);
+        public bool ChimneysDone => AmountDelivered.All(kvp => PresentColourAmounts[(int)kvp.Key] <= kvp.Value);
         public bool AllDead => Enemies.All(enemy => enemy?.dead ?? true);
         
         public bool Done(WeaponVariant colour)
@@ -361,9 +362,9 @@ namespace EndlessDelivery.Gameplay
 
         private void OnTriggerEnter(Collider collider)
         {
-            if (collider.GetComponent<NewMovement>() != null && !_roomActivated)
+            if (collider.GetComponent<NewMovement>() != null && !RoomActivated)
             {
-                _roomActivated = true;
+                RoomActivated = true;
                 GameManager.Instance.SetRoom(this);
                 Arena?.Activate();
             }
