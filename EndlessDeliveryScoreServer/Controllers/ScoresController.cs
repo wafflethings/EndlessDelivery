@@ -47,10 +47,10 @@ namespace EndlessDeliveryScoreServer.Controllers
 
                 List<ScoreModel> models = scoreModels.GetRange(start, count);
 
-                foreach (ScoreModel model in models)
-                {
-                    model.Format = (await Program.Supabase.From<SpecialUserModel>().Match(new SpecialUserModel {SteamId = model.SteamId})?.Single())?.NameFormat ?? "{0}";
-                }
+                //foreach (ScoreModel model in models)
+               // {
+                    //model.Format = (await Program.Supabase.From<SpecialUserModel>().Match(new SpecialUserModel {SteamId = model.SteamId})?.Single())?.NameFormat ?? "{0}";
+               // }
                 
                 return JsonConvert.SerializeObject(models);
             }

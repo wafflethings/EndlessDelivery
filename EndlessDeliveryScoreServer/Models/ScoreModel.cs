@@ -1,4 +1,5 @@
-﻿using EndlessDelivery.Scores;
+﻿using System.Runtime.Serialization;
+using EndlessDelivery.Scores;
 using Newtonsoft.Json;
 using Postgrest.Attributes;
 using Postgrest.Models;
@@ -16,7 +17,5 @@ namespace EndlessDeliveryScoreServer.Models
         
         [Column("index")]
         public int Index { get; set; }
-
-        public string Format = "{0}";
-    }
+    } 
 }
