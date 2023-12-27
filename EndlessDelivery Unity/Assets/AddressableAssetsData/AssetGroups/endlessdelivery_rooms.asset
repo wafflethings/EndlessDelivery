@@ -15,8 +15,13 @@ MonoBehaviour:
   m_GroupName: endlessdelivery_rooms
   m_Data:
     m_SerializedData: []
-  m_GUID: 23b7107ba309a4244b5a8cd3b7e48f49
+  m_GUID: f8c0662561344284aac57d0260ba60fb
   m_SerializeEntries:
+  - m_GUID: bb9b819391046564b9c5aa33091c779d
+    m_Address: Assets/Common/Materials/Environment/Metal/Metal Decoration 29.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2c9f4d18dc5744f4a99c08079c3e4c76
     m_Address: Assets/Delivery/Prefabs/HUD/Classic Present Hud.prefab
     m_ReadOnly: 0
@@ -44,6 +49,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e328c782c948c714ea85f85abbcefa71
     m_Address: Assets/Delivery/Prefabs/Rooms/Silly Room.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bcea7c6de319ac444bd920d7fcc707ba
+    m_Address: Assets/Delivery/Prefabs/Rooms/Split.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

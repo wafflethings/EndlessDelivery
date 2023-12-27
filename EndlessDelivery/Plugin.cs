@@ -12,7 +12,7 @@ namespace EndlessDelivery
     public class Plugin : BaseUnityPlugin
     {
         public const string Name = "Endless Delivery";
-        public const string Version = "1.1.0";
+        public const string Version = "1.2.0";
         public const string GUID = "waffle.ultrakill.christmasdelivery";
 
         public void Start()

@@ -73,6 +73,11 @@ namespace EndlessDelivery.Gameplay
             TimeLeft += seconds;
         }
 
+        public void SilentAddTime(float seconds)
+        {
+            TimeLeft += seconds;
+        }
+
         private IEnumerator UnpauseTimer()
         {
             yield return new WaitForSeconds(TimeAddLength);
@@ -82,7 +87,7 @@ namespace EndlessDelivery.Gameplay
         public Room GenerateNewRoom()
         {
             Collider collider = CurrentRoom.GetComponent<Collider>();
-            return Instantiate(GetRandomRoom().Prefab, CurrentRoom.gameObject.transform.position + (Vector3.right * collider.bounds.size.x * 2), Quaternion.identity)
+            return Instantiate(GetRandomRoom().Prefab, CurrentRoom.gameObject.transform.position + (Vector3.right * collider.bounds.size.x * 2.5f), Quaternion.identity)
                 .GetComponent<Room>();
         }
 

@@ -13,11 +13,12 @@ namespace EndlessDelivery.Scores.Server
     public class Endpoints
     {
         private static readonly HttpClient _client = new();
-        private const string Url = "http://159.65.214.169/";
+        private const string Url = "http://localhost:7048/";//"http://159.65.214.169/";
         private const string ScoresGetRange = Url + "scores/get_range?start={0}&count={1}";
         private const string ScoresGetAmount = Url + "scores/get_length";
         private const string ScoresGetPosition = Url + "scores/get_position?steamId={0}";
         private const string ScoresAdd = Url + "scores/add_score?score={0}&ticket={1}&version={2}";
+        private const string UsersSpecialGet = Url + "users/get_special_users";
 
         public static async Task<bool> IsServerOnline()
         {
@@ -27,6 +28,17 @@ namespace EndlessDelivery.Scores.Server
             PingReply reply = await ping.SendPingAsync(Url, 10 * 1000);
             Debug.Log("pinged");
             return reply.Status == IPStatus.Success;
+        }
+        
+        /// <summary>
+        /// Gets the special users.
+        /// </summary>
+        /// <returns>The users.</returns>
+        public static async Task<List<SpecialUserResult>> GetSpecialUsers()
+        {
+            HttpResponseMessage response = await _client.GetAsync(UsersSpecialGet);
+            string responseBody = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<List<SpecialUserResult>>(responseBody);
         }
         
         /// <summary>

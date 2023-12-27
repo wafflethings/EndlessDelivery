@@ -15,6 +15,7 @@ namespace EndlessDelivery.Cheats
                 return;
             }
             __instance.RegisterExternalCheat(new CompleteRoom());
+            __instance.RegisterExternalCheat(new InfiniteTime());
         }
     }
 }

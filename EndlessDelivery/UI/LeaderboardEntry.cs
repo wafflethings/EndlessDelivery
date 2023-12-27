@@ -20,7 +20,7 @@ namespace EndlessDelivery.UI
             Friend user = new(scoreResult.SteamId);
             
             ((IText)RankNumber).SetText((scoreResult.Index + 1).ToString());
-            ((IText)Username).SetText(user.Name);
+            ((IText)Username).SetText(string.Format(await SpecialUserResult.GetFormat(user.Id), user.Name));
             ((IText)Rooms).SetText(scoreResult.Score.Rooms.ToString());
             ((IText)Delivered).SetText($"({scoreResult.Score.Deliveries})");
             SetAvatar(user);
