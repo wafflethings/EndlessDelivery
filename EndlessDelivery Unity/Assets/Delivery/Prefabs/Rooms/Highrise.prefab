@@ -7992,7 +7992,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
 --- !u!1 &2901911796913348170
@@ -35359,6 +35359,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5142735560282619818}
     m_Modifications:
+    - target: {fileID: -4987194681888499943, guid: 697ee503f64f72e419e283653d531b36,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 1.3563115e-19
+      objectReference: {fileID: 0}
     - target: {fileID: 859807330288288585, guid: 697ee503f64f72e419e283653d531b36,
         type: 3}
       propertyPath: m_Name
@@ -35372,7 +35377,7 @@ PrefabInstance:
     - target: {fileID: 859807330288288586, guid: 697ee503f64f72e419e283653d531b36,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.78
+      value: -8.28
       objectReference: {fileID: 0}
     - target: {fileID: 859807330288288586, guid: 697ee503f64f72e419e283653d531b36,
         type: 3}
