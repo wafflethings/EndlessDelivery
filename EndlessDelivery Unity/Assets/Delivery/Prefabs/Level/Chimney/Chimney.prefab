@@ -5970,7 +5970,7 @@ GameObject:
   - component: {fileID: 8301503915925384454}
   m_Layer: 16
   m_Name: Collisions
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7738,7 +7738,7 @@ GameObject:
   - component: {fileID: 7036230306194522700}
   m_Layer: 8
   m_Name: Chimney
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
