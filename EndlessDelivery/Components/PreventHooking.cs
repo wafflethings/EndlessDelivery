@@ -15,6 +15,7 @@ namespace EndlessDelivery.Components
 
             if (Vector3.Distance(transform.position, NewMovement.instance.transform.position) <= EnableWhippingAtDistance)
             {
+                gameObject.layer = 22; // layer item
                 return;
             }
 

@@ -2215,7 +2215,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "This mod is developed entirely by <color=orange>Waffle</color>. \n\nSome
     rooms are created by <color=orange>Fri <color=white>and <color=orange>Zelzmiy</color>.\n\nSpecial
-    thanks to <color=orange>Agent, Glitchy, and Js</color> for helping me get the
+    thanks to <color=orange>Agent, Protract, and Js</color> for helping me get the
     server working."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c665f735df1f4db43a715b3cb44a57c0, type: 2}
@@ -2244,8 +2244,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 20
-  m_fontSizeBase: 20
+  m_fontSize: 19
+  m_fontSizeBase: 19
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4189,16 +4189,17 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'Clear rooms by delivering the <color=orange>presents</color> into the
-    chimney of the same colour, then jumping into the it.
+    chimney of the same colour, then jumping into the pit.
 
 
-    Time is limited -
-    earn more by <color=orange>clearing rooms<color=white>, killing <color=orange>all
-    enemies</color>, and <color=orange>delivering presents.</color>
+    Time is limited
+    - earn more by <color=orange>clearing rooms<color=white>, killing <color=orange>all
+    enemies</color>, getting <color=orange>big kills </color>and <color=orange>delivering
+    gifts.</color>
 
 
-    Clear as
-    many rooms as you can to earn a spot on <color=orange>the leaderboard!</color>
+    Clear as many rooms as you can to earn a spot on <color=orange>the
+    leaderboard!</color>
 
 
 
