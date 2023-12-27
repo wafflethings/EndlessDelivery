@@ -52,7 +52,7 @@ namespace EndlessDelivery.Gameplay
         private int _projectileSpawnsUsed;
         private int _wavesSinceSpecial;
 
-        public bool ChimneysDone => AmountDelivered.All(kvp => PresentColourAmounts[(int)kvp.Key] == kvp.Value);
+        public bool ChimneysDone => AmountDelivered.All(kvp => PresentColourAmounts[(int)kvp.Key] <= kvp.Value);
         public bool AllDead => Enemies.All(enemy => enemy?.dead ?? true);
         
         public bool Done(WeaponVariant colour)

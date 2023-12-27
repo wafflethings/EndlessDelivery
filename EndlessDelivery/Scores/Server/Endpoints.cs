@@ -17,7 +17,7 @@ namespace EndlessDelivery.Scores.Server
         private const string ScoresGetRange = Url + "scores/get_range?start={0}&count={1}";
         private const string ScoresGetAmount = Url + "scores/get_length";
         private const string ScoresGetPosition = Url + "scores/get_position?steamId={0}";
-        private const string ScoresAdd = Url + "scores/add_score?score={0}&ticket={1}";
+        private const string ScoresAdd = Url + "scores/add_score?score={0}&ticket={1}&version={2}";
 
         public static async Task<bool> IsServerOnline()
         {
@@ -77,8 +77,7 @@ namespace EndlessDelivery.Scores.Server
             try
             {
                 // i know this should be a POST but i cant figure them out so FUCK YOU!!!
-                HttpResponseMessage response = await _client.GetAsync(string.Format(ScoresAdd, JsonConvert.SerializeObject(score), SteamAuth.GetTicket()));
-                Debug.Log("sending " + response.RequestMessage.RequestUri);
+                HttpResponseMessage response = await _client.GetAsync(string.Format(ScoresAdd, JsonConvert.SerializeObject(score), SteamAuth.GetTicket(), Plugin.Version));
                 string responseBody = await response.Content.ReadAsStringAsync();
                 Debug.Log("received " + responseBody);
                 return (int)(long)JsonConvert.DeserializeObject<Response>(responseBody).Value;
@@ -98,8 +97,8 @@ namespace EndlessDelivery.Scores.Server
 
         public static async Task<List<ScoreResult>> GetUserPage(float index)
         {
-            int start = (int)(index / 10);
-            return await GetScoreRange(start, 10);
+            int pageNumber = (int)(index / 8);
+            return await GetScoreRange(pageNumber * 8, 10);
         }
     }
 }

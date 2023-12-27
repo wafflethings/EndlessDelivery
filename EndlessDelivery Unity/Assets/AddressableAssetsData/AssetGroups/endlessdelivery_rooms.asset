@@ -15,8 +15,13 @@ MonoBehaviour:
   m_GroupName: endlessdelivery_rooms
   m_Data:
     m_SerializedData: []
-  m_GUID: 5a677a854fb17ca499d91833a8f9741d
+  m_GUID: 5772b56a81492e6439c110b404e9f152
   m_SerializeEntries:
+  - m_GUID: 2c9f4d18dc5744f4a99c08079c3e4c76
+    m_Address: Assets/Delivery/Prefabs/HUD/Classic Present Hud.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8c5713853d34294e98ea66940f3cb33
     m_Address: Assets/Delivery/Prefabs/Rooms/Avarage British Neighbourhood.prefab
     m_ReadOnly: 0
@@ -24,6 +29,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f4f84a318c91e9c439aed30c73bc70f8
     m_Address: Assets/Delivery/Prefabs/Rooms/Lazy Lake.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c04b07d159852ed4b930b1481e7bcde5
+    m_Address: Assets/Delivery/Prefabs/Rooms/Lonely Lodge.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -42,7 +52,7 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c04b07d159852ed4b930b1481e7bcde5
+  - m_GUID: dc3c46e297b2cb3488b32656926fca33
     m_Address: Assets/Delivery/Prefabs/Rooms/Tilted Towers.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EndlessDelivery.Assets;
 using EndlessDelivery.Gameplay;
+using EndlessDelivery.UI;
 using EndlessDelivery.Utils;
 using HarmonyLib;
 using UnityEngine;
@@ -17,11 +18,12 @@ namespace EndlessDelivery.Components
         
         public WeaponVariant VariantColour;
         public GameObject Particles;
+        public SpriteRenderer Glow;
         private ItemIdentifier _item;
         private Collider _collider;
         [HideInInspector] public bool Destroyed;
         
-        private Color _colour => ColorBlindSettings.Instance.variationColors[(int)VariantColour];
+        private Color _colour => ColourSetter.DefaultColours[(int)VariantColour];
 
         private void Start()
         {
@@ -47,6 +49,7 @@ namespace EndlessDelivery.Components
             GetComponent<Renderer>().material.color = _colour;
             GetComponent<Light>().color = _colour;
             GetComponent<ParticleSystem>().startColor = _colour;
+            Glow.color = new Color(_colour.r, _colour.g, _colour.b, 0.5f);
         }
 
         public void Deliver(Chimney chimney)

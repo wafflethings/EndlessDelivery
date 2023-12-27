@@ -1,4 +1,5 @@
-﻿using EndlessDelivery.Scores.Server;
+﻿using System.Threading.Tasks;
+using EndlessDelivery.Scores.Server;
 using Steamworks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,12 +15,12 @@ namespace EndlessDelivery.UI
         public MonoBehaviour Delivered;
         public Image ProfileActual;
 
-        public void SetValuesAndEnable(ScoreResult scoreResult)
+        public async void SetValuesAndEnable(ScoreResult scoreResult)
         {
             Friend user = new(scoreResult.SteamId);
             
             ((IText)RankNumber).SetText((scoreResult.Index + 1).ToString());
-            ((IText)Username).SetText(user.Name);
+            ((IText)Username).SetText(string.Format(scoreResult.Format, user.Name));
             ((IText)Rooms).SetText(scoreResult.Score.Rooms.ToString());
             ((IText)Delivered).SetText($"({scoreResult.Score.Deliveries})");
             SetAvatar(user);

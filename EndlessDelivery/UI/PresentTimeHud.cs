@@ -20,6 +20,7 @@ namespace EndlessDelivery.UI
 
         public Image[] PresentImages;
         public TMP_Text Timer;
+        public TMP_Text CompleteRooms;
         public Color TimerColour;
         public Color TimerDangerColour;
 
@@ -80,6 +81,8 @@ namespace EndlessDelivery.UI
                     PresentImages[i].fillAmount = FindFill((WeaponVariant)i);
                 }
             }
+
+            CompleteRooms.text = (GameManager.Instance.RoomsEntered - 1).ToString();
         }
 
         //instead of filling the coloured area, the dark area is coloured.
