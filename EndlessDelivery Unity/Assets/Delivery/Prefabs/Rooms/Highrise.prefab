@@ -84698,6 +84698,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5652844210912512758, guid: 588905958f9275a43b4664982afd0ddc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44fd7520995a57b418838a2f67bfe6c7, type: 2}
     - target: {fileID: 5814628669344643002, guid: 588905958f9275a43b4664982afd0ddc,
         type: 3}
       propertyPath: m_Name
