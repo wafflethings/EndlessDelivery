@@ -131,7 +131,6 @@ namespace EndlessDelivery.Components
 
             if (collider.GetComponent<NewMovement>() != null && Room.ChimneysDone)
             {
-                GameManager.Instance.RoomEnd();
                 ChimneyEnter();
             }
 
@@ -148,6 +147,8 @@ namespace EndlessDelivery.Components
                 return;
             }
             
+            GameManager.Instance.RoomEnd();
+            
             NewMovement.Instance.rb.velocity = NewMovement.Instance.rb.velocity.Only(Axis.Y);
             NewMovement.Instance.enabled = false;
             NewMovement.Instance.gc.enabled = false;
@@ -158,12 +159,6 @@ namespace EndlessDelivery.Components
             }
             
             NewMovement.Instance.GetComponent<KeepInBounds>().enabled = false;
-
-            if (Room.RoomHasGameplay)
-            {
-                GameManager.Instance.AddTime(8, "<color=orange>ROOM CLEAR</color>");
-            }
-
             PlayerChimneyFixer.Instance.EnterChimney(this);
             _chimneyEntered = true;
         }

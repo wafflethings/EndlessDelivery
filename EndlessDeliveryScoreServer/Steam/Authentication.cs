@@ -15,7 +15,7 @@ namespace EndlessDeliveryScoreServer
             return string.Format(TicketAuthUrl, Keys.Instance.SteamKey, UltrakillAppId, ticket);
         }
 
-        public async static Task<AuthenticateUserTicketResponse> GetAuth(string ticket)
+        public static async Task<AuthenticateUserTicketResponse> GetAuth(string ticket)
         {
             HttpClient client = new();
             await Task.Delay(500); //sometimes it just doesnt fucking work, you have to do it several times

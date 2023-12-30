@@ -46,6 +46,9 @@
       <Reference Include="Facepunch.Steamworks.Win64">
         <HintPath>lib\Managed\Facepunch.Steamworks.Win64.dll</HintPath>
       </Reference>
+      <Reference Include="FasterPunch">
+        <HintPath>lib\Other\Anticheat Mods\FasterPunch.dll</HintPath>
+      </Reference>
       <Reference Include="HarmonyXInterop">
         <HintPath>lib\BepInEx\HarmonyXInterop.dll</HintPath>
       </Reference>
@@ -72,6 +75,15 @@
       </Reference>
       <Reference Include="Newtonsoft.Json">
         <HintPath>lib\Managed\Newtonsoft.Json.dll</HintPath>
+      </Reference>
+      <Reference Include="PluginConfigurator">
+        <HintPath>lib\Other\Anticheat Mods\PluginConfigurator.dll</HintPath>
+      </Reference>
+      <Reference Include="ProjectProphet">
+        <HintPath>lib\Other\Anticheat Mods\ProjectProphet.dll</HintPath>
+      </Reference>
+      <Reference Include="UltraTweaker">
+        <HintPath>lib\Other\Anticheat Mods\UltraTweaker.dll</HintPath>
       </Reference>
       <Reference Include="Unity.Addressables">
         <HintPath>lib\Managed\Unity.Addressables.dll</HintPath>

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: endlessdelivery_rooms
   m_Data:
     m_SerializedData: []
-  m_GUID: f8c0662561344284aac57d0260ba60fb
+  m_GUID: 7a56d27fef7d9a54fa75b940f148b22c
   m_SerializeEntries:
   - m_GUID: bb9b819391046564b9c5aa33091c779d
     m_Address: Assets/Common/Materials/Environment/Metal/Metal Decoration 29.mat
@@ -59,6 +59,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 088d10aaea6fecd41ae90469b12cd751
     m_Address: Assets/Delivery/Prefabs/Rooms/Start Room.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c308dd8d89f2bd24ca2abbf4ee507fda
+    m_Address: Assets/Delivery/Prefabs/Rooms/The Devil's Pit of Kills Anyone Who
+      Enters.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

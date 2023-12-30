@@ -4,6 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 using AtlasLib.Utils;
+using EndlessDelivery.Config;
 using Newtonsoft.Json;
 using UnityEngine;
 
@@ -11,8 +12,7 @@ namespace EndlessDelivery.Scores
 {
     public class Score
     {
-        public static string HighscorePath => Path.Combine(PathUtils.ModPath(), "Savedata");
-        public static string HighscoreFilePath => Path.Combine(HighscorePath, $"highscore_{PrefsManager.Instance.GetInt("difficulty")}.json");
+        public static string HighscoreFilePath => Path.Combine(Option.SavePath, $"highscore_{PrefsManager.Instance.GetInt("difficulty")}.json");
         
         public static Score Highscore
         {
@@ -45,7 +45,7 @@ namespace EndlessDelivery.Scores
 
         private static void SaveScore(Score score)
         {
-            Directory.CreateDirectory(HighscorePath);
+            Directory.CreateDirectory(Option.SavePath);
             File.WriteAllText(HighscoreFilePath, JsonConvert.SerializeObject(score));
         }
 

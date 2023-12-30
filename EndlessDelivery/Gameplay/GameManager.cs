@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using EndlessDelivery.Assets;
 using EndlessDelivery.Scores;
-using EndlessDelivery.Scores.Server;
+using EndlessDelivery.Anticheat;
+using EndlessDelivery.Config;
 using EndlessDelivery.UI;
 using EndlessDelivery.Utils;
 using HarmonyLib;
@@ -30,12 +31,25 @@ namespace EndlessDelivery.Gameplay
         public Room CurrentRoom { get; private set; }
         public Room PreviousRoom { get; private set; }
         public bool TimerActive { get; private set; }
-        public int PointsPerWave { get; private set; } = 10;
+        public int PointsPerWave { get; private set; }
         public Score CurrentScore => new(RoomsEntered - 1, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed);
         
         private Coroutine _pauseCoroutine;
         private List<RoomData> _remainingRooms = new();
+        private static readonly int _startingPoints = 10;
 
+        public static int GetRoomPoints(int roomNumber)
+        {
+            int points = _startingPoints;
+
+            for (int i = 0; i < roomNumber; i++)
+            {
+                points += 3 + i / 3;
+            }
+
+            return points;
+        }
+        
         private void Update()
         {
             if (GameStarted && GunControl.Instance.activated)
@@ -105,7 +119,13 @@ namespace EndlessDelivery.Gameplay
 
         public void RoomEnd()
         {
-            PointsPerWave += 3 + RoomsEntered / 3;
+            if (CurrentRoom.RoomHasGameplay)
+            {
+                AddTime(8, "<color=orange>ROOM CLEAR</color>");
+                PointsPerWave += 3 + RoomsEntered / 3;
+                BestTimes.SetIfHigher(RoomsEntered, TimeLeft);
+            }
+            
             SetRoom(GenerateNewRoom());
             Navmesh.BuildNavMesh();
             // BlackFade.Instance.Flash(0.125f);
@@ -113,21 +133,21 @@ namespace EndlessDelivery.Gameplay
         
         public void SetRoom(Room room)
         {
+            if (!GameStarted && room.RoomHasGameplay)
+            {
+                StartGame();
+            }
+            
             if (CurrentRoom != room)
             {
+                RoomsEntered++;
                 PreviousRoom = CurrentRoom;
                 CurrentRoom = room;
                 room.Initialize();
             }
-
+            
             if (room.RoomHasGameplay && !room.RoomAlreadyVisited)
             {
-                if (!GameStarted)
-                {
-                    StartGame();
-                }
-                
-                RoomsEntered++;
                 room.RoomAlreadyVisited = true;
             }
         }
@@ -142,7 +162,9 @@ namespace EndlessDelivery.Gameplay
             PresentTimeHud.Instance.gameObject.SetActive(true);
             StatsManager.Instance.GetComponentInChildren<MusicManager>(true).gameObject.SetActive(true);
             MusicManager.Instance.StartMusic();
-            TimeLeft = StartTime;
+            RoomsEntered = (int)Option.GetValue<long>("start_wave");
+            PointsPerWave = GetRoomPoints(RoomsEntered);
+            TimeLeft = BestTimes.CurrentStartTime;
             TimerActive = true;
             GameStarted = true;
         }
@@ -164,7 +186,7 @@ namespace EndlessDelivery.Gameplay
             GameStarted = false;
             
             //if more rooms, or more deliveries
-            if (Score.IsLargerThanHighscore(CurrentScore) && !CheatsController.Instance.cheatsEnabled)
+            if (!Anticheat.Anticheat.HasIllegalMods && Score.IsLargerThanHighscore(CurrentScore) && !CheatsController.Instance.cheatsEnabled)
             {
                 Score.Highscore = CurrentScore;
                 EndScreen.Instance.NewBest = true;
