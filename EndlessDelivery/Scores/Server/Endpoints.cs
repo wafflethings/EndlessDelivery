@@ -74,9 +74,18 @@ namespace EndlessDelivery.Scores.Server
         /// <returns>The index of the user's score (-1 if no score present)</returns>
         public static async Task<int> GetUserPosition(ulong steamId)
         {
-            HttpResponseMessage response = await _client.GetAsync(string.Format(ScoresGetPosition, steamId));
-            string responseBody = await response.Content.ReadAsStringAsync();
-            return (int)(long)JsonConvert.DeserializeObject<Response>(responseBody).Value;
+            try
+            {
+                Debug.Log(string.Format(ScoresGetPosition, steamId));
+                HttpResponseMessage response = await _client.GetAsync(string.Format(ScoresGetPosition, steamId));
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Debug.Log("should be done");
+                return (int)(long)JsonConvert.DeserializeObject<Response>(responseBody).Value;
+            }
+            catch
+            {
+                return -1;
+            }
         }
         
         /// <summary>

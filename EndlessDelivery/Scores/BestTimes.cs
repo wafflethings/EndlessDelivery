@@ -36,6 +36,11 @@ namespace EndlessDelivery.Scores
 
         public static void SetIfHigher(int room, float time)
         {
+            if (!Score.CanSubmit)
+            {
+                return;
+            }
+            
             Debug.Log($"{room} at {time}");
             if (Times.ContainsKey(room))
             {

@@ -15,7 +15,8 @@ namespace EndlessDelivery.Config
 
         public static Dictionary<string, Option> AllOptions = new()
         {
-            { "start_wave", new Option<long>("start_wave", 0) }
+            { "start_wave", new Option<long>("start_wave", 0) },
+            { "disable_copyrighted_music", new Option<bool>("disable_copyrighted_music", false) }
         };
 
         public static T GetValue<T>(string id) => (AllOptions[id] as Option<T>).Value;

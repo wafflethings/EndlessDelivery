@@ -4,6 +4,7 @@ using EndlessDelivery.Anticheat;
 using EndlessDelivery.Assets;
 using EndlessDelivery.Cheats;
 using EndlessDelivery.Config;
+using EndlessDelivery.Scores;
 using EndlessDelivery.Utils;
 using UnityEngine;
 using UnityEngine.AddressableAssets;

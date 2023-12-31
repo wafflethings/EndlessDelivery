@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using EndlessDelivery.Assets;
+using EndlessDelivery.Config;
 using EndlessDelivery.Gameplay;
 using EndlessDelivery.Scores;
 using EndlessDelivery.Utils;
@@ -82,7 +83,7 @@ namespace EndlessDelivery.UI
             _appearedSelf = true;
             MusicManager.Instance.forcedOff = true;
             MusicManager.Instance.StopMusic();
-            AudioObject.SetActive(true);
+            AudioObject.SetActive(!Option.GetValue<bool>("disable_copyrighted_music"));
         }
         
         private void SetPanelValues(Score score, ReachValueText rooms, ReachValueText kills, ReachValueText deliveries, ReachValueText time)

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using EndlessDelivery.Scores;
 using EndlessDelivery.Scores.Server;
 using TMPro;
 using UnityEngine;
@@ -51,6 +52,20 @@ namespace EndlessDelivery.UI
             PageText.text = (_page + 1).ToString();
 
             RefreshPage();
+        }
+
+        public void Refresh()
+        {
+            //unity events cant call asnyc funcs
+            RefreshAsync();
+        }
+
+        private async void RefreshAsync()
+        {
+            transform.parent.gameObject.SetActive(false);
+            await Score.GetServerScoreAndSetIfHigher();
+            GetComponentInParent<JollyTerminal>().AssignScoreText();
+            transform.parent.gameObject.SetActive(true);
         }
         
         public async Task RefreshPage()

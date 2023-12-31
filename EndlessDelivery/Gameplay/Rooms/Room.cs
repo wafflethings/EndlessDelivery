@@ -209,6 +209,7 @@ namespace EndlessDelivery.Gameplay
             }
             
             Debug.Log($"Uncommons are {uncommons[0].prefab.name} and {uncommons[1].prefab.name}!!");
+            int[] amounts = { 0, 0 };
 
             for (int i = 0; i < uncommonAmount; i++)
             {
@@ -220,7 +221,7 @@ namespace EndlessDelivery.Gameplay
                 
                 if (GetRealCost(uncommons[0]) >= _pointsLeft && GetRealCost(uncommons[1]) >= _pointsLeft)
                 {
-                    Debug.Log("uncommon break");
+                    Debug.Log("uncommon break | cant afford");
                     break;
                 }
                 
@@ -235,7 +236,8 @@ namespace EndlessDelivery.Gameplay
                 {
                     whichUncommon = 0;
                 }
-                
+
+                amounts[whichUncommon]++;
                 SetSpawnPoint(spawns[_meleeSpawnsUsed], uncommons[whichUncommon], DeliveryEnemyClass.Melee);
             }
         }

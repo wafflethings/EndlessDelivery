@@ -35,7 +35,6 @@ namespace EndlessDelivery.Anticheat
                 TweakMetadata meta = Attribute.GetCustomAttribute(tweak.GetType(), typeof(TweakMetadata)) as TweakMetadata;
                 if (tweak.IsEnabled && !(meta?.AllowCG ?? false))
                 {
-                    HudMessageReceiver.Instance.SendHudMessage("Score not submitting due to UltraTweaker: disallowed tweaks enabled.");
                     return true;
                 }
             }

@@ -33,6 +33,13 @@ namespace EndlessDelivery.Components
             SetColour(VariantColour);
         }
 
+        private void Update()
+        {
+            Glow.gameObject.layer = 0; //picking up an item makes all children AlwaysOnTop.
+            // the glow is disabled on pickup, so when it is dropped, it is not set back to the original layer.
+            // it has to be set back manually
+        }
+
         private void OnDisable()
         {
             _allPresentColliders.Remove(_collider);

@@ -5,6 +5,7 @@ using EndlessDelivery.Assets;
 using EndlessDelivery.Scores;
 using EndlessDelivery.Anticheat;
 using EndlessDelivery.Config;
+using EndlessDelivery.Gameplay.EnemyGeneration;
 using EndlessDelivery.UI;
 using EndlessDelivery.Utils;
 using HarmonyLib;
@@ -40,14 +41,22 @@ namespace EndlessDelivery.Gameplay
 
         public static int GetRoomPoints(int roomNumber)
         {
+            Debug.Log($"sp {_startingPoints}");
             int points = _startingPoints;
 
             for (int i = 0; i < roomNumber; i++)
             {
-                points += 3 + i / 3;
+                points += 3 + (i + 1) / 3;
+                Debug.Log($"p {_startingPoints} ( + {3 + (i + 1) / 3})");
             }
 
+            Debug.Log($"ret {points}");
             return points;
+        }
+
+        private void Awake()
+        {
+            Act3EnemyHack.AddToPools(EnemyGroup.Groups[DeliveryEnemyClass.Projectile], EnemyGroup.Groups[DeliveryEnemyClass.Uncommon]);    
         }
         
         private void Update()
@@ -186,10 +195,17 @@ namespace EndlessDelivery.Gameplay
             GameStarted = false;
             
             //if more rooms, or more deliveries
-            if (!Anticheat.Anticheat.HasIllegalMods && Score.IsLargerThanHighscore(CurrentScore) && !CheatsController.Instance.cheatsEnabled)
+            if (Score.IsLargerThanOtherScore(CurrentScore, Score.Highscore))
             {
-                Score.Highscore = CurrentScore;
-                EndScreen.Instance.NewBest = true;
+                if (Score.CanSubmit)
+                {
+                    Score.Highscore = CurrentScore;
+                    EndScreen.Instance.NewBest = true;
+                }
+                else
+                {
+                    HudMessageReceiver.Instance.SendHudMessage("Score not submitting due to other mods, or cheats enabled.");
+                }
             }
             
             EndScreen.Instance.Appear();

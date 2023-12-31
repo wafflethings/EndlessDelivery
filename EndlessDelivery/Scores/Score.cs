@@ -5,7 +5,9 @@ using System.Reflection;
 using System.Threading.Tasks;
 using AtlasLib.Utils;
 using EndlessDelivery.Config;
+using EndlessDelivery.Scores.Server;
 using Newtonsoft.Json;
+using Steamworks;
 using UnityEngine;
 
 namespace EndlessDelivery.Scores
@@ -13,6 +15,7 @@ namespace EndlessDelivery.Scores
     public class Score
     {
         public static string HighscoreFilePath => Path.Combine(Option.SavePath, $"highscore_{PrefsManager.Instance.GetInt("difficulty")}.json");
+        public static bool CanSubmit => !Anticheat.Anticheat.HasIllegalMods && !CheatsController.Instance.cheatsEnabled;
         
         public static Score Highscore
         {
@@ -20,16 +23,19 @@ namespace EndlessDelivery.Scores
             {
                 if (_highscore == null)
                 {
-                    if (File.Exists(HighscoreFilePath))
+                    Score fileScore = File.Exists(HighscoreFilePath) ? JsonConvert.DeserializeObject<Score>(File.ReadAllText(HighscoreFilePath)) : null;
+                    
+                    if (fileScore == null)
                     {
-                        Highscore = JsonConvert.DeserializeObject<Score>(File.ReadAllText(HighscoreFilePath));
+                        Debug.Log("Using fallback score!");
+                        Highscore = new(0, 0, 0, 0);
                     }
                     else
                     {
-                        Highscore = new(0, 0, 0, 0);
+                        Highscore = fileScore;
                     }
                 }
-
+                
                 return _highscore;
             }
 
@@ -43,46 +49,60 @@ namespace EndlessDelivery.Scores
 
         public static Score PreviousHighscore { get; private set; }
 
+        public static async Task GetServerScoreAndSetIfHigher()
+        {
+            int playerPos = await Endpoints.GetUserPosition(SteamClient.SteamId);
+            Score serverScore = (await Endpoints.GetScoreRange(playerPos, 1))[0].Score;
+            if (IsLargerThanOtherScore(serverScore, Highscore))
+            {
+                Highscore = serverScore;
+            }
+        }
+
         private static void SaveScore(Score score)
         {
             Directory.CreateDirectory(Option.SavePath);
             File.WriteAllText(HighscoreFilePath, JsonConvert.SerializeObject(score));
         }
 
-        public static bool IsLargerThanHighscore(Score score)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="score">The score that you're checking; true if this is larger.</param>
+        /// <param name="other">The score being compared to; false if this is larger.</param>
+        /// <returns></returns>
+        public static bool IsLargerThanOtherScore(Score score, Score other)
         {
-            Score hs = Highscore;
-
-            if (score.Rooms != hs.Rooms)
+            if (score.Rooms != other.Rooms)
             {
-                if (score.Rooms > hs.Rooms)
+                if (score.Rooms > other.Rooms)
                 {
                     return true;
                 }
                 return false;
             }
 
-            if (score.Deliveries != hs.Deliveries)
+            if (score.Deliveries != other.Deliveries)
             {
-                if (score.Deliveries > hs.Deliveries)
+                if (score.Deliveries > other.Deliveries)
                 {
                     return true;
                 }
                 return false;
             }
 
-            if (score.Kills != hs.Kills)
+            if (score.Kills != other.Kills)
             {
-                if (score.Kills > hs.Kills)
+                if (score.Kills > other.Kills)
                 {
                     return true;
                 }
                 return false;
             }
 
-            if (score.Time != hs.Time)
+            if (score.Time != other.Time)
             {
-                if (score.Time < hs.Time)
+                if (score.Time < other.Time)
                 {
                     return true;
                 }
