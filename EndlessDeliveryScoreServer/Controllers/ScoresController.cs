@@ -7,6 +7,7 @@ using EndlessDelivery.Scores;
 using EndlessDeliveryScoreServer.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Newtonsoft.Json;
 using Postgrest.Responses;
 
@@ -28,6 +29,7 @@ namespace EndlessDeliveryScoreServer.Controllers
                 .ThenByDescending(x => x.Score.Kills).ThenBy(x => x.Score.Time).ToList();
         }
         
+        [EnableRateLimiting("fixed")]
         [HttpGet("get_range")]
         public async Task<object> Get(int start, int count)
         {
@@ -60,6 +62,7 @@ namespace EndlessDeliveryScoreServer.Controllers
             }
         }
         
+        [EnableRateLimiting("fixed")]
         [HttpGet("get_length")]
         public async Task<IActionResult> GetLength()
         {
@@ -74,6 +77,7 @@ namespace EndlessDeliveryScoreServer.Controllers
             }
         }
         
+        [EnableRateLimiting("fixed")]
         [HttpGet("get_position")]
         public async Task<IActionResult> GetPosition(ulong steamId)
         {
@@ -88,6 +92,7 @@ namespace EndlessDeliveryScoreServer.Controllers
             }
         }
         
+        [EnableRateLimiting("fixed")]
         [HttpGet("add_score")]
         public async Task<IActionResult> Add(string score, string ticket, string version)
         {

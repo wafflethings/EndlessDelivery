@@ -23,8 +23,8 @@ public class Program
         builder.Services.AddRateLimiter(_ => _
             .AddFixedWindowLimiter(policyName: "fixed", options =>
             {
-                options.PermitLimit = 5;
-                options.Window = TimeSpan.FromSeconds(10);
+                options.PermitLimit = 10;
+                options.Window = TimeSpan.FromSeconds(20);
                 options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
                 options.QueueLimit = 5;
             }));

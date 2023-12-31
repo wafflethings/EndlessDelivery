@@ -1,5 +1,6 @@
 ﻿using EndlessDeliveryScoreServer.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Newtonsoft.Json;
 
 namespace EndlessDeliveryScoreServer.Controllers
@@ -8,6 +9,7 @@ namespace EndlessDeliveryScoreServer.Controllers
     [Route("[controller]")]
     public class UsersController : Controller
     {
+        [EnableRateLimiting("fixed")]
         [HttpGet("get_special_users")]
         public async Task<object> GetUsers()
         {
