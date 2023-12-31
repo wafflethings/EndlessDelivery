@@ -11,11 +11,18 @@ namespace EndlessDelivery.UI
     {
         public TMP_Text ScoreText;
         public AudioSource Music;
+        public GameObject[] DisableIfNotOnHighscoreDifficulty;
 
         private void OnEnable()
         {
             AssignScoreText();
             SetMusicStatus();
+
+            bool targetState = PrefsManager.Instance.GetInt("difficulty") == 3;
+            foreach (GameObject gameObject in DisableIfNotOnHighscoreDifficulty)
+            {
+                gameObject.SetActive(targetState);
+            }
         }
 
         public void AssignScoreText()

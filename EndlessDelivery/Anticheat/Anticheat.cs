@@ -12,7 +12,7 @@ namespace EndlessDelivery.Anticheat
             new UltraTweakerAnticheat()
         };
 
-        public static bool HasIllegalMods = _anticheats.All(ac => ac.ShouldSubmit);
+        public static bool HasIllegalMods = !_anticheats.All(ac => ac.ShouldSubmit);
 
         protected abstract bool ShouldSubmit { get; }
     }

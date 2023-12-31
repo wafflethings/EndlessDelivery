@@ -10,13 +10,20 @@ namespace EndlessDelivery.Components
     {
         private float _startHeight;
         private float _targetHeight;
+        private EnemyIdentifier _eid;
         
         private void Start()
         {
             _startHeight = transform.localPosition.y;
+            _eid = GetComponent<EnemyIdentifier>();
         }
         private void Update()
         {
+            if (_eid.dead)
+            {
+                return;
+            }
+            
             if (Physics.Raycast(transform.parent.position, Vector3.up, out RaycastHit hit, 20, LayerMaskDefaults.Get(LMD.Environment)))
             {
                 _targetHeight = hit.distance - 1;

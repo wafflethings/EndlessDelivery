@@ -8147,6 +8147,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 3065592200213296017}
   Music: {fileID: 4618902950688934673}
+  DisableIfNotOnHighscoreDifficulty:
+  - {fileID: 446592151486610144}
 --- !u!1 &8376174522620566632
 GameObject:
   m_ObjectHideFlags: 0

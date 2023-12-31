@@ -36,19 +36,23 @@ namespace EndlessDelivery.Scores
 
         public static void SetIfHigher(int room, float time)
         {
+            Debug.Log($"Trying to save {room} at {time}");
             if (!Score.CanSubmit)
             {
+                Debug.Log("Early ret?");
                 return;
             }
             
             Debug.Log($"{room} at {time}");
             if (Times.ContainsKey(room))
             {
+                Debug.Log($"Checking if it's more than {Times[room]}");
                 if (time > Times[room])
                 {
+                    Debug.Log("it is!");
                     Times[room] = time;
                 }
-
+                Debug.Log("it isnt?");
                 return;
             }
             Debug.Log("doesnt contain");

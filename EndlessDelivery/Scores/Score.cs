@@ -16,13 +16,15 @@ namespace EndlessDelivery.Scores
     {
         public static string HighscoreFilePath => Path.Combine(Option.SavePath, $"highscore_{PrefsManager.Instance.GetInt("difficulty")}.json");
         public static bool CanSubmit => !Anticheat.Anticheat.HasIllegalMods && !CheatsController.Instance.cheatsEnabled;
+        private static int _lastCheckedDifficulty = 0;
         
         public static Score Highscore
         {
             get
             {
-                if (_highscore == null)
+                if (_highscore == null || _lastCheckedDifficulty != PrefsManager.Instance.GetInt("difficulty"))
                 {
+                    _lastCheckedDifficulty = PrefsManager.Instance.GetInt("difficulty");
                     Score fileScore = File.Exists(HighscoreFilePath) ? JsonConvert.DeserializeObject<Score>(File.ReadAllText(HighscoreFilePath)) : null;
                     
                     if (fileScore == null)

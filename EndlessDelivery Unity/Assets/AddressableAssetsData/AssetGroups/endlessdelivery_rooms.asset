@@ -15,7 +15,7 @@ MonoBehaviour:
   m_GroupName: endlessdelivery_rooms
   m_Data:
     m_SerializedData: []
-  m_GUID: ee03b72a4763c3d44804a9a256b52010
+  m_GUID: fb9cd1bb87e4da642ad14a5e035157c5
   m_SerializeEntries:
   - m_GUID: bb9b819391046564b9c5aa33091c779d
     m_Address: Assets/Common/Materials/Environment/Metal/Metal Decoration 29.mat
@@ -47,8 +47,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8b7f410acbcc4944a3eafc22f763b57
+    m_Address: Assets/Delivery/Prefabs/Rooms/Salty Springs.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e328c782c948c714ea85f85abbcefa71
     m_Address: Assets/Delivery/Prefabs/Rooms/Silly Room.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 71b7359128b45784b804d111b5583e6b
+    m_Address: Assets/Delivery/Prefabs/Rooms/Split 2.prefab
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
