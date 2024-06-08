@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+        <RootNamespace>EndlessDelivery.Server</RootNamespace>
+
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\EndlessDelivery.Common\EndlessDelivery.Common.csproj" />
+      <ProjectReference Include="..\EndlessDelivery\EndlessDelivery.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MaxMind.Db" Version="4.1.0" />
+      <PackageReference Include="Microsoft.AspNetCore.RateLimiting" Version="7.0.0-rc.2.22476.2" />
+      <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="8.0.6" />
+      <PackageReference Include="supabase-csharp" Version="0.14.0" />
+      <PackageReference Include="System.Linq.Async" Version="6.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Update="appsettings.Development.json">
+        <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+      </Content>
+      <Content Update="appsettings.json">
+        <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+      </Content>
+    </ItemGroup>
+
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+      <Exec Command="cd $(ProjectDir)Assets\Resources\Scripts\ &amp;&amp; call compile.bat" />
+    </Target>
+
+</Project>

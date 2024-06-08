@@ -23,11 +23,11 @@ namespace EndlessDelivery.UI
 
         private async Task DoStuff()
         {
-            if (PrefsManager.Instance.GetInt("difficulty") != 3)
+            if (PrefsManager.Instance.GetInt("difficulty") > 3)
             {
                 foreach (Text text in ConnectingToServerText)
                 {
-                    text.text = "LEADERBOARDS ARE ONLY ON VIOLENT (FOR NOW)";
+                    text.text = "LEADERBOARDS ARE ONLY ON VIOLENT AND ABOVE";
                 }
                 
                 return;
@@ -45,7 +45,7 @@ namespace EndlessDelivery.UI
 
             if (EndScreen.Instance.NewBest)
             {
-                await Endpoints.SendScoreAndReturnPosition(Score.Highscore);
+                await Endpoints.SendScoreAndReturnPosition(Score.Highscore, PrefsManager.Instance.GetInt("difficulty"));
             }
             
             List<ScoreResult> nearScores = await Endpoints.GetUserPage(await Endpoints.GetUserPosition(SteamClient.SteamId));

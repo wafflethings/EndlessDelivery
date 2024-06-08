@@ -5,7 +5,9 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndlessDelivery", "EndlessDelivery\EndlessDelivery.csproj", "{74D6D0AF-0673-473C-B490-F5D6609A34A2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndlessDeliveryScoreServer", "EndlessDeliveryScoreServer\EndlessDeliveryScoreServer.csproj", "{EDFD2871-EE7C-4E31-AA46-C7CEC8E3DA31}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndlessDelivery.Server", "EndlessDelivery.Server\EndlessDelivery.Server.csproj", "{EDFD2871-EE7C-4E31-AA46-C7CEC8E3DA31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndlessDelivery.Common", "EndlessDelivery.Common\EndlessDelivery.Common.csproj", "{06B1186D-33D0-40D9-9442-FD728213B3D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{EDFD2871-EE7C-4E31-AA46-C7CEC8E3DA31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDFD2871-EE7C-4E31-AA46-C7CEC8E3DA31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDFD2871-EE7C-4E31-AA46-C7CEC8E3DA31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06B1186D-33D0-40D9-9442-FD728213B3D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06B1186D-33D0-40D9-9442-FD728213B3D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06B1186D-33D0-40D9-9442-FD728213B3D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06B1186D-33D0-40D9-9442-FD728213B3D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

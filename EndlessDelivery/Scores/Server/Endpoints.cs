@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Net.NetworkInformation;
 using System.Threading.Tasks;
@@ -14,11 +15,11 @@ namespace EndlessDelivery.Scores.Server
     {
         private static readonly HttpClient _client = new();
         private const string Url = "http://159.65.214.169/";
-        private const string ScoresGetRange = Url + "scores/get_range?start={0}&count={1}";
-        private const string ScoresGetAmount = Url + "scores/get_length";
-        private const string ScoresGetPosition = Url + "scores/get_position?steamId={0}";
-        private const string ScoresAdd = Url + "scores/add_score?score={0}&ticket={1}&version={2}";
-        private const string UsersSpecialGet = Url + "users/get_special_users";
+        private const string ScoresGetRange = Url + "api/scores/get_range?start={0}&count={1}";
+        private const string ScoresGetAmount = Url + "api/scores/get_length";
+        private const string ScoresGetPosition = Url + "api/scores/get_position?steamId={0}";
+        private const string ScoresAdd = Url + "api/scores/add_score?score={0}&difficulty{1}&ticket={2}&version={3}";
+        private const string UsersSpecialGet = Url + "api/users/get_special_users";
 
         public static async Task<bool> IsServerOnline()
         {
@@ -93,12 +94,12 @@ namespace EndlessDelivery.Scores.Server
         /// </summary>
         /// <param name="score">The score achieved.</param>
         /// <returns>Index in the list.</returns>
-        public static async Task<int> SendScoreAndReturnPosition(Score score)
+        public static async Task<int> SendScoreAndReturnPosition(Score score, int difficulty)
         {
             try
             {
                 // i know this should be a POST but i cant figure them out so FUCK YOU!!!
-                HttpResponseMessage response = await _client.GetAsync(string.Format(ScoresAdd, JsonConvert.SerializeObject(score), SteamAuth.GetTicket(), Plugin.Version));
+                HttpResponseMessage response = await _client.GetAsync(string.Format(ScoresAdd, JsonConvert.SerializeObject(score), difficulty, WebUtility.UrlEncode(SteamAuth.GetTicket()), Plugin.Version));
                 string responseBody = await response.Content.ReadAsStringAsync();
                 Debug.Log("received " + responseBody);
                 return (int)(long)JsonConvert.DeserializeObject<Response>(responseBody).Value;

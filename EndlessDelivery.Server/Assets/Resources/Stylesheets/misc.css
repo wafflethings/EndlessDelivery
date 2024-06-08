@@ -1,0 +1,158 @@
+@font-face {
+    font-family: 'VCR OSD Mono';
+    font-weight: normal;
+    font-style: normal;
+    src: url("/resources/vcr_osd_mono.woff2") format('woff2');
+}
+
+.top-bar {
+    --top-bar-height: 60px;
+    --top-bar-x-padding: 15px;
+    --top-bar-y-padding: 5px;
+    
+    padding: var(--top-bar-y-padding) var(--top-bar-x-padding);
+    margin-bottom: 10px;
+    background-color: #181818;
+    height: var(--top-bar-height);
+    align-content: center;
+    justify-content: space-between;
+    display: flex;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.top-bar-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* this is vertical alignment */
+    column-gap: 1em;
+    padding: 0 10px;
+}
+
+.top-bar-icon {
+    width: fit-content;
+}
+
+.dropdown-button {
+    width: 2rem;
+    height: 2rem;
+}
+
+.pixel-perfect {
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+}
+
+.top-bar-title-text {
+    font-weight: bold;
+    font-size: 24px;
+    margin: 0 0 0 0;
+    color: white !important;
+    text-decoration: none !important;
+}
+
+.circle-clip {
+    clip-path: circle();
+}
+
+.top-bar-pfp {
+    width: 32px;
+    height: 32px;
+}
+
+.top-mini-profile {
+    --top-mini-profile-outline-thickness: 2px;
+    --top-mini-profile-padding-x: 20px;
+    --top-mini-profile-padding-y: 15px;
+
+    display: flex;
+    flex-direction: column;
+    row-gap: calc(var(--top-mini-profile-padding-y) * 2);
+    position: fixed;
+    visibility: hidden;
+    outline: var(--top-mini-profile-outline-thickness) solid #101010;
+    background-color: #101010;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: var(--top-mini-profile-padding-x) var(--top-mini-profile-padding-y);
+    max-width: calc(100vh - (var(--top-mini-profile-padding-x) * 2));
+    width: 400px;
+    top: calc(var(--top-bar-height) + (var(--top-bar-y-padding) * 2) + var(--top-mini-profile-outline-thickness));
+    right: 0;
+}
+
+.top-mini-profile > p, a {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.full-page-box {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    height: calc(100% - var(--top-bar-height));
+    top: var(--top-bar-height);
+    box-sizing: border-box;
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hide-until-js {
+    visibility: hidden;
+}
+
+body {
+    background-color: #141414;
+    padding: 0;
+    margin: 0;
+}
+
+p, a, label {
+    font-family: "VCR OSD Mono", sans-serif;
+}
+
+p, label {
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+    color: lightskyblue;
+}
+
+a:visited {
+    text-decoration: none;
+    color: lightskyblue; 
+}
+
+a:hover {
+    text-decoration: underline;
+    transition-duration: 0.2s;
+    color: #b2e0fc;
+}
+
+.button {
+    border: none;
+    padding: 1rem;
+    font-family: "VCR OSD Mono", sans-serif;
+    font-size: 1.25rem;
+    color: white;
+    background-color: #0A0A0A;
+    text-decoration: none;
+    border-radius: 5px;
+    transition-duration: 0.2s;
+}
+
+.button:hover {
+    background-color: #0D0D0D;
+    transition-duration: 0.2s;
+    /* text-decoration: underline; */
+}
+
+.button:active {
+    transition-duration: 0.05s;
+    background-color: #070707;
+}

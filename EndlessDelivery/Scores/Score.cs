@@ -129,6 +129,10 @@ namespace EndlessDelivery.Scores
             Time = time;
         }
 
+        public static Score operator +(Score a, Score b) => new(a.Rooms + b.Rooms, a.Kills + b.Kills, a.Deliveries + b.Deliveries, a.Time + b.Time); 
+        
+        public static Score operator -(Score a, Score b) => new(a.Rooms - b.Rooms, a.Kills - b.Kills, a.Deliveries - b.Deliveries, a.Time - b.Time); 
+
         [JsonIgnore] public int MoneyGain => (int)(Time * 10);
     }
 }
