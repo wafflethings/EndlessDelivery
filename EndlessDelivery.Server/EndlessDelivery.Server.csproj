@@ -31,7 +31,7 @@
       </Content>
     </ItemGroup>
 
-    <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition="'$(OS)' == 'Windows_NT' ">
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition=" '$(OS)' == 'Windows_NT' ">
       <Exec Command="cd $(ProjectDir)Assets\Resources\Scripts\ &amp;&amp; call compile.bat" />
     </Target>
 
