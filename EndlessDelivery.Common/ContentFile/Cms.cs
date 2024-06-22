@@ -47,7 +47,7 @@ namespace EndlessDelivery.Common.ContentFile
                     continue;
                 }
 
-                if (rotation.Start < DateTime.UtcNow)
+                if (rotation.Start <= DateTime.UtcNow)
                 {
                     return rotation;
                 }

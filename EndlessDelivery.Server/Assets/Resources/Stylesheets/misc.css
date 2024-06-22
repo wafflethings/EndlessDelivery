@@ -9,7 +9,7 @@
     --top-bar-height: 60px;
     --top-bar-x-padding: 15px;
     --top-bar-y-padding: 5px;
-    
+
     padding: var(--top-bar-y-padding) var(--top-bar-x-padding);
     margin-bottom: 10px;
     background-color: #181818;
@@ -125,7 +125,7 @@ a:link {
 
 a:visited {
     text-decoration: none;
-    color: lightskyblue; 
+    color: lightskyblue;
 }
 
 a:hover {
@@ -156,3 +156,5 @@ a:hover {
     transition-duration: 0.05s;
     background-color: #070707;
 }
+
+.scale-font-to-fit { /* done in js ! */ }

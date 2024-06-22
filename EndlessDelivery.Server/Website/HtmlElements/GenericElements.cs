@@ -1,4 +1,5 @@
-﻿using EndlessDelivery.Server.Api.Steam;
+﻿using EndlessDelivery.Server.Api.ContentFile;
+using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Api.Users;
 using Microsoft.AspNetCore.Html;
 
@@ -25,15 +26,15 @@ public static class GenericElements
         builder.AppendHtml("<div class=\"top-bar-group\">");
         builder.AppendHtml("<img src=\"/resources/logo-transparent.png\" class=\"top-bar-icon pixel-perfect\">");
         builder.AppendHtml("<a href=\"/\" class=\"top-bar-title-text\">");
-        builder.Append("DIVINE DELIVERY");
+        builder.Append(ContentController.CurrentContent.GetLocalisedString("navbar.mod_name"));
         builder.AppendHtml("</a>");
         builder.AppendHtml("</div>");
         builder.AppendHtml("<div class=\"top-bar-group\">");
         builder.AppendHtml("<a href=\"/shop\">");
-        builder.Append("SHOP");
+        builder.Append(ContentController.CurrentContent.GetLocalisedString("navbar.shop_link"));
         builder.AppendHtml("</a>");
         builder.AppendHtml("<a href=\"https://thunderstore.io/c/ultrakill/p/Waff1e/Divine_Delivery/\">");
-        builder.Append("DOWNLOAD");
+        builder.Append(ContentController.CurrentContent.GetLocalisedString("navbar.download_link"));
         builder.AppendHtml("</a>");
 
         bool loggedIn = context.TryGetLoggedInPlayer(out SteamUser player);
@@ -55,26 +56,26 @@ public static class GenericElements
             if (loggedIn && userModel.Admin)
             {
                 builder.AppendHtml("<a href=\"/admin_panel\">");
-                builder.Append("ADMIN PANEL");
+                builder.Append(ContentController.CurrentContent.GetLocalisedString("sidebar.admin"));
                 builder.AppendHtml("</a>");
             }
 
             builder.AppendHtml($"<a href=\"/users/{steamUser.SteamId}\">");
-            builder.Append("PROFILE");
+            builder.Append(ContentController.CurrentContent.GetLocalisedString("sidebar.profile"));
             builder.AppendHtml("</a>");
 
             builder.AppendHtml("<a href=\"/account_settings\">");
-            builder.Append("ACCOUNT SETTINGS");
+            builder.Append(ContentController.CurrentContent.GetLocalisedString("sidebar.acc_settings"));
             builder.AppendHtml("</a>");
 
             builder.AppendHtml("<a href=\"#\" id=\"log-out-link\">");
-            builder.Append("LOG OUT");
+            builder.Append(ContentController.CurrentContent.GetLocalisedString("sidebar.logout"));
             builder.AppendHtml("</a>");
         }
         else
         {
-            builder.AppendHtml($"<a href=\"{SteamApi.BuildOpenIdLogin(context, "/api/auth/return_url")}/\">");
-            builder.Append("LOGIN");
+            builder.AppendHtml($"<a href=\"{SteamApi.BuildOpenIdLogin(context, "/api/auth/steam/return_url")}/\">");
+            builder.Append(ContentController.CurrentContent.GetLocalisedString("sidebar.login"));
             builder.AppendHtml("</a>");
         }
 

@@ -1,4 +1,5 @@
-﻿using EndlessDelivery.Server.Api.Users;
+﻿using EndlessDelivery.Server.Api.Patreon;
+using EndlessDelivery.Server.Api.Users;
 using EndlessDelivery.Server.Api.Scores;
 using Newtonsoft.Json;
 
@@ -10,7 +11,7 @@ public class SteamUser
     public static readonly TimeSpan CacheRenewInterval = TimeSpan.FromMinutes(30);
     public static readonly TimeSpan CacheGroupGetInterval = TimeSpan.FromSeconds(10);
     public static readonly TimeSpan CacheGroupGetAfterFailInterval = TimeSpan.FromSeconds(30);
-    
+
     private static DateTime s_lastCacheUpdate = DateTime.MinValue;
     private static Dictionary<ulong, SteamUser> s_playerCache = new();
 
@@ -23,7 +24,7 @@ public class SteamUser
         ProfileUrl = "https://soggy.cat",
         SteamId = "0"
     };
-    
+
     public string SteamId { get; set; }
     public string PersonaName { get; set; }
     public string ProfileUrl { get; set; }
@@ -48,18 +49,18 @@ public class SteamUser
     {
         File.WriteAllText(PlayerCachePath, JsonConvert.SerializeObject(s_playerCache));
     }
-    
+
     public static void CacheUpdateThread()
     {
         Console.WriteLine("Started cache update thread.");
-        
+
         while (Program.Running)
         {
             Thread.Sleep(CacheRenewInterval);
             UpdateCache().Wait();
         }
     }
-    
+
     public static async Task UpdateCache()
     {
         List<UserModel> models = (await Program.Supabase.From<UserModel>().Get()).Models;
@@ -72,7 +73,7 @@ public class SteamUser
         {
             int startPoint = MaximumPlayersFetched * groupIndex;
             int amountOfUsersToGet = (int)MathF.Min(usersLeft, MaximumPlayersFetched);
-                
+
             idGroups[groupIndex] = allUserIds[startPoint .. (startPoint + amountOfUsersToGet)];
             usersLeft -= amountOfUsersToGet;
         }
@@ -147,10 +148,10 @@ public class SteamUser
         models.RemoveAll(um => um.SteamId.ToString() != SteamId);
         return models.Count != 0 ? models[0] : null;
     }
-    
+
     public static SteamUser GetById(ulong id) => CacheHasId(id) ? s_playerCache[id] : s_fallback;
-    
+
     public static bool CacheHasId(ulong id) => s_playerCache.ContainsKey(id);
-    
+
     private static string FormatResponse(string stringResponse) => stringResponse.Substring(23, stringResponse.Length - 25); // trims "{"response":{"players":" and "}}" on the end
 }

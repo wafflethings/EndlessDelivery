@@ -42,7 +42,7 @@ public class PageController : Controller
         builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
-        builder.Append("Divine Delivery - Leaderboard");
+        builder.Append(ContentController.CurrentContent.GetLocalisedString("page_title.index"));
         builder.AppendHtml("</title>");
 
         await using StringWriter writer = new();
@@ -82,7 +82,7 @@ public class PageController : Controller
         builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
-        builder.Append($"Divine Delivery - {player.PersonaName}");
+        builder.Append(string.Format(ContentController.CurrentContent.GetLocalisedString("page_title.user"), player.PersonaName));
         builder.AppendHtml("</title>");
 
         await using StringWriter writer = new();
@@ -110,7 +110,8 @@ public class PageController : Controller
         builder.AppendHtml("</head>");
 
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
-        builder.AppendSettingSection("Links", () => SettingsElements.AppendSocialSettings(builder, userModel));
+        builder.AppendSettingSection(ContentController.CurrentContent.GetLocalisedString("settings.links"), () => builder.AppendSocialSettings(userModel));
+        builder.AppendSettingSection(ContentController.CurrentContent.GetLocalisedString("settings.patreon"), () => builder.AppendPatreonSettings(HttpContext, userModel));
         builder.AppendHtml("</div>");
 
         builder.AppendHtml("</body>");
@@ -118,7 +119,7 @@ public class PageController : Controller
         builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
-        builder.Append("Divine Delivery - Account Settings");
+        builder.Append(ContentController.CurrentContent.GetLocalisedString("page_title.settings"));
         builder.AppendHtml("</title>");
 
         await using StringWriter writer = new();
@@ -165,7 +166,7 @@ public class PageController : Controller
         builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
-        builder.Append("Divine Delivery - Shop");
+        builder.Append(ContentController.CurrentContent.GetLocalisedString("page_title.shop"));
         builder.AppendHtml("</title>");
 
         await using StringWriter writer = new();
@@ -192,14 +193,14 @@ public class PageController : Controller
         builder.AppendHtml("</head>");
 
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
-        builder.AppendAdminPanel();
+        builder.AppendAdminPanel(HttpContext);
         builder.AppendHtml("</div>");
 
         builder.AppendHtml("</body>");
         builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
-        builder.Append("Divine Delivery - Admin Panel");
+        builder.Append(ContentController.CurrentContent.GetLocalisedString("page_title.admin"));
         builder.AppendHtml("</title>");
 
         await using StringWriter writer = new();
@@ -223,7 +224,7 @@ public class PageController : Controller
         builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
-        builder.Append($"Divine Delivery - Error {statusCode}");
+        builder.Append(string.Format(ContentController.CurrentContent.GetLocalisedString("page_title.error"), statusCode));
         builder.AppendHtml("</title>");
 
         builder.AppendHtml("<div class=\"full-page-box error-page-box\">");

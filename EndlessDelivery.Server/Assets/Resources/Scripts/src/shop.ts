@@ -2,7 +2,7 @@
     element.addEventListener("pointerdown", function () : void {
         let itemId : string | null = element.getAttribute("item-id");
         let unownedText : HTMLDivElement | null = element.querySelector("#unowned-price-text");
-        let ownedText : HTMLDivElement | null = element.querySelector("owned-price-text");
+        let ownedText : HTMLDivElement | null = element.querySelector("#owned-price-text");
 
         if (itemId != null) {
             buyItem(itemId).then(s => {

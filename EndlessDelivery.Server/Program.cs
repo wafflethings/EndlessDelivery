@@ -1,6 +1,7 @@
 using System.Threading.RateLimiting;
 using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Server.Api.ContentFile;
+using EndlessDelivery.Server.Api.Patreon;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Config;
 using EndlessDelivery.Server.Resources;
@@ -48,22 +49,23 @@ public class Program
         builder.Services.AddControllers();
         WebApplication app = builder.Build();
 
-        // app.UseHttpsRedirection();
         app.MapControllers();
         app.MapResources();
 
         Keys.Load();
         InitSupabase();
-        StartThreads();
 
         ContentController.LoadCms();
         SteamLoginController.LoadTokens();
         SteamUser.LoadPlayerCache();
+        PatreonLoginController.LoadTokens();
         Console.WriteLine(JsonConvert.SerializeObject(ContentController.CurrentContent));
+        StartThreads();
         app.Run();
         ContentController.SaveCms();
         SteamLoginController.SaveTokens();
         SteamUser.SavePlayerCache();
+        PatreonLoginController.SaveTokens();
         StopThreads();
     }
 
@@ -81,6 +83,14 @@ public class Program
         Thread userCacheThread = new(SteamUser.CacheUpdateThread);
         userCacheThread.Start();
         s_threads.Add(userCacheThread);
+
+        Thread patreonTokenThread = new(PatreonLoginController.RefreshTokensThread);
+        patreonTokenThread.Start();
+        s_threads.Add(patreonTokenThread);
+
+        Thread steamTokenThread = new(SteamLoginController.RemoveExpiredTokensThread);
+        steamTokenThread.Start();
+        s_threads.Add(steamTokenThread);
     }
 
     private static async void InitSupabase()

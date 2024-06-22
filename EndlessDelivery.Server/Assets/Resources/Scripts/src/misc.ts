@@ -59,11 +59,40 @@ logOutMiniProfile?.addEventListener("pointerdown", function () : void {
     location.reload();
 });
 
+window.onload = function() : void {
+    document.querySelectorAll(".scale-font-to-fit").forEach(function (element : Element) : void {
+        const htmlElement : HTMLElement = element as HTMLElement;
+        resizeToFit(htmlElement);
+
+        window.addEventListener("resize", () : void => {
+            resizeToFit(htmlElement);
+        });
+    });
+}
+
+function resizeToFit(element : HTMLElement) : void {
+    if (element.parentElement == null) {
+        return;
+    }
+
+    if (element.clientHeight - 2 > parseFloat(window.getComputedStyle(element).lineHeight)) {
+        console.log(element.clientWidth + ">" + parseFloat(window.getComputedStyle(element).lineHeight))
+        element.style.fontSize = (parseFloat(window.getComputedStyle(element).fontSize) - 1) + 'px';
+        resizeToFit(element)
+    }
+
+    if (element.clientHeight + 2 < parseFloat(window.getComputedStyle(element).lineHeight)) {
+        console.log(element.clientWidth + ">" + parseFloat(window.getComputedStyle(element).lineHeight))
+        element.style.fontSize = (parseFloat(window.getComputedStyle(element).fontSize) + 1) + 'px';
+        resizeToFit(element)
+    }
+}
+
 document.querySelectorAll(".hide-until-js").forEach(function (element : Element) : void {
     if (element == null) {
         return;
     }
-    
+
     element.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, fill: "forwards", easing: "ease-in-out" });
     (element as HTMLElement).style.visibility = "visible";
 })

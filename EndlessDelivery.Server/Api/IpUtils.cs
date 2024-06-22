@@ -13,6 +13,13 @@ public static class IpUtils
 
     public static string GetIpCountry(IPAddress address)
     {
+        if (address.ToString() == "::1")
+        {
+            // this fucking reeks but also only happens in dev! so i dont care :pray:
+            HttpResponseMessage response = Program.Client.GetAsync(new Uri("https://api.ipify.org")).Result;
+            address = IPAddress.Parse(response.Content.ReadAsStringAsync().Result);
+        }
+
         Dictionary<string, object> dict = s_reader.Find<Dictionary<string, object>>(address);
 
         if (dict == null || !dict.ContainsKey("country"))

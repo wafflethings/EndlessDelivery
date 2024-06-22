@@ -26,7 +26,7 @@ public class ContentController : Controller
 
     public static void SaveCms()
     {
-        System.IO.File.WriteAllText(s_cmsPath, JsonConvert.SerializeObject(CurrentContent));
+        System.IO.File.WriteAllText(s_cmsPath, JsonConvert.SerializeObject(CurrentContent, Formatting.Indented));
     }
 
     [HttpGet("update_required")]

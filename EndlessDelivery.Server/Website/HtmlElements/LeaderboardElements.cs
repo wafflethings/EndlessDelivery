@@ -1,4 +1,5 @@
-﻿using EndlessDelivery.Server.Api.Scores;
+﻿using EndlessDelivery.Server.Api.ContentFile;
+using EndlessDelivery.Server.Api.Scores;
 using EndlessDelivery.Server.Api.Steam;
 using Microsoft.AspNetCore.Html;
 
@@ -26,9 +27,9 @@ public static class LeaderboardElements
     {
         builder.AppendHtml("<div class=\"leaderboard-secondary-content\">");
         builder.AppendHtml("<div class=\"leaderboard-internal-content\">");
-        builder.AppendLeaderboardData($"Deliveries: {scoreModel.Score.Deliveries}");
-        builder.AppendLeaderboardData($"Kills: {scoreModel.Score.Kills}");
-        builder.AppendLeaderboardData($"Time: {TimeSpan.FromSeconds(scoreModel.Score.Time).ToString("mm':'ss'.'ff")}");
+        builder.AppendHtml("<p class=\"leaderboard-entry\">");
+        builder.AppendHtml(string.Format(ContentController.CurrentContent.GetLocalisedString("leaderboard.extra_info"), scoreModel.Score.Deliveries, scoreModel.Score.Kills, TimeSpan.FromSeconds(scoreModel.Score.Time).ToString("mm':'ss'.'ff")));
+        builder.AppendHtml("</p>");
         builder.AppendHtml("</div>");
         builder.AppendHtml("</div>");
     }
@@ -60,11 +61,5 @@ public static class LeaderboardElements
         builder.Append(scoreModel.Date.ToString("dd/MM/yyyy"));
         builder.AppendHtml("</p>");
         builder.AppendHtml("</div>");
-    }
-    private static void AppendLeaderboardData(this HtmlContentBuilder builder, string content)
-    {
-        builder.AppendHtml("<p class=\"leaderboard-entry\">");
-        builder.Append(content);
-        builder.AppendHtml("</p>");
     }
 }

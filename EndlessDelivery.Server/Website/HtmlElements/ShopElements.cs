@@ -24,12 +24,14 @@ public static class ShopElements
     {
         builder.AppendHtml($"<div class=\"item-card\" item-id=\"{item.Descriptor.Id}\">");
         builder.AppendHtml("<div class=\"item-titles-holder\">");
-        builder.AppendHtml("<p class=\"item-title\">");
+
+        builder.AppendHtml("<p class=\"item-title scale-font-to-fit\">");
         builder.Append(ContentController.CurrentContent.GetLocalisedString(item.Descriptor.Name));
         builder.AppendHtml("</p>");
+
         builder.AppendHtml("<p class=\"item-category\">");
         builder.Append("-- ");
-        builder.Append(item.Descriptor.Type.ToString());
+        builder.Append(ContentController.CurrentContent.GetLocalisedString("category." + item.Descriptor.Type.ToString().ToLower()));
         builder.Append(" --");
         builder.AppendHtml("</p>");
         builder.AppendHtml("</div>");
@@ -39,22 +41,24 @@ public static class ShopElements
         string ownedStyle = itemOwned ? "display:block" : "display:none";
 
         builder.AppendHtml($"<img class=\"item-card-icon\" src=\"{item.Descriptor.PreviewUri}\"/>");
-        builder.AppendHtml("<div class=\"price-holder\">");
 
         builder.AppendHtml($"<div id=\"unowned-price-text\" style=\"{unownedStyle}\">");
+        builder.AppendHtml("<div class=\"price-holder\">");
         builder.AppendHtml("<img class=\"price-currency\" src=\"/resources/prem-currency.png\">");
         builder.AppendHtml("<p class=\"price-text\">");
         builder.Append(item.Descriptor.ShopPrice.ToString());
         builder.AppendHtml("</p>");
         builder.AppendHtml("</div>");
+        builder.AppendHtml("</div>");
 
         builder.AppendHtml($"<div id=\"owned-price-text\" style=\"{ownedStyle}\">");
+        builder.AppendHtml("<div class=\"price-holder\">");
         builder.AppendHtml("<p class=\"price-text\">");
-        builder.Append("OWNED");
+        builder.Append(ContentController.CurrentContent.GetLocalisedString("shop.owned"));
         builder.AppendHtml("</p>");
         builder.AppendHtml("</div>");
-
         builder.AppendHtml("</div>");
+
         builder.AppendHtml("</div>");
     }
 }

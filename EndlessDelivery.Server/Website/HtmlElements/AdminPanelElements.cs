@@ -1,4 +1,5 @@
 ﻿using EndlessDelivery.Server.Api.ContentFile;
+using EndlessDelivery.Server.Api.Patreon;
 using EndlessDelivery.Server.Api.Users;
 using Microsoft.AspNetCore.Html;
 using Newtonsoft.Json;
@@ -7,11 +8,22 @@ namespace EndlessDelivery.Server.Website.HtmlElements;
 
 public static class AdminPanelElements
 {
-    public static void AppendAdminPanel(this HtmlContentBuilder builder)
+    public static void AppendAdminPanel(this HtmlContentBuilder builder, HttpContext context)
     {
+        builder.AppendAdminPatreon(context);
         builder.AppendCmsEditor();
         builder.AppendCurrencyGiver();
         builder.AppendScoreSubmitter();
+    }
+
+    public static void AppendAdminPatreon(this HtmlContentBuilder builder, HttpContext context)
+    {
+        builder.AppendSettingSection("Campaign Owner Patreon Link", () =>
+        {
+            builder.AppendHtml($"<a href=\"{PatreonApi.BuildOAuthLogin(context, true, "/api/auth/patreon/return_url")}\" class=\"button\">");
+            builder.Append(ContentController.CurrentContent.GetLocalisedString("settings.patreon.link"));
+            builder.AppendHtml("</a>");
+        });
     }
 
     public static void AppendScoreSubmitter(this HtmlContentBuilder builder)
