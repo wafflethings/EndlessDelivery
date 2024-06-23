@@ -5,6 +5,7 @@ using EndlessDelivery.Server.Api.Patreon;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Config;
 using EndlessDelivery.Server.Resources;
+using Microsoft.AspNetCore.HttpOverrides;
 using Supabase;
 using Microsoft.AspNetCore.RateLimiting;
 using Newtonsoft.Json;
@@ -48,6 +49,14 @@ public class Program
 
         builder.Services.AddControllers();
         WebApplication app = builder.Build();
+
+        builder.Services.Configure<ForwardedHeadersOptions>(options =>
+        {
+            options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+        });
+
+        app.UseForwardedHeaders();
+        app.UseHttpsRedirection();
 
         app.MapControllers();
         app.MapResources();
