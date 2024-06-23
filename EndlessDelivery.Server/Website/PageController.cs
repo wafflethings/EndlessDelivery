@@ -30,7 +30,7 @@ public class PageController : Controller
 
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
-        builder.AppendHtml($"<meta property=\"og:title\" content=\"{ContentController.CurrentContent.GetLocalisedString("page_name.index")}\">");
+        builder.AppendHtml($"<meta property=\"og:title\" content=\"{ContentController.CurrentContent.GetLocalisedString("page_title.index")}\">");
         builder.AppendHtml($"<meta property=\"og:description\" content=\"{ContentController.CurrentContent.GetLocalisedString("page_desc.index")}\">");
         builder.AppendGenericEmbed(HttpContext);
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/resources/leaderboard.css\">");

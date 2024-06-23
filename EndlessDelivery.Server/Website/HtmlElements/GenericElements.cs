@@ -25,7 +25,7 @@ public static class GenericElements
         builder.AppendHtml($"<meta property=\"og:url\" content=\"{context.Request.Path}\" />");
         builder.AppendHtml("<meta property=\"og:image\" content=\"/resources/embed-thumb.png\" />");
         builder.AppendHtml("<meta name=\"twitter:card\" content=\"summary_large_image\">");
-        builder.AppendHtml("<meta name=\"theme-color\" content=\"#FF3A51\">");
+        builder.AppendHtml("<meta name=\"theme-color\" content=\"#BC2B3E\">");
     }
 
     public static async Task AppendHeader(this HtmlContentBuilder builder, HttpContext context)
