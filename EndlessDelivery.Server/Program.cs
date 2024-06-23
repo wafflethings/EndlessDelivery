@@ -48,12 +48,11 @@ public class Program
             }));
 
         builder.Services.AddControllers();
-        WebApplication app = builder.Build();
-
         builder.Services.Configure<ForwardedHeadersOptions>(options =>
         {
             options.ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
         });
+        WebApplication app = builder.Build();
 
         app.UseForwardedHeaders();
         app.UseHttpsRedirection();
