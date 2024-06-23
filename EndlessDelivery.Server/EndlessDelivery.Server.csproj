@@ -36,7 +36,7 @@
     </Target>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition=" '$(OS)' == 'Unix' ">
-    <Exec Command="cd $(ProjectDir)Assets\Resources\Scripts\ &amp;&amp; call compile.sh" />
+    <Exec Command="cd $(ProjectDir)Assets\Resources\Scripts\ &amp;&amp; sh compile.sh" />
   </Target>
 
 </Project>
