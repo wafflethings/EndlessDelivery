@@ -2,6 +2,7 @@
 using EndlessDelivery.Scores;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Api.Users;
+using EndlessDelivery.Server.Website;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 using Newtonsoft.Json;
@@ -24,7 +25,7 @@ namespace EndlessDelivery.Server.Api.Scores
             return models.OrderByDescending(x => x.Score.Rooms).ThenByDescending(x => x.Score.Deliveries)
                 .ThenByDescending(x => x.Score.Kills).ThenBy(x => x.Score.Time).ToList();
         }
-        
+
         [EnableRateLimiting("fixed")]
         [HttpGet("get_range")]
         public async Task<object> Get(int start, int count)
@@ -32,7 +33,7 @@ namespace EndlessDelivery.Server.Api.Scores
             try
             {
                 List<ScoreModel> scoreModels = await GetScoreModels();
-                
+
                 if (count > 10)
                 {
                     return Json(BadRequest("Please make sure that count is smaller than 10."));
@@ -49,7 +50,7 @@ namespace EndlessDelivery.Server.Api.Scores
                // {
                     //model.Format = (await Program.Supabase.From<SpecialUserModel>().Match(new SpecialUserModel {SteamId = model.SteamId})?.Single())?.NameFormat ?? "{0}";
                // }
-                
+
                 return JsonConvert.SerializeObject(models);
             }
             catch (Exception ex)
@@ -57,7 +58,7 @@ namespace EndlessDelivery.Server.Api.Scores
                 return Json(StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data: report this to Waffle. \n" + ex));
             }
         }
-        
+
         [EnableRateLimiting("fixed")]
         [HttpGet("get_length")]
         public async Task<IActionResult> GetLength()
@@ -72,7 +73,7 @@ namespace EndlessDelivery.Server.Api.Scores
                 return Json(StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data: report this to Waffle. \n" + ex));
             }
         }
-        
+
         [EnableRateLimiting("fixed")]
         [HttpGet("get_position")]
         public async Task<IActionResult> GetPosition(ulong steamId)
@@ -87,7 +88,7 @@ namespace EndlessDelivery.Server.Api.Scores
                 return Json(StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data: report this to Waffle. \n" + ex));
             }
         }
-        
+
         [EnableRateLimiting("fixed")]
         [HttpGet("add_score")]
         public async Task<IActionResult> Add(string score, short difficulty, string ticket, string version)
@@ -96,7 +97,7 @@ namespace EndlessDelivery.Server.Api.Scores
             {
                 return Json(StatusCode(StatusCodes.Status426UpgradeRequired, $"Version {Plugin.Version} required; please update."));
             }
-            
+
             try
             {
                 AuthTicket auth = await AuthTicket.GetAuth(ticket);
@@ -106,7 +107,7 @@ namespace EndlessDelivery.Server.Api.Scores
                 {
                     return Json(StatusCode(StatusCodes.Status403Forbidden, "You have been banned."));
                 }
-                
+
                 ScoreModel newScore = new()
                 {
                     SteamId = id,
@@ -124,7 +125,7 @@ namespace EndlessDelivery.Server.Api.Scores
                 userModel.LifetimeStats += newScore.Score;
                 userModel.Country = HttpContext.GetCountry();
                 await userModel.Update<UserModel>();
-                
+
                 // this will update regardless of if it is bigger but that shouldnt be happening anyway, client should prevent it
                 ModeledResponse<ScoreModel> responses = await Program.Supabase.From<ScoreModel>().Upsert(newScore);
                 await SetIndexes();
@@ -137,11 +138,14 @@ namespace EndlessDelivery.Server.Api.Scores
             }
         }
 
-        #if DEBUG
         [HttpGet("force_reset_indexes")]
-        #endif
-        public async Task<string> SetIndexes()
+        public async Task<ObjectResult> SetIndexes()
         {
+            if (!HttpContext.TryGetLoggedInPlayer(out SteamUser user) || !(await user.GetUserModel()).Admin)
+            {
+                return StatusCode(StatusCodes.Status403Forbidden, "Go away!!!!");
+            }
+
             Dictionary<string, int> countryIndexes = new();
             List<ScoreModel> models = await GetScoreModels();
             Dictionary<ulong, UserModel> idToUm = (await Program.Supabase.From<UserModel>().Get()).Models.ToDictionary(model => model.SteamId, model => model);
@@ -161,14 +165,14 @@ namespace EndlessDelivery.Server.Api.Scores
             }
 
             await Program.Supabase.From<ScoreModel>().Upsert(models);
-            return "Scores reset!";
+            return StatusCode(StatusCodes.Status200OK, "Indexes reset.");
         }
 
         private async Task<bool> IsUserBanned(ulong steamId)
         {
             ModeledResponse<UserModel> models = await Program.Supabase.From<UserModel>().Get();
             List<UserModel> specialUsers = models.Models;
-            
+
             //foreach is bad and i probably need to fix this! or maybe cache (TODO?)
             foreach (UserModel user in specialUsers)
             {

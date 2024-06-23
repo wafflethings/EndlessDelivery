@@ -1,4 +1,5 @@
-﻿using System.Text.Encodings.Web;
+﻿using System.Diagnostics;
+using System.Text.Encodings.Web;
 using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Server.Api.Scores;
 using EndlessDelivery.Server.Api.Steam;
@@ -19,6 +20,9 @@ public class PageController : Controller
     [HttpGet("")]
     public async Task<ContentResult> Index()
     {
+        Stopwatch sw = new();
+        sw.Start();
+
         HtmlContentBuilder builder = new();
 
         builder.AppendHtml("<body>");
@@ -47,6 +51,7 @@ public class PageController : Controller
 
         await using StringWriter writer = new();
         builder.WriteTo(writer, HtmlEncoder.Default);
+        Console.WriteLine($"Served in {sw.Elapsed.TotalSeconds}");
         return Content(writer.ToString(), "text/html");
     }
 
