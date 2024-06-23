@@ -30,6 +30,9 @@ public class PageController : Controller
 
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
+        builder.AppendHtml($"<meta property=\"og:title\" content=\"{ContentController.CurrentContent.GetLocalisedString("page_name.index")}\">");
+        builder.AppendHtml($"<meta property=\"og:description\" content=\"{ContentController.CurrentContent.GetLocalisedString("page_desc.index")}\">");
+        builder.AppendGenericEmbed(HttpContext);
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/resources/leaderboard.css\">");
         builder.AppendHtml("</head>");
 
@@ -51,7 +54,7 @@ public class PageController : Controller
 
         await using StringWriter writer = new();
         builder.WriteTo(writer, HtmlEncoder.Default);
-        Console.WriteLine($"Served in {sw.Elapsed.TotalSeconds}");
+        Console.WriteLine($"Served to {HttpContext.GetIp()} in {sw.Elapsed.TotalSeconds}, ping from {HttpContext.GetCountry()}");
         return Content(writer.ToString(), "text/html");
     }
 
@@ -77,6 +80,9 @@ public class PageController : Controller
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/resources/user.css\">");
+        builder.AppendHtml($"<meta property=\"og:title\" content=\"{string.Format(ContentController.CurrentContent.GetLocalisedString("page_title.user"), player.PersonaName)}\">");
+        builder.AppendHtml($"<meta property=\"og:description\" content=\"{string.Format(ContentController.CurrentContent.GetLocalisedString("page_desc.user"), player.PersonaName)}\">");
+        builder.AppendGenericEmbed(HttpContext);
         builder.AppendHtml("</head>");
 
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
@@ -102,6 +108,7 @@ public class PageController : Controller
         {
             return await ErrorPage(StatusCodes.Status403Forbidden);
         }
+
         UserModel userModel = await user.GetUserModel();
 
         HtmlContentBuilder builder = new();
@@ -150,6 +157,9 @@ public class PageController : Controller
 
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
+        builder.AppendHtml($"<meta property=\"og:title\" content=\"{ContentController.CurrentContent.GetLocalisedString("page_title.shop")}\">");
+        builder.AppendHtml($"<meta property=\"og:description\" content=\"{ContentController.CurrentContent.GetLocalisedString("page_desc.shop")}\">");
+        builder.AppendGenericEmbed(HttpContext);
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/resources/shop.css\">");
         builder.AppendHtml("</head>");
 
@@ -222,6 +232,9 @@ public class PageController : Controller
 
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
+        builder.AppendHtml($"<meta property=\"og:title\" content=\"{string.Format(ContentController.CurrentContent.GetLocalisedString("page_title.error"), statusCode)}\">");
+        builder.AppendHtml($"<meta property=\"og:description\" content=\"{ContentController.CurrentContent.GetLocalisedString("page_desc.error")}\">");
+        builder.AppendGenericEmbed(HttpContext);
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/resources/error_page.css\">");
         builder.AppendHtml("</head>");
 

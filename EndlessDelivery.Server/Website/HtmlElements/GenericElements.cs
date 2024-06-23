@@ -20,6 +20,14 @@ public static class GenericElements
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200\"/>");
     }
 
+    public static void AppendGenericEmbed(this HtmlContentBuilder builder, HttpContext context)
+    {
+        builder.AppendHtml($"<meta property=\"og:url\" content=\"{context.Request.Path}\" />");
+        builder.AppendHtml("<meta property=\"og:image\" content=\"/resources/embed-thumb.png\" />");
+        builder.AppendHtml("<meta name=\"twitter:card\" content=\"summary_large_image\">");
+        builder.AppendHtml("<meta name=\"theme-color\" content=\"#FF3A51\">");
+    }
+
     public static async Task AppendHeader(this HtmlContentBuilder builder, HttpContext context)
     {
         builder.AppendHtml("<div class=\"top-bar\">");

@@ -12,6 +12,7 @@ public static class ResourceManager
         new(ResourcePath + "global.png", Path.Combine("Assets", "Resources", "UI", "global.png"), "image/png"),
         new(ResourcePath + "fallback-pfp.png", Path.Combine("Assets", "Resources", "UI", "fallback-pfp.png"), "image/png"),
         new(ResourcePath + "prem-currency.png", Path.Combine("Assets", "Resources", "UI", "prem-currency.png"), "image/png"),
+        new(ResourcePath + "embed-thumb.png", Path.Combine("Assets", "Resources", "UI", "embed-thumb.png"), "image/png"),
         new(ResourcePath + "vcr_osd_mono.woff2", Path.Combine("Assets", "Resources", "UI", "vcr_osd_mono.woff2")),
 
         new(ResourcePath + "banners/average-british-neighbourhood.png", Path.Combine("Assets", "Resources", "UI", "Banners", "average-british-neighbourhood.png"), "image/png"),

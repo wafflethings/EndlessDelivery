@@ -36,7 +36,7 @@ public static class ShopElements
         builder.AppendHtml("</p>");
         builder.AppendHtml("</div>");
 
-        bool itemOwned = user.OwnedItemIds.Contains(item.Descriptor.Id);
+        bool itemOwned = user != null ? user.OwnedItemIds.Contains(item.Descriptor.Id) : false;
         string unownedStyle = itemOwned ? "display:none" : "display:block";
         string ownedStyle = itemOwned ? "display:block" : "display:none";
 
