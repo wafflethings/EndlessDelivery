@@ -13,28 +13,26 @@ public class ResourcePair
         Location = location;
         MimeType = mimeType;
     }
-    
+
     public ResourcePair(string[] urls, string location, string mimeType = "application/octet-stream")
     {
         Urls = urls;
         Location = location;
         MimeType = mimeType;
     }
-    
+
     public async Task<byte[]> GetData()
     {
         if (_data == null || _data.Length != 0)
         {
             _data = await File.ReadAllBytesAsync(Location);
         }
-        
+
         return _data;
     }
-    
-    #if DEBUG
+
     public void Reset()
     {
         _data = null;
     }
-    #endif
 }
