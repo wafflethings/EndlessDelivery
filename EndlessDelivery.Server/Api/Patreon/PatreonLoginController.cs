@@ -21,9 +21,10 @@ public class PatreonLoginController : Controller
 
     public static void RefreshTokensThread()
     {
+        List<PatreonToken> tokensCached = new();
+
         while (true)
         {
-            List<PatreonToken> tokensCached = new();
             tokensCached.AddRange(s_tokens);
 
             foreach (PatreonToken token in tokensCached)
@@ -37,6 +38,9 @@ public class PatreonLoginController : Controller
                 token.DontRefresh = true;
                 Task.Run(() => token.RefreshSelf());
             }
+
+            tokensCached.Clear();
+            Thread.Sleep(5000);
         }
     }
 

@@ -38,10 +38,11 @@ public class SteamLoginController : Controller
 
     public static void RemoveExpiredTokensThread()
     {
+        List<SteamToken> toRemove = new();
+        List<SteamToken> tokensCached = new();
+
         while (true)
         {
-            List<SteamToken> toRemove = new();
-            List<SteamToken> tokensCached = new();
             tokensCached.AddRange(s_tokens); // would fail if iterating over s_tokens when added
 
             foreach (SteamToken token in tokensCached)
@@ -60,6 +61,11 @@ public class SteamLoginController : Controller
                 s_tokenToUser.Remove(token.Value);
                 s_tokens.Remove(token);
             }
+
+            toRemove.Clear();
+            tokensCached.Clear();
+
+            Thread.Sleep(5000);
         }
     }
 
