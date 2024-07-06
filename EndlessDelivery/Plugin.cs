@@ -7,6 +7,7 @@ using EndlessDelivery.Config;
 using EndlessDelivery.Saving;
 using EndlessDelivery.Scores;
 using EndlessDelivery.Scores.Server;
+using EndlessDelivery.Server;
 using EndlessDelivery.Server.ContentFile;
 using EndlessDelivery.Utils;
 using UnityEngine;
@@ -38,6 +39,11 @@ public class Plugin : BaseUnityPlugin
         if (InputManager.Instance.InputSource.Dodge.IsPressed && InputManager.Instance.InputSource.Hook.IsPressed && InputManager.Instance.InputSource.Slot6.WasPerformedThisFrame)
         {
             Debug.Log($"Ticket! [{SteamAuth.GetTicket()}]");
+        }
+
+        if (InputManager.Instance.InputSource.Dodge.IsPressed && InputManager.Instance.InputSource.Hook.IsPressed && InputManager.Instance.InputSource.Slot4.WasPerformedThisFrame)
+        {
+            OnlineFunctionality.UseLocalUrl = true;
         }
 
         if (InputManager.Instance.InputSource.Dodge.IsPressed && InputManager.Instance.InputSource.Hook.IsPressed && InputManager.Instance.InputSource.Slot5.WasPerformedThisFrame)

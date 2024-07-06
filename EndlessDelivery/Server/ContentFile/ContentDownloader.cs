@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using EndlessDelivery.Common.ContentFile;
 using EndlessDelivery.Saving;
+using GameConsole.Commands;
 using Newtonsoft.Json;
 
 namespace EndlessDelivery.Server.ContentFile;
@@ -31,7 +32,8 @@ public static class ContentDownloader
     private static async Task<bool> UpdateRequired()
     {
         DateTime lastDownload = s_cmsData.Value == null ? DateTime.MinValue : s_cmsData.Value.LastUpdate;
-        HttpResponseMessage response = await OnlineFunctionality.Client.GetAsync(string.Format(OnlineFunctionality.RootUrl + CmsRoot + UpdateRequiredEndpoint, lastDownload));
+        string url = string.Format(OnlineFunctionality.RootUrl + CmsRoot + UpdateRequiredEndpoint, lastDownload.ToString("O"));
+        HttpResponseMessage response = await OnlineFunctionality.Client.GetAsync(url);
         return response.StatusCode == HttpStatusCode.UpgradeRequired;
     }
 
