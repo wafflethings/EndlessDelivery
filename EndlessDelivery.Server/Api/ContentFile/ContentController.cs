@@ -32,7 +32,7 @@ public class ContentController : Controller
     [HttpGet("update_required")]
     public StatusCodeResult ShouldUpdateContent(DateTime lastUpdate)
     {
-        if (lastUpdate + TimeSpan.FromSeconds(1) < CurrentContent.LastUpdate) // this SUCKS but i think comparison is inaccurate
+        if (lastUpdate < CurrentContent.LastUpdate)
         {
             return StatusCode(StatusCodes.Status426UpgradeRequired);
         }
