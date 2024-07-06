@@ -10,18 +10,18 @@ using Newtonsoft.Json;
 using Steamworks;
 using UnityEngine;
 
-namespace EndlessDelivery.Scores
+namespace EndlessDelivery.Scores;
+
+public class Score
 {
-    public class Score
-    {
-        public static string HighscoreFilePath => Path.Combine(Option.SavePath, $"highscore_{PrefsManager.Instance.GetInt("difficulty")}.json");
-        public static bool CanSubmit => !Anticheat.Anticheat.HasIllegalMods && !CheatsController.Instance.cheatsEnabled;
-        private static int _lastCheckedDifficulty = 0;
+    public static string HighscoreFilePath => Path.Combine(Option.SavePath, $"highscore_{PrefsManager.Instance.GetInt("difficulty")}.json");
+    public static bool CanSubmit => !Anticheat.Anticheat.HasIllegalMods && !CheatsController.Instance.cheatsEnabled;
+    private static int _lastCheckedDifficulty = 0;
         
-        public static Score Highscore
+    public static Score Highscore
+    {
+        get
         {
-            get
-            {
                 if (_highscore == null || _lastCheckedDifficulty != PrefsManager.Instance.GetInt("difficulty"))
                 {
                     _lastCheckedDifficulty = PrefsManager.Instance.GetInt("difficulty");
@@ -41,18 +41,18 @@ namespace EndlessDelivery.Scores
                 return _highscore;
             }
 
-            set
-            {
+        set
+        {
                 PreviousHighscore = _highscore;
                 _highscore = value;
                 SaveScore(value);
             }
-        }
+    }
 
-        public static Score PreviousHighscore { get; private set; }
+    public static Score PreviousHighscore { get; private set; }
 
-        public static async Task GetServerScoreAndSetIfHigher()
-        {
+    public static async Task GetServerScoreAndSetIfHigher()
+    {
             int playerPos = await Endpoints.GetUserPosition(SteamClient.SteamId);
             Score serverScore = (await Endpoints.GetScoreRange(playerPos, 1))[0].Score;
             if (IsLargerThanOtherScore(serverScore, Highscore))
@@ -61,20 +61,20 @@ namespace EndlessDelivery.Scores
             }
         }
 
-        private static void SaveScore(Score score)
-        {
+    private static void SaveScore(Score score)
+    {
             Directory.CreateDirectory(Option.SavePath);
             File.WriteAllText(HighscoreFilePath, JsonConvert.SerializeObject(score));
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="score">The score that you're checking; true if this is larger.</param>
-        /// <param name="other">The score being compared to; false if this is larger.</param>
-        /// <returns></returns>
-        public static bool IsLargerThanOtherScore(Score score, Score other)
-        {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="score">The score that you're checking; true if this is larger.</param>
+    /// <param name="other">The score being compared to; false if this is larger.</param>
+    /// <returns></returns>
+    public static bool IsLargerThanOtherScore(Score score, Score other)
+    {
             if (score.Rooms != other.Rooms)
             {
                 if (score.Rooms > other.Rooms)
@@ -114,25 +114,24 @@ namespace EndlessDelivery.Scores
             return false;
         }
 
-        private static Score _highscore; 
+    private static Score _highscore; 
         
-        public readonly int Rooms;
-        public readonly int Kills;
-        public readonly int Deliveries;
-        public readonly float Time;
+    public readonly int Rooms;
+    public readonly int Kills;
+    public readonly int Deliveries;
+    public readonly float Time;
         
-        public Score(int rooms, int kills, int deliveries, float time)
-        {
+    public Score(int rooms, int kills, int deliveries, float time)
+    {
             Rooms = rooms;
             Kills = kills;
             Deliveries = deliveries;
             Time = time;
         }
 
-        public static Score operator +(Score a, Score b) => new(a.Rooms + b.Rooms, a.Kills + b.Kills, a.Deliveries + b.Deliveries, a.Time + b.Time); 
+    public static Score operator +(Score a, Score b) => new(a.Rooms + b.Rooms, a.Kills + b.Kills, a.Deliveries + b.Deliveries, a.Time + b.Time); 
         
-        public static Score operator -(Score a, Score b) => new(a.Rooms - b.Rooms, a.Kills - b.Kills, a.Deliveries - b.Deliveries, a.Time - b.Time); 
+    public static Score operator -(Score a, Score b) => new(a.Rooms - b.Rooms, a.Kills - b.Kills, a.Deliveries - b.Deliveries, a.Time - b.Time); 
 
-        [JsonIgnore] public int MoneyGain => (int)(Time * 10);
-    }
+    [JsonIgnore] public int MoneyGain => (int)(Time * 10);
 }

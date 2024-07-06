@@ -2,12 +2,12 @@
 using EndlessDelivery.Components;
 using EndlessDelivery.Gameplay;
 
-namespace EndlessDelivery.Cheats
+namespace EndlessDelivery.Cheats;
+
+public class CompleteRoom : ICheat
 {
-    public class CompleteRoom : ICheat
+    public void Enable()
     {
-        public void Enable()
-        {
             GameManager.Instance.CurrentRoom.AmountDelivered = new Dictionary<WeaponVariant, int>
             {
                 { WeaponVariant.BlueVariant, 10 },
@@ -22,17 +22,16 @@ namespace EndlessDelivery.Cheats
             }
         }
 
-        public void Disable() { }
+    public void Disable() { }
 
-        public void Update() { }
+    public void Update() { }
 
-        public string LongName => "Deliver All Presents";
-        public string Identifier => $"{Plugin.GUID}.deliverall";
-        public string ButtonEnabledOverride => null;
-        public string ButtonDisabledOverride => "DELIVER";
-        public string Icon => "death";
-        public bool IsActive => false;
-        public bool DefaultState => false;
-        public StatePersistenceMode PersistenceMode => StatePersistenceMode.NotPersistent;
-    }
+    public string LongName => "Deliver All Presents";
+    public string Identifier => $"{Plugin.Guid}.deliverall";
+    public string ButtonEnabledOverride => null;
+    public string ButtonDisabledOverride => "DELIVER";
+    public string Icon => "death";
+    public bool IsActive => false;
+    public bool DefaultState => false;
+    public StatePersistenceMode PersistenceMode => StatePersistenceMode.NotPersistent;
 }

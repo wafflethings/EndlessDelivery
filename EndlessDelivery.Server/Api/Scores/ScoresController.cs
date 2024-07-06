@@ -36,7 +36,7 @@ namespace EndlessDelivery.Server.Api.Scores
 
                 if (count > 10)
                 {
-                    return Json(BadRequest("Please make sure that count is smaller than 10."));
+                    return StatusCode(StatusCodes.Status400BadRequest, "Please make sure that count is smaller than 10.");
                 }
 
                 if (start + count > scoreModels.Count)
@@ -44,18 +44,18 @@ namespace EndlessDelivery.Server.Api.Scores
                     count = scoreModels.Count - start;
                 }
 
-                List<ScoreModel> models = scoreModels.GetRange(start, count);
+                List<ScoreModel> models = scoreModels.GetRange(start, count+1);
 
                 //foreach (ScoreModel model in models)
                // {
                     //model.Format = (await Program.Supabase.From<SpecialUserModel>().Match(new SpecialUserModel {SteamId = model.SteamId})?.Single())?.NameFormat ?? "{0}";
                // }
 
-                return JsonConvert.SerializeObject(models);
+                return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(models));
             }
             catch (Exception ex)
             {
-                return Json(StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data: report this to Waffle. \n" + ex));
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data: report this to Waffle. \n" + ex);
             }
         }
 
@@ -66,11 +66,11 @@ namespace EndlessDelivery.Server.Api.Scores
             try
             {
                 List<ScoreModel> scoreModels = await GetScoreModels();
-                return Json(Ok(scoreModels.Count));
+                return StatusCode(StatusCodes.Status200OK, scoreModels.Count);
             }
             catch (Exception ex)
             {
-                return Json(StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data: report this to Waffle. \n" + ex));
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data: report this to Waffle. \n" + ex);
             }
         }
 
@@ -81,11 +81,11 @@ namespace EndlessDelivery.Server.Api.Scores
             try
             {
                 List<ScoreModel> scoreModels = await GetScoreModels();
-                return Json(Ok(scoreModels.FindIndex(x => x.SteamId == steamId)));
+                return StatusCode(StatusCodes.Status200OK,scoreModels.FindIndex(x => x.SteamId == steamId));
             }
             catch (Exception ex)
             {
-                return Json(StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data: report this to Waffle. \n" + ex));
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data: report this to Waffle. \n" + ex);
             }
         }
 
@@ -95,7 +95,7 @@ namespace EndlessDelivery.Server.Api.Scores
         {
             if (version != Plugin.Version)
             {
-                return Json(StatusCode(StatusCodes.Status426UpgradeRequired, $"Version {Plugin.Version} required; please update."));
+                return StatusCode(StatusCodes.Status426UpgradeRequired, $"Version {Plugin.Version} required; please update.");
             }
 
             try
@@ -105,7 +105,7 @@ namespace EndlessDelivery.Server.Api.Scores
 
                 if (await IsUserBanned(id))
                 {
-                    return Json(StatusCode(StatusCodes.Status403Forbidden, "You have been banned."));
+                    return StatusCode(StatusCodes.Status403Forbidden, "You have been banned.");
                 }
 
                 ScoreModel newScore = new()
@@ -129,12 +129,12 @@ namespace EndlessDelivery.Server.Api.Scores
                 // this will update regardless of if it is bigger but that shouldnt be happening anyway, client should prevent it
                 ModeledResponse<ScoreModel> responses = await Program.Supabase.From<ScoreModel>().Upsert(newScore);
                 await SetIndexes();
-                return Json(Ok(responses.Models.FindIndex(x => x.SteamId == id)));
+                return StatusCode(StatusCodes.Status200OK, responses.Models.FindIndex(x => x.SteamId == id));
             }
             catch (Exception ex)
             {
                 Console.Error.WriteLine(ex.ToString());
-                return Json(StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data: report this to Waffle. \n" + ex));
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data: report this to Waffle. \n" + ex);
             }
         }
 

@@ -9,49 +9,49 @@ using EndlessDelivery.Utils;
 using HarmonyLib;
 using UnityEngine;
 
-namespace EndlessDelivery.Components
-{
-    [PatchThis($"{Plugin.GUID}.Present")]
-    public class Present : MonoBehaviour
-    {
-        private static List<Collider> _allPresentColliders = new();
-        
-        public WeaponVariant VariantColour;
-        public GameObject Particles;
-        public SpriteRenderer Glow;
-        private ItemIdentifier _item;
-        private Collider _collider;
-        [HideInInspector] public bool Destroyed;
-        
-        private Color _colour => ColourSetter.DefaultColours[(int)VariantColour];
+namespace EndlessDelivery.Components;
 
-        private void Start()
-        {
+[HarmonyPatch]
+public class Present : MonoBehaviour
+{
+    private static List<Collider> _allPresentColliders = new();
+
+    public WeaponVariant VariantColour;
+    public GameObject Particles;
+    public SpriteRenderer Glow;
+    private ItemIdentifier _item;
+    private Collider _collider;
+    [HideInInspector] public bool Destroyed;
+
+    private Color _colour => ColourSetter.DefaultColours[(int)VariantColour];
+
+    private void Start()
+    {
             _collider = GetComponent<Collider>();
             _item = GetComponent<ItemIdentifier>();
             _allPresentColliders.Add(_collider);
             SetColour(VariantColour);
         }
 
-        private void Update()
-        {
+    private void Update()
+    {
             Glow.gameObject.layer = 0; //picking up an item makes all children AlwaysOnTop.
             // the glow is disabled on pickup, so when it is dropped, it is not set back to the original layer.
             // it has to be set back manually
         }
 
-        private void OnDisable()
-        {
-            _allPresentColliders.Remove(_collider);
-        }
-        
-        private void OnDestroy()
-        {
+    private void OnDisable()
+    {
             _allPresentColliders.Remove(_collider);
         }
 
-        public void SetColour(WeaponVariant colour)
-        {
+    private void OnDestroy()
+    {
+            _allPresentColliders.Remove(_collider);
+        }
+
+    public void SetColour(WeaponVariant colour)
+    {
             VariantColour = colour;
             GetComponent<Renderer>().material.color = _colour;
             GetComponent<Light>().color = _colour;
@@ -59,13 +59,13 @@ namespace EndlessDelivery.Components
             Glow.color = new Color(_colour.r, _colour.g, _colour.b, 0.5f);
         }
 
-        public void Deliver(Chimney chimney)
-        {
+    public void Deliver(Chimney chimney)
+    {
             chimney.Room.Deliver(VariantColour);
             GameManager.Instance.AddTime(6, $"<color=#{ColorUtility.ToHtmlStringRGB(_colour)}>DELIVERY</color>");
             CreateParticles();
             Destroyed = true;
-            
+
             if (_item.hooked)
             {
                 HookArm.Instance.StopThrow(0, false);
@@ -82,33 +82,33 @@ namespace EndlessDelivery.Components
             StartCoroutine(DestroyAnimation());
         }
 
-        public void CreateParticles()
-        {
+    public void CreateParticles()
+    {
             ParticleSystem particles = Instantiate(Particles, transform.position, Quaternion.identity).GetComponent<ParticleSystem>();
             particles.GetComponentInChildren<Light>().color = _colour;
             particles.startColor = _colour; //i dont care if this is deprecated, fuck unity
         }
 
-        private IEnumerator DestroyAnimation()
-        {
+    private IEnumerator DestroyAnimation()
+    {
             yield return new WaitForSeconds(0.25f);
-            
+
             while (transform.localScale != Vector3.zero)
             {
                 transform.localScale = Vector3.MoveTowards(transform.localScale, Vector3.zero, Time.deltaTime * 2);
                 yield return null;
             }
-            
+
             Destroy(gameObject);
         }
-        
-        private void OnTriggerStay(Collider collider)
-        {
+
+    private void OnTriggerStay(Collider collider)
+    {
             if (Destroyed)
             {
                 return;
             }
-            
+
             if (collider.TryGetComponent(out Chimney chimney) && chimney.VariantColour != VariantColour)
             {
                 Vector3 playerVector = (NewMovement.Instance.transform.position - transform.position) * 2.5f;
@@ -117,9 +117,9 @@ namespace EndlessDelivery.Components
             }
         }
 
-        [HarmonyPatch(typeof(Explosion), nameof(Explosion.Start)), HarmonyPostfix]
-        private static void DisableExplosionToPresentCollisions(Explosion __instance)
-        {
+    [HarmonyPatch(typeof(Explosion), nameof(Explosion.Start)), HarmonyPostfix]
+    private static void DisableExplosionToPresentCollisions(Explosion __instance)
+    {
             if (!AddressableManager.InSceneFromThisMod)
             {
                 return;
@@ -130,5 +130,4 @@ namespace EndlessDelivery.Components
                 Physics.IgnoreCollision(collider, __instance.scol);
             }
         }
-    }
 }

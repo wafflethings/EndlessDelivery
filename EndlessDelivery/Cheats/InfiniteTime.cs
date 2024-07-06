@@ -3,34 +3,33 @@ using EndlessDelivery.Components;
 using EndlessDelivery.Gameplay;
 using UnityEngine;
 
-namespace EndlessDelivery.Cheats
+namespace EndlessDelivery.Cheats;
+
+public class InfiniteTime : ICheat
 {
-    public class InfiniteTime : ICheat
+    public void Enable()
     {
-        public void Enable()
-        {
             _active = true;
         }
 
-        public void Disable()
-        {
+    public void Disable()
+    {
             _active = false;
         }
 
-        public void Update()
-        {
+    public void Update()
+    {
             GameManager.Instance.SilentAddTime(Time.deltaTime);
         }
 
-        public string LongName => "Infinite Time";
-        public string Identifier => $"{Plugin.GUID}.inftime";
-        public string ButtonEnabledOverride { get; }
-        public string ButtonDisabledOverride { get; }
-        public string Icon => "death";
-        public bool IsActive => _active;
-        public bool DefaultState { get; }
-        public StatePersistenceMode PersistenceMode => StatePersistenceMode.NotPersistent;
+    public string LongName => "Infinite Time";
+    public string Identifier => $"{Plugin.Guid}.inftime";
+    public string ButtonEnabledOverride { get; }
+    public string ButtonDisabledOverride { get; }
+    public string Icon => "death";
+    public bool IsActive => _active;
+    public bool DefaultState { get; }
+    public StatePersistenceMode PersistenceMode => StatePersistenceMode.NotPersistent;
 
-        private bool _active;
-    }
+    private bool _active;
 }

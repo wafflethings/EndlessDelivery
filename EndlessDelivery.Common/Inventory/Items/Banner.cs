@@ -1,21 +1,20 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace EndlessDelivery.Common.Inventory.Items
-{
-    public class Banner : Item
-    {
-        public string AssetUri;
+namespace EndlessDelivery.Common.Inventory.Items;
 
-        public Banner(string assetUri, ItemDescriptor descriptor) : base(descriptor)
-        {
+public class Banner : Item
+{
+    public string AssetUri;
+
+    public Banner(string assetUri, ItemDescriptor descriptor) : base(descriptor)
+    {
             AssetUri = assetUri;
         }
 
-        #warning This constructor is only for the serializer, don't use it.
-        public Banner()
-        {
+#warning This constructor is only for the serializer, don't use it.
+    public Banner()
+    {
 
         }
-    }
 }

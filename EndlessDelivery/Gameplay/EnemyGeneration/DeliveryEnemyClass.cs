@@ -1,11 +1,10 @@
-﻿namespace EndlessDelivery.Gameplay.EnemyGeneration
+﻿namespace EndlessDelivery.Gameplay.EnemyGeneration;
+
+public enum DeliveryEnemyClass
 {
-    public enum DeliveryEnemyClass
-    {
-        Melee,
-        Projectile,
-        Uncommon,
-        Special,
-        Boss
-    }
+    Melee,
+    Projectile,
+    Uncommon,
+    Special,
+    Boss
 }

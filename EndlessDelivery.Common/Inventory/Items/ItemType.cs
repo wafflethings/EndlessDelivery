@@ -1,7 +1,6 @@
-﻿namespace EndlessDelivery.Common.Inventory.Items
+﻿namespace EndlessDelivery.Common.Inventory.Items;
+
+public enum ItemType
 {
-    public enum ItemType
-    {
-        Banner
-    }
+    Banner
 }

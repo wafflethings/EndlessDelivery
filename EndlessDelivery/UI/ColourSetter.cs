@@ -2,11 +2,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace EndlessDelivery.UI
+namespace EndlessDelivery.UI;
+
+public class ColourSetter : MonoBehaviour 
 {
-    public class ColourSetter : MonoBehaviour 
-    {
-        public static readonly Color[] DefaultColours =
+    public static readonly Color[] DefaultColours =
         {
             new(0, 0.91f, 1),
             new(0.27f, 1, 0.27f),
@@ -14,10 +14,10 @@ namespace EndlessDelivery.UI
             new(1, 0.88f, 0.24f)
         };
 
-        public int Colour;
+    public int Colour;
 
-        private void Start()
-        {
+    private void Start()
+    {
             if (TryGetComponent(out Text text))
             {
                 text.color = DefaultColours[Colour];
@@ -28,5 +28,4 @@ namespace EndlessDelivery.UI
                 text2.color = DefaultColours[Colour];
             }
         }
-    }
 }

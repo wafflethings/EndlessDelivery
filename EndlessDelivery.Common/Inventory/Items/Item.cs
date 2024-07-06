@@ -1,17 +1,16 @@
-﻿namespace EndlessDelivery.Common.Inventory.Items
-{
-    public abstract class Item
-    {
-        public ItemDescriptor Descriptor;
+﻿namespace EndlessDelivery.Common.Inventory.Items;
 
-        public Item(ItemDescriptor descriptor)
-        {
+public abstract class Item
+{
+    public ItemDescriptor Descriptor;
+
+    public Item(ItemDescriptor descriptor)
+    {
             Descriptor = descriptor;
         }
 
-        protected Item()
-        {
+    protected Item()
+    {
 
         }
-    }
 }

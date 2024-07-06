@@ -1,8 +1,7 @@
-﻿namespace EndlessDelivery.Scores.Server
+﻿namespace EndlessDelivery.Scores.Server;
+
+public class Response
 {
-    public class Response
-    {
-        public object Value { get; set; }
-        public int StatusCode { get; set; }
-    }
+    public object Value { get; set; }
+    public int StatusCode { get; set; }
 }

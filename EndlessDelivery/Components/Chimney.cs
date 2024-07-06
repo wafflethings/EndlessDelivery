@@ -6,42 +6,42 @@ using EndlessDelivery.Utils;
 using TMPro;
 using UnityEngine;
 
-namespace EndlessDelivery.Components
+namespace EndlessDelivery.Components;
+
+public class Chimney : MonoBehaviour
 {
-    public class Chimney : MonoBehaviour
-    {
-        [field: SerializeField] public WeaponVariant VariantColour { get; private set; }
-        public GameObject Glow;
-        public TMP_Text DeliveredText;
-        public int AmountToDeliver;
-        public JumpPad JumpPad;
-        public AudioSource DeliverSound;
-        public Animator Animator;
-        public GameObject Teleporter;
-        public ParticleSystem Particles;
-        [HideInInspector] public Room Room;
+    [field: SerializeField] public WeaponVariant VariantColour { get; private set; }
+    public GameObject Glow;
+    public TMP_Text DeliveredText;
+    public int AmountToDeliver;
+    public JumpPad JumpPad;
+    public AudioSource DeliverSound;
+    public Animator Animator;
+    public GameObject Teleporter;
+    public ParticleSystem Particles;
+    [HideInInspector] public Room Room;
         
-        private Renderer _glowRenderer;
-        private float _glowAlpha;
-        private Coroutine _currentAnimation;
-        private bool _chimneyEntered;
+    private Renderer _glowRenderer;
+    private float _glowAlpha;
+    private Coroutine _currentAnimation;
+    private bool _chimneyEntered;
 
-        private Color _color => ColourSetter.DefaultColours[(int)VariantColour];
+    private Color _color => ColourSetter.DefaultColours[(int)VariantColour];
 
-        private void Start()
-        {
+    private void Start()
+    {
             SetRenderer();
             SetColour(VariantColour);
         }
 
-        private void SetRenderer()
-        {
+    private void SetRenderer()
+    {
             _glowRenderer = Glow.GetComponent<Renderer>();
             _glowAlpha = _glowRenderer.material.GetFloat("_OpacScale");
         }
 
-        public void SetColour(WeaponVariant colour)
-        {
+    public void SetColour(WeaponVariant colour)
+    {
             if (_glowRenderer == null)
             {
                 SetRenderer();
@@ -52,8 +52,8 @@ namespace EndlessDelivery.Components
             _glowRenderer.material.color = _color;
         }
 
-        private void Update()
-        {
+    private void Update()
+    {
             if (DeliveredText == null || Room == null)
             {
                 return;
@@ -63,8 +63,8 @@ namespace EndlessDelivery.Components
             DeliveredText.color = _color;
         }
 
-        private void DeliverEffect()
-        {
+    private void DeliverEffect()
+    {
             DeliverSound.Play();
 
             if (_currentAnimation != null)
@@ -75,8 +75,8 @@ namespace EndlessDelivery.Components
             _currentAnimation = StartCoroutine(DeliverEffectAnimation());
         }
 
-        private IEnumerator DeliverEffectAnimation()
-        {
+    private IEnumerator DeliverEffectAnimation()
+    {
             Animator.Play("Glow Animation");
 
             yield return new WaitForSeconds((1 / 60f) * 10); //10frames
@@ -118,8 +118,8 @@ namespace EndlessDelivery.Components
             }
         }
 
-        private void OnTriggerEnter(Collider collider)
-        {
+    private void OnTriggerEnter(Collider collider)
+    {
             if (collider.TryGetComponent(out Present present))
             {
                 if (present.VariantColour == VariantColour && !present.Destroyed)
@@ -140,8 +140,8 @@ namespace EndlessDelivery.Components
             }
         }
         
-        public void ChimneyEnter()
-        {
+    public void ChimneyEnter()
+    {
             if (_chimneyEntered)
             {
                 return;
@@ -163,22 +163,21 @@ namespace EndlessDelivery.Components
             _chimneyEntered = true;
         }
         
-        // called by event in Assets/Delivery/Prefabs/Level/Chimney/Chimney Room Enter.prefab > Pit/Reenable Player/BoxCollider
-        public void ChimneyLeave()
-        {
+    // called by event in Assets/Delivery/Prefabs/Level/Chimney/Chimney Room Enter.prefab > Pit/Reenable Player/BoxCollider
+    public void ChimneyLeave()
+    {
             NewMovement.Instance.enabled = true;
             NewMovement.Instance.gc.enabled = true;
             NewMovement.Instance.GetComponent<KeepInBounds>().enabled = true;
             PlayerChimneyFixer.Instance.Exit();
         }
 
-        // called by event in Assets/Delivery/Prefabs/Level/Chimney/Chimney.prefab > Pit/Teleport Zone/BoxCollider
-        public void WarpPlayerToNextRoom()
-        {
+    // called by event in Assets/Delivery/Prefabs/Level/Chimney/Chimney.prefab > Pit/Teleport Zone/BoxCollider
+    public void WarpPlayerToNextRoom()
+    {
             Destroy(GameManager.Instance.PreviousRoom.gameObject);
             Vector3 tpOffset = NewMovement.Instance.transform.position - Teleporter.transform.position;
             NewMovement.Instance.transform.position = GameManager.Instance.CurrentRoom.SpawnPoint.transform.position + tpOffset.Only(Axis.X, Axis.Z);
             PlayerChimneyFixer.Instance.EnterChimney(null);
         }
-    }
 }

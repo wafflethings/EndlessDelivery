@@ -40,6 +40,9 @@ public class ContentController : Controller
         return StatusCode(StatusCodes.Status200OK);
     }
 
+    [HttpGet("content")]
+    public async Task<ObjectResult> GetContent() => StatusCode(StatusCodes.Status200OK, await Task.Run(() => JsonConvert.SerializeObject(CurrentContent)));
+
     [HttpPost("update")]
     public async Task<object> UpdateContent()
     {

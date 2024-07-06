@@ -4,12 +4,12 @@ using BepInEx;
 using UnityEngine;
 
 /// THIS WILL BE REPLACED BY THE AL CLASS!! i just havent updated
-namespace AtlasLib.Utils
+namespace AtlasLib.Utils;
+
+public static class PathUtils
 {
-    public static class PathUtils
+    public static string GameDirectory()
     {
-        public static string GameDirectory()
-        {
             string path = Application.dataPath;
             if (Application.platform == RuntimePlatform.OSXPlayer)
             {
@@ -23,14 +23,13 @@ namespace AtlasLib.Utils
             return path;
         }
 
-        public static string ModDirectory()
-        {
+    public static string ModDirectory()
+    {
             return Path.Combine(GameDirectory(), "BepInEx", "plugins");
         }
 
-        public static string ModPath()
-        {
+    public static string ModPath()
+    {
             return Assembly.GetCallingAssembly().Location.Substring(0, Assembly.GetCallingAssembly().Location.LastIndexOf(Path.DirectorySeparatorChar));
         }
-    }
 }

@@ -2,14 +2,14 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace EndlessDelivery.UI
-{
-    public class TmpText : MonoBehaviour, IText
-    {
-        private TMP_Text _text;
+namespace EndlessDelivery.UI;
 
-        public void SetText(string text)
-        {
+public class TmpText : MonoBehaviour, IText
+{
+    private TMP_Text _text;
+
+    public void SetText(string text)
+    {
             if (_text == null)
             {
                 _text = GetComponent<TMP_Text>();
@@ -17,5 +17,4 @@ namespace EndlessDelivery.UI
             
             _text.text = text;
         }
-    }
 }

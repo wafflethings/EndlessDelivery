@@ -5,17 +5,17 @@ using EndlessDelivery.Gameplay;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace EndlessDelivery.Scores
+namespace EndlessDelivery.Scores;
+
+public static class BestTimes
 {
-    public static class BestTimes
-    {
-        public static string TimesFilePath => Path.Combine(Option.SavePath, $"besttimes_{PrefsManager.Instance.GetInt("difficulty")}.json");
-        public static float CurrentStartTime => GetRoomTime((int) ((Option<long>) Option.AllOptions["start_wave"]).Value);
+    public static string TimesFilePath => Path.Combine(Option.SavePath, $"besttimes_{PrefsManager.Instance.GetInt("difficulty")}.json");
+    public static float CurrentStartTime => GetRoomTime((int) ((Option<long>) Option.AllOptions["start_wave"]).Value);
         
-        public static Dictionary<int, float> Times
+    public static Dictionary<int, float> Times
+    {
+        get
         {
-            get
-            {
                 if (_times == null)
                 {
                     if (File.Exists(TimesFilePath))
@@ -30,12 +30,12 @@ namespace EndlessDelivery.Scores
 
                 return _times;
             }
-        }
+    }
 
-        private static Dictionary<int, float> _times;
+    private static Dictionary<int, float> _times;
 
-        public static void SetIfHigher(int room, float time)
-        {
+    public static void SetIfHigher(int room, float time)
+    {
             Debug.Log($"Trying to save {room} at {time}");
             if (!Score.CanSubmit)
             {
@@ -61,8 +61,8 @@ namespace EndlessDelivery.Scores
             Save();
         }
 
-        public static float GetRoomTime(int room)
-        {
+    public static float GetRoomTime(int room)
+    {
             if (room != 0)
             {
                 return Times[room];
@@ -71,8 +71,8 @@ namespace EndlessDelivery.Scores
             return GameManager.StartTime;
         }
 
-        private static async void Save()
-        {
+    private static async void Save()
+    {
             Directory.CreateDirectory(Option.SavePath);
 
             using (StreamWriter sw = new(TimesFilePath))
@@ -80,5 +80,4 @@ namespace EndlessDelivery.Scores
                 await sw.WriteAsync(JsonConvert.SerializeObject(Times));
             }
         }
-    }
 }

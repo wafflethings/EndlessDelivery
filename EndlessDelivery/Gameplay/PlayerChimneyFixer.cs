@@ -2,26 +2,26 @@
 using EndlessDelivery.Utils;
 using UnityEngine;
 
-namespace EndlessDelivery.Gameplay
-{
-    public class PlayerChimneyFixer : MonoSingleton<PlayerChimneyFixer>
-    {
-        private bool _isInChimney;
-        private Chimney _currentChimney;
+namespace EndlessDelivery.Gameplay;
 
-        public void EnterChimney(Chimney chimney)
-        {
+public class PlayerChimneyFixer : MonoSingleton<PlayerChimneyFixer>
+{
+    private bool _isInChimney;
+    private Chimney _currentChimney;
+
+    public void EnterChimney(Chimney chimney)
+    {
             _isInChimney = true;
             _currentChimney = chimney;
         }
 
-        public void Exit()
-        {
+    public void Exit()
+    {
             _isInChimney = false;
         }
 
-        private void Update()
-        {
+    private void Update()
+    {
             if (_isInChimney)
             {
                 Vector3 targetPos = (_currentChimney != null ? _currentChimney.gameObject : GameManager.Instance.CurrentRoom.SpawnPoint).transform.position;
@@ -31,5 +31,4 @@ namespace EndlessDelivery.Gameplay
                 NewMovement.Instance.enabled = false;
             }
         }
-    }
 }

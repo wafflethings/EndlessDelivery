@@ -43,6 +43,11 @@ public class ItemController : ControllerBase
             return StatusCode(StatusCodes.Status400BadRequest, "Item ID either missing, doesn't correspond to an item, or the user is not logged in.");
         }
 
+        if (!ContentController.CurrentContent.GetActiveShopRotation().ItemIds.Contains(itemId))
+        {
+            return StatusCode(StatusCodes.Status400BadRequest, "Item ID not in active rotation.");
+        }
+
         UserModel user = await steamUser.GetUserModel();
 
         if (user.OwnedItemIds.Contains(item.Descriptor.Id))

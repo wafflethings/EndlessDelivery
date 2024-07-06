@@ -5,16 +5,16 @@ using EndlessDelivery.Utils;
 using TMPro;
 using UnityEngine;
 
-namespace EndlessDelivery.UI
-{
-    public class JollyTerminal : MonoBehaviour
-    {
-        public TMP_Text ScoreText;
-        public AudioSource Music;
-        public GameObject[] DisableIfNotOnHighscoreDifficulty;
+namespace EndlessDelivery.UI;
 
-        private void OnEnable()
-        {
+public class JollyTerminal : MonoBehaviour
+{
+    public TMP_Text ScoreText;
+    public AudioSource Music;
+    public GameObject[] DisableIfNotOnHighscoreDifficulty;
+
+    private void OnEnable()
+    {
             AssignScoreText();
             SetMusicStatus();
 
@@ -25,14 +25,14 @@ namespace EndlessDelivery.UI
             }
         }
 
-        public void AssignScoreText()
-        {
+    public void AssignScoreText()
+    {
             Score score = Score.Highscore;
             ScoreText.text = $"{score.Rooms}\n{score.Kills}\n{score.Deliveries}\n{TimeSpan.FromSeconds(score.Time).Formatted()}";
         }
 
-        public void SetMusicStatus()
-        {
+    public void SetMusicStatus()
+    {
             if (Option.GetValue<bool>("disable_copyrighted_music"))
             {
                 Music.Pause();
@@ -42,5 +42,4 @@ namespace EndlessDelivery.UI
                 Music.UnPause();
             }
         }
-    }
 }

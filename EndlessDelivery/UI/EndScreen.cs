@@ -9,62 +9,62 @@ using HarmonyLib;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace EndlessDelivery.UI
+namespace EndlessDelivery.UI;
+
+[HarmonyPatch]
+public class EndScreen : MonoSingleton<EndScreen>
 {
-    [PatchThis($"{Plugin.GUID}.EndScreen")]
-    public class EndScreen : MonoSingleton<EndScreen>
+    public GameObject[] ToAppear;
+    public GameObject AudioObject;
+    public Image HighscoreFlash;
+    public float Delay = 0.25f;
+    public float SkippingDelay = 0.05f;
+    [Space(10)]
+    public ReachValueText Rooms;
+    public ReachValueText Kills;
+    public ReachValueText Deliveries;
+    public ReachValueText TimeElapsed;
+    [Space(10)]
+    public Text BestRooms;
+    public Text BestKills;
+    public Text BestDeliveries;
+    public Text BestTimeElapsed;
+    [Space(10)]
+    public ReachValueText MoneyGainText;
+    [Space(10)]
+    public GameObject Leaderboard;
+    public GameObject EverythingButLeaderboard;
+
+    [HideInInspector] public bool NewBest;
+    [HideInInspector] public ReachValueText CurrentText;
+    private int _currentIndex;
+    private float _timeSinceComplete;
+    private bool _appearedSelf;
+    private bool _complete;
+    private bool _leaderboardShown;
+
+    public bool Skipping => InputManager.Instance.InputSource.Fire1.WasPerformedThisFrame || InputManager.Instance.InputSource.Jump.WasPerformedThisFrame;
+
+    private void Awake()
     {
-        public GameObject[] ToAppear;
-        public GameObject AudioObject;
-        public Image HighscoreFlash;
-        public float Delay = 0.25f;
-        public float SkippingDelay = 0.05f;
-        [Space(10)]
-        public ReachValueText Rooms;
-        public ReachValueText Kills;
-        public ReachValueText Deliveries;
-        public ReachValueText TimeElapsed;
-        [Space(10)]
-        public Text BestRooms;
-        public Text BestKills;
-        public Text BestDeliveries;
-        public Text BestTimeElapsed;
-        [Space(10)] 
-        public ReachValueText MoneyGainText;
-        [Space(10)] 
-        public GameObject Leaderboard;
-        public GameObject EverythingButLeaderboard;
-        
-        [HideInInspector] public bool NewBest;
-        [HideInInspector] public ReachValueText CurrentText;
-        private int _currentIndex;
-        private float _timeSinceComplete;
-        private bool _appearedSelf;
-        private bool _complete;
-        private bool _leaderboardShown;
-
-        public bool Skipping => InputManager.Instance.InputSource.Fire1.WasPerformedThisFrame || InputManager.Instance.InputSource.Jump.WasPerformedThisFrame;
-
-        private void Awake()
-        {
             foreach (GameObject toAppearObject in ToAppear)
             {
                 toAppearObject.SetActive(false);
             }
         }
-        
-        public void Appear()
-        {
+
+    public void Appear()
+    {
             SetPanelValues(GameManager.Instance.CurrentScore, Rooms, Kills, Deliveries, TimeElapsed);
             SetPanelValues(NewBest ? Score.PreviousHighscore : Score.Highscore, BestRooms, BestKills, BestDeliveries, BestTimeElapsed);
             MoneyGainText.Target = GameManager.Instance.CurrentScore.MoneyGain;
-            
+
             StartCoroutine(AppearCoroutine());
         }
 
-        //stolen from FinalCyberRank:Update
-        private IEnumerator AppearCoroutine()
-        {
+    //stolen from FinalCyberRank:Update
+    private IEnumerator AppearCoroutine()
+    {
             TimeController timeController = TimeController.Instance;
             timeController.controlTimeScale = false;
 
@@ -85,30 +85,30 @@ namespace EndlessDelivery.UI
             MusicManager.Instance.StopMusic();
             AudioObject.SetActive(!Option.GetValue<bool>("disable_copyrighted_music"));
         }
-        
-        private void SetPanelValues(Score score, ReachValueText rooms, ReachValueText kills, ReachValueText deliveries, ReachValueText time)
-        {
+
+    private void SetPanelValues(Score score, ReachValueText rooms, ReachValueText kills, ReachValueText deliveries, ReachValueText time)
+    {
             rooms.Target = score.Rooms;
             kills.Target = score.Kills;
             deliveries.Target = score.Deliveries;
             time.Target = score.Time;
         }
-        
-        private void SetPanelValues(Score score, Text rooms, Text kills, Text deliveries, Text time)
-        {
+
+    private void SetPanelValues(Score score, Text rooms, Text kills, Text deliveries, Text time)
+    {
             rooms.text = score.Rooms.ToString();
             kills.text = score.Kills.ToString();
             deliveries.text = score.Deliveries.ToString();
             time.text = TimeSpan.FromSeconds(score.Time).Formatted();
         }
-        
-        private void Update()
-        {
+
+    private void Update()
+    {
             if (!_appearedSelf)
             {
                 return;
             }
-            
+
             if (CurrentText?.Done ?? true)
             {
                 _timeSinceComplete += Time.unscaledDeltaTime;
@@ -120,9 +120,9 @@ namespace EndlessDelivery.UI
                 _timeSinceComplete = 0;
             }
         }
-        
-        private void ShowNext()
-        {
+
+    private void ShowNext()
+    {
             if (_currentIndex == ToAppear.Length)
             {
                 if (!_leaderboardShown)
@@ -133,7 +133,7 @@ namespace EndlessDelivery.UI
                 }
                 else
                 {
-                    NewMovement.Instance.hp = 0; // needs to be at 0 to respawn!! - StatsManager.Update 
+                    NewMovement.Instance.hp = 0; // needs to be at 0 to respawn!! - StatsManager.Update
                     _complete = true;
                 }
                 return;
@@ -142,8 +142,8 @@ namespace EndlessDelivery.UI
             ToAppear[_currentIndex++].SetActive(true);
         }
 
-        public void DoFlashIfApplicable()
-        {
+    public void DoFlashIfApplicable()
+    {
             if (NewBest)
             {
                 SetPanelValues(Score.Highscore, BestRooms, BestKills, BestDeliveries, BestTimeElapsed);
@@ -151,8 +151,8 @@ namespace EndlessDelivery.UI
             }
         }
 
-        private IEnumerator DoHighscoreFlash()
-        {
+    private IEnumerator DoHighscoreFlash()
+    {
             HighscoreFlash.color = new Color(1, 1, 1, 1);
             HighscoreFlash.GetComponent<AudioSource>().Play();
 
@@ -163,10 +163,9 @@ namespace EndlessDelivery.UI
             }
         }
 
-        [HarmonyPatch(typeof(CanvasController), nameof(CanvasController.Awake)), HarmonyPostfix]
-        private static void CreateSelf()
-        {
+    [HarmonyPatch(typeof(CanvasController), nameof(CanvasController.Awake)), HarmonyPostfix]
+    private static void CreateSelf()
+    {
             Instantiate(AddressableManager.Load<GameObject>("Assets/Delivery/Prefabs/HUD/Delivery End Screen.prefab"));
         }
-    }
 }

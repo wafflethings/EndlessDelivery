@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 
-namespace EndlessDelivery.Components
-{
-    public class RandomToggler : MonoBehaviour
-    {
-        public List<GameObject> Objects;
+namespace EndlessDelivery.Components;
 
-        private void Start()
-        {
+public class RandomToggler : MonoBehaviour
+{
+    public List<GameObject> Objects;
+
+    private void Start()
+    {
             foreach (GameObject go in Objects)
             {
                 go.SetActive(false);
@@ -19,5 +19,4 @@ namespace EndlessDelivery.Components
 
             Objects.Pick().SetActive(true);
         }
-    }
 }

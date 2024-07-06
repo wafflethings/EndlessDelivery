@@ -3,16 +3,16 @@ using System.Runtime.CompilerServices;
 using BepInEx.Bootstrap;
 using UltraTweaker.Tweaks;
 
-namespace EndlessDelivery.Anticheat
+namespace EndlessDelivery.Anticheat;
+
+public class UltraTweakerAnticheat : Anticheat
 {
-    public class UltraTweakerAnticheat : Anticheat
-    {
-        private const string GUID = "waffle.ultrakill.ultratweaker";
+    private const string GUID = "waffle.ultrakill.ultratweaker";
             
-        protected override bool ShouldSubmit
+    protected override bool ShouldSubmit
+    {
+        get
         {
-            get
-            {
                 if (!Chainloader.PluginInfos.ContainsKey(GUID))
                 {
                     return true;
@@ -25,11 +25,11 @@ namespace EndlessDelivery.Anticheat
 
                 return true;
             }
-        }
+    }
 
-        [MethodImpl(MethodImplOptions.NoInlining)]
-        private bool HasBadTweaks()
-        {
+    [MethodImpl(MethodImplOptions.NoInlining)]
+    private bool HasBadTweaks()
+    {
             foreach (Tweak tweak in UltraTweaker.UltraTweaker.AllTweaks.Values)
             {
                 TweakMetadata meta = Attribute.GetCustomAttribute(tweak.GetType(), typeof(TweakMetadata)) as TweakMetadata;
@@ -41,5 +41,4 @@ namespace EndlessDelivery.Anticheat
 
             return false;
         }
-    }
 }

@@ -5,45 +5,45 @@ using AtlasLib.Utils;
 using EndlessDelivery.Config;
 using Newtonsoft.Json;
 
-namespace EndlessDelivery.Config
+namespace EndlessDelivery.Config;
+
+public class Option
 {
-    public class Option
+    public static string SavePath => Path.Combine(PathUtils.ModPath(), "Savedata");
+    public static string OptionFilePath => Path.Combine(SavePath, "settings.json");
+    protected static Dictionary<string, object> AllOptionValues = new();
+
+    public static Dictionary<string, Option> AllOptions = new()
     {
-        public static string SavePath => Path.Combine(PathUtils.ModPath(), "Savedata");
-        public static string OptionFilePath => Path.Combine(SavePath, "settings.json");
-        protected static Dictionary<string, object> AllOptionValues = new();
+        { "start_wave", new Option<long>("start_wave", 0) },
+        { "disable_copyrighted_music", new Option<bool>("disable_copyrighted_music", false) }
+    };
 
-        public static Dictionary<string, Option> AllOptions = new()
-        {
-            { "start_wave", new Option<long>("start_wave", 0) },
-            { "disable_copyrighted_music", new Option<bool>("disable_copyrighted_music", false) }
-        };
+    public static T GetValue<T>(string id) => (AllOptions[id] as Option<T>).Value;
 
-        public static T GetValue<T>(string id) => (AllOptions[id] as Option<T>).Value;
-
-        public static void Save()
-        {
+    public static void Save()
+    {
             Directory.CreateDirectory(SavePath);
             File.WriteAllText(OptionFilePath, JsonConvert.SerializeObject(AllOptionValues));
         }
         
-        public static void Load()
-        {
+    public static void Load()
+    {
             if (File.Exists(OptionFilePath))
             {
                 AllOptionValues = JsonConvert.DeserializeObject<Dictionary<string, object>>(File.ReadAllText(OptionFilePath));
             }
         }
-    }
+}
     
-    public class Option<T> : Option
-    {
-        private string _id;
+public class Option<T> : Option
+{
+    private string _id;
 
-        public T Value
+    public T Value
+    {
+        get
         {
-            get
-            {
                 if (!AllOptionValues.ContainsKey(_id))
                 {
                     AllOptionValues.Add(_id, _defaultValue);
@@ -52,8 +52,8 @@ namespace EndlessDelivery.Config
                 return (T)AllOptionValues[_id];
             }
 
-            set
-            {
+        set
+        {
                 if (!AllOptionValues.ContainsKey(_id))
                 {
                     AllOptionValues.Add(_id, value);
@@ -62,14 +62,13 @@ namespace EndlessDelivery.Config
 
                 AllOptionValues[_id] = value;
             }
-        }
+    }
 
-        private T _defaultValue;
+    private T _defaultValue;
         
-        public Option(string id, T defaultValue)
-        {
+    public Option(string id, T defaultValue)
+    {
             _id = id;
             _defaultValue = defaultValue;
         }
-    }
 }

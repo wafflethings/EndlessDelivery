@@ -2,18 +2,18 @@
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace EndlessDelivery.Scores.Server
-{
-    public class SpecialUserResult
-    {
-        public static Dictionary<ulong, SpecialUserResult>? SteamIdToUser;
-        
-        public ulong SteamId { get; set; }
-        public bool IsBanned { get; set; }
-        public string NameFormat { get; set; }
+namespace EndlessDelivery.Scores.Server;
 
-        private static async Task EnsureDictSet()
-        {
+public class SpecialUserResult
+{
+    public static Dictionary<ulong, SpecialUserResult>? SteamIdToUser;
+        
+    public ulong SteamId { get; set; }
+    public bool IsBanned { get; set; }
+    public string NameFormat { get; set; }
+
+    private static async Task EnsureDictSet()
+    {
             if (SteamIdToUser != null)
             {
                 return;
@@ -22,8 +22,8 @@ namespace EndlessDelivery.Scores.Server
             SteamIdToUser = (await Endpoints.GetSpecialUsers()).ToDictionary(x => x.SteamId, y => y);
         }
 
-        public static async Task<string> GetFormat(ulong steamId)
-        {
+    public static async Task<string> GetFormat(ulong steamId)
+    {
             await EnsureDictSet();
             
             if (SteamIdToUser.TryGetValue(steamId, out SpecialUserResult result))
@@ -33,5 +33,4 @@ namespace EndlessDelivery.Scores.Server
 
             return "{0}";
         }
-    }
 }

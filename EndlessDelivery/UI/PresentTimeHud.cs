@@ -11,32 +11,32 @@ using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
-namespace EndlessDelivery.UI
+namespace EndlessDelivery.UI;
+
+[HarmonyPatch]
+public class PresentTimeHud : MonoSingleton<PresentTimeHud>
 {
-    [PatchThis($"{Plugin.GUID}.PresentTimeHud")]
-    public class PresentTimeHud : MonoSingleton<PresentTimeHud>
+    public const float DangerTime = 10;
+
+    public Image[] PresentImages;
+    public TMP_Text Timer;
+    public TMP_Text CompleteRooms;
+    public Color TimerColour;
+    public Color TimerDangerColour;
+
+    private float _lastSetSeconds;
+    private float _lerpProgress;
+    private float _originalFontSize;
+    private Vector3 _timerStartPos;
+
+    public void Start()
     {
-        public const float DangerTime = 10;
-
-        public Image[] PresentImages;
-        public TMP_Text Timer;
-        public TMP_Text CompleteRooms;
-        public Color TimerColour;
-        public Color TimerDangerColour;
-
-        private float _lastSetSeconds;
-        private float _lerpProgress;
-        private float _originalFontSize;
-        private Vector3 _timerStartPos;
-
-        public void Start()
-        {
             _originalFontSize = Timer.fontSize;
             _timerStartPos = Timer.transform.localPosition;
         }
 
-        private void Update()
-        {
+    private void Update()
+    {
             if (!GameManager.Instance.GameStarted)
             {
                 return;
@@ -85,17 +85,17 @@ namespace EndlessDelivery.UI
             CompleteRooms.text = (GameManager.Instance.RoomsEntered - 1).ToString();
         }
 
-        //instead of filling the coloured area, the dark area is coloured.
-        //this means that fill 0 means all presents, fill 1 means no presents.
-        private float FindFill(WeaponVariant colour)
-        {
+    //instead of filling the coloured area, the dark area is coloured.
+    //this means that fill 0 means all presents, fill 1 means no presents.
+    private float FindFill(WeaponVariant colour)
+    {
             float max = GameManager.Instance.CurrentRoom.PresentColourAmounts[(int)colour];
             return 1 - (GameManager.Instance.CurrentRoom.AmountDelivered[colour] / max);
         }
 
-        [HarmonyPatch(typeof(HudController), nameof(HudController.Start)), HarmonyPostfix]
-        private static void AddSelf(HudController __instance)
-        {
+    [HarmonyPatch(typeof(HudController), nameof(HudController.Start)), HarmonyPostfix]
+    private static void AddSelf(HudController __instance)
+    {
             if (!__instance.altHud && !MapInfoBase.InstanceAnyType.hideStockHUD)
             {
                 GameObject presentPanel = AddressableManager.Load<GameObject>("Assets/Delivery/Prefabs/HUD/Present Panel.prefab");
@@ -106,5 +106,4 @@ namespace EndlessDelivery.UI
                 hud.gameObject.SetActive(false);
             }
         }
-    }
 }

@@ -1,7 +1,6 @@
-﻿namespace EndlessDelivery.UI
+﻿namespace EndlessDelivery.UI;
+
+public interface IText
 {
-    public interface IText
-    {
-        public void SetText(string text);
-    }
+    public void SetText(string text);
 }

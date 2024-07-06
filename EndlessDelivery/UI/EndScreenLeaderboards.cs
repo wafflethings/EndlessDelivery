@@ -7,22 +7,22 @@ using Steamworks;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace EndlessDelivery.UI
-{
-    public class EndScreenLeaderboards : MonoBehaviour
-    {
-        public Text[] ConnectingToServerText;
-        public Transform TopLeaderboardContainer;
-        public Transform NearbyLeaderboardContainer;
-        public GameObject EntryTemplate;
+namespace EndlessDelivery.UI;
 
-        public void OnEnable()
-        {
+public class EndScreenLeaderboards : MonoBehaviour
+{
+    public Text[] ConnectingToServerText;
+    public Transform TopLeaderboardContainer;
+    public Transform NearbyLeaderboardContainer;
+    public GameObject EntryTemplate;
+
+    public void OnEnable()
+    {
             DoStuff();
         }
 
-        private async Task DoStuff()
-        {
+    private async Task DoStuff()
+    {
             if (PrefsManager.Instance.GetInt("difficulty") > 3)
             {
                 foreach (Text text in ConnectingToServerText)
@@ -66,5 +66,4 @@ namespace EndlessDelivery.UI
                 text.gameObject.SetActive(false);
             }
         }
-    }
 }

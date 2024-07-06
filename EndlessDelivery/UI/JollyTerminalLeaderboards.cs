@@ -7,30 +7,30 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace EndlessDelivery.UI
+namespace EndlessDelivery.UI;
+
+public class JollyTerminalLeaderboards : MonoBehaviour
 {
-    public class JollyTerminalLeaderboards : MonoBehaviour
-    {
-        public Button[] PageButtons;
-        public LeaderboardEntry[] Entries;
-        public TMP_Text PageText;
-        private List<ScoreResult> _pageScores;
-        private bool _hasLoadedScores;
-        private int _page = 0;
-        private int _pageAmount;
+    public Button[] PageButtons;
+    public LeaderboardEntry[] Entries;
+    public TMP_Text PageText;
+    private List<ScoreResult> _pageScores;
+    private bool _hasLoadedScores;
+    private int _page = 0;
+    private int _pageAmount;
         
-        public void Start()
-        {
+    public void Start()
+    {
             SetStuff();
         }
 
-        private async void SetStuff()
-        {
+    private async void SetStuff()
+    {
             _pageAmount = Mathf.CeilToInt(await Endpoints.GetScoreAmount() / 5f);
         }
         
-        public void OnEnable()
-        {
+    public void OnEnable()
+    {
             if (!_hasLoadedScores)
             {
                 foreach (LeaderboardEntry entry in Entries)
@@ -42,8 +42,8 @@ namespace EndlessDelivery.UI
             }
         }
 
-        public void ScrollPage(int amount)
-        {
+    public void ScrollPage(int amount)
+    {
             if ((_page + amount) >= 0 && (_page + amount) <= _pageAmount - 1)
             {
                 _page += amount;
@@ -54,22 +54,22 @@ namespace EndlessDelivery.UI
             RefreshPage();
         }
 
-        public void Refresh()
-        {
+    public void Refresh()
+    {
             //unity events cant call asnyc funcs
             RefreshAsync();
         }
 
-        private async void RefreshAsync()
-        {
+    private async void RefreshAsync()
+    {
             transform.parent.gameObject.SetActive(false);
             await Score.GetServerScoreAndSetIfHigher();
             GetComponentInParent<JollyTerminal>().AssignScoreText();
             transform.parent.gameObject.SetActive(true);
         }
         
-        public async Task RefreshPage()
-        {
+    public async Task RefreshPage()
+    {
             if (!await Endpoints.IsServerOnline())
             {
                 HudMessageReceiver.Instance.SendHudMessage("Server offline!");
@@ -108,5 +108,4 @@ namespace EndlessDelivery.UI
                 button.interactable = true;
             }
         }
-    }
 }

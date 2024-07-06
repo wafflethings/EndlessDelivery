@@ -12,35 +12,35 @@ using HarmonyLib;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace EndlessDelivery.Gameplay
+namespace EndlessDelivery.Gameplay;
+
+[HarmonyPatch]
+public class GameManager : MonoSingleton<GameManager>
 {
-    [PatchThis($"{Plugin.GUID}.GameManager")]
-    public class GameManager : MonoSingleton<GameManager>
+    public const float StartTime = 45;
+    public const float TimeAddLength = 0.5f;
+
+    public NavMeshSurface Navmesh;
+    public AudioSource TimeAddSound;
+    public RoomPool RoomPool;
+
+    public bool GameStarted { get; private set; }
+    public float TimeLeft { get; private set; }
+    public float TimeElapsed { get; private set; }
+    public int DeliveredPresents { get; set; }
+    public int RoomsEntered { get; private set; }
+    public Room CurrentRoom { get; private set; }
+    public Room PreviousRoom { get; private set; }
+    public bool TimerActive { get; private set; }
+    public int PointsPerWave { get; private set; }
+    public Score CurrentScore => new(RoomsEntered - 1, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed);
+
+    private Coroutine _pauseCoroutine;
+    private List<RoomData> _remainingRooms = new();
+    private static readonly int _startingPoints = 10;
+
+    public static int GetRoomPoints(int roomNumber)
     {
-        public const float StartTime = 45;
-        public const float TimeAddLength = 0.5f;
-
-        public NavMeshSurface Navmesh;
-        public AudioSource TimeAddSound;
-        public RoomPool RoomPool;
-        
-        public bool GameStarted { get; private set; }
-        public float TimeLeft { get; private set; }
-        public float TimeElapsed { get; private set; }
-        public int DeliveredPresents { get; set; }
-        public int RoomsEntered { get; private set; }
-        public Room CurrentRoom { get; private set; }
-        public Room PreviousRoom { get; private set; }
-        public bool TimerActive { get; private set; }
-        public int PointsPerWave { get; private set; }
-        public Score CurrentScore => new(RoomsEntered - 1, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed);
-        
-        private Coroutine _pauseCoroutine;
-        private List<RoomData> _remainingRooms = new();
-        private static readonly int _startingPoints = 10;
-
-        public static int GetRoomPoints(int roomNumber)
-        {
             Debug.Log($"sp {_startingPoints}");
             int points = _startingPoints;
 
@@ -54,13 +54,13 @@ namespace EndlessDelivery.Gameplay
             return points;
         }
 
-        private void Awake()
-        {
-            Act3EnemyHack.AddToPools(EnemyGroup.Groups[DeliveryEnemyClass.Projectile], EnemyGroup.Groups[DeliveryEnemyClass.Uncommon]);    
+    private void Awake()
+    {
+            Act3EnemyHack.AddToPools(EnemyGroup.Groups[DeliveryEnemyClass.Projectile], EnemyGroup.Groups[DeliveryEnemyClass.Uncommon]);
         }
-        
-        private void Update()
-        {
+
+    private void Update()
+    {
             if (GameStarted && GunControl.Instance.activated)
             {
                 TimeLeft = Mathf.MoveTowards(TimeLeft, 0, Time.deltaTime);
@@ -80,42 +80,42 @@ namespace EndlessDelivery.Gameplay
             }
         }
 
-        public void AddTime(float seconds, string reason)
-        {
+    public void AddTime(float seconds, string reason)
+    {
             TimeAddSound?.Play();
             TimerActive = false;
-            
+
             if (_pauseCoroutine != null)
             {
                 StopCoroutine(_pauseCoroutine);
             }
             _pauseCoroutine = StartCoroutine(UnpauseTimer());
-            
+
             StyleHUD.Instance.AddPoints(5, $"{reason} <size=20>({seconds}s)</size>");
-            
+
             TimeLeft += seconds;
         }
 
-        public void SilentAddTime(float seconds)
-        {
+    public void SilentAddTime(float seconds)
+    {
             TimeLeft += seconds;
         }
 
-        private IEnumerator UnpauseTimer()
-        {
+    private IEnumerator UnpauseTimer()
+    {
             yield return new WaitForSeconds(TimeAddLength);
             TimerActive = true;
         }
 
-        public Room GenerateNewRoom()
-        {
+    public Room GenerateNewRoom()
+    {
             Collider collider = CurrentRoom.GetComponent<Collider>();
             return Instantiate(GetRandomRoom().Prefab, CurrentRoom.gameObject.transform.position + (Vector3.right * collider.bounds.size.x * 2.5f), Quaternion.identity)
                 .GetComponent<Room>();
         }
 
-        public RoomData GetRandomRoom()
-        {
+    public RoomData GetRandomRoom()
+    {
             if (_remainingRooms.Count == 0)
             {
                 _remainingRooms.AddRange(RoomPool.Rooms);
@@ -126,27 +126,27 @@ namespace EndlessDelivery.Gameplay
             return picked;
         }
 
-        public void RoomEnd()
-        {
+    public void RoomEnd()
+    {
             if (CurrentRoom.RoomHasGameplay)
             {
                 AddTime(8, "<color=orange>ROOM CLEAR</color>");
                 PointsPerWave += 3 + RoomsEntered / 3;
                 BestTimes.SetIfHigher(RoomsEntered, TimeLeft);
             }
-            
+
             SetRoom(GenerateNewRoom());
             Navmesh.BuildNavMesh();
             // BlackFade.Instance.Flash(0.125f);
         }
-        
-        public void SetRoom(Room room)
-        {
+
+    public void SetRoom(Room room)
+    {
             if (!GameStarted && room.RoomHasGameplay)
             {
                 StartGame();
             }
-            
+
             if (CurrentRoom != room)
             {
                 RoomsEntered++;
@@ -154,20 +154,20 @@ namespace EndlessDelivery.Gameplay
                 CurrentRoom = room;
                 room.Initialize();
             }
-            
+
             if (room.RoomHasGameplay && !room.RoomAlreadyVisited)
             {
                 room.RoomAlreadyVisited = true;
             }
         }
 
-        public void StartGame()
-        {
+    public void StartGame()
+    {
             if (GameStarted)
             {
                 return;
             }
-            
+
             PresentTimeHud.Instance.gameObject.SetActive(true);
             StatsManager.Instance.GetComponentInChildren<MusicManager>(true).gameObject.SetActive(true);
             MusicManager.Instance.StartMusic();
@@ -178,22 +178,22 @@ namespace EndlessDelivery.Gameplay
             GameStarted = true;
         }
 
-        public void EndGame()
-        {
+    public void EndGame()
+    {
             if (!GameStarted)
             {
                 return;
             }
-            
+
             if (!NewMovement.Instance.dead)
             {
                 NewMovement.Instance.GetHurt(1000, false);
             }
 
             NewMovement.Instance.blackScreen.gameObject.SetActive(false);
-            NewMovement.Instance.hp = 100; // to prevent restart working - StatsManager.Update 
+            NewMovement.Instance.hp = 100; // to prevent restart working - StatsManager.Update
             GameStarted = false;
-            
+
             //if more rooms, or more deliveries
             if (Score.IsLargerThanOtherScore(CurrentScore, Score.Highscore))
             {
@@ -207,14 +207,14 @@ namespace EndlessDelivery.Gameplay
                     HudMessageReceiver.Instance.SendHudMessage("Score not submitting due to other mods, or cheats enabled.");
                 }
             }
-            
+
             EndScreen.Instance.Appear();
             GameProgressSaver.AddMoney(CurrentScore.MoneyGain);
         }
-        
-        [HarmonyPatch(typeof(SeasonalHats), nameof(SeasonalHats.Start)), HarmonyPrefix]
-        private static void EnableHats(SeasonalHats __instance)
-        {
+
+    [HarmonyPatch(typeof(SeasonalHats), nameof(SeasonalHats.Start)), HarmonyPrefix]
+    private static void EnableHats(SeasonalHats __instance)
+    {
             if (AddressableManager.InSceneFromThisMod)
             {
                 __instance.easter.SetActive(false);
@@ -223,13 +223,12 @@ namespace EndlessDelivery.Gameplay
             }
         }
 
-        [HarmonyPatch(typeof(NewMovement), nameof(NewMovement.GetHurt)), HarmonyPostfix]
-        private static void CustomDeath(NewMovement __instance)
-        {
+    [HarmonyPatch(typeof(NewMovement), nameof(NewMovement.GetHurt)), HarmonyPostfix]
+    private static void CustomDeath(NewMovement __instance)
+    {
             if (__instance.dead && AddressableManager.InSceneFromThisMod)
             {
                 Instance.EndGame();
             }
         }
-    }
 }

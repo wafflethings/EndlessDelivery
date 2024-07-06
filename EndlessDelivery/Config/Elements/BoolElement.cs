@@ -6,29 +6,29 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace EndlessDelivery.Config.Elements
+namespace EndlessDelivery.Config.Elements;
+
+public class BoolElement : MonoBehaviour
 {
-    public class BoolElement : MonoBehaviour
-    {
-        public TMP_Text EnabledText;
-        public string Id;
-        public UltrakillEvent OnToggled;
-        private Option<bool> _option;
+    public TMP_Text EnabledText;
+    public string Id;
+    public UltrakillEvent OnToggled;
+    private Option<bool> _option;
         
-        private void Start()
-        {
+    private void Start()
+    {
             _option = (Option<bool>)Option.AllOptions[Id];
             UpdateText();
         }
 
-        public void Toggle()
-        {
+    public void Toggle()
+    {
             _option.Value = !_option.Value;
             UpdateText();
         }
         
-        private void UpdateText()
-        {
+    private void UpdateText()
+    {
             EnabledText.text = _option.Value ? "ENABLED" : "DISABLED";
 
             if (_option.Value)
@@ -40,5 +40,4 @@ namespace EndlessDelivery.Config.Elements
                 OnToggled.Revert();
             }
         }
-    }
 }

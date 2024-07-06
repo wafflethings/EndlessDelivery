@@ -32,29 +32,16 @@ namespace EndlessDelivery.Server.Api.Users
             await SteamUser.AddPlayerToCache(id);
         }
 
-        [EnableRateLimiting("fixed")]
-        [HttpGet("get_special_users")]
-        public async Task<object> GetUsers()
-        {
-            try
-            {
-                return null; //TODO FIX THIS LOL
-                //return JsonConvert.SerializeObject((await Program.Supabase.From<UserModel>().Get()).Models);
-            }
-            catch (Exception ex)
-            {
-                return Json(StatusCode(StatusCodes.Status500InternalServerError, "Error retrieving data: report this to Waffle. \n" + ex));
-            }
-        }
-
         [HttpGet("clear_token")]
-        public async Task ClearToken()
+        public async Task<StatusCodeResult> ClearToken()
         {
             if (Response.HttpContext.TryGetLoggedInPlayer(out SteamUser user) && Request.Cookies.TryGetValue("token", out string token))
             {
                 Console.WriteLine($"Removing {user.PersonaName}'s token.");
-                SteamLoginController.RemoveToken(token);
+                await SteamLoginController.RemoveToken(token);
             }
+
+            return StatusCode(StatusCodes.Status200OK);
         }
 
         [HttpGet("update_socials")]

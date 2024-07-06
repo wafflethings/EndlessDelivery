@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 
-namespace EndlessDelivery.Gameplay
+namespace EndlessDelivery.Gameplay;
+
+public class RoomPool : ScriptableObject
 {
-    public class RoomPool : ScriptableObject
-    {
-        public RoomData[] Rooms;
-    }
+    public RoomData[] Rooms;
 }

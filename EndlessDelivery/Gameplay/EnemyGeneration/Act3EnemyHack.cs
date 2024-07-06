@@ -3,19 +3,19 @@ using System.Linq;
 using EndlessDelivery.Assets;
 using UnityEngine;
 
-namespace EndlessDelivery.Gameplay.EnemyGeneration
+namespace EndlessDelivery.Gameplay.EnemyGeneration;
+
+/// <summary>
+/// This WILL be deleted.
+/// I can't reference act 3 enemy EndlessEnemy SOs as my Tundra version doesn't have them (yet).
+/// I have to add the official ones.
+/// </summary>
+public static class Act3EnemyHack
 {
-    /// <summary>
-    /// This WILL be deleted.
-    /// I can't reference act 3 enemy EndlessEnemy SOs as my Tundra version doesn't have them (yet).
-    /// I have to add the official ones.
-    /// </summary>
-    public static class Act3EnemyHack
-    {
-        private static bool _hasAdded = false;
+    private static bool _hasAdded = false;
         
-        public static void AddToPools(params EnemyGroup[] groups)
-        {
+    public static void AddToPools(params EnemyGroup[] groups)
+    {
             if (_hasAdded)
             {
                 return;
@@ -30,8 +30,8 @@ namespace EndlessDelivery.Gameplay.EnemyGeneration
             }
         }
 
-        private static void AddEnemies(EnemyGroup group, PrefabDatabase database)
-        {
+    private static void AddEnemies(EnemyGroup group, PrefabDatabase database)
+    {
             List<EndlessEnemy> enemies = group.Enemies.ToList();
 
             switch (group.Class)
@@ -63,5 +63,4 @@ namespace EndlessDelivery.Gameplay.EnemyGeneration
             
             group.Enemies = enemies.ToArray();
         }
-    }
 }

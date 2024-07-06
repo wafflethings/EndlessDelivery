@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace AtlasLib.Utils
+namespace AtlasLib.Utils;
+
+public static class UnityUtils
 {
-    public static class UnityUtils
+    public static GameObject GetChild(this GameObject from, string name)
     {
-        public static GameObject GetChild(this GameObject from, string name)
-        {
             return from.transform.Find(name)?.gameObject ?? null;
         }
 
-        public static List<GameObject> FindSceneObjects(string sceneName)
-        {
+    public static List<GameObject> FindSceneObjects(string sceneName)
+    {
             List<GameObject> objs = new List<GameObject>();
             foreach (GameObject obj in GameObject.FindObjectsOfType<GameObject>())
             {
@@ -24,8 +24,8 @@ namespace AtlasLib.Utils
             return objs;
         }
 
-        public static List<GameObject> ChildrenList(this GameObject from)
-        {
+    public static List<GameObject> ChildrenList(this GameObject from)
+    {
             List<GameObject> children = new List<GameObject>();
             int count = 0;
             while (count < from.transform.childCount)
@@ -37,9 +37,8 @@ namespace AtlasLib.Utils
             return children;
         }
 
-        public static bool Contains(this LayerMask mask, int layer)
-        {
+    public static bool Contains(this LayerMask mask, int layer)
+    {
             return mask == (mask | (1 << layer));
         }
-    }
 }
