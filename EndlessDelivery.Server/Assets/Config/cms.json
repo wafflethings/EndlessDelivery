@@ -27,18 +27,20 @@
         "banner_gniesbert",
         "banner_default"
       ],
-      "Start": "2024-06-08T00:00:00+01:00",
+      "Start": "2024-06-07T23:00:00+00:00",
       "Length": "1.00:00:00"
     },
     {
       "ItemIds": [
         "banner_gniesbert"
       ],
-      "Start": "2024-06-09T00:00:00+01:00",
+      "Start": "2024-06-08T23:00:00+00:00",
       "Length": "1.00:00:00"
     },
     {
-      "ItemIds": [],
+      "ItemIds": [
+        "banner_gniesbert"
+      ],
       "Start": "1970-01-01T23:00:00+00:00",
       "Length": "999999.00:00:00"
     }
@@ -74,5 +76,5 @@
     "item.banner_default": "Default",
     "item.banner_gniesbert": "My Shitty Dog"
   },
-  "LastUpdate": "2024-06-23T00:30:10.6418042Z"
+  "LastUpdate": "2024-07-05T19:26:43.3684074Z"
 }
