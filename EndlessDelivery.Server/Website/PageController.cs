@@ -30,10 +30,8 @@ public class PageController : Controller
 
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
-        builder.AppendHtml($"<meta property=\"og:title\" content=\"{ContentController.CurrentContent.GetLocalisedString("page_title.index")}\">");
-        builder.AppendHtml($"<meta property=\"og:description\" content=\"{ContentController.CurrentContent.GetLocalisedString("page_desc.index")}\">");
-        builder.AppendGenericEmbed(HttpContext);
-        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/resources/leaderboard.css\">");
+        builder.AppendEmbed(HttpContext, ContentController.CurrentContent.GetLocalisedString("page_title.index"), ContentController.CurrentContent.GetLocalisedString("page_desc.index"));
+        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/leaderboard.css\">");
         builder.AppendHtml("</head>");
 
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
@@ -45,8 +43,8 @@ public class PageController : Controller
 
         builder.AppendHtml("</div>");
         builder.AppendHtml("</body>");
-        builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/index.js\"></script>"); //after html
-        builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/misc.js\"></script>");
+        builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/build/index.js\"></script>"); //after html
+        builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/build/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
         builder.Append(ContentController.CurrentContent.GetLocalisedString("page_title.index"));
@@ -79,10 +77,9 @@ public class PageController : Controller
 
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
-        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/resources/user.css\">");
-        builder.AppendHtml($"<meta property=\"og:title\" content=\"{string.Format(ContentController.CurrentContent.GetLocalisedString("page_title.user"), player.PersonaName)}\">");
-        builder.AppendHtml($"<meta property=\"og:description\" content=\"{string.Format(ContentController.CurrentContent.GetLocalisedString("page_desc.user"), player.PersonaName)}\">");
-        builder.AppendGenericEmbed(HttpContext);
+        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/user.css\">");
+        builder.AppendEmbed(HttpContext, string.Format(ContentController.CurrentContent.GetLocalisedString("page_title.user"), player.PersonaName),
+            string.Format(ContentController.CurrentContent.GetLocalisedString("page_desc.user"), player.PersonaName), "/api/users/embed/" + player.SteamId);
         builder.AppendHtml("</head>");
 
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
@@ -90,7 +87,7 @@ public class PageController : Controller
         builder.AppendHtml("</div>");
 
         builder.AppendHtml("</body>");
-        builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/misc.js\"></script>");
+        builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/build/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
         builder.Append(string.Format(ContentController.CurrentContent.GetLocalisedString("page_title.user"), player.PersonaName));
@@ -118,7 +115,7 @@ public class PageController : Controller
 
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
-        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/resources/settings.css\">");
+        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/settings.css\">");
         builder.AppendHtml("</head>");
 
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
@@ -127,8 +124,8 @@ public class PageController : Controller
         builder.AppendHtml("</div>");
 
         builder.AppendHtml("</body>");
-        builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/settings.js\"></script>");
-        builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/misc.js\"></script>");
+        builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/build/settings.js\"></script>");
+        builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/build/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
         builder.Append(ContentController.CurrentContent.GetLocalisedString("page_title.settings"));
@@ -157,10 +154,8 @@ public class PageController : Controller
 
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
-        builder.AppendHtml($"<meta property=\"og:title\" content=\"{ContentController.CurrentContent.GetLocalisedString("page_title.shop")}\">");
-        builder.AppendHtml($"<meta property=\"og:description\" content=\"{ContentController.CurrentContent.GetLocalisedString("page_desc.shop")}\">");
-        builder.AppendGenericEmbed(HttpContext);
-        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/resources/shop.css\">");
+        builder.AppendEmbed(HttpContext, ContentController.CurrentContent.GetLocalisedString("page_title.shop"), ContentController.CurrentContent.GetLocalisedString("page_desc.shop"));
+        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/shop.css\">");
         builder.AppendHtml("</head>");
 
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
@@ -177,8 +172,8 @@ public class PageController : Controller
         builder.AppendHtml("</div>");
 
         builder.AppendHtml("</body>");
-        builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/shop.js\"></script>");
-        builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/misc.js\"></script>");
+        builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/build/shop.js\"></script>");
+        builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/build/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
         builder.Append(ContentController.CurrentContent.GetLocalisedString("page_title.shop"));
@@ -204,7 +199,7 @@ public class PageController : Controller
 
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
-        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/resources/settings.css\">");
+        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/settings.css\">");
         builder.AppendHtml("</head>");
 
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
@@ -212,7 +207,7 @@ public class PageController : Controller
         builder.AppendHtml("</div>");
 
         builder.AppendHtml("</body>");
-        builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/misc.js\"></script>");
+        builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/build/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
         builder.Append(ContentController.CurrentContent.GetLocalisedString("page_title.admin"));
@@ -232,14 +227,13 @@ public class PageController : Controller
 
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
-        builder.AppendHtml($"<meta property=\"og:title\" content=\"{string.Format(ContentController.CurrentContent.GetLocalisedString("page_title.error"), statusCode)}\">");
-        builder.AppendHtml($"<meta property=\"og:description\" content=\"{ContentController.CurrentContent.GetLocalisedString("page_desc.error")}\">");
-        builder.AppendGenericEmbed(HttpContext);
-        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/resources/error_page.css\">");
+        builder.AppendEmbed(HttpContext, string.Format(ContentController.CurrentContent.GetLocalisedString("page_title.error"), statusCode),
+            ContentController.CurrentContent.GetLocalisedString("page_desc.error"));
+        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/error_page.css\">");
         builder.AppendHtml("</head>");
 
         builder.AppendHtml("</body>");
-        builder.AppendHtml("<script type=\"module\" src=\"/resources/scripts/misc.js\"></script>");
+        builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/src/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
         builder.Append(string.Format(ContentController.CurrentContent.GetLocalisedString("page_title.error"), statusCode));

@@ -7,6 +7,7 @@ using EndlessDelivery.Config;
 using EndlessDelivery.Saving;
 using EndlessDelivery.Scores;
 using EndlessDelivery.Scores.Server;
+using EndlessDelivery.Server;
 using EndlessDelivery.Server.ContentFile;
 using EndlessDelivery.Utils;
 using UnityEngine;
@@ -28,7 +29,6 @@ public class Plugin : BaseUnityPlugin
         Debug.Log($"{Name} has started !!");
 
         AddressableManager.Setup();
-        SaveData.LoadAll();
         Option.Load();
     }
 
@@ -40,15 +40,10 @@ public class Plugin : BaseUnityPlugin
             Debug.Log($"Ticket! [{SteamAuth.GetTicket()}]");
         }
 
-        if (InputManager.Instance.InputSource.Dodge.IsPressed && InputManager.Instance.InputSource.Hook.IsPressed && InputManager.Instance.InputSource.Slot5.WasPerformedThisFrame)
+        if (InputManager.Instance.InputSource.Dodge.IsPressed && InputManager.Instance.InputSource.Hook.IsPressed && InputManager.Instance.InputSource.Slot4.WasPerformedThisFrame)
         {
-            DoThing();
+            OnlineFunctionality.UseLocalUrl = true;
         }
-    }
-
-    private async void DoThing()
-    {
-        Debug.Log((await ContentDownloader.GetContent()).Banners.Keys);
     }
 #endif
 

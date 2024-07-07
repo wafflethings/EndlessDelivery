@@ -1,23 +1,23 @@
 {
   "Banners": {
     "banner_default": {
-      "AssetUri": "/resources/banners/average-british-neighbourhood.png",
+      "AssetUri": "/Resources/UI/Banners/average-british-neighbourhood.png",
       "Descriptor": {
         "Type": 0,
         "Id": "banner_default",
         "Name": "item.banner_default",
         "ShopPrice": 0,
-        "PreviewUri": "/resources/banners/abn-preview.png"
+        "PreviewUri": "/Resources/UI/Banners/abn-preview.png"
       }
     },
     "banner_gniesbert": {
-      "AssetUri": "/resources/banners/gniesbert.png",
+      "AssetUri": "/Resources/UI/Banners/gniesbert.png",
       "Descriptor": {
         "Type": 0,
         "Id": "banner_gniesbert",
         "Name": "item.banner_gniesbert",
         "ShopPrice": 9999,
-        "PreviewUri": "/resources/banners/gnies-preview.png"
+        "PreviewUri": "/Resources/UI/Banners/gnies-preview.png"
       }
     }
   },

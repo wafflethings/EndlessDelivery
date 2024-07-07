@@ -10,20 +10,22 @@ public static class GenericElements
     public static void AppendGenericHeadContent(this HtmlContentBuilder builder)
     {
         builder.AppendHtml("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
-        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/resources/misc.css\">");
-        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/resources/colours.css\">");
-        builder.AppendHtml("<link rel=\"icon\" href=\"/resources/icons/favicon.ico\">");
-        builder.AppendHtml("<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/resources/icons/favicon-32x32.png\">");
-        builder.AppendHtml("<link rel=\"icon\" type=\"image/png\" sizes=\"64x64\" href=\"/resources/icons/favicon-64x64.png\">");
-        builder.AppendHtml("<link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"/resources/icons/favicon-192x192.png\">");
-        builder.AppendHtml("<link rel=\"icon\" type=\"image/png\" sizes=\"256x256\" href=\"/resources/icons/favicon-256x256.png\">");
+        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/misc.css\">");
+        builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/colours.css\">");
+        builder.AppendHtml("<link rel=\"icon\" href=\"/favicon.ico\">");
+        builder.AppendHtml("<link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/Resources/Icons/favicon-32x32.png\">");
+        builder.AppendHtml("<link rel=\"icon\" type=\"image/png\" sizes=\"64x64\" href=\"/Resources/Icons/favicon-64x64.png\">");
+        builder.AppendHtml("<link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"/Resources/Icons/favicon-192x192.png\">");
+        builder.AppendHtml("<link rel=\"icon\" type=\"image/png\" sizes=\"256x256\" href=\"/Resources/Icons/favicon-256x256.png\">");
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200\"/>");
     }
 
-    public static void AppendGenericEmbed(this HtmlContentBuilder builder, HttpContext context)
+    public static void AppendEmbed(this HtmlContentBuilder builder, HttpContext context, string title, string desc, string image = "Resources/UI/embed-thumb.png")
     {
         builder.AppendHtml($"<meta property=\"og:url\" content=\"{context.Request.Path}\" />");
-        builder.AppendHtml("<meta property=\"og:image\" content=\"/resources/embed-thumb.png\" />");
+        builder.AppendHtml($"<meta property=\"og:image\" content=\"{image}\" />");
+        builder.AppendHtml($"<meta property=\"og:title\" content=\"{title}\">");
+        builder.AppendHtml($"<meta property=\"og:description\" content=\"{desc}\">");
         builder.AppendHtml("<meta name=\"twitter:card\" content=\"summary_large_image\">");
         builder.AppendHtml("<meta name=\"theme-color\" content=\"#BC2B3E\">");
     }
@@ -32,7 +34,7 @@ public static class GenericElements
     {
         builder.AppendHtml("<div class=\"top-bar\">");
         builder.AppendHtml("<div class=\"top-bar-group\">");
-        builder.AppendHtml("<img src=\"/resources/logo-transparent.png\" class=\"top-bar-icon pixel-perfect\">");
+        builder.AppendHtml("<img src=\"/Resources/UI/logo-transparent.png\" class=\"top-bar-icon pixel-perfect\">");
         builder.AppendHtml("<a href=\"/\" class=\"top-bar-title-text\">");
         builder.Append(ContentController.CurrentContent.GetLocalisedString("navbar.mod_name"));
         builder.AppendHtml("</a>");
@@ -46,7 +48,7 @@ public static class GenericElements
         builder.AppendHtml("</a>");
 
         bool loggedIn = context.TryGetLoggedInPlayer(out SteamUser player);
-        string imageOrigin = loggedIn ? player.Avatar : "/resources/fallback-pfp.png";
+        string imageOrigin = loggedIn ? player.Avatar : "/Resources/UI/fallback-pfp.png";
 
         builder.AppendHtml($"<img src=\"{imageOrigin}\" class=\"top-bar-pfp circle-clip\"/>");
 

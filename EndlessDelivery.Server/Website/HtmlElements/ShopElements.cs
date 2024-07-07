@@ -44,7 +44,7 @@ public static class ShopElements
 
         builder.AppendHtml($"<div id=\"unowned-price-text\" style=\"{unownedStyle}\">");
         builder.AppendHtml("<div class=\"price-holder\">");
-        builder.AppendHtml("<img class=\"price-currency\" src=\"/resources/prem-currency.png\">");
+        builder.AppendHtml("<img class=\"price-currency\" src=\"/Resources/UI/prem-currency.png\">");
         builder.AppendHtml("<p class=\"price-text\">");
         builder.Append(item.Descriptor.ShopPrice.ToString());
         builder.AppendHtml("</p>");
