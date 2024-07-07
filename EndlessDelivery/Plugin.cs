@@ -29,7 +29,6 @@ public class Plugin : BaseUnityPlugin
         Debug.Log($"{Name} has started !!");
 
         AddressableManager.Setup();
-        SaveData.LoadAll();
         Option.Load();
     }
 
@@ -45,16 +44,6 @@ public class Plugin : BaseUnityPlugin
         {
             OnlineFunctionality.UseLocalUrl = true;
         }
-
-        if (InputManager.Instance.InputSource.Dodge.IsPressed && InputManager.Instance.InputSource.Hook.IsPressed && InputManager.Instance.InputSource.Slot5.WasPerformedThisFrame)
-        {
-            DoThing();
-        }
-    }
-
-    private async void DoThing()
-    {
-        Debug.Log((await ContentDownloader.GetContent()).Banners.Keys);
     }
 #endif
 

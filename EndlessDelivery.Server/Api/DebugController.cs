@@ -17,7 +17,7 @@ public class DebugController : Controller
             return StatusCode(StatusCodes.Status403Forbidden, "Go away!!!!");
         }
 
-        foreach (ResourcePair resourcePair in ResourceManager.Resources)
+        foreach (Resource resourcePair in ResourceManager.Resources)
         {
             resourcePair.Reset();
         }

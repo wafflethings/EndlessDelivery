@@ -1,13 +1,19 @@
-﻿using EndlessDelivery.Common.Inventory.Items;
+﻿using System.Numerics;
+using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Scores;
+using EndlessDelivery.Server.Api.ContentFile;
 using EndlessDelivery.Server.Api.Steam;
-using EndlessDelivery.Server.Api.Scores;
 using EndlessDelivery.Server.Website;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.Extensions.Primitives;
-using Supabase.Interfaces;
-using Supabase.Realtime;
+using SixLabors.Fonts;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.Drawing;
+using SixLabors.ImageSharp.Drawing.Processing;
+using SixLabors.ImageSharp.Formats.Webp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Processing;
+using SixLabors.ImageSharp.Processing.Processors.Transforms;
 
 namespace EndlessDelivery.Server.Api.Users
 {
@@ -71,6 +77,68 @@ namespace EndlessDelivery.Server.Api.Users
 
             await user.Update<UserModel>();
             return StatusCode(StatusCodes.Status204NoContent);
+        }
+
+        [HttpGet("embed/{id}")]
+        public async Task<object> UserEmbed() //straight up the worst code i have ever written. i gave up and started hardcoding. but it works
+        {
+            if (!ulong.TryParse(Request.RouteValues["id"].ToString(), out ulong id))
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "");
+            }
+
+            if (!SteamUser.TryGetPlayer(id, out SteamUser steamUser))
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "");
+            }
+
+            UserModel user = await steamUser.GetUserModel();
+            Banner currentBanner = ContentController.CurrentContent.GetBanner(user.Loadout.BannerId);
+
+            string[] path = ["Assets"];
+            path = path.Concat(currentBanner.AssetUri.Substring(1, currentBanner.AssetUri.Length - 1).Split("/")).ToArray();
+            using Image image = await Image.LoadAsync(System.IO.Path.Combine(path));
+
+            HttpResponseMessage response = await Program.Client.GetAsync(steamUser.AvatarFull);
+            using Image pfp = await Image.LoadAsync(await response.Content.ReadAsStreamAsync());
+
+            using MemoryStream ms = new();
+
+            const int pfpSize = 256;
+            const int width = 1200;
+            const int height = 600;
+            const int padding = 100;
+            const int fontSize = 75;
+            const float charWidthPerPt = 1302f/2000f;
+            const float charHeightPerPt = 1823f/2000f;
+
+            Font font = SystemFonts.Get("VCR OSD Mono").CreateFont((fontSize * 6) / MathF.Max(6, steamUser.PersonaName.Length));
+            int fontHeightOffset = (int)((charHeightPerPt * font.Size) / 2);
+            pfp.Mutate(img => img.Resize(new ResizeOptions { Size = new Size(pfpSize), Sampler = KnownResamplers.NearestNeighbor }));
+
+            int bannerResizeScalar = height / image.Height;
+            image.Mutate(img => img.Resize(new Size(image.Width * bannerResizeScalar, image.Height * bannerResizeScalar)));
+            image.Mutate(img => img.Crop(new Rectangle((image.Width / 2) - (width / 2), 0, width, height)));
+            image.Mutate(img => img.GaussianBlur(10));
+            image.Mutate(img => img.Brightness(0.75f));
+
+            int pfpHeight = (height / 2) - (pfpSize / 2) - fontHeightOffset;
+            image.Mutate(img => img.DrawImage(pfp, new Point(padding, pfpHeight), 1));
+
+            int scoreIndex = (await user.GetBestScore()).Index;
+            float bigFontSize = 680f / (1 + scoreIndex.ToString().Length);
+            Font fontScaled = SystemFonts.Get("VCR OSD Mono").CreateFont(bigFontSize);
+
+            image.Mutate(img => img.DrawText(new DrawingOptions(), steamUser.PersonaName, font, Color.White,
+                new PointF(padding, pfpHeight + pfpSize)));
+
+            Console.WriteLine($"{bigFontSize} * 0.5 * {charHeightPerPt}");
+
+            image.Mutate(img => img.DrawText($"#{scoreIndex + 1}", fontScaled, Color.White, new PointF(width - (int)(charWidthPerPt * bigFontSize * $"#{scoreIndex + 1}".Length) - 40,
+                (height / 2) - (bigFontSize * 0.55f * charHeightPerPt)))); //i dont know how. i dont know why. but 0.55 makes it work perfectly EVERY time. what the fuck
+
+            await image.SaveAsync(ms, WebpFormat.Instance);
+            return File(ms.ToArray(), "image/webp");
         }
 
         [HttpPost("add_currency")]

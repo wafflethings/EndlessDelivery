@@ -51,6 +51,7 @@ public abstract class SaveData
     public static SaveData RegisterData(SaveData data)
     {
         s_allSaveData.Add(data);
+        data.Load();
         return data;
     }
 

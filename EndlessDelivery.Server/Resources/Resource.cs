@@ -1,23 +1,23 @@
 ﻿namespace EndlessDelivery.Server.Resources;
 
-public class ResourcePair
+public class Resource
 {
-    public string[] Urls;
-    public string Location;
-    public string MimeType;
+    public readonly string Location;
+    public readonly string UrlLocation;
+    public readonly string MimeType;
     private byte[]? _data;
 
-    public ResourcePair(string url, string location, string mimeType = "application/octet-stream")
+    public Resource(string location, string mimeType = "application/octet-stream")
     {
-        Urls = [url];
         Location = location;
+        UrlLocation = location.Replace('\\', '/').Substring(6, location.Length - 6); // trims Assets
         MimeType = mimeType;
     }
 
-    public ResourcePair(string[] urls, string location, string mimeType = "application/octet-stream")
+    public Resource(string location, string urlLocation, string mimeType = "application/octet-stream")
     {
-        Urls = urls;
         Location = location;
+        UrlLocation = urlLocation;
         MimeType = mimeType;
     }
 

@@ -39,7 +39,7 @@ public static class SettingsElements
     public static void AppendSocialLink(this HtmlContentBuilder builder, string title, string root, string id, string image, string defaultValue)
     {
         builder.AppendHtml("<div class=\"social-link-box\">");
-        builder.AppendHtml($"<image src=\"/resources/icons/{image}\" class=\"social-link-icon\">");
+        builder.AppendHtml($"<image src=\"/Resources/UI/Socials/{image}\" class=\"social-link-icon\">");
         builder.AppendHtml("<div>");
         builder.AppendHtml("<p class=\"social-link-name\">");
         builder.Append(title);

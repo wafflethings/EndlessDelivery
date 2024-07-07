@@ -34,7 +34,7 @@ public static class UserPageElements
         ScoreModel best = await userModel.GetBestScore();
 
         builder.AppendHtml("<div class=\"position-holder\">");
-        builder.AppendIconPositionGroup(best != null ? (best.Index + 1).ToString() : "-", "/resources/global.png", "global-icon");
+        builder.AppendIconPositionGroup(best != null ? (best.Index + 1).ToString() : "-", "/Resources/UI/global.png", "global-icon");
         if (userModel.Country != string.Empty && userModel.Country != null)
         {
             builder.AppendIconPositionGroup(best != null ? (best.CountryIndex + 1).ToString() : "-",
@@ -63,9 +63,9 @@ public static class UserPageElements
     {
         builder.AppendHtml("<div class=\"social-link-holder\">");
 
-        builder.AppendSocialButton("/resources/icons/discord-transparent.png", userModel.Links.GetDiscord);
-        builder.AppendSocialButton("/resources/icons/twitter-transparent.png", userModel.Links.GetTwitter);
-        builder.AppendSocialButton("/resources/icons/youtube-transparent.png", userModel.Links.GetYoutube);
+        builder.AppendSocialButton("/Resources/UI/Socials/discord-transparent.png", userModel.Links.GetDiscord);
+        builder.AppendSocialButton("/Resources/UI/Socials/twitter-transparent.png", userModel.Links.GetTwitter);
+        builder.AppendSocialButton("/Resources/UI/Socials/youtube-transparent.png", userModel.Links.GetYoutube);
 
         builder.AppendHtml("</div>");
     }

@@ -28,7 +28,8 @@ public static class LeaderboardElements
         builder.AppendHtml("<div class=\"leaderboard-secondary-content\">");
         builder.AppendHtml("<div class=\"leaderboard-internal-content\">");
         builder.AppendHtml("<p class=\"leaderboard-entry\">");
-        builder.AppendHtml(string.Format(ContentController.CurrentContent.GetLocalisedString("leaderboard.extra_info"), scoreModel.Score.Deliveries, scoreModel.Score.Kills, TimeSpan.FromSeconds(scoreModel.Score.Time).ToString("mm':'ss'.'ff")));
+        builder.AppendHtml(string.Format(ContentController.CurrentContent.GetLocalisedString("leaderboard.extra_info"), scoreModel.Score.Deliveries, scoreModel.Score.Kills,
+            TimeSpan.FromSeconds(scoreModel.Score.Time).ToString("mm':'ss'.'ff")));
         builder.AppendHtml("</p>");
         builder.AppendHtml("</div>");
         builder.AppendHtml("</div>");
@@ -43,7 +44,7 @@ public static class LeaderboardElements
         builder.AppendHtml("<p class=\"lb-rooms-text\">");
         builder.Append(scoreModel.Score.Rooms.ToString());
         builder.AppendHtml("</p>");
-        builder.AppendHtml("<img src=\"/resources/dropdown.png\" class=\"pixel-perfect dropdown-button\">");
+        builder.AppendHtml("<img src=\"/Resources/UI/dropdown.png\" class=\"pixel-perfect dropdown-button\">");
         builder.AppendHtml("</div>");
     }
 
