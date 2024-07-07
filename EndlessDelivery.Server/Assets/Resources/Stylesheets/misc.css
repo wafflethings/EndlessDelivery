@@ -2,7 +2,7 @@
     font-family: 'VCR OSD Mono';
     font-weight: normal;
     font-style: normal;
-    src: url("/resources/vcr_osd_mono.woff2") format('woff2');
+    src: url("/Resources/UI/vcr_osd_mono.woff2") format('woff2');
 }
 
 .top-bar {
