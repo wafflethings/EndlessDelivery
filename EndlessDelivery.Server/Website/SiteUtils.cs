@@ -1,5 +1,4 @@
-﻿using System.Net;
-using EndlessDelivery.Server.Api.Steam;
+﻿using EndlessDelivery.Server.Api.Steam;
 using Microsoft.Extensions.Primitives;
 
 namespace EndlessDelivery.Server.Website;
@@ -8,7 +7,19 @@ public static class SiteUtils
 {
     public static bool TryGetLoggedInPlayer(this HttpContext context, out SteamUser steamUser)
     {
-        if (context.Request.Cookies.TryGetValue("token", out string token) && SteamLoginController.TryUserFromToken(token, out ulong playerId) && SteamUser.CacheHasId(playerId))
+        string token = string.Empty;
+
+        if (context.Request.Cookies.TryGetValue("token", out string cookieToken))
+        {
+            token = cookieToken;
+        }
+
+        if (context.Request.Headers.TryGetValue("DeliveryToken", out StringValues headerToken))
+        {
+            token = headerToken.ToString();
+        }
+
+        if (SteamLoginController.TryUserFromToken(token, out ulong playerId) && SteamUser.CacheHasId(playerId))
         {
             steamUser = SteamUser.GetById(playerId);
             return true;

@@ -9,11 +9,11 @@ public class UnityText : MonoBehaviour, IText
 
     public void SetText(string text)
     {
-            if (_text == null)
-            {
-                _text = GetComponent<Text>();
-            }
-            
-            _text.text = text;
+        if (_text == null)
+        {
+            _text = GetComponent<Text>();
         }
+
+        _text.text = text;
+    }
 }

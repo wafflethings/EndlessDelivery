@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Text.Encodings.Web;
+using EndlessDelivery.Common.Communication.Scores;
 using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Server.Api.Scores;
 using EndlessDelivery.Server.Api.Steam;
@@ -36,9 +37,9 @@ public class PageController : Controller
 
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
 
-        foreach (ScoreModel scoreModel in await ScoresController.GetScoreModels())
+        foreach (OnlineScore onlineScore in await ScoresController.GetOnlineScores())
         {
-            builder.AppendPlayerEntry(SteamUser.GetById(scoreModel.SteamId), scoreModel);
+            builder.AppendPlayerEntry(SteamUser.GetById(onlineScore.SteamId), onlineScore);
         }
 
         builder.AppendHtml("</div>");
@@ -120,7 +121,6 @@ public class PageController : Controller
 
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
         builder.AppendSettingSection(ContentController.CurrentContent.GetLocalisedString("settings.links"), () => builder.AppendSocialSettings(userModel));
-        builder.AppendSettingSection(ContentController.CurrentContent.GetLocalisedString("settings.patreon"), () => builder.AppendPatreonSettings(HttpContext, userModel));
         builder.AppendHtml("</div>");
 
         builder.AppendHtml("</body>");

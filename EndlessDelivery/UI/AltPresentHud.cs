@@ -29,7 +29,7 @@ public class AltPresentHud : MonoBehaviour
         }
 
         TimerText.text = TimeSpan.FromSeconds(GameManager.Instance.TimeLeft).Formatted();
-        RoomText.text = (GameManager.Instance.RoomsEntered - 1).ToString();
+        RoomText.text = (GameManager.Instance.RoomsComplete).ToString();
 
         if (GameManager.Instance.TimeLeft < 10)
         {

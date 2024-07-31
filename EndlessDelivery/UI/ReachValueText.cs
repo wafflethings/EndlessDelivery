@@ -30,38 +30,38 @@ public class ReachValueText : MonoBehaviour
 
     private void OnEnable()
     {
-            EndScreen.Instance.CurrentText = this;
-            Text.text = StartValue;
-            _audio = GetComponent<AudioSource>();
-            _audio?.Play();
-        }
+        EndScreen.Instance.CurrentText = this;
+        Text.text = StartValue;
+        _audio = GetComponent<AudioSource>();
+        _audio?.Play();
+    }
 
     private void Update()
     {
-            if (EndScreen.Instance.Skipping)
-            {
-                _currentValue = Target;
-                SetText();
-            }
-            
-            if (Target == _currentValue)
-            {
-                SetText();
-                Done = true;
-                enabled = false;
-                _audio?.Stop();
-                return;
-            }
-            
-            _timeElapsed += Time.unscaledDeltaTime;
-            _currentValue = Mathf.MoveTowards(_currentValue, Target, ChangePerSecond * Time.unscaledDeltaTime);
-
+        if (EndScreen.Instance.Skipping)
+        {
+            _currentValue = Target;
             SetText();
         }
 
+        if (Target == _currentValue)
+        {
+            SetText();
+            Done = true;
+            enabled = false;
+            _audio?.Stop();
+            return;
+        }
+
+        _timeElapsed += Time.unscaledDeltaTime;
+        _currentValue = Mathf.MoveTowards(_currentValue, Target, ChangePerSecond * Time.unscaledDeltaTime);
+
+        SetText();
+    }
+
     private void SetText()
     {
-            float value = Type == IntOrFloat.Int ? Mathf.Floor(_currentValue) : _currentValue;
-            Text.text = !IsTimestamp ? string.Format(Format, value) : TimeSpan.FromSeconds(value).Formatted();
-        }  
+        float value = Type == IntOrFloat.Int ? Mathf.Floor(_currentValue) : _currentValue;
+        Text.text = !IsTimestamp ? string.Format(Format, value) : TimeSpan.FromSeconds(value).Formatted();
+    }
 }

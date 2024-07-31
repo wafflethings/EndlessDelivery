@@ -1,6 +1,4 @@
-﻿using EndlessDelivery.Server.Api.Patreon;
-using EndlessDelivery.Server.Api.Users;
-using EndlessDelivery.Server.Api.Scores;
+﻿using EndlessDelivery.Server.Api.Users;
 using Newtonsoft.Json;
 
 namespace EndlessDelivery.Server.Api.Steam;
@@ -63,7 +61,7 @@ public class SteamUser
 
     public static async Task UpdateCache()
     {
-        List<UserModel> models = (await Program.Supabase.From<UserModel>().Get()).Models;
+        List<UserModel> models = (await Program.SupabaseClient.From<UserModel>().Get()).Models;
         int requiredGroups = (int)MathF.Ceiling(models.Count / (float)MaximumPlayersFetched);
         ulong[] allUserIds = models.Select(score => score.SteamId).ToArray();
         ulong[][] idGroups = new ulong[requiredGroups][];
@@ -144,7 +142,7 @@ public class SteamUser
 
     public async Task<UserModel> GetUserModel()
     {
-        List<UserModel> models = (await Program.Supabase.From<UserModel>().Get()).Models;
+        List<UserModel> models = (await Program.SupabaseClient.From<UserModel>().Get()).Models;
         models.RemoveAll(um => um.SteamId.ToString() != SteamId);
         return models.Count != 0 ? models[0] : null;
     }

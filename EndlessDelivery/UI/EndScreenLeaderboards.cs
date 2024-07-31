@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using EndlessDelivery.Scores;
-using EndlessDelivery.Scores.Server;
+using EndlessDelivery.Common.Communication.Scores;
+using EndlessDelivery.Gameplay;
+using EndlessDelivery.Online;
+using EndlessDelivery.Online.Requests;
+using EndlessDelivery.ScoreManagement;
 using Steamworks;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,52 +21,52 @@ public class EndScreenLeaderboards : MonoBehaviour
 
     public void OnEnable()
     {
-            DoStuff();
-        }
+        DoStuff();
+    }
 
     private async Task DoStuff()
     {
-            if (PrefsManager.Instance.GetInt("difficulty") > 3)
-            {
-                foreach (Text text in ConnectingToServerText)
-                {
-                    text.text = "LEADERBOARDS ARE ONLY ON VIOLENT AND ABOVE";
-                }
-                
-                return;
-            }
-            
-            if (!await Endpoints.IsServerOnline())
-            {
-                foreach (Text text in ConnectingToServerText)
-                {
-                    text.text = "FAILED TO CONNECT :^(";
-                }
-
-                return;
-            }
-
-            if (EndScreen.Instance.NewBest)
-            {
-                await Endpoints.SendScoreAndReturnPosition(Score.Highscore, PrefsManager.Instance.GetInt("difficulty"));
-            }
-            
-            List<ScoreResult> nearScores = await Endpoints.GetUserPage(await Endpoints.GetUserPosition(SteamClient.SteamId));
-            List<ScoreResult> topScores = await Endpoints.GetScoreRange(0, 10);
-
-            foreach (ScoreResult scoreResult in nearScores)
-            {
-                Instantiate(EntryTemplate, NearbyLeaderboardContainer).GetComponent<LeaderboardEntry>().SetValuesAndEnable(scoreResult);
-            }
-            
-            foreach (ScoreResult scoreResult in topScores)
-            {
-                Instantiate(EntryTemplate, TopLeaderboardContainer).GetComponent<LeaderboardEntry>().SetValuesAndEnable(scoreResult);
-            }
-            
+        if (PrefsManager.Instance.GetInt("difficulty") > 3)
+        {
             foreach (Text text in ConnectingToServerText)
             {
-                text.gameObject.SetActive(false);
+                text.text = "LEADERBOARDS ARE ONLY ON VIOLENT AND ABOVE";
             }
+
+            return;
         }
+
+        if (!await OnlineFunctionality.ServerOnline())
+        {
+            foreach (Text text in ConnectingToServerText)
+            {
+                text.text = "FAILED TO CONNECT :^(";
+            }
+
+            return;
+        }
+
+        if (EndScreen.Instance.NewBest)
+        {
+            await ScoreManager.SubmitScore(GameManager.Instance.CurrentScore, (short)PrefsManager.Instance.GetInt("difficulty"));
+        }
+
+        OnlineScore[] nearScores = await ScoreManager.GetPage(await Scores.GetPosition(SteamClient.SteamId) / 5);
+        OnlineScore[] topScores = await Scores.GetRange(0, 10);
+
+        foreach (OnlineScore scoreResult in nearScores)
+        {
+            Instantiate(EntryTemplate, NearbyLeaderboardContainer).GetComponent<LeaderboardEntry>().SetValuesAndEnable(scoreResult);
+        }
+
+        foreach (OnlineScore scoreResult in topScores)
+        {
+            Instantiate(EntryTemplate, TopLeaderboardContainer).GetComponent<LeaderboardEntry>().SetValuesAndEnable(scoreResult);
+        }
+
+        foreach (Text text in ConnectingToServerText)
+        {
+            text.gameObject.SetActive(false);
+        }
+    }
 }

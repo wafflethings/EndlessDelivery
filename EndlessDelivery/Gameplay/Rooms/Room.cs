@@ -18,34 +18,22 @@ public class Room : MonoBehaviour
     public EnemySpawnPoint[] SpawnPoints;
     public bool RoomHasGameplay = true;
     [HideInInspector] public bool RoomAlreadyVisited;
-    [Space(15)]
-    [Header("Make sure that you have 4 chimneys, one for each colour.")]
+
+    [Space(15)] [Header("Make sure that you have 4 chimneys, one for each colour.")]
     public List<Chimney> Chimneys = new();
-    [Space(15)]
-    [Header("Make sure that you have 10 presents (10 is the maximum, random ones will be chosen)")]
+
+    [Space(15)] [Header("Make sure that you have 10 presents (10 is the maximum, random ones will be chosen)")]
     public List<Present> Presents = new();
 
-    [HideInInspector] public int[] PresentColourAmounts = {0, 0, 0, 0};
+    [HideInInspector] public int[] PresentColourAmounts = { 0, 0, 0, 0 };
     [HideInInspector] public List<Collider> EnvColliders = new();
     [HideInInspector] public List<EnemyIdentifier> Enemies = new();
     [HideInInspector] public bool RoomCleared;
     [HideInInspector] public bool RoomActivated;
 
-    public Dictionary<WeaponVariant, Chimney> AllChimneys = new()
-    {
-        { WeaponVariant.BlueVariant, null },
-        { WeaponVariant.GreenVariant, null },
-        { WeaponVariant.RedVariant, null },
-        { WeaponVariant.GoldVariant, null }
-    };
+    public Dictionary<WeaponVariant, Chimney> AllChimneys = new() { { WeaponVariant.BlueVariant, null }, { WeaponVariant.GreenVariant, null }, { WeaponVariant.RedVariant, null }, { WeaponVariant.GoldVariant, null } };
 
-    public Dictionary<WeaponVariant, int> AmountDelivered = new()
-    {
-        { WeaponVariant.BlueVariant, 0 },
-        { WeaponVariant.GreenVariant, 0 },
-        { WeaponVariant.RedVariant, 0 },
-        { WeaponVariant.GoldVariant, 0 }
-    };
+    public Dictionary<WeaponVariant, int> AmountDelivered = new() { { WeaponVariant.BlueVariant, 0 }, { WeaponVariant.GreenVariant, 0 }, { WeaponVariant.RedVariant, 0 }, { WeaponVariant.GoldVariant, 0 } };
 
     private Dictionary<EnemyType, int> _amountSpawned = new();
     private int _pointsLeft;
@@ -84,7 +72,7 @@ public class Room : MonoBehaviour
     {
         if (RoomHasGameplay)
         {
-            PresentColourAmounts = GenerationEquations.DistributeBetween(4, GenerationEquations.PresentAmount(GameManager.Instance.RoomsEntered));
+            PresentColourAmounts = GenerationEquations.DistributeBetween(4, GenerationEquations.PresentAmount(GameManager.Instance.RoomsComplete));
         }
 
         DecideChimneyColours();
@@ -167,12 +155,12 @@ public class Room : MonoBehaviour
         List<EnemySpawnPoint> projectileSpawns = SpawnPoints.Where(sp => sp.Class == DeliveryEnemyClass.Projectile).ShuffleAndToList();
         List<EnemySpawnPoint> meleeSpawns = SpawnPoints.Where(sp => sp.Class == DeliveryEnemyClass.Melee).ShuffleAndToList();
 
-        if (GameManager.Instance.RoomsEntered > 10)
+        if (GameManager.Instance.RoomsComplete > 10)
         {
-            int maxUncommonsAndSpecials = (GameManager.Instance.RoomsEntered / 10) + 1;
+            int maxUncommonsAndSpecials = (GameManager.Instance.RoomsComplete / 10) + 1;
             DecideUncommons(meleeSpawns, ref maxUncommonsAndSpecials);
 
-            if (GameManager.Instance.RoomsEntered >= 15)
+            if (GameManager.Instance.RoomsComplete >= 15)
             {
                 DecideSpecials(meleeSpawns, ref maxUncommonsAndSpecials);
             }
@@ -193,6 +181,7 @@ public class Room : MonoBehaviour
         {
             Debug.Log($"    uc{enemy.prefab.name}");
         }
+
         while (uncommons.Count > 2)
         {
             uncommons.RemoveAt(uncommons.Count - 1);
@@ -251,8 +240,10 @@ public class Room : MonoBehaviour
             {
                 specialAmount++;
             }
+
             _wavesSinceSpecial++;
         }
+
         max -= specialAmount;
 
         Debug.Log($"Spawning {specialAmount} specials!");
@@ -274,6 +265,7 @@ public class Room : MonoBehaviour
             {
                 break;
             }
+
             SetSpawnPoint(spawns[_meleeSpawnsUsed], specials[0], DeliveryEnemyClass.Melee);
         }
     }
@@ -307,6 +299,7 @@ public class Room : MonoBehaviour
             {
                 Debug.Log($"   pm {enemy.prefab.name}");
             }
+
             EndlessEnemy randomEnemy = enemies.ToList().Pick();
 
             if (randomEnemy == null)
@@ -325,7 +318,7 @@ public class Room : MonoBehaviour
     {
         foreach (EndlessEnemy enemy in group.Enemies)
         {
-            if (enemy.spawnWave <= GameManager.Instance.RoomsEntered && GetRealCost(enemy) <= _pointsLeft)
+            if (enemy.spawnWave <= GameManager.Instance.RoomsComplete && GetRealCost(enemy) <= _pointsLeft)
             {
                 yield return enemy;
             }

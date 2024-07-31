@@ -1,8 +1,7 @@
-﻿using EndlessDelivery.Common.Inventory.Items;
-using EndlessDelivery.Scores;
-using EndlessDelivery.Server.Api.Scores;
-using Postgrest.Attributes;
-using Postgrest.Models;
+﻿using EndlessDelivery.Common;
+using EndlessDelivery.Common.Inventory.Items;
+using Supabase.Postgrest.Attributes;
+using Supabase.Postgrest.Models;
 
 namespace EndlessDelivery.Server.Api.Users;
 
@@ -41,6 +40,4 @@ public class UserModel : BaseModel
 
     [Column("admin")]
     public bool Admin { get; set; } = false;
-
-    public async Task<ScoreModel> GetBestScore() => (await Program.Supabase.From<ScoreModel>().Where(sm => sm.SteamId == SteamId).Get()).Model;
 }

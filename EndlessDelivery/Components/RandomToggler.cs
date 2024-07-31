@@ -12,11 +12,11 @@ public class RandomToggler : MonoBehaviour
 
     private void Start()
     {
-            foreach (GameObject go in Objects)
-            {
-                go.SetActive(false);
-            }
-
-            Objects.Pick().SetActive(true);
+        foreach (GameObject go in Objects)
+        {
+            go.SetActive(false);
         }
+
+        Objects.Pick().SetActive(true);
+    }
 }

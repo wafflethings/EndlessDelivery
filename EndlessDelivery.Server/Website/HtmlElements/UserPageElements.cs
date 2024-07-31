@@ -1,4 +1,5 @@
-﻿using EndlessDelivery.Server.Api.ContentFile;
+﻿using EndlessDelivery.Common.Communication.Scores;
+using EndlessDelivery.Server.Api.ContentFile;
 using EndlessDelivery.Server.Api.Scores;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Api.Users;
@@ -31,7 +32,7 @@ public static class UserPageElements
         builder.Append(steamUser.PersonaName);
         builder.AppendHtml("</p>");
 
-        ScoreModel best = await userModel.GetBestScore();
+        OnlineScore best = await userModel.GetBestScore();
 
         builder.AppendHtml("<div class=\"position-holder\">");
         builder.AppendIconPositionGroup(best != null ? (best.Index + 1).ToString() : "-", "/Resources/UI/global.png", "global-icon");

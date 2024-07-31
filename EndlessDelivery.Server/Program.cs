@@ -1,7 +1,6 @@
 using System.Threading.RateLimiting;
 using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Server.Api.ContentFile;
-using EndlessDelivery.Server.Api.Patreon;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Config;
 using EndlessDelivery.Server.Resources;
@@ -9,12 +8,13 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Supabase;
 using Microsoft.AspNetCore.RateLimiting;
 using Newtonsoft.Json;
+using Supabase.Postgrest;
 
 namespace EndlessDelivery.Server;
 
 public class Program
 {
-    public static Client Supabase;
+    public static Supabase.Client SupabaseClient;
 
     public static HttpClient Client
     {
@@ -63,17 +63,16 @@ public class Program
         Keys.Load();
         InitSupabase();
 
+
         ContentController.LoadCms();
         SteamLoginController.LoadTokens();
         SteamUser.LoadPlayerCache();
-        PatreonLoginController.LoadTokens();
         Console.WriteLine(JsonConvert.SerializeObject(ContentController.CurrentContent));
         StartThreads();
         app.Run();
         ContentController.SaveCms();
         SteamLoginController.SaveTokens();
         SteamUser.SavePlayerCache();
-        PatreonLoginController.SaveTokens();
         StopThreads();
     }
 
@@ -92,10 +91,6 @@ public class Program
         userCacheThread.Start();
         s_threads.Add(userCacheThread);
 
-        Thread patreonTokenThread = new(PatreonLoginController.RefreshTokensThread);
-        patreonTokenThread.Start();
-        s_threads.Add(patreonTokenThread);
-
         Thread steamTokenThread = new(SteamLoginController.RemoveExpiredTokensThread);
         steamTokenThread.Start();
         s_threads.Add(steamTokenThread);
@@ -104,12 +99,11 @@ public class Program
     private static async void InitSupabase()
     {
         string url = "https://acmzlmynozfuwuposgqm.supabase.co";
-        SupabaseOptions options = new SupabaseOptions
+        SupabaseOptions options = new()
         {
-            AutoConnectRealtime = true
+            AutoConnectRealtime = true,
         };
-
-        Supabase = new Client(url, Keys.Instance.SupabaseKey, options);
-        await Supabase.InitializeAsync();
+        SupabaseClient = new Supabase.Client(url, Keys.Instance.SupabaseKey, options);
+        await SupabaseClient.InitializeAsync();
     }
 }

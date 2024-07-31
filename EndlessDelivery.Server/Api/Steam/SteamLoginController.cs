@@ -1,10 +1,11 @@
 ﻿using System.Net;
 using System.Security.Cryptography;
 using System.Text;
-using EndlessDelivery.Scores;
+using EndlessDelivery.Common.Communication;
 using EndlessDelivery.Server.Api.Users;
 using EndlessDelivery.Server.Config;
 using EndlessDelivery.Server.Api.Scores;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Supabase.Interfaces;
@@ -125,7 +126,7 @@ public class SteamLoginController : Controller
 
         if (isValid)
         {
-            string token = CreateToken(Request.Query["openid.response_nonce"]);
+            string token = CreateTokenString(Request.Query["openid.response_nonce"]);
             SteamToken.Create(token, claimedId);
 
             Response.Cookies.Append("token", token, new CookieOptions
@@ -144,7 +145,30 @@ public class SteamLoginController : Controller
         Response.Redirect($"/?token_success={isValid}");
     }
 
-    private string CreateToken(string nonce) => Convert.ToBase64String(Aes.EncryptCbc(Encoding.Unicode.GetBytes(RandomNumberGenerator.GetInt32(100000, 1000000) + nonce), s_aes.IV));
+    [HttpPost("login")]
+    public async Task<ObjectResult> LoginWithTicket()
+    {
+        using StreamReader reader = new(Request.Body);
+        Response<string>? loginRequest = JsonConvert.DeserializeObject<Response<string>>(await reader.ReadToEndAsync());
+
+        if (loginRequest == null)
+        {
+            return StatusCode(StatusCodes.Status400BadRequest, Json(new Response<string>(string.Empty)));
+        }
+
+        AuthTicket auth = await AuthTicket.GetAuth(loginRequest.Value);
+
+        if (!ulong.TryParse(auth.OwnerSteamId, out ulong id))
+        {
+            return StatusCode(StatusCodes.Status424FailedDependency, Json(new Response<string>(string.Empty)));
+        }
+
+        string token = CreateTokenString(loginRequest.Value);
+        SteamToken.Create(token, id);
+        return StatusCode(StatusCodes.Status200OK, Json(new Response<string>(token)));
+    }
+
+    private string CreateTokenString(string nonce) => Convert.ToBase64String(Aes.EncryptCbc(Encoding.Unicode.GetBytes(RandomNumberGenerator.GetInt32(100000, 1000000) + nonce), s_aes.IV));
 
     [Serializable]
     public class SteamToken

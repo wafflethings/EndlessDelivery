@@ -28,73 +28,72 @@ public static class AddressableManager
 
     public static void Setup()
     {
-            Addressables.LoadContentCatalogAsync(CatalogPath, true).WaitForCompletion();
-            LoadDataFile();
-        }
+        Addressables.LoadContentCatalogAsync(CatalogPath, true).WaitForCompletion();
+        LoadDataFile();
+    }
 
     private static void LoadDataFile()
     {
-            // i stole this from teamdoodz - ultracrypt v1 ModAssets:LoadDataFile;
+        // i stole this from teamdoodz - ultracrypt v1 ModAssets:LoadDataFile;
 
-            Dictionary<string, List<string>> data = null;
-            using (StreamReader reader = new(File.OpenRead(ModDataPath)))
-            {
-                JsonSerializer serializer = new();
-                data = serializer.Deserialize<Dictionary<string, List<string>>>(new JsonTextReader(reader));
-            }
-
-            if (data.ContainsKey(typeof(EnemyGroup).FullName))
-            {
-                EnemyGroup.SetGroups(GetDataOfType<EnemyGroup>(data));
-            }
-
-            if (data.ContainsKey(typeof(Scene).FullName))
-            {
-                _scenesFromThisMod = data[typeof(Scene).FullName];
-            }
+        Dictionary<string, List<string>> data = null;
+        using (StreamReader reader = new(File.OpenRead(ModDataPath)))
+        {
+            JsonSerializer serializer = new();
+            data = serializer.Deserialize<Dictionary<string, List<string>>>(new JsonTextReader(reader));
         }
+
+        if (data.ContainsKey(typeof(EnemyGroup).FullName))
+        {
+            EnemyGroup.SetGroups(GetDataOfType<EnemyGroup>(data));
+        }
+
+        if (data.ContainsKey(typeof(Scene).FullName))
+        {
+            _scenesFromThisMod = data[typeof(Scene).FullName];
+        }
+    }
 
     private static IEnumerable<T> GetDataOfType<T>(Dictionary<string, List<string>> data) where T : UnityEngine.Object
     {
-            if (!data.ContainsKey(typeof(T).FullName))
-                return Array.Empty<T>(); //Prevent index out of range tbh
+        if (!data.ContainsKey(typeof(T).FullName))
+            return Array.Empty<T>(); //Prevent index out of range tbh
 
-            return data[typeof(T).FullName].Select(Load<T>);
-        }
-
+        return data[typeof(T).FullName].Select(Load<T>);
+    }
 
 
     public static T Load<T>(string path)
     {
-            return Addressables.LoadAssetAsync<T>(path).WaitForCompletion();
-        }
+        return Addressables.LoadAssetAsync<T>(path).WaitForCompletion();
+    }
 
     public static void LoadScene(string path)
     {
-            _dontSanitizeScenes = true;
+        _dontSanitizeScenes = true;
 
-            try
-            {
-                SceneHelper.LoadScene(path);
-            }
-            catch (Exception ex)
-            {
-                // i hate using trycatch but if this isnt set back to false, every unmodded scene load will fail
-                Debug.LogError(ex.ToString());
-            }
-
-            _dontSanitizeScenes = false;
+        try
+        {
+            SceneHelper.LoadScene(path);
         }
+        catch (Exception ex)
+        {
+            // i hate using trycatch but if this isnt set back to false, every unmodded scene load will fail
+            Debug.LogError(ex.ToString());
+        }
+
+        _dontSanitizeScenes = false;
+    }
 
     [HarmonyPatch(typeof(SceneHelper), nameof(SceneHelper.SanitizeLevelPath)), HarmonyPrefix]
     private static bool PreventSanitization(string scene, ref string __result)
     {
-            if (_dontSanitizeScenes)
-            {
-                __result = scene;
-                return false;
-            }
-
-            return true;
+        if (_dontSanitizeScenes)
+        {
+            __result = scene;
+            return false;
         }
+
+        return true;
+    }
 }

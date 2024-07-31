@@ -13,13 +13,13 @@ public class MasqueradeDivinityAnticheat : Anticheat
     {
         get
         {
-                if (!Chainloader.PluginInfos.ContainsKey(GUID))
-                {
-                    return true;
-                }
-
-                return GabeOn();
+            if (!Chainloader.PluginInfos.ContainsKey(GUID))
+            {
+                return true;
             }
+
+            return GabeOn();
+        }
     }
 
     [MethodImpl(MethodImplOptions.NoInlining)]

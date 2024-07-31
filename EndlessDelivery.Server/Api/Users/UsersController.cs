@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
+using EndlessDelivery.Common;
 using EndlessDelivery.Common.Inventory.Items;
-using EndlessDelivery.Scores;
 using EndlessDelivery.Server.Api.ContentFile;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Website;
@@ -34,7 +34,7 @@ namespace EndlessDelivery.Server.Api.Users
 
             Console.WriteLine($"Registering user {id}.");
 
-            await Program.Supabase.From<UserModel>().Upsert(defaultUser); //somehow doing insert makes it error because userid is null. this shit sucks
+            await Program.SupabaseClient.From<UserModel>().Upsert(defaultUser); //somehow doing insert makes it error because userid is null. this shit sucks
             await SteamUser.AddPlayerToCache(id);
         }
 

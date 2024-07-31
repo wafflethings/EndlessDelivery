@@ -1,6 +1,7 @@
 ﻿using System;
+using EndlessDelivery.Common;
 using EndlessDelivery.Config;
-using EndlessDelivery.Scores;
+using EndlessDelivery.ScoreManagement;
 using EndlessDelivery.Utils;
 using TMPro;
 using UnityEngine;
@@ -15,31 +16,18 @@ public class JollyTerminal : MonoBehaviour
 
     private void OnEnable()
     {
-            AssignScoreText();
-            SetMusicStatus();
+        AssignScoreText();
 
-            bool targetState = PrefsManager.Instance.GetInt("difficulty") == 3;
-            foreach (GameObject gameObject in DisableIfNotOnHighscoreDifficulty)
-            {
-                gameObject.SetActive(targetState);
-            }
+        bool targetState = PrefsManager.Instance.GetInt("difficulty") == 3;
+        foreach (GameObject gameObject in DisableIfNotOnHighscoreDifficulty)
+        {
+            gameObject.SetActive(targetState);
         }
+    }
 
     public void AssignScoreText()
     {
-            Score score = Score.Highscore;
-            ScoreText.text = $"{score.Rooms}\n{score.Kills}\n{score.Deliveries}\n{TimeSpan.FromSeconds(score.Time).Formatted()}";
-        }
-
-    public void SetMusicStatus()
-    {
-            if (Option.GetValue<bool>("disable_copyrighted_music"))
-            {
-                Music.Pause();
-            }
-            else
-            {
-                Music.UnPause();
-            }
-        }
+        Score score = ScoreManager.CurrentDifficultyHighscore;
+        ScoreText.text = $"{score.Rooms}\n{score.Kills}\n{score.Deliveries}\n{TimeSpan.FromSeconds(score.Time).Formatted()}";
+    }
 }
