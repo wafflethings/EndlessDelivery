@@ -220,7 +220,7 @@ public class GameManager : MonoSingleton<GameManager>
     [HarmonyPatch(typeof(SeasonalHats), nameof(SeasonalHats.Start)), HarmonyPrefix]
     private static void EnableHats(SeasonalHats __instance)
     {
-        if (AddressableManager.InSceneFromThisMod)
+        if (AssetManager.InSceneFromThisMod)
         {
             __instance.easter.SetActive(false);
             __instance.halloween.SetActive(false);
@@ -231,7 +231,7 @@ public class GameManager : MonoSingleton<GameManager>
     [HarmonyPatch(typeof(NewMovement), nameof(NewMovement.GetHurt)), HarmonyPostfix]
     private static void CustomDeath(NewMovement __instance)
     {
-        if (__instance.dead && AddressableManager.InSceneFromThisMod)
+        if (__instance.dead && AssetManager.InSceneFromThisMod)
         {
             Instance.EndGame();
         }

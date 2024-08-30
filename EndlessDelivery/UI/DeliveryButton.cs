@@ -3,6 +3,7 @@ using EndlessDelivery.Assets;
 using EndlessDelivery.Utils;
 using HarmonyLib;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
 namespace EndlessDelivery.UI;
@@ -25,8 +26,8 @@ public class DeliveryButton
         cgButtonTransform.sizeDelta -= new Vector2(55, 0);
         cgButtonTransform.position -= new Vector3(55f / 2, 0, 0);
 
-        GameObject jollyButton = Object.Instantiate(AddressableManager.Load<GameObject>("Assets/Delivery/Prefabs/HUD/Jolly Chapter Select Button.prefab"),
+        GameObject jollyButton = Object.Instantiate(Addressables.LoadAssetAsync<GameObject>("Assets/Delivery/Prefabs/HUD/Jolly Chapter Select Button.prefab").WaitForCompletion(),
             chapterSelect.transform);
-        jollyButton.GetComponent<Button>().onClick.AddListener(() => AddressableManager.LoadScene("Assets/Delivery/Scenes/Game Scene.unity"));
+        jollyButton.GetComponent<Button>().onClick.AddListener(() => AssetManager.LoadSceneUnsanitzed("Assets/Delivery/Scenes/Game Scene.unity"));
     }
 }

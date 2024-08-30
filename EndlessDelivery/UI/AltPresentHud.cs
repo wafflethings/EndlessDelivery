@@ -8,6 +8,7 @@ using EndlessDelivery.Utils;
 using HarmonyLib;
 using TMPro;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
 namespace EndlessDelivery.UI;
@@ -52,9 +53,9 @@ public class AltPresentHud : MonoBehaviour
     [HarmonyPatch(typeof(HudController), nameof(HudController.Start)), HarmonyPostfix]
     private static void AddSelf(HudController __instance)
     {
-        if (__instance.altHud && !MapInfoBase.InstanceAnyType.hideStockHUD && AddressableManager.InSceneFromThisMod)
+        if (__instance.altHud && !MapInfoBase.InstanceAnyType.hideStockHUD && AssetManager.InSceneFromThisMod)
         {
-            GameObject presentPanel = AddressableManager.Load<GameObject>("Assets/Delivery/Prefabs/HUD/Classic Present Hud.prefab");
+            GameObject presentPanel = Addressables.LoadAssetAsync<GameObject>("Assets/Delivery/Prefabs/HUD/Classic Present Hud.prefab").WaitForCompletion();
             Instantiate(presentPanel, __instance.gameObject.GetChild("Filler").transform);
         }
     }

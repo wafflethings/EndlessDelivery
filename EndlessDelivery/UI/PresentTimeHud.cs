@@ -98,7 +98,7 @@ public class PresentTimeHud : MonoSingleton<PresentTimeHud>
     {
         if (!__instance.altHud && !MapInfoBase.InstanceAnyType.hideStockHUD)
         {
-            GameObject presentPanel = AddressableManager.Load<GameObject>("Assets/Delivery/Prefabs/HUD/Present Panel.prefab");
+            GameObject presentPanel = Addressables.LoadAssetAsync<GameObject>("Assets/Delivery/Prefabs/HUD/Present Panel.prefab").WaitForCompletion();
             GameObject hud = Instantiate(presentPanel, __instance.hudpos.transform);
             hud.transform.localPosition = presentPanel.transform.localPosition; //i have no idea why it instantiates at the wrong place but wtv
             // PlayerActivatorRelay.Instance.toActivate = PlayerActivatorRelay.Instance.toActivate.AddToArray(hud);

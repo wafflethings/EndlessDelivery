@@ -10,7 +10,7 @@ public static class CheatManager
     [HarmonyPatch(typeof(CheatsManager), nameof(CheatsManager.Start)), HarmonyPrefix]
     private static void AddIfShould(CheatsManager __instance)
     {
-        if (!AddressableManager.InSceneFromThisMod)
+        if (!AssetManager.InSceneFromThisMod)
         {
             return;
         }

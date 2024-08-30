@@ -4,17 +4,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using Ultracrypt.Editor;
 using UnityEditor;
 using UnityEditor.Compilation;
 using UnityEngine;
 
-namespace Ultracrypt.Editor
+namespace EndlessDelivery.Editor
 {
     public static class ScriptableObjectCreationFix
     {
-        private const string ButtonPath = "Assets/Create/Ultracrypt";
-        private const string ModAssemblyName = "Ultracrypt";
+        private const string ButtonPath = "Assets/Create/EndlessDelivery";
+        private const string ModAssemblyName = "EndlessDelivery";
 
         private static readonly Type s_menuType = GetAssemblyByName("UnityEditor").GetTypeByName("Menu");
         private static readonly MethodInfo s_addMenuItem = s_menuType.GetMethod("AddMenuItem", BindingFlags.Static | BindingFlags.NonPublic);
@@ -27,6 +26,11 @@ namespace Ultracrypt.Editor
 
         private static System.Reflection.Assembly GetAssemblyByName(string assembly)
         {
+            foreach (System.Reflection.Assembly asm in AppDomain.CurrentDomain.GetAssemblies())
+            {
+                Debug.Log(asm.FullName);
+            }
+
             return AppDomain.CurrentDomain.GetAssemblies().First(asm => asm.FullName.StartsWith(assembly + ","));
         }
 
@@ -71,7 +75,7 @@ namespace Ultracrypt.Editor
         {
             Type soType = typeof(ScriptableObject);
 
-            foreach (Type type in GetAssemblyByName(ModAssemblyName).GetLoadableTypes())
+            foreach (Type type in GetAssemblyByName(ModAssemblyName).GetTypes())
             {
                 if (!soType.IsAssignableFrom(type))
                 {

@@ -2,6 +2,7 @@
 using System.Linq;
 using EndlessDelivery.Assets;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace EndlessDelivery.Gameplay.EnemyGeneration;
 
@@ -23,7 +24,7 @@ public static class Act3EnemyHack
 
         _hasAdded = true;
 
-        PrefabDatabase database = AddressableManager.Load<PrefabDatabase>("Assets/Data/Cyber Grind Patterns/Data/Prefab Database.asset");
+        PrefabDatabase database = Addressables.LoadAssetAsync<PrefabDatabase>("Assets/Data/Cyber Grind Patterns/Data/Prefab Database.asset").WaitForCompletion();
         foreach (EnemyGroup group in groups)
         {
             AddEnemies(group, database);

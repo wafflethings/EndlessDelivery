@@ -2,9 +2,6 @@
 using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
-using Ultracrypt.Characters;
-using Ultracrypt.Items;
-using Ultracrypt.StatusEffects;
 using UnityEditor;
 using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Build;
@@ -20,10 +17,10 @@ namespace BuildPipeline.Editor
 		//EDIT THESE!!
 
 		//AssetPathLocation needs to lead to a getter that returns the path where you store all your bundles in the mod.
-		private const string AssetPathLocation = "{Ultracrypt.Assets.AssetManager.AssetPath}";
+		private const string AssetPathLocation = "{EndlessDelivery.Assets.AssetManager.AssetPath}";
 
 		//This is just the name of your mod.
-		private const string MonoscriptBundleNaming = "ultracrypt";
+		private const string MonoscriptBundleNaming = "endlessdelivery";
 
 		//Don't touch these unless you know what you're doing.
 		private const string ResultPath = "Built Bundles";
@@ -65,7 +62,7 @@ namespace BuildPipeline.Editor
 				case BuildMode.Full:
 					BuildContent();
 					break;
-				
+
 				case BuildMode.Fast:
 					BuildContentFast();
 					break;
@@ -111,7 +108,7 @@ namespace BuildPipeline.Editor
                 Debug.LogError(result.Error);
                 return;
             }
-            
+
             AddMissingCommon();
 		}
 
@@ -142,13 +139,11 @@ namespace BuildPipeline.Editor
 
             RefreshGroups();
         }
-        
+
         private static void CreateDataFile()
         {
 	        Dictionary<string, List<string>> dataInfo = new Dictionary<string, List<string>>();
-	        AddData<ItemMetadata>(dataInfo, "Assets/Ultracrypt/Data/ItemMetadata");
-            AddData<EffectMetadata>(dataInfo, "Assets/Ultracrypt/Data/EffectMetadata");
-            AddData<CharacterMetadata>(dataInfo, "Assets/Ultracrypt/Data/CharacterMetadata");
+	        AddData<Scene>(dataInfo, "Assets/Delivery/Scenes");
 
 	        using (StreamWriter writer = new StreamWriter(File.OpenWrite(Path.Combine(ResultPath, DataFileName))))
 	        {
@@ -156,8 +151,8 @@ namespace BuildPipeline.Editor
 		        serializer.Serialize(new JsonTextWriter(writer) { Formatting = Formatting.Indented }, dataInfo);
 	        }
         }
-		
-        private static void AddData<T>(Dictionary<string, List<string>> dataInfo, string assetsPath) 
+
+        private static void AddData<T>(Dictionary<string, List<string>> dataInfo, string assetsPath)
         {
 	        List<string> value = Directory.GetFiles(assetsPath).Where((path) => !path.EndsWith(".meta")).Select((path) => path.Replace('\\', '/')).ToList();
 	        dataInfo.Add(typeof(T).FullName, value);

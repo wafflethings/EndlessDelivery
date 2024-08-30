@@ -41,7 +41,7 @@ public class MauriceFitter : MonoBehaviour
     [HarmonyPatch(typeof(SpiderBody), nameof(SpiderBody.Start)), HarmonyPostfix]
     private static void AddMauriceFitter(SpiderBody __instance)
     {
-        if (!AddressableManager.InSceneFromThisMod)
+        if (!AssetManager.InSceneFromThisMod)
         {
             return;
         }

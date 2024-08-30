@@ -10,7 +10,7 @@ public class TimeBonusPatches
     [HarmonyPatch(typeof(StyleCalculator), nameof(StyleCalculator.AddPoints)), HarmonyPrefix]
     private static void AddBigKillTime(ref string pointName)
     {
-        if (!AddressableManager.InSceneFromThisMod)
+        if (!AssetManager.InSceneFromThisMod)
         {
             return;
         }

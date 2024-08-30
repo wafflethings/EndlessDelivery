@@ -120,7 +120,7 @@ public class Present : MonoBehaviour
     [HarmonyPatch(typeof(Explosion), nameof(Explosion.Start)), HarmonyPostfix]
     private static void DisableExplosionToPresentCollisions(Explosion __instance)
     {
-        if (!AddressableManager.InSceneFromThisMod)
+        if (!AssetManager.InSceneFromThisMod)
         {
             return;
         }

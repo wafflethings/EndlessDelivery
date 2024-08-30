@@ -24,14 +24,19 @@ public class Plugin : BaseUnityPlugin
     private void Start()
     {
         Debug.Log($"{Name} has started !!");
-
-        AddressableManager.Setup();
+        AssetManager.LoadCatalog();
+        AssetManager.LoadDataFile();
         new Harmony(Guid).PatchAll();
     }
 
 #if DEBUG
     private void Update()
     {
+        if (InputManager.Instance?.InputSource == null)
+        {
+            return;
+        }
+
         if (InputManager.Instance.InputSource.Dodge.IsPressed && InputManager.Instance.InputSource.Hook.IsPressed && InputManager.Instance.InputSource.Slot6.WasPerformedThisFrame)
         {
             Debug.Log($"Ticket! [{Authentication.GetTicket()}]");

@@ -2,6 +2,7 @@
 using EndlessDelivery.Utils;
 using HarmonyLib;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
 namespace EndlessDelivery.UI;
@@ -37,6 +38,6 @@ public class BlackFade : MonoSingleton<BlackFade>
     [HarmonyPatch(typeof(CanvasController), nameof(CanvasController.Awake)), HarmonyPostfix]
     private static void CreateSelf(CanvasController __instance)
     {
-        Instantiate(AddressableManager.Load<GameObject>("Assets/Delivery/Prefabs/HUD/Black Fade.prefab"), __instance.transform);
+        Instantiate(Addressables.LoadAssetAsync<GameObject>("Assets/Delivery/Prefabs/HUD/Black Fade.prefab").WaitForCompletion(), __instance.transform);
     }
 }

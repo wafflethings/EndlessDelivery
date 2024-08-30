@@ -7,6 +7,7 @@ using EndlessDelivery.ScoreManagement;
 using EndlessDelivery.Utils;
 using HarmonyLib;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
 
 namespace EndlessDelivery.UI;
@@ -163,6 +164,6 @@ public class EndScreen : MonoSingleton<EndScreen>
     [HarmonyPatch(typeof(CanvasController), nameof(CanvasController.Awake)), HarmonyPostfix]
     private static void CreateSelf()
     {
-        Instantiate(AddressableManager.Load<GameObject>("Assets/Delivery/Prefabs/HUD/Delivery End Screen.prefab"));
+        Instantiate(Addressables.LoadAssetAsync<GameObject>("Assets/Delivery/Prefabs/HUD/Delivery End Screen.prefab").WaitForCompletion());
     }
 }
