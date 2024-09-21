@@ -10,6 +10,7 @@ public static class OnlineFunctionality
 {
     public static readonly HttpClient Client = new();
     public static bool UseLocalUrl = false;
+    private static string? s_currentToken;
 
     private const string ProdRootUrl = "https://delivery.wafflethings.dev/api/";
     private const string LocalRootUrl = "http://localhost:7048/api/";
@@ -18,14 +19,14 @@ public static class OnlineFunctionality
 
     public static async Task<bool> AddAuth(this HttpRequestMessage message)
     {
-        string loginToken = await Client.Login();
+        s_currentToken ??= await Client.Login();
 
-        if (loginToken == string.Empty)
+        if (s_currentToken is "" or null)
         {
             return false;
         }
 
-        message.Headers.Add("DeliveryToken", loginToken);
+        message.Headers.Add("DeliveryToken", s_currentToken);
         return true;
     }
 

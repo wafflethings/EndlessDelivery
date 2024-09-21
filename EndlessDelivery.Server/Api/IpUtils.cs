@@ -1,11 +1,12 @@
 ﻿using System.Net;
+using MaxMind.Db;
 using Microsoft.Extensions.Primitives;
 
 namespace EndlessDelivery.Server.Api;
 
 public static class IpUtils
 {
-    private static MaxMind.Db.Reader s_reader = new(DbPath);
+    private static Reader? s_reader = File.Exists(DbPath) ? new(DbPath) : null; //should never happen but i dont have the DB on my laptop
 
     private static string DbPath => Path.Combine("Assets", "Config", "GeoLite2-Country.mmdb");
 
@@ -13,12 +14,19 @@ public static class IpUtils
 
     public static string GetIpCountry(IPAddress address)
     {
+        #if DEBUG
+        if (s_reader == null)
+        {
+            return string.Empty;
+        }
+
         if (address.ToString() == "::1")
         {
             // this fucking reeks but also only happens in dev! so i dont care :pray:
             HttpResponseMessage response = Program.Client.GetAsync(new Uri("https://api.ipify.org")).Result;
             address = IPAddress.Parse(response.Content.ReadAsStringAsync().Result);
         }
+        #endif
 
         Dictionary<string, object> dict = s_reader.Find<Dictionary<string, object>>(address);
 

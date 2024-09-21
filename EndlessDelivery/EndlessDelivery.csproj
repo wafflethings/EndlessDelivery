@@ -34,6 +34,9 @@
     <Reference Include="Assembly-CSharp">
       <HintPath>lib\Managed\Assembly-CSharp.dll</HintPath>
     </Reference>
+    <Reference Include="AtlasLib">
+      <HintPath>lib\Other\AtlasLib.dll</HintPath>
+    </Reference>
     <Reference Include="BepInEx">
       <HintPath>lib\BepInEx\BepInEx.dll</HintPath>
     </Reference>

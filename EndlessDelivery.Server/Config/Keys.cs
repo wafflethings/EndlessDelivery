@@ -12,8 +12,6 @@ namespace EndlessDelivery.Server.Config
             Instance = JsonConvert.DeserializeObject<Keys>(File.ReadAllText(KeysPath));
         }
 
-        public string PatreonClientId { get; set; }
-        public string PatreonSecret { get; set; }
         public string SupabaseKey { get; set; }
         public string SteamKey { get; set; }
         public string TokenAes { get; set; }

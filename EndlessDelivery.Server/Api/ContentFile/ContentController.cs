@@ -20,7 +20,7 @@ public class ContentController : Controller
             return;
         }
 
-        CurrentContent = JsonConvert.DeserializeObject<Cms>(System.IO.File.ReadAllText(s_cmsPath));
+        CurrentContent = JsonConvert.DeserializeObject<Cms>(System.IO.File.ReadAllText(s_cmsPath)) ?? throw new Exception("Failed to deserialize content!");;
         CurrentContent.SetValues();
     }
 

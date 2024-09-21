@@ -13,6 +13,7 @@ using UnityEngine.AddressableAssets;
 
 namespace EndlessDelivery;
 
+[BepInDependency(AtlasLib.Plugin.Guid)]
 [BepInPlugin(Guid, Name, Version)]
 public class Plugin : BaseUnityPlugin
 {

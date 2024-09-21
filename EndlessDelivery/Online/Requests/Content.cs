@@ -14,28 +14,28 @@ public static class Content
     private const string UpdateRequiredEndpoint = "update_required?lastUpdate={0}";
     private const string DownloadCmsEndpoint = "content";
 
-    private static SaveFile<Cms> s_cmsData = SaveFile.RegisterFile(new SaveFile<Cms>("content.json"));
+    private static SaveFile<Cms?> s_cmsData = SaveFile.RegisterFile(new SaveFile<Cms?>("content.json"));
 
     public static async Task<Cms> GetContent()
     {
         if (await UpdateRequired())
         {
-            Cms downloaded = await DownloadCms();
+            Cms? downloaded = await DownloadCms();
 
             if (downloaded == null)
             {
-                throw new Exception("CMS download failed!!");
+                throw new Exception("CMS download failed!");
             }
 
             s_cmsData.Data = downloaded;
         }
 
-        return s_cmsData.Data;
+        return s_cmsData.Data ?? throw new Exception("Couldn't get content and no old content cached.");;
     }
 
     private static async Task<bool> UpdateRequired()
     {
-        DateTime lastDownload = s_cmsData.Data == null ? DateTime.MinValue : s_cmsData.Data.LastUpdate;
+        DateTime lastDownload = s_cmsData.Data?.LastUpdate ?? DateTime.MinValue;
         string url = string.Format(OnlineFunctionality.RootUrl + CmsRoot + UpdateRequiredEndpoint, lastDownload.ToString("O"));
         HttpResponseMessage response = await OnlineFunctionality.Client.GetAsync(url);
         return response.StatusCode == HttpStatusCode.UpgradeRequired;
