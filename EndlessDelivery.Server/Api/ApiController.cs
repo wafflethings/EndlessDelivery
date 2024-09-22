@@ -1,5 +1,4 @@
-﻿using EndlessDelivery.Common.Communication;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace EndlessDelivery.Server.Api;
 

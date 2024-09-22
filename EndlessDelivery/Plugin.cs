@@ -1,15 +1,9 @@
-﻿using System;
-using BepInEx;
-using EndlessDelivery.Anticheat;
+﻿using BepInEx;
 using EndlessDelivery.Assets;
-using EndlessDelivery.Cheats;
 using EndlessDelivery.Config;
 using EndlessDelivery.Online;
-using EndlessDelivery.Online.Requests;
-using EndlessDelivery.Saving;
 using HarmonyLib;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace EndlessDelivery;
 
@@ -28,6 +22,7 @@ public class Plugin : BaseUnityPlugin
         AssetManager.LoadCatalog();
         AssetManager.LoadDataFile();
         new Harmony(Guid).PatchAll();
+        ConfigFile.Instance.Data.StartWave.Equals(0);
     }
 
 #if DEBUG
@@ -40,18 +35,8 @@ public class Plugin : BaseUnityPlugin
 
         if (InputManager.Instance.InputSource.Dodge.IsPressed && InputManager.Instance.InputSource.Hook.IsPressed && InputManager.Instance.InputSource.Slot6.WasPerformedThisFrame)
         {
-            Debug.Log($"Ticket! [{Authentication.GetTicket()}]");
-        }
-
-        if (InputManager.Instance.InputSource.Dodge.IsPressed && InputManager.Instance.InputSource.Hook.IsPressed && InputManager.Instance.InputSource.Slot4.WasPerformedThisFrame)
-        {
-            OnlineFunctionality.UseLocalUrl = true;
+            Debug.Log($"Ticket! [{OnlineFunctionality.GetTicket()}]");
         }
     }
 #endif
-
-    private void OnDestroy()
-    {
-        SaveFile.SaveAll();
-    }
 }

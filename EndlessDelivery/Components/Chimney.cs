@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using EndlessDelivery.Gameplay;
 using EndlessDelivery.UI;
 using EndlessDelivery.Utils;

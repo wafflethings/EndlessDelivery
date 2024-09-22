@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EndlessDelivery.Server", "E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndlessDelivery.Common", "EndlessDelivery.Common\EndlessDelivery.Common.csproj", "{06B1186D-33D0-40D9-9442-FD728213B3D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EndlessDelivery.Api", "EndlessDelivery.Api\EndlessDelivery.Api.csproj", "{3F428E41-FFFE-477F-8E26-A9FA8D15AEED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{06B1186D-33D0-40D9-9442-FD728213B3D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06B1186D-33D0-40D9-9442-FD728213B3D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06B1186D-33D0-40D9-9442-FD728213B3D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F428E41-FFFE-477F-8E26-A9FA8D15AEED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F428E41-FFFE-477F-8E26-A9FA8D15AEED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F428E41-FFFE-477F-8E26-A9FA8D15AEED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F428E41-FFFE-477F-8E26-A9FA8D15AEED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -44,7 +44,7 @@ public class ContentController : Controller
     public async Task<ObjectResult> GetContent() => StatusCode(StatusCodes.Status200OK, await Task.Run(() => JsonConvert.SerializeObject(CurrentContent)));
 
     [HttpPost("update")]
-    public async Task<object> UpdateContent()
+    public async Task<ObjectResult> UpdateContent()
     {
         if (!Request.HttpContext.TryGetLoggedInPlayer(out SteamUser user) || !(await user.GetUserModel()).Admin)
         {
@@ -67,6 +67,6 @@ public class ContentController : Controller
 
         CurrentContent = deserialized;
         CurrentContent.SetValues();
-        return StatusCode(StatusCodes.Status204NoContent);
+        return StatusCode(StatusCodes.Status204NoContent, null);
     }
 }

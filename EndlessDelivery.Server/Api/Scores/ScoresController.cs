@@ -1,5 +1,4 @@
-﻿using EndlessDelivery.Common.Communication;
-using EndlessDelivery.Common.Communication.Scores;
+﻿using EndlessDelivery.Common.Communication.Scores;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Api.Users;
 using EndlessDelivery.Server.Website;
@@ -28,13 +27,13 @@ namespace EndlessDelivery.Server.Api.Scores
 
         [EnableRateLimiting("fixed")]
         [HttpGet("get_range")]
-        public async Task<object> Get(int start, int count)
+        public async Task<ObjectResult> Get(int start, int count)
         {
             List<OnlineScore> onlineScores = await GetOnlineScores();
 
             if (count > 10)
             {
-                return StatusCode(StatusCodes.Status400BadRequest, Json(new Response<OnlineScore[]>([])));
+                return StatusCode(StatusCodes.Status400BadRequest, null);
             }
 
             if (start + count > onlineScores.Count)
@@ -43,7 +42,7 @@ namespace EndlessDelivery.Server.Api.Scores
             }
 
             List<OnlineScore> models = onlineScores.GetRange(start, count+1);
-            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(new Response<OnlineScore[]>(models.ToArray())));
+            return StatusCode(StatusCodes.Status200OK, models.ToArray());
         }
 
         [EnableRateLimiting("fixed")]
@@ -51,7 +50,7 @@ namespace EndlessDelivery.Server.Api.Scores
         public async Task<ObjectResult> GetLength()
         {
             List<OnlineScore> onlineScores = await GetOnlineScores();
-            return StatusCode(StatusCodes.Status200OK, Json(new Response<int>(onlineScores.Count)));
+            return StatusCode(StatusCodes.Status200OK, onlineScores.Count);
         }
 
         [EnableRateLimiting("fixed")]
@@ -59,7 +58,7 @@ namespace EndlessDelivery.Server.Api.Scores
         public async Task<ObjectResult> GetPosition(ulong steamId)
         {
             List<OnlineScore> onlineScores = await GetOnlineScores();
-            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(new Response<int>(onlineScores.FindIndex(x => x.SteamId == steamId))));
+            return StatusCode(StatusCodes.Status200OK, onlineScores.FindIndex(x => x.SteamId == steamId));
         }
 
         [HttpPost("submit_score")]
@@ -70,29 +69,29 @@ namespace EndlessDelivery.Server.Api.Scores
 
             if (scoreRequest == null)
             {
-                return StatusCode(StatusCodes.Status400BadRequest, Json(new Response<int>(-1)));
+                return StatusCode(StatusCodes.Status400BadRequest, -1);
             }
 
             if (scoreRequest.Version != Plugin.Version)
             {
-                return StatusCode(StatusCodes.Status426UpgradeRequired, Json(new Response<int>(-1)));
+                return StatusCode(StatusCodes.Status426UpgradeRequired, -1);
             }
 
             if (!HttpContext.TryGetLoggedInPlayer(out SteamUser steamUser))
             {
-                return StatusCode(StatusCodes.Status400BadRequest, Json(new Response<int>(-1)));
+                return StatusCode(StatusCodes.Status400BadRequest, -1);
             }
 
             UserModel user = await steamUser.GetUserModel();
 
             if (user.Banned)
             {
-                return StatusCode(StatusCodes.Status403Forbidden, Json(new Response<int>(-1)));
+                return StatusCode(StatusCodes.Status403Forbidden, -1);
             }
 
             if ((await user.GetBestScore()).Score > scoreRequest.Score)
             {
-                return StatusCode(StatusCodes.Status400BadRequest, Json(new Response<int>(-1)));
+                return StatusCode(StatusCodes.Status400BadRequest, -1);
             }
 
             OnlineScore newScore = new()
@@ -109,7 +108,7 @@ namespace EndlessDelivery.Server.Api.Scores
 
             ModeledResponse<OnlineScore> responses = await Program.SupabaseClient.From<OnlineScore>().Upsert(newScore);
             await SetIndexes();
-            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(new Response<int>(responses.Models.FindIndex(x => x.SteamId == user.SteamId))));
+            return StatusCode(StatusCodes.Status200OK, responses.Models.FindIndex(x => x.SteamId == user.SteamId));
         }
 
         [HttpGet("force_reset_indexes")]

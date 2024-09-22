@@ -1,6 +1,5 @@
 ﻿using EndlessDelivery.Common.Communication.Scores;
 using EndlessDelivery.Server.Api.ContentFile;
-using EndlessDelivery.Server.Api.Scores;
 using EndlessDelivery.Server.Api.Steam;
 using Microsoft.AspNetCore.Html;
 

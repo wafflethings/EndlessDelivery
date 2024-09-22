@@ -1,5 +1,4 @@
 ﻿using EndlessDelivery.Assets;
-using EndlessDelivery.Utils;
 using HarmonyLib;
 
 namespace EndlessDelivery.Cheats;

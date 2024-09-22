@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using EndlessDelivery.Utils;
 using UnityEngine;
 using UnityEngine.UI;

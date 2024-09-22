@@ -1,17 +1,12 @@
 ﻿using System.Collections.Generic;
-using System.IO;
-using EndlessDelivery.Common;
-using EndlessDelivery.Config;
+using AtlasLib.Saving;
 using EndlessDelivery.Gameplay;
-using EndlessDelivery.Saving;
-using Newtonsoft.Json;
-using UnityEngine;
 
 namespace EndlessDelivery.ScoreManagement;
 
 public static class BestTimes
 {
-    private static readonly SaveFile<List<Dictionary<int, float>>> s_timeFile = SaveFile.RegisterFile(new SaveFile<List<Dictionary<int, float>>>("local_times.json"));
+    private static readonly SaveFile<List<Dictionary<int, float>>> s_timeFile = SaveFile.RegisterFile(new SaveFile<List<Dictionary<int, float>>>("local_times.json", Plugin.Name));
 
     private static Dictionary<int, float> s_currentDifficultyTimes => s_timeFile.Data[PrefsManager.Instance.GetInt("difficulty")];
 

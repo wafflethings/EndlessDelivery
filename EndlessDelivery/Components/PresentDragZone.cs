@@ -1,5 +1,4 @@
-﻿using System;
-using EndlessDelivery.Utils;
+﻿using EndlessDelivery.Utils;
 using UnityEngine;
 
 namespace EndlessDelivery.Components;

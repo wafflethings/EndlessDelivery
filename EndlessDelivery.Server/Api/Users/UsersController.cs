@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using EndlessDelivery.Common;
+﻿using EndlessDelivery.Common;
 using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Server.Api.ContentFile;
 using EndlessDelivery.Server.Api.Steam;
@@ -8,12 +7,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using SixLabors.Fonts;
 using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.Drawing;
 using SixLabors.ImageSharp.Drawing.Processing;
 using SixLabors.ImageSharp.Formats.Webp;
-using SixLabors.ImageSharp.PixelFormats;
 using SixLabors.ImageSharp.Processing;
-using SixLabors.ImageSharp.Processing.Processors.Transforms;
 
 namespace EndlessDelivery.Server.Api.Users
 {

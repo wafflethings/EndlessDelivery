@@ -1,5 +1,4 @@
 using System.Threading.RateLimiting;
-using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Server.Api.ContentFile;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Config;
@@ -8,7 +7,6 @@ using Microsoft.AspNetCore.HttpOverrides;
 using Supabase;
 using Microsoft.AspNetCore.RateLimiting;
 using Newtonsoft.Json;
-using Supabase.Postgrest;
 
 namespace EndlessDelivery.Server;
 

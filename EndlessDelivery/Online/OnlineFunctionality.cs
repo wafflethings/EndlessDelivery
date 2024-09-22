@@ -1,34 +1,41 @@
-﻿using System.Net;
+﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
-using EndlessDelivery.Common.Communication;
-using EndlessDelivery.Online.Requests;
+using AtlasLib.Saving;
+using EndlessDelivery.Api;
+using EndlessDelivery.Api.Requests;
+using EndlessDelivery.Common.ContentFile;
+using Steamworks;
+using Steamworks.Data;
 
 namespace EndlessDelivery.Online;
 
 public static class OnlineFunctionality
 {
-    public static readonly HttpClient Client = new();
-    public static bool UseLocalUrl = false;
-    private static string? s_currentToken;
+    public static readonly ApiContext Context = new(new HttpClient(), GetTicket);
+    private static SaveFile<Cms?> s_cmsData = SaveFile.RegisterFile(new SaveFile<Cms?>("content.json", Plugin.Name));
 
-    private const string ProdRootUrl = "https://delivery.wafflethings.dev/api/";
-    private const string LocalRootUrl = "http://localhost:7048/api/";
-
-    public static string RootUrl => UseLocalUrl ? LocalRootUrl : ProdRootUrl;
-
-    public static async Task<bool> AddAuth(this HttpRequestMessage message)
+    //https://stackoverflow.com/questions/46139474/steam-web-api-authenticate-http-request-error
+    public static string GetTicket()
     {
-        s_currentToken ??= await Client.Login();
-
-        if (s_currentToken is "" or null)
-        {
-            return false;
-        }
-
-        message.Headers.Add("DeliveryToken", s_currentToken);
-        return true;
+        AuthTicket ticket = SteamUser.GetAuthSessionTicket(new NetIdentity());
+        return BitConverter.ToString(ticket.Data, 0, ticket.Data.Length).Replace("-", string.Empty);
     }
 
-    public static async Task<bool> ServerOnline() => await Client.Ping() == HttpStatusCode.OK;
+    public static async Task<Cms> GetContent()
+    {
+        if (await Context.ContentUpdateRequired(s_cmsData.Data?.LastUpdate ?? DateTime.MinValue))
+        {
+            Cms? downloaded = await Context.DownloadCms();
+
+            if (downloaded == null)
+            {
+                throw new Exception("CMS download failed!");
+            }
+
+            s_cmsData.Data = downloaded;
+        }
+
+        return s_cmsData.Data ?? throw new Exception("Couldn't get content and no old content cached.");;
+    }
 }

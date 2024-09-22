@@ -1,10 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common.Communication.Scores;
 using EndlessDelivery.Gameplay;
 using EndlessDelivery.Online;
-using EndlessDelivery.Online.Requests;
 using EndlessDelivery.ScoreManagement;
 using Steamworks;
 using UnityEngine;
@@ -36,7 +34,7 @@ public class EndScreenLeaderboards : MonoBehaviour
             return;
         }
 
-        if (!await OnlineFunctionality.ServerOnline())
+        if (!await OnlineFunctionality.Context.ServerOnline())
         {
             foreach (Text text in ConnectingToServerText)
             {
@@ -51,8 +49,8 @@ public class EndScreenLeaderboards : MonoBehaviour
             await ScoreManager.SubmitScore(GameManager.Instance.CurrentScore, (short)PrefsManager.Instance.GetInt("difficulty"));
         }
 
-        OnlineScore[] nearScores = await ScoreManager.GetPage(await Scores.GetPosition(SteamClient.SteamId) / 5);
-        OnlineScore[] topScores = await Scores.GetRange(0, 10);
+        OnlineScore[] nearScores = await ScoreManager.GetPage(await OnlineFunctionality.Context.GetLeaderboardPosition(SteamClient.SteamId) / 5);
+        OnlineScore[] topScores = await OnlineFunctionality.Context.GetScoreRange(0, 10);
 
         foreach (OnlineScore scoreResult in nearScores)
         {

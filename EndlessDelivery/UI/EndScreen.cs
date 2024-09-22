@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using EndlessDelivery.Assets;
 using EndlessDelivery.Common;
 using EndlessDelivery.Gameplay;
 using EndlessDelivery.ScoreManagement;

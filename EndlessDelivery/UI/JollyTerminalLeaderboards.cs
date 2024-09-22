@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using EndlessDelivery.Common;
+﻿using System.Threading.Tasks;
+using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common.Communication.Scores;
 using EndlessDelivery.Online;
-using EndlessDelivery.Online.Requests;
 using EndlessDelivery.ScoreManagement;
 using TMPro;
 using UnityEngine;
@@ -29,7 +26,7 @@ public class JollyTerminalLeaderboards : MonoBehaviour
 
     private async void SetStuff()
     {
-        _pageAmount = Mathf.CeilToInt(await Scores.GetLength() / 5f);
+        _pageAmount = Mathf.CeilToInt(await OnlineFunctionality.Context.GetLeaderboardLength() / 5f);
     }
 
     public void OnEnable()
@@ -59,7 +56,7 @@ public class JollyTerminalLeaderboards : MonoBehaviour
 
     public async Task RefreshPage()
     {
-        if (!await OnlineFunctionality.ServerOnline())
+        if (!await OnlineFunctionality.Context.ServerOnline())
         {
             HudMessageReceiver.Instance.SendHudMessage("Server offline!");
             gameObject.SetActive(false);

@@ -1,7 +1,4 @@
-﻿using System.Text.RegularExpressions;
-using Microsoft.AspNetCore.Mvc;
-
-namespace EndlessDelivery.Server.Resources;
+﻿namespace EndlessDelivery.Server.Resources;
 
 public static class ResourceManager
 {

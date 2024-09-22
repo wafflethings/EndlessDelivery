@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using System.Text.Encodings.Web;
 using EndlessDelivery.Common.Communication.Scores;
-using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Server.Api.Scores;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Api.Users;

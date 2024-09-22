@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AtlasLib.Utils;
 using EndlessDelivery.Components;
@@ -331,7 +329,11 @@ public class Room : MonoBehaviour
         point.Enemy = enemy.prefab;
         _pointsLeft -= GetRealCost(enemy);
         Debug.Log($"just spent {GetRealCost(enemy)}");
-        _amountSpawned.TryAdd(enemy.enemyType, 0);
+        if (!_amountSpawned.ContainsKey(enemy.enemyType))
+        {
+            _amountSpawned.Add(enemy.enemyType, 0);
+        }
+
         _amountSpawned[enemy.enemyType]++;
 
         switch (spawnType)

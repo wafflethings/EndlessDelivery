@@ -1,5 +1,4 @@
-﻿using EndlessDelivery.Common.ContentFile;
-using EndlessDelivery.Common.Inventory.Items;
+﻿using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Server.Api.ContentFile;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Website;

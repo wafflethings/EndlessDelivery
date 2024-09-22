@@ -1,15 +1,10 @@
 ﻿using System.Net;
 using System.Security.Cryptography;
 using System.Text;
-using EndlessDelivery.Common.Communication;
 using EndlessDelivery.Server.Api.Users;
 using EndlessDelivery.Server.Config;
-using EndlessDelivery.Server.Api.Scores;
-using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
-using Supabase.Interfaces;
-using Supabase.Realtime;
 
 namespace EndlessDelivery.Server.Api.Steam;
 
@@ -149,23 +144,26 @@ public class SteamLoginController : Controller
     public async Task<ObjectResult> LoginWithTicket()
     {
         using StreamReader reader = new(Request.Body);
-        Response<string>? loginRequest = JsonConvert.DeserializeObject<Response<string>>(await reader.ReadToEndAsync());
+        string loginRequest = await reader.ReadToEndAsync();
 
-        if (loginRequest == null)
+        AuthTicket auth;
+        try
         {
-            return StatusCode(StatusCodes.Status400BadRequest, Json(new Response<string>(string.Empty)));
+            auth = await AuthTicket.GetAuth(loginRequest);
         }
-
-        AuthTicket auth = await AuthTicket.GetAuth(loginRequest.Value);
+        catch
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, null);
+        }
 
         if (!ulong.TryParse(auth.OwnerSteamId, out ulong id))
         {
-            return StatusCode(StatusCodes.Status424FailedDependency, Json(new Response<string>(string.Empty)));
+            return StatusCode(StatusCodes.Status424FailedDependency, string.Empty);
         }
 
-        string token = CreateTokenString(loginRequest.Value);
+        string token = CreateTokenString(loginRequest);
         SteamToken.Create(token, id);
-        return StatusCode(StatusCodes.Status200OK, Json(new Response<string>(token)));
+        return StatusCode(StatusCodes.Status200OK, token);
     }
 
     private string CreateTokenString(string nonce) => Convert.ToBase64String(Aes.EncryptCbc(Encoding.Unicode.GetBytes(RandomNumberGenerator.GetInt32(100000, 1000000) + nonce), s_aes.IV));

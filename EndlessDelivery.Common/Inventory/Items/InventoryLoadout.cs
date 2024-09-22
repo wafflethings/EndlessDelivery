@@ -1,6 +1,4 @@
-﻿using EndlessDelivery.Common.Inventory.Items;
-
-namespace EndlessDelivery.Common.Inventory.Items;
+﻿namespace EndlessDelivery.Common.Inventory.Items;
 
 public class InventoryLoadout
 {

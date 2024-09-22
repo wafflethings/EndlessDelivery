@@ -29,7 +29,8 @@ namespace BuildPipeline.Editor
 		private const string CatalogPostfix = "wbp";
 		private const string EmptyGroupName = "Empty Dont Delete";
 		private const string EmptyAssetPath = "Assets/BuildPipeline/Assets/Empty.png";
-		private static string[] s_commonGroupNames = { "Assets", "Game Prefabs", "Music", "Other" };
+        private const string DefaultLocal = "Default Local Group"; // group where monoscript path is taken from, dont delete
+		private static string[] s_commonGroupNames = { "Assets", "Game Prefabs", "Music", "Other"};
 
 		private static AddressableAssetSettings Settings => AddressableAssetSettingsDefaultObject.Settings;
 
@@ -56,6 +57,8 @@ namespace BuildPipeline.Editor
 			{
 				Directory.CreateDirectory(ResultPath);
 			}
+
+            SetCorrectValuesForSchema(Settings.groups.First(group => group.name == DefaultLocal).GetSchema<BundledAssetGroupSchema>());
 
 			switch (buildMode)
 			{

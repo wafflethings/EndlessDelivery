@@ -1,6 +1,5 @@
 ﻿using System;
 using EndlessDelivery.Common;
-using EndlessDelivery.Config;
 using EndlessDelivery.ScoreManagement;
 using EndlessDelivery.Utils;
 using TMPro;

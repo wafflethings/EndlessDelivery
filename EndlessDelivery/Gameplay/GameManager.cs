@@ -173,7 +173,7 @@ public class GameManager : MonoSingleton<GameManager>
         PresentTimeHud.Instance.gameObject.SetActive(true);
         StatsManager.Instance.GetComponentInChildren<MusicManager>(true).gameObject.SetActive(true);
         MusicManager.Instance.StartMusic();
-        RoomsComplete = SettingsData.SettingsFile.Data.StartWave;
+        RoomsComplete = ConfigFile.Instance.Data.StartWave;
         PointsPerWave = GetRoomPoints(RoomsComplete);
         TimeLeft = BestTimes.GetRoomTime(RoomsComplete);
         TimerActive = true;

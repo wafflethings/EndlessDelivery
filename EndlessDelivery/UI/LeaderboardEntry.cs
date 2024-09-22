@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using EndlessDelivery.Common.Communication.Scores;
+﻿using EndlessDelivery.Common.Communication.Scores;
 using Steamworks;
 using UnityEngine;
 using UnityEngine.UI;

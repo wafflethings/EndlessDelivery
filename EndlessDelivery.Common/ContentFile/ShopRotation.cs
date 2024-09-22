@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using EndlessDelivery.Common.Inventory.Items;
 using Newtonsoft.Json;
 
 namespace EndlessDelivery.Common.ContentFile;
