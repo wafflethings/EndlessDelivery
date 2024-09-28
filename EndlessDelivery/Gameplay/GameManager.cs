@@ -56,7 +56,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Awake()
     {
-        Act3EnemyHack.AddToPools(EnemyGroup.Groups[DeliveryEnemyClass.Projectile], EnemyGroup.Groups[DeliveryEnemyClass.Uncommon]);
+        EnemyHack.AddToPools(EnemyGroup.Groups[DeliveryEnemyClass.Projectile], EnemyGroup.Groups[DeliveryEnemyClass.Uncommon], EnemyGroup.Groups[DeliveryEnemyClass.Special], EnemyGroup.Groups[DeliveryEnemyClass.Melee]);
     }
 
     private void Update()
@@ -199,7 +199,7 @@ public class GameManager : MonoSingleton<GameManager>
         int difficulty = PrefsManager.Instance.GetInt("difficulty");
 
         //if more rooms, or more deliveries
-        if (CurrentScore > ScoreManager.LocalHighscores.Data[difficulty])
+        if (!ScoreManager.LocalHighscores.Data.ContainsKey(difficulty) || CurrentScore > ScoreManager.LocalHighscores.Data[difficulty])
         {
             if (ScoreManager.CanSubmit)
             {

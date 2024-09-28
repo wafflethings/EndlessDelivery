@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using EndlessDelivery.Gameplay.EnemyGeneration;
 using Newtonsoft.Json;
 using UnityEditor;
 using UnityEditor.AddressableAssets;
@@ -147,6 +148,7 @@ namespace BuildPipeline.Editor
         {
 	        Dictionary<string, List<string>> dataInfo = new Dictionary<string, List<string>>();
 	        AddData<Scene>(dataInfo, "Assets/Delivery/Scenes");
+            AddData<EnemyGroup>(dataInfo, "Assets/Delivery/ScriptableObjects/EnemyGroups");
 
 	        using (StreamWriter writer = new StreamWriter(File.OpenWrite(Path.Combine(ResultPath, DataFileName))))
 	        {

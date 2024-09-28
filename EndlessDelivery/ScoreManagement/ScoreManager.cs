@@ -6,6 +6,7 @@ using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common;
 using EndlessDelivery.Common.Communication.Scores;
 using EndlessDelivery.Online;
+using UnityEngine;
 
 namespace EndlessDelivery.ScoreManagement;
 
@@ -31,9 +32,10 @@ public class ScoreManager
 
             return newPosition;
         }
-        catch
+        catch (Exception ex)
         {
             HudMessageReceiver.Instance.SendHudMessage("Score submit error!");
+            Debug.LogException(ex);
             return -1;
         }
     }

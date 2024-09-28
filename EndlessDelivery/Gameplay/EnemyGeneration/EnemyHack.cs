@@ -10,18 +10,18 @@ namespace EndlessDelivery.Gameplay.EnemyGeneration;
 /// I can't reference act 3 enemy EndlessEnemy SOs as my Tundra version doesn't have them (yet).
 /// I have to add the official ones.
 /// </summary>
-public static class Act3EnemyHack
+public static class EnemyHack
 {
-    private static bool _hasAdded = false;
+    private static bool s_hasAdded = false;
 
     public static void AddToPools(params EnemyGroup[] groups)
     {
-        if (_hasAdded)
+        if (s_hasAdded)
         {
             return;
         }
 
-        _hasAdded = true;
+        s_hasAdded = true;
 
         PrefabDatabase database = Addressables.LoadAssetAsync<PrefabDatabase>("Assets/Data/Cyber Grind Patterns/Data/Prefab Database.asset").WaitForCompletion();
         foreach (EnemyGroup group in groups)
@@ -33,31 +33,46 @@ public static class Act3EnemyHack
     private static void AddEnemies(EnemyGroup group, PrefabDatabase database)
     {
         List<EndlessEnemy> enemies = group.Enemies.ToList();
+        enemies.Clear();
 
         switch (group.Class)
         {
             case DeliveryEnemyClass.Projectile:
                 foreach (EndlessEnemy enemy in database.projectileEnemies)
                 {
-                    if (enemy.enemyType is EnemyType.Gutterman or EnemyType.Mannequin)
-                    {
-                        Debug.Log($"Added {enemy.enemyType} to {group.name}!");
-                        enemies.Add(enemy);
-                    }
+                    Debug.Log($"Added {enemy.enemyType} to {group.name}!");
+                    enemies.Add(enemy);
                 }
-
                 break;
 
             case DeliveryEnemyClass.Uncommon:
                 foreach (EndlessEnemy enemy in database.uncommonEnemies)
                 {
-                    if (enemy.enemyType == EnemyType.Guttertank)
+                    if (enemy.enemyType != EnemyType.Idol)
                     {
                         Debug.Log($"Added {enemy.enemyType} to {group.name}!");
                         enemies.Add(enemy);
                     }
                 }
+                break;
 
+            case DeliveryEnemyClass.Melee:
+                foreach (EndlessEnemy enemy in database.meleeEnemies)
+                {
+                    Debug.Log($"Added {enemy.enemyType} to {group.name}!");
+                    enemies.Add(enemy);
+                }
+                break;
+
+            case DeliveryEnemyClass.Special:
+                foreach (EndlessEnemy enemy in database.specialEnemies)
+                {
+                    if (enemy.enemyType != EnemyType.Sisyphus)
+                    {
+                        Debug.Log($"Added {enemy.enemyType} to {group.name}!");
+                        enemies.Add(enemy);
+                    }
+                }
                 break;
         }
 

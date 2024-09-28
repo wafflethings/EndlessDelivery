@@ -38,7 +38,7 @@ public class JollyTerminalLeaderboards : MonoBehaviour
                 entry.gameObject.SetActive(false);
             }
 
-            RefreshPage();
+            Task.Run(RefreshPage);
         }
     }
 
@@ -50,18 +50,19 @@ public class JollyTerminalLeaderboards : MonoBehaviour
         }
 
         PageText.text = (_page + 1).ToString();
-
-        RefreshPage();
+        Task.Run(RefreshPage);
     }
 
     public async Task RefreshPage()
     {
+        Debug.LogWarning(OnlineFunctionality.Context.BaseUri.ToString());
         if (!await OnlineFunctionality.Context.ServerOnline())
         {
             HudMessageReceiver.Instance.SendHudMessage("Server offline!");
             gameObject.SetActive(false);
             return;
         }
+        Debug.LogWarning("Done");
 
         foreach (Button button in PageButtons)
         {

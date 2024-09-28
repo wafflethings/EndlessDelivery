@@ -52,6 +52,8 @@ public class EncryptedSaveFile<T> : SaveFile<T> where T : new()
 
     private void ProcessBytes(ref byte[] bytes)
     {
+        return;
+
         int keyIndex = 0;
         for (int i = 0; i < bytes.Length; i++)
         {
