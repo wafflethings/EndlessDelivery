@@ -14,6 +14,11 @@ public class EnemyGroup : ScriptableObject
     {
         foreach (EnemyGroup group in groups)
         {
+            if (group == null)
+            {
+                Debug.LogError(group + " group was null!");
+                continue;
+            }
             Groups.Add(group.Class, group);
         }
     }

@@ -17,6 +17,12 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 1c9ef0c7fbaba1549b88547b5dfefbe7
   m_SerializeEntries:
+  - m_GUID: dd8aba23cfdac4a3da2d521e84b64ee5
+    m_Address: Assets/Prefabs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2f8e922d1c456f94ba799c3bbb8e8122
     m_Address: Wrapped Shop
     m_ReadOnly: 0

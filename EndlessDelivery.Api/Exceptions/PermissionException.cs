@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace EndlessDelivery.Api.Exceptions;
+﻿namespace EndlessDelivery.Api.Exceptions;
 
 public class PermissionException : Exception
 {

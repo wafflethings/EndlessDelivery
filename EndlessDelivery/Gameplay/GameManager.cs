@@ -135,7 +135,7 @@ public class GameManager : MonoSingleton<GameManager>
         {
             AddTime(8, "<color=orange>ROOM CLEAR</color>");
             PointsPerWave += 3 + RoomsComplete / 3;
-            BestTimes.SetIfHigher(RoomsComplete, TimeLeft);
+            StartTimes.Instance.Data.UpdateAllLowerDifficulty(RoomsComplete, TimeLeft);
         }
 
         SetRoom(GenerateNewRoom());
@@ -175,7 +175,7 @@ public class GameManager : MonoSingleton<GameManager>
         MusicManager.Instance.StartMusic();
         RoomsComplete = ConfigFile.Instance.Data.StartWave;
         PointsPerWave = GetRoomPoints(RoomsComplete);
-        TimeLeft = BestTimes.GetRoomTime(RoomsComplete);
+        TimeLeft = StartTimes.Instance.Data.CurrentTimes.GetRoomTime(RoomsComplete);
         TimerActive = true;
         GameStarted = true;
     }

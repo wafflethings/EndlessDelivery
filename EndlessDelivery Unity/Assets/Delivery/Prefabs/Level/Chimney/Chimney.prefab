@@ -5153,10 +5153,12 @@ MonoBehaviour:
   forEnemies: 0
   notIfEnemiesDisabled: 0
   onlyIfPlayerIsAlive: 1
+  dontUseEventsIfEnemiesDisabled: 0
   delay: 0
   ignoreColliders: []
   obac: {fileID: 0}
   onlyCheckObacOnce: 0
+  disableIfObacOff: 0
   events:
     toActivateObjects: []
     toDisActivateObjects: []
@@ -5324,7 +5326,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47c702fae161a0848b79b4d4fabaddf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  overrideTarget: {fileID: 0}
+  preferCameraOverHead: 0
   faceScreenInsteadOfCamera: 0
+  dontRotateIfBlind: 0
   speed: 0
   easeIn: 0
   maxAngle: 0
@@ -5335,6 +5340,8 @@ MonoBehaviour:
   maxXAxisFromParent: 0
   maxYAxisFromParent: 0
   maxZAxisFromParent: 0
+  eid: {fileID: 0}
+  difficultyVariance: 0
 --- !u!1 &5108896858161922940
 GameObject:
   m_ObjectHideFlags: 0
@@ -5396,7 +5403,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: f66f8ed2c7d3c5b4ab8b0343dfe810fc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5446,6 +5453,7 @@ MonoBehaviour:
   launchSound: {fileID: 8300000, guid: b0efe37d377d4184b9abb8bef0fd12db, type: 3}
   lightLaunchSound: {fileID: 8300000, guid: 8e84679777611af41a223a8c7d050f2e, type: 3}
   forceDirection: 0
+  ignoreSlam: 0
 --- !u!82 &6894279615387348396
 AudioSource:
   m_ObjectHideFlags: 0

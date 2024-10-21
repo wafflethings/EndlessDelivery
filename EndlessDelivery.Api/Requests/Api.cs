@@ -1,7 +1,4 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
-
-namespace EndlessDelivery.Api.Requests;
+﻿namespace EndlessDelivery.Api.Requests;
 
 public static class Api
 {

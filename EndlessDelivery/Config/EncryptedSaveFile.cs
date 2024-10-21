@@ -12,7 +12,7 @@ public class EncryptedSaveFile<T> : SaveFile<T> where T : new()
 {
     private const string Key = "Please don't cheat this is just a mod :( I will ban you";
 
-    public EncryptedSaveFile() : base("config.ddenc", Plugin.Name)
+    public EncryptedSaveFile(string name) : base(name, Plugin.Name)
     {
     }
 

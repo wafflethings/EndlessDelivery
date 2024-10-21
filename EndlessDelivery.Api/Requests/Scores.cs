@@ -1,6 +1,4 @@
-﻿using System.Net.Http;
-using System.Threading.Tasks;
-using EndlessDelivery.Api.Exceptions;
+﻿using EndlessDelivery.Api.Exceptions;
 using EndlessDelivery.Common.Communication.Scores;
 using Newtonsoft.Json;
 

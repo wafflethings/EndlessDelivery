@@ -30834,6 +30834,7 @@ MonoBehaviour:
   goreZone: {fileID: 0}
   gibZone: {fileID: 0}
   goreRenderDistance: 0
+  toDestroy: []
 --- !u!114 &6978075202568903520
 MonoBehaviour:
   m_ObjectHideFlags: 0

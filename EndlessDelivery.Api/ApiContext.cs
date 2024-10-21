@@ -1,7 +1,4 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-using EndlessDelivery.Api.Exceptions;
+﻿using EndlessDelivery.Api.Exceptions;
 using EndlessDelivery.Api.Requests;
 
 namespace EndlessDelivery.Api;

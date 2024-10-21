@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: WBP Assets
   m_EditorClassIdentifier: 
   m_SchemaObjects:
-  - {fileID: 5423531996979185445}
+  - {fileID: 6927005279888559644}
   m_Description: Assets for Waffle's Build Pipeline.
   m_Settings: {fileID: 11400000, guid: 2a337ff27534e164b86034852d6c1576, type: 2}
---- !u!114 &5423531996979185445
+--- !u!114 &6927005279888559644
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}

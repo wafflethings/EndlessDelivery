@@ -29041,6 +29041,8 @@ MonoBehaviour:
   PresentColourAmounts: 01000000020000000100000002000000
   EnvColliders: []
   Enemies: []
+  RoomCleared: 0
+  RoomActivated: 0
 --- !u!65 &5142735560282619821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35768,6 +35770,7 @@ MonoBehaviour:
   goreZone: {fileID: 0}
   gibZone: {fileID: 0}
   goreRenderDistance: 0
+  toDestroy: []
 --- !u!114 &6978075202568903520
 MonoBehaviour:
   m_ObjectHideFlags: 0
