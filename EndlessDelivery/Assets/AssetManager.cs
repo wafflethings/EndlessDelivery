@@ -71,7 +71,7 @@ public static class AssetManager
         catch (Exception ex)
         {
             // i hate using trycatch but if this isnt set back to false, every unmodded scene load will fail
-            Debug.LogError(ex.ToString());
+            Plugin.Log.LogError(ex.ToString());
         }
 
         s_dontSanitizeScenes = false;

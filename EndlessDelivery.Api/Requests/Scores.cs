@@ -15,28 +15,34 @@ public static class Scores
     public static async Task<OnlineScore[]> GetScoreRange(this ApiContext context, int startIndex, int amount)
     {
         HttpResponseMessage response = await context.Client.GetAsync(string.Format(context.BaseUri + ScoreRoot + GetRangeEndpoint, startIndex, amount));
-        return JsonConvert.DeserializeObject<OnlineScore[]>(await response.Content.ReadAsStringAsync()) ?? throw new BadResponseException();
+        string content = await response.Content.ReadAsStringAsync();
+        return JsonConvert.DeserializeObject<OnlineScore[]>(content) ?? throw new BadResponseException(content);
     }
 
     public static async Task<int> GetLeaderboardPosition(this ApiContext context, ulong userId)
     {
-        await context.EnsureAuth();
-        HttpResponseMessage response = await context.Client.GetAsync(string.Format(context.BaseUri + ScoreRoot + GetPositionEndpoint, userId));
-        return int.TryParse(await response.Content.ReadAsStringAsync(), out int pos) ? pos : throw new BadResponseException();
+        HttpRequestMessage request = new(HttpMethod.Get, string.Format(context.BaseUri + ScoreRoot + GetPositionEndpoint, userId));
+        await context.EnsureAuth(request);
+        HttpResponseMessage response = await context.Client.SendAsync(request);
+        string content = await response.Content.ReadAsStringAsync();
+        return int.TryParse(content, out int pos) ? pos : throw new BadResponseException(content);
     }
 
     public static async Task<int> GetLeaderboardLength(this ApiContext context)
     {
         HttpResponseMessage response = await context.Client.GetAsync(string.Format(context.BaseUri + ScoreRoot + GetLengthEndpoint));
-        return int.TryParse(await response.Content.ReadAsStringAsync(), out int length) ? length : throw new BadResponseException();
+        string content = await response.Content.ReadAsStringAsync();
+        return int.TryParse(content, out int length) ? length : throw new BadResponseException(content);
     }
 
-    public static async Task<int> SubmitScore(this ApiContext context, SubmitScoreData scoreData)
+    public static async Task<OnlineScore> SubmitScore(this ApiContext context, SubmitScoreData scoreData)
     {
-        await context.EnsureAuth();
         HttpRequestMessage request = new(HttpMethod.Post, context.BaseUri + ScoreRoot + SubmitScoreEndpoint);
+        await context.EnsureAuth(request);
         request.Content = new StringContent(JsonConvert.SerializeObject(scoreData));
         HttpResponseMessage response = await context.Client.SendAsync(request);
-        return int.TryParse(await response.Content.ReadAsStringAsync(), out int pos) ? pos : throw new BadResponseException();
+        string content = await response.Content.ReadAsStringAsync();
+        OnlineScore? score = JsonConvert.DeserializeObject<OnlineScore>(content);
+        return score ?? throw new BadResponseException(content);
     }
 }

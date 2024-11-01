@@ -1,15 +1,16 @@
 ﻿using EndlessDelivery.Config;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace EndlessDelivery.UI;
 
-public class JollyTerminalStartPickButton
+public class JollyTerminalStartPickButton : MonoBehaviour
 {
     [SerializeField] private Button _button;
-    [SerializeField] private Text _text;
+    [SerializeField] private TMP_Text _text;
 
-    public void Setup(int startWave)
+    public void Setup(JollyTerminalStartPicker picker, int startWave)
     {
         StartTimes.StartTime currentTime = StartTimes.Instance.Data.CurrentTimes;
         _text.text = startWave.ToString();
@@ -20,6 +21,9 @@ public class JollyTerminalStartPickButton
             return;
         }
 
-        _button.onClick.AddListener(() => currentTime.SelectedWave = startWave);
+        _button.onClick.AddListener(() =>
+        {
+            picker.SetWave(startWave);
+        });
     }
 }

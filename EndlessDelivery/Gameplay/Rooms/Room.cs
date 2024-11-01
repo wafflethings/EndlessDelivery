@@ -148,7 +148,7 @@ public class Room : MonoBehaviour
     private void DecideSpawnPointEnemies()
     {
         _pointsLeft = GameManager.Instance.PointsPerWave;
-        Debug.Log($"Spawning enemies: starts with {_pointsLeft}");
+        Plugin.Log.LogInfo($"Spawning enemies: starts with {_pointsLeft}");
 
         List<EnemySpawnPoint> projectileSpawns = SpawnPoints.Where(sp => sp.Class == DeliveryEnemyClass.Projectile).ShuffleAndToList();
         List<EnemySpawnPoint> meleeSpawns = SpawnPoints.Where(sp => sp.Class == DeliveryEnemyClass.Melee).ShuffleAndToList();
@@ -172,12 +172,12 @@ public class Room : MonoBehaviour
         int uncommonAmount = UnityEngine.Random.Range(1, max + 1);
         max -= uncommonAmount;
 
-        Debug.Log($"Spawning {uncommonAmount} uncommons!");
+        Plugin.Log.LogInfo($"Spawning {uncommonAmount} uncommons!");
         List<EndlessEnemy> uncommons = GetPotentialEnemies(EnemyGroup.Groups[DeliveryEnemyClass.Uncommon]).ShuffleAndToList();
 
         foreach (EndlessEnemy enemy in uncommons)
         {
-            Debug.Log($"    uc{enemy.prefab.name}");
+            Plugin.Log.LogInfo($"    uc{enemy.prefab.name}");
         }
 
         while (uncommons.Count > 2)
@@ -195,20 +195,20 @@ public class Room : MonoBehaviour
             uncommons.Add(uncommons[0]);
         }
 
-        Debug.Log($"Uncommons are {uncommons[0].prefab.name} and {uncommons[1].prefab.name}!!");
+        Plugin.Log.LogInfo($"Uncommons are {uncommons[0].prefab.name} and {uncommons[1].prefab.name}!!");
         int[] amounts = { 0, 0 };
 
         for (int i = 0; i < uncommonAmount; i++)
         {
             if (_meleeSpawnsUsed == spawns.Count)
             {
-                Debug.Log($"broke2 with {_pointsLeft}");
+                Plugin.Log.LogInfo($"broke2 with {_pointsLeft}");
                 break;
             }
 
             if (GetRealCost(uncommons[0]) >= _pointsLeft && GetRealCost(uncommons[1]) >= _pointsLeft)
             {
-                Debug.Log("uncommon break | cant afford");
+                Plugin.Log.LogInfo("uncommon break | cant afford");
                 break;
             }
 
@@ -244,17 +244,17 @@ public class Room : MonoBehaviour
 
         max -= specialAmount;
 
-        Debug.Log($"Spawning {specialAmount} specials!");
+        Plugin.Log.LogInfo($"Spawning {specialAmount} specials!");
         foreach (EndlessEnemy enemy in GetPotentialEnemies(EnemyGroup.Groups[DeliveryEnemyClass.Special]).ShuffleAndToList())
         {
-            Debug.Log($"   {enemy}");
+            Plugin.Log.LogInfo($"   {enemy}");
         }
 
         for (int i = 0; i < specialAmount; i++)
         {
             if (_meleeSpawnsUsed == spawns.Count)
             {
-                Debug.Log($"broke1 with {_pointsLeft}");
+                Plugin.Log.LogInfo($"broke1 with {_pointsLeft}");
                 break;
             }
 
@@ -273,10 +273,10 @@ public class Room : MonoBehaviour
     {
         while (_pointsLeft != 0)
         {
-            Debug.Log($"has {_pointsLeft} points left!");
+            Plugin.Log.LogInfo($"has {_pointsLeft} points left!");
             if (_projectileSpawnsUsed == projectile.Count && _meleeSpawnsUsed == melee.Count)
             {
-                Debug.Log($"broke with {_pointsLeft}");
+                Plugin.Log.LogInfo($"broke with {_pointsLeft}");
                 break;
             }
 
@@ -295,7 +295,7 @@ public class Room : MonoBehaviour
             IEnumerable<EndlessEnemy> enemies = GetPotentialEnemies(EnemyGroup.Groups[type]);
             foreach (EndlessEnemy enemy in enemies)
             {
-                Debug.Log($"   pm {enemy.prefab.name}");
+                Plugin.Log.LogInfo($"   pm {enemy.prefab.name}");
             }
 
             EndlessEnemy randomEnemy = enemies.ToList().Pick();
@@ -308,7 +308,7 @@ public class Room : MonoBehaviour
 
             EnemySpawnPoint spawnPoint = type == DeliveryEnemyClass.Melee ? melee[_meleeSpawnsUsed] : projectile[_projectileSpawnsUsed];
             SetSpawnPoint(spawnPoint, randomEnemy, type);
-            Debug.Log($"now at {_pointsLeft}");
+            Plugin.Log.LogInfo($"now at {_pointsLeft}");
         }
     }
 
@@ -328,7 +328,7 @@ public class Room : MonoBehaviour
         point.Room = this;
         point.Enemy = enemy.prefab;
         _pointsLeft -= GetRealCost(enemy);
-        Debug.Log($"just spent {GetRealCost(enemy)}");
+        Plugin.Log.LogInfo($"just spent {GetRealCost(enemy)}");
         if (!_amountSpawned.ContainsKey(enemy.enemyType))
         {
             _amountSpawned.Add(enemy.enemyType, 0);

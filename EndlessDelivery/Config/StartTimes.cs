@@ -13,7 +13,20 @@ public class StartTimes
     [JsonIgnore] public static readonly EncryptedSaveFile<StartTimes> Instance = SaveFile.RegisterFile(new EncryptedSaveFile<StartTimes>("times.ddenc")) as EncryptedSaveFile<StartTimes> ?? throw new();
     public Dictionary<int, StartTime> DifficultyToTimes = new();
 
-    public StartTime CurrentTimes => DifficultyToTimes[PrefsManager.Instance.GetInt("difficulty")];
+    public StartTime CurrentTimes
+    {
+        get
+        {
+            int difficulty = PrefsManager.Instance.GetInt("difficulty");
+
+            if (!DifficultyToTimes.ContainsKey(difficulty))
+            {
+                DifficultyToTimes.Add(difficulty, new StartTime());
+            }
+
+            return DifficultyToTimes[difficulty];
+        }
+    }
 
     public void UpdateAllLowerDifficulty(int wave, float time)
     {
@@ -35,18 +48,26 @@ public class StartTimes
     [Serializable]
     public class StartTime
     {
-        public static readonly int[] StartableWaves = [5, 10, 25, 50];
-        public Dictionary<int, float> WaveToTime = new();
-        public List<int> UnlockedStartTimes = new();
-        public int SelectedWave;
+        public static readonly int[] StartableWaves = [0, 5, 10, 25, 50];
+        public Dictionary<int, float> WaveToTime = new() { { 0, GameManager.StartTime } };
+        public List<int> UnlockedStartTimes = [0];
+        public int SelectedWave = 0;
 
         public void SetValues(int wave, float time)
         {
+            if (wave == 0)
+            {
+                return;
+            }
+
             if (StartableWaves.Contains(wave))
             {
-                if (WaveToTime.ContainsKey(wave) && time > WaveToTime[wave])
+                if (WaveToTime.ContainsKey(wave))
                 {
-                    WaveToTime[wave] = time;
+                    if (time > WaveToTime[wave])
+                    {
+                        WaveToTime[wave] = time;
+                    }
                 }
                 else
                 {
@@ -61,9 +82,9 @@ public class StartTimes
                     continue;
                 }
 
-                if (!UnlockedStartTimes.Contains(wave))
+                if (!UnlockedStartTimes.Contains(startableWave))
                 {
-                    UnlockedStartTimes.Add(wave);
+                    UnlockedStartTimes.Add(startableWave);
                 }
             }
         }
@@ -73,11 +94,6 @@ public class StartTimes
             if (!StartableWaves.Contains(room))
             {
                 throw new Exception("Room needs to be in startablewaves.");
-            }
-
-            if (room == 0)
-            {
-                return GameManager.StartTime;
             }
 
             return WaveToTime[room];

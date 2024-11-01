@@ -1,11 +1,15 @@
-﻿using EndlessDelivery.Common.Communication.Scores;
+﻿using EndlessDelivery.Common;
+using EndlessDelivery.Common.Achievements;
+using EndlessDelivery.Common.Communication.Scores;
+using EndlessDelivery.Server.Api.ContentFile;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Api.Users;
+using EndlessDelivery.Server.Database;
 using EndlessDelivery.Server.Website;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
-using Supabase.Postgrest.Responses;
 
 namespace EndlessDelivery.Server.Api.Scores
 {
@@ -15,14 +19,14 @@ namespace EndlessDelivery.Server.Api.Scores
     {
         public static async Task<List<OnlineScore>> GetOnlineScores()
         {
-            ModeledResponse<OnlineScore> onlineScoreResponse = await Program.SupabaseClient.From<OnlineScore>().Get();
-            return Sort(onlineScoreResponse.Models);
+            await using DeliveryDbContext dbContext = new();
+            return await Sort(dbContext.Scores.AsAsyncEnumerable());
         }
 
-        private static List<OnlineScore> Sort(List<OnlineScore> models)
+        private static async Task<List<OnlineScore>> Sort(IAsyncEnumerable<OnlineScore> models)
         {
-            return models.OrderByDescending(x => x.Score.Rooms).ThenByDescending(x => x.Score.Deliveries)
-                .ThenByDescending(x => x.Score.Kills).ThenBy(x => x.Score.Time).ToList();
+            return await models.OrderByDescending(x => x.Score.Rooms).ThenByDescending(x => x.Score.Deliveries)
+                .ThenByDescending(x => x.Score.Kills).ThenBy(x => x.Score.Time).ToListAsync();
         }
 
         [EnableRateLimiting("fixed")]
@@ -31,9 +35,9 @@ namespace EndlessDelivery.Server.Api.Scores
         {
             List<OnlineScore> onlineScores = await GetOnlineScores();
 
-            if (count > 10)
+            if (start > onlineScores.Count - 1)
             {
-                return StatusCode(StatusCodes.Status400BadRequest, null);
+                return StatusCode(StatusCodes.Status400BadRequest, "Start was too high");
             }
 
             if (start + count > onlineScores.Count)
@@ -41,8 +45,8 @@ namespace EndlessDelivery.Server.Api.Scores
                 count = onlineScores.Count - start;
             }
 
-            List<OnlineScore> models = onlineScores.GetRange(start, count+1);
-            return StatusCode(StatusCodes.Status200OK, models.ToArray());
+            List<OnlineScore> models = onlineScores.GetRange(start, count);
+            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(models.ToArray()));
         }
 
         [EnableRateLimiting("fixed")]
@@ -64,34 +68,37 @@ namespace EndlessDelivery.Server.Api.Scores
         [HttpPost("submit_score")]
         public async Task<ObjectResult> Add()
         {
-            using StreamReader reader = new(Request.Body);
-            SubmitScoreData? scoreRequest = JsonConvert.DeserializeObject<SubmitScoreData>(await reader.ReadToEndAsync());
+            string readScore = await Request.ReadBody();
+            SubmitScoreData? scoreRequest = JsonConvert.DeserializeObject<SubmitScoreData>(readScore);
+            Console.WriteLine($"Sent score {readScore}");
 
             if (scoreRequest == null)
             {
-                return StatusCode(StatusCodes.Status400BadRequest, -1);
+                return StatusCode(StatusCodes.Status400BadRequest, "Null body");
             }
 
             if (scoreRequest.Version != Plugin.Version)
             {
-                return StatusCode(StatusCodes.Status426UpgradeRequired, -1);
+                return StatusCode(StatusCodes.Status426UpgradeRequired, $"Delivery version {Plugin.Version} is required");
             }
 
             if (!HttpContext.TryGetLoggedInPlayer(out SteamUser steamUser))
             {
-                return StatusCode(StatusCodes.Status400BadRequest, -1);
+                Console.WriteLine("su");
+                return StatusCode(StatusCodes.Status500InternalServerError, "User does not have SteamUser");
             }
 
-            UserModel user = await steamUser.GetUserModel();
+            UserModel? user = await steamUser.GetUserModel();
+
+            if (user == null)
+            {
+                Console.WriteLine("um");
+                return StatusCode(StatusCodes.Status500InternalServerError, "Couldn't get user model");
+            }
 
             if (user.Banned)
             {
-                return StatusCode(StatusCodes.Status403Forbidden, -1);
-            }
-
-            if ((await user.GetBestScore()).Score > scoreRequest.Score)
-            {
-                return StatusCode(StatusCodes.Status400BadRequest, -1);
+                return StatusCode(StatusCodes.Status403Forbidden, "User banned");
             }
 
             OnlineScore newScore = new()
@@ -104,11 +111,31 @@ namespace EndlessDelivery.Server.Api.Scores
 
             user.LifetimeStats += newScore.Score;
             user.Country = HttpContext.GetCountry();
-            await user.Update<UserModel>();
+            user.PremiumCurrency += newScore.Score.MoneyGain;
+            user.CheckOnlineAchievements(newScore);
+            await using DeliveryDbContext dbContext = new();
+            dbContext.Users.Update(user);
 
-            ModeledResponse<OnlineScore> responses = await Program.SupabaseClient.From<OnlineScore>().Upsert(newScore);
+            OnlineScore? userOnlineScore = await user.GetBestScore();
+            if (userOnlineScore != null && userOnlineScore.Score > scoreRequest.Score)
+            {
+                await dbContext.SaveChangesAsync();
+                return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));
+            }
+
+            if (await dbContext.Scores.AnyAsync(score => score.SteamId == user.SteamId))
+            {
+               dbContext.Scores.Update(newScore);
+            }
+            else
+            {
+                dbContext.Scores.Add(newScore);
+            }
+
             await SetIndexes();
-            return StatusCode(StatusCodes.Status200OK, responses.Models.FindIndex(x => x.SteamId == user.SteamId));
+
+            await dbContext.SaveChangesAsync();
+            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));
         }
 
         [HttpGet("force_reset_indexes")]
@@ -121,7 +148,8 @@ namespace EndlessDelivery.Server.Api.Scores
 
             Dictionary<string, int> countryIndexes = new();
             List<OnlineScore> models = await GetOnlineScores();
-            Dictionary<ulong, UserModel> idToUm = (await Program.SupabaseClient.From<UserModel>().Get()).Models.ToDictionary(model => model.SteamId, model => model);
+            await using DeliveryDbContext dbContext = new();
+            Dictionary<ulong, UserModel> idToUm = dbContext.Users.ToDictionary(model => model.SteamId, model => model);
 
             int index = 0;
             foreach (OnlineScore sm in models)
@@ -137,7 +165,8 @@ namespace EndlessDelivery.Server.Api.Scores
                 sm.CountryIndex = countryIndexes[country]++;
             }
 
-            await Program.SupabaseClient.From<OnlineScore>().Upsert(models);
+            dbContext.Scores.UpdateRange(models);
+            await dbContext.SaveChangesAsync();
             return StatusCode(StatusCodes.Status200OK, "Indexes reset.");
         }
     }

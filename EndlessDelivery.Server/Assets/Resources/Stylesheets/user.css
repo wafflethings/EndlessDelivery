@@ -52,7 +52,7 @@
 }
 
 .icon-position-group {
-    display: flex;    
+    display: flex;
     flex-direction: row;
     align-items: center;
     column-gap: 0.25rem;
@@ -91,4 +91,71 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.achievement-holder {
+    display: flex;
+    flex-direction: row;
+    gap: 32px;
+}
+
+.achievement-box {
+    display: flex;
+    flex-direction: column;
+    height: 152px;
+    width: 128px
+}
+
+.achievement-icon {
+    height: 128px;
+    aspect-ratio: 1/1
+}
+
+.achievement-text {
+    height: 16px;
+    width: 100%;
+    margin: 8px 0 0 0;
+    text-align: center;
+    font-size: 16px;
+}
+
+.under-banner-box-holder {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 32px;
+    gap: 32px;
+}
+
+.under-banner-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.under-banner-box-top {
+    outline: 2px solid #101010;
+    background-color: #101010;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 15px 20px;
+    overflow: hidden;
+    min-height: 35px;
+}
+
+.under-banner-box-title {
+    font-size: 22px;
+    margin: 0;
+}
+
+.under-banner-box-bottom {
+    outline: 2px solid #0D0D0D;
+    background-color: #0D0D0D;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    overflow: clip;
+    padding: 15px 20px;
 }

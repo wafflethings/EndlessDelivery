@@ -23,7 +23,7 @@ public static class Content
 
         if (response.StatusCode != HttpStatusCode.UpgradeRequired)
         {
-            throw new BadResponseException();
+            throw new BadResponseException("CMS download error " + response.StatusCode);
         }
 
         return true;
@@ -32,6 +32,7 @@ public static class Content
     public static async Task<Cms> DownloadCms(this ApiContext context)
     {
         HttpResponseMessage response = await context.Client.GetAsync(context.BaseUri + CmsRoot + DownloadCmsEndpoint);
-        return JsonConvert.DeserializeObject<Cms>(await response.Content.ReadAsStringAsync()) ?? throw new BadResponseException();
+        string content = await response.Content.ReadAsStringAsync();
+        return JsonConvert.DeserializeObject<Cms>(content) ?? throw new BadResponseException(content);
     }
 }

@@ -2,7 +2,7 @@
 
 public class PermissionException : Exception
 {
-    public PermissionException() : base("The current user has insufficient persmissions to perform this action.")
+    public PermissionException() : base("The current user has insufficient permissions to perform this action.")
     {
 
     }

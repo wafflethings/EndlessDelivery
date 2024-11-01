@@ -6,20 +6,20 @@ public class ItemDescriptor
     public string Id;
     public string Name;
     public int ShopPrice;
-    public string PreviewUri;
+    public ClientWebPair Icon;
 
-    public ItemDescriptor(string id, string name, string previewUri, ItemType type, int shopPrice = 0)
+    public ItemDescriptor(string id, string name, ClientWebPair icon, ItemType type, int shopPrice = 0)
     {
-            Id = id;
-            Name = name;
-            PreviewUri = previewUri;
-            Type = type;
-            ShopPrice = shopPrice;
-        }
+        Id = id;
+        Name = name;
+        Icon = icon;
+        Type = type;
+        ShopPrice = shopPrice;
+    }
 
 #warning This constructor is only for the serializer, don't use it.
     public ItemDescriptor()
     {
 
-        }
+    }
 }

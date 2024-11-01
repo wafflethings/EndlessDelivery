@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using EndlessDelivery.Assets;
 using EndlessDelivery.Common;
 using EndlessDelivery.Config;
@@ -41,16 +42,16 @@ public class GameManager : MonoSingleton<GameManager>
 
     public static int GetRoomPoints(int roomNumber)
     {
-        Debug.Log($"sp {_startingPoints}");
+        Plugin.Log.LogInfo($"sp {_startingPoints}");
         int points = _startingPoints;
 
         for (int i = 0; i < roomNumber; i++)
         {
             points += 3 + (i + 1) / 3;
-            Debug.Log($"p {_startingPoints} ( + {3 + (i + 1) / 3})");
+            Plugin.Log.LogInfo($"p {_startingPoints} ( + {3 + (i + 1) / 3})");
         }
 
-        Debug.Log($"ret {points}");
+        Plugin.Log.LogInfo($"ret {points}");
         return points;
     }
 
@@ -173,7 +174,7 @@ public class GameManager : MonoSingleton<GameManager>
         PresentTimeHud.Instance.gameObject.SetActive(true);
         StatsManager.Instance.GetComponentInChildren<MusicManager>(true).gameObject.SetActive(true);
         MusicManager.Instance.StartMusic();
-        RoomsComplete = ConfigFile.Instance.Data.StartWave;
+        RoomsComplete = StartTimes.Instance.Data.CurrentTimes.SelectedWave;
         PointsPerWave = GetRoomPoints(RoomsComplete);
         TimeLeft = StartTimes.Instance.Data.CurrentTimes.GetRoomTime(RoomsComplete);
         TimerActive = true;
@@ -199,22 +200,23 @@ public class GameManager : MonoSingleton<GameManager>
         int difficulty = PrefsManager.Instance.GetInt("difficulty");
 
         //if more rooms, or more deliveries
-        if (!ScoreManager.LocalHighscores.Data.ContainsKey(difficulty) || CurrentScore > ScoreManager.LocalHighscores.Data[difficulty])
+
+        if (ScoreManager.CanSubmit)
         {
-            if (ScoreManager.CanSubmit)
+            if (!ScoreManager.LocalHighscores.Data.ContainsKey(difficulty) || CurrentScore > ScoreManager.LocalHighscores.Data[difficulty])
             {
                 EndScreen.Instance.PreviousHighscore = ScoreManager.CurrentDifficultyHighscore;
                 EndScreen.Instance.NewBest = true;
-                ScoreManager.SubmitScore(CurrentScore, (short)difficulty);
             }
-            else
-            {
-                HudMessageReceiver.Instance.SendHudMessage("Score not submitting due to other mods, or cheats enabled.");
-            }
+
+            Task.Run(() => ScoreManager.SubmitScore(CurrentScore, (short)difficulty));
+        }
+        else
+        {
+            HudMessageReceiver.Instance.SendHudMessage("Score not submitting due to other mods, or cheats enabled.");
         }
 
         EndScreen.Instance.Appear();
-        GameProgressSaver.AddMoney(CurrentScore.MoneyGain);
     }
 
     [HarmonyPatch(typeof(SeasonalHats), nameof(SeasonalHats.Start)), HarmonyPrefix]

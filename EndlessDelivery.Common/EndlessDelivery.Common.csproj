@@ -6,14 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Reference Include="Newtonsoft.Json">
-        <HintPath>..\EndlessDelivery\lib\Managed\Newtonsoft.Json.dll</HintPath>
-      </Reference>
-    </ItemGroup>
-
-    <ItemGroup>
-      <PackageReference Include="SixLabors.ImageSharp" Version="3.1.5" />
-      <PackageReference Include="Supabase.Postgrest" Version="4.0.3" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
 </Project>

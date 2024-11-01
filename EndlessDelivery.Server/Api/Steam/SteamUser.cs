@@ -1,4 +1,6 @@
 ﻿using EndlessDelivery.Server.Api.Users;
+using EndlessDelivery.Server.Database;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace EndlessDelivery.Server.Api.Steam;
@@ -61,7 +63,8 @@ public class SteamUser
 
     public static async Task UpdateCache()
     {
-        List<UserModel> models = (await Program.SupabaseClient.From<UserModel>().Get()).Models;
+        await using DeliveryDbContext dbContext = new();
+        List<UserModel> models = await dbContext.Users.ToListAsync();
         int requiredGroups = (int)MathF.Ceiling(models.Count / (float)MaximumPlayersFetched);
         ulong[] allUserIds = models.Select(score => score.SteamId).ToArray();
         ulong[][] idGroups = new ulong[requiredGroups][];
@@ -140,11 +143,10 @@ public class SteamUser
         return false;
     }
 
-    public async Task<UserModel> GetUserModel()
+    public async Task<UserModel?> GetUserModel()
     {
-        List<UserModel> models = (await Program.SupabaseClient.From<UserModel>().Get()).Models;
-        models.RemoveAll(um => um.SteamId.ToString() != SteamId);
-        return models.Count != 0 ? models[0] : null;
+        await using DeliveryDbContext dbContext = new();
+        return await dbContext.Users.FindAsync(ulong.Parse(SteamId));
     }
 
     public static SteamUser GetById(ulong id) => CacheHasId(id) ? s_playerCache[id] : s_fallback;

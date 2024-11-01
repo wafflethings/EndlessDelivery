@@ -7,7 +7,7 @@ namespace EndlessDelivery.Server.Api;
 public class ApiController : Controller
 {
     [HttpGet("ping")]
-    public StatusCodeResult ResetResources()
+    public StatusCodeResult Ping()
     {
         return StatusCode(StatusCodes.Status200OK);
     }

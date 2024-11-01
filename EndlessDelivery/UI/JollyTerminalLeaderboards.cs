@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections;
+using System.Threading.Tasks;
 using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common.Communication.Scores;
 using EndlessDelivery.Online;
@@ -15,9 +16,9 @@ public class JollyTerminalLeaderboards : MonoBehaviour
     public LeaderboardEntry[] Entries;
     public TMP_Text PageText;
     private OnlineScore[] _pageScores;
-    private bool _hasLoadedScores;
     private int _page = 0;
     private int _pageAmount;
+    private Coroutine? _lastRefresh;
 
     public void Start()
     {
@@ -31,15 +32,12 @@ public class JollyTerminalLeaderboards : MonoBehaviour
 
     public void OnEnable()
     {
-        if (!_hasLoadedScores)
+        foreach (LeaderboardEntry entry in Entries)
         {
-            foreach (LeaderboardEntry entry in Entries)
-            {
-                entry.gameObject.SetActive(false);
-            }
-
-            Task.Run(RefreshPage);
+            entry.gameObject.SetActive(false);
         }
+
+        _lastRefresh = StartCoroutine(RefreshPage());
     }
 
     public void ScrollPage(int amount)
@@ -50,32 +48,42 @@ public class JollyTerminalLeaderboards : MonoBehaviour
         }
 
         PageText.text = (_page + 1).ToString();
-        Task.Run(RefreshPage);
+        _lastRefresh = StartCoroutine(RefreshPage());
     }
 
-    public async Task RefreshPage()
+    private IEnumerator RefreshPage()
     {
-        Debug.LogWarning(OnlineFunctionality.Context.BaseUri.ToString());
-        if (!await OnlineFunctionality.Context.ServerOnline())
+        if (_lastRefresh != null)
+        {
+            StopCoroutine(_lastRefresh);
+        }
+
+        Task<bool> onlineTask = OnlineFunctionality.Context.ServerOnline();
+        yield return new WaitUntil(() => onlineTask.IsCompleted);
+
+        if (!onlineTask.Result)
         {
             HudMessageReceiver.Instance.SendHudMessage("Server offline!");
             gameObject.SetActive(false);
-            return;
+            yield break;
         }
-        Debug.LogWarning("Done");
+
+        Plugin.Log.LogWarning("Done");
 
         foreach (Button button in PageButtons)
         {
             button.interactable = false;
         }
 
-        _pageScores = await ScoreManager.GetPage(_page);
+        Task<OnlineScore[]> scoreTask = ScoreManager.GetPage(_page);
+        yield return new WaitUntil(() => scoreTask.IsCompleted);
+        _pageScores = scoreTask.Result;
 
         for (int i = 0; i < 5; i++)
         {
             if (i < _pageScores.Length)
             {
-                Entries[i].SetValuesAndEnable(_pageScores[i]);
+                Entries[i].SetValuesAndEnable(this, _pageScores[i]);
             }
             else
             {

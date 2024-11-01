@@ -9,6 +9,7 @@ namespace EndlessDelivery.Server.Config
 
         public static void Load()
         {
+            Console.WriteLine(KeysPath);
             Instance = JsonConvert.DeserializeObject<Keys>(File.ReadAllText(KeysPath));
         }
 

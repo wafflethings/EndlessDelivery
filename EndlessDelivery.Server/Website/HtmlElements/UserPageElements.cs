@@ -1,4 +1,5 @@
-﻿using EndlessDelivery.Common.Communication.Scores;
+﻿using EndlessDelivery.Common;
+using EndlessDelivery.Common.Communication.Scores;
 using EndlessDelivery.Server.Api.ContentFile;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Api.Users;
@@ -19,7 +20,7 @@ public static class UserPageElements
 
     public static void AppendBanner(this HtmlContentBuilder builder, SteamUser steamUser, UserModel userModel)
     {
-        builder.AppendHtml($"<img class=\"user-info-banner\" src=\"{ContentController.CurrentContent.GetBanner(userModel.Loadout.BannerId).AssetUri}\"/>");
+        builder.AppendHtml($"<img class=\"user-info-banner\" src=\"{ContentController.CurrentContent.Banners[userModel.Loadout.BannerId].Asset.AssetUri}\"/>");
     }
 
     public static async Task AppendPlayerHeaderInfo(this HtmlContentBuilder builder, SteamUser steamUser, UserModel userModel)
@@ -42,9 +43,9 @@ public static class UserPageElements
         }
         builder.AppendHtml("</div>");
 
-        //builder.AppendHtml("<p class=\"user-info-bottom-date\">");
-        //builder.Append($"Account created {userModel.CreationDate.ToString("dd/MM/yyyy")}."); //fuck americans!!!
-        //builder.AppendHtml("</p>");
+        /*builder.AppendHtml("<p class=\"user-info-bottom-date\">");
+        builder.Append($"Account created {userModel.CreationDate.ToString("dd/MM/yyyy")}."); //fuck americans!!!
+        builder.AppendHtml("</p>");*/
         builder.AppendHtml("</div>");
         builder.AppendHtml("</div>");
     }
@@ -59,13 +60,67 @@ public static class UserPageElements
         builder.AppendHtml("</div>");
     }
 
+    public static void AppendUnderBannerBoxHolder(this HtmlContentBuilder builder, Action buildBoxes)
+    {
+        builder.AppendHtml("<div class=\"under-banner-box-holder\">");
+        buildBoxes();
+        builder.AppendHtml("</div>");
+    }
+
+    public static void AppendUnderBannerBox(this HtmlContentBuilder builder, string title, Action buildInsideContent)
+    {
+        builder.AppendHtml("<div class=\"under-banner-box\">");
+        builder.AppendHtml("<div class=\"under-banner-box-top\">");
+        builder.AppendHtml("<p class=\"under-banner-box-title\">");
+        builder.Append(title);
+        builder.AppendHtml("</p>");
+        builder.AppendHtml("</div>");
+        builder.AppendHtml("<div class=\"under-banner-box-bottom\">");
+        buildInsideContent();
+        builder.AppendHtml("</div>");
+        builder.AppendHtml("</div>");
+    }
+
+    public static void AppendAchievements(this HtmlContentBuilder builder, IEnumerable<Achievement> achievements)
+    {
+        builder.AppendHtml("<div class=\"achievement-holder\">");
+
+        foreach (Achievement achievement in achievements)
+        {
+            builder.AppendAchievement(achievement);
+        }
+
+        builder.AppendHtml("</div>");
+    }
+
+    public static void AppendAchievement(this HtmlContentBuilder builder, Achievement achievement)
+    {
+        builder.AppendHtml("<div class=\"achievement-box\">");
+        builder.AppendHtml($"<img class=\"achievement-icon\" src=\"{achievement.Icon.AssetUri}\">");
+        builder.AppendHtml("<p class=\"achievement-text\">");
+        builder.Append(ContentController.CurrentContent.GetLocalisedString(achievement.Name));
+        builder.AppendHtml("</p>");
+        builder.AppendHtml("<div>");
+    }
+
     public static void AppendSocialLinks(this HtmlContentBuilder builder, UserModel userModel)
     {
         builder.AppendHtml("<div class=\"social-link-holder\">");
 
-        builder.AppendSocialButton("/Resources/UI/Socials/discord-transparent.png", userModel.Links.GetDiscord);
-        builder.AppendSocialButton("/Resources/UI/Socials/twitter-transparent.png", userModel.Links.GetTwitter);
-        builder.AppendSocialButton("/Resources/UI/Socials/youtube-transparent.png", userModel.Links.GetYoutube);
+        if (userModel.Links.Discord != string.Empty)
+        {
+            builder.AppendSocialButton("/Resources/UI/Socials/discord-transparent.png", userModel.Links.GetDiscord);
+        }
+
+        if (userModel.Links.Twitter != string.Empty)
+        {
+            builder.AppendSocialButton("/Resources/UI/Socials/twitter-transparent.png", userModel.Links.GetTwitter);
+        }
+
+        if (userModel.Links.Youtube != string.Empty)
+        {
+            builder.AppendSocialButton("/Resources/UI/Socials/youtube-transparent.png", userModel.Links.GetYoutube);
+        }
 
         builder.AppendHtml("</div>");
     }

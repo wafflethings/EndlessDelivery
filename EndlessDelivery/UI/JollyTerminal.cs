@@ -17,7 +17,7 @@ public class JollyTerminal : MonoBehaviour
     {
         AssignScoreText();
 
-        bool targetState = PrefsManager.Instance.GetInt("difficulty") == 3;
+        bool targetState = PrefsManager.Instance.GetInt("difficulty") >= 3;
         foreach (GameObject gameObject in DisableIfNotOnHighscoreDifficulty)
         {
             gameObject.SetActive(targetState);

@@ -5,6 +5,7 @@ using AtlasLib.Saving;
 using EndlessDelivery.Api;
 using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common.ContentFile;
+using EndlessDelivery.Cosmetics;
 using Steamworks;
 using Steamworks.Data;
 
@@ -12,8 +13,16 @@ namespace EndlessDelivery.Online;
 
 public static class OnlineFunctionality
 {
-    public static readonly ApiContext Context = new(new HttpClient(), GetTicket);
+    public static readonly ApiContext Context = new(new HttpClient(), GetTicket, new Uri("http://localhost:7048/api/"));
     private static SaveFile<Cms?> s_cmsData = SaveFile.RegisterFile(new SaveFile<Cms?>("content.json", Plugin.Name));
+
+    public static Cms? LastFetchedContent => s_cmsData.Data;
+
+    public static void Init()
+    {
+        Task.Run(GetContent);
+        Task.Run(CosmeticManager.FetchLoadout);
+    }
 
     //https://stackoverflow.com/questions/46139474/steam-web-api-authenticate-http-request-error
     public static string GetTicket()

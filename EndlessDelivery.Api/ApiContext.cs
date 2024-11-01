@@ -18,11 +18,12 @@ public class ApiContext
         BaseUri = baseUri == null ? new Uri(ProdUrl) : baseUri;
     }
 
-    public async Task EnsureAuth()
+    public async Task EnsureAuth(HttpRequestMessage request)
     {
         try
         {
-            Token = await this.GetToken(_getTicket());
+            Token ??= await this.GetToken(_getTicket());
+            request.Headers.Add("DeliveryToken", Token);
         }
         catch (InternalServerException ex)
         {

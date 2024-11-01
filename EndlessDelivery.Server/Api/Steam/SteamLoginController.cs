@@ -15,6 +15,7 @@ public class SteamLoginController : Controller
     private static List<SteamToken> s_tokens = new();
     private static Dictionary<string, ulong> s_tokenToUser = new();
     private static Aes s_aes;
+    private static SHA256 s_sha = SHA256.Create();
 
     private static Aes Aes
     {
@@ -143,8 +144,7 @@ public class SteamLoginController : Controller
     [HttpPost("login")]
     public async Task<ObjectResult> LoginWithTicket()
     {
-        using StreamReader reader = new(Request.Body);
-        string loginRequest = await reader.ReadToEndAsync();
+        string loginRequest = await Request.ReadBody();
 
         AuthTicket auth;
         try
@@ -161,17 +161,37 @@ public class SteamLoginController : Controller
             return StatusCode(StatusCodes.Status424FailedDependency, string.Empty);
         }
 
+        Console.WriteLine("Login");
+        if (!SteamUser.CacheHasId(id))
+        {
+            await UsersController.RegisterUser(HttpContext, id);
+        }
+
         string token = CreateTokenString(loginRequest);
         SteamToken.Create(token, id);
         return StatusCode(StatusCodes.Status200OK, token);
     }
 
-    private string CreateTokenString(string nonce) => Convert.ToBase64String(Aes.EncryptCbc(Encoding.Unicode.GetBytes(RandomNumberGenerator.GetInt32(100000, 1000000) + nonce), s_aes.IV));
+    private string CreateTokenString(string nonce) => DoSha(Convert.ToBase64String(Aes.EncryptCbc(Encoding.Unicode.GetBytes(RandomNumberGenerator.GetInt32(100000, 1000000) + nonce), s_aes.IV)));
+
+    private static string DoSha(string content)
+    {
+        byte[] bytes = s_sha.ComputeHash(Encoding.UTF8.GetBytes(content));
+
+        StringBuilder builder = new();
+
+        foreach (byte b in bytes)
+        {
+            builder.Append(b.ToString("x2"));
+        }
+
+        return builder.ToString();
+    }
 
     [Serializable]
     public class SteamToken
     {
-        public DateTime Expiry = DateTime.Now + TimeSpan.FromDays(7);
+        public DateTime Expiry = DateTime.UtcNow + TimeSpan.FromDays(7);
         public readonly string Value;
         public readonly ulong User;
 

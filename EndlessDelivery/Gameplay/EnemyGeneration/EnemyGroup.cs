@@ -16,7 +16,7 @@ public class EnemyGroup : ScriptableObject
         {
             if (group == null)
             {
-                Debug.LogError(group + " group was null!");
+                Plugin.Log.LogError(group + " group was null!");
                 continue;
             }
             Groups.Add(group.Class, group);

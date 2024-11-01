@@ -2,5 +2,6 @@
 
 public enum ItemType
 {
-    Banner
+    Banner,
+    Revolver
 }

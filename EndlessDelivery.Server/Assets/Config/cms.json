@@ -1,23 +1,63 @@
 {
+  "Achievements": {
+    "first_place_ach": {
+      "Name": "achievement.firstplace",
+      "Id": "first_place_ach",
+      "Description": "",
+      "Icon": {
+        "AssetUri": "/Resources/UI/Achievements/first-score.png",
+        "AddressablePath": "Assets/Delivery/Textures/Achievements/first-score.png"
+      },
+      "OrderPriority": 0,
+      "ItemGrants": []
+    }
+  },
   "Banners": {
     "banner_default": {
-      "AssetUri": "/Resources/UI/Banners/average-british-neighbourhood.png",
+      "Asset": {
+        "AssetUri": "/Resources/UI/Banners/average-british-neighbourhood.png",
+        "AddressablePath": "Assets/Delivery/Cosmetics/Banners/ABN/average-british-neighbourhood.png"
+      },
       "Descriptor": {
         "Type": 0,
         "Id": "banner_default",
         "Name": "item.banner_default",
         "ShopPrice": 0,
-        "PreviewUri": "/Resources/UI/Banners/abn-preview.png"
+        "Icon": {
+          "AssetUri": "/Resources/UI/Banners/abn-preview.png",
+          "AddressablePath": "Assets/Delivery/Cosmetics/Banners/ABN/abn-preview.png"
+        }
       }
     },
     "banner_gniesbert": {
-      "AssetUri": "/Resources/UI/Banners/gniesbert.png",
+      "Asset": {
+        "AssetUri": "/Resources/UI/Banners/gniesbert.png",
+        "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gniesbert/gniesbert.png"
+      },
       "Descriptor": {
         "Type": 0,
         "Id": "banner_gniesbert",
         "Name": "item.banner_gniesbert",
         "ShopPrice": 9999,
-        "PreviewUri": "/Resources/UI/Banners/gnies-preview.png"
+        "Icon": {
+          "AssetUri": "/Resources/UI/Banners/gnies-preview.png",
+          "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gniesbert/gnies-preview.png"
+        }
+      }
+    }
+  },
+  "Revolvers": {
+    "revolver_awesometest": {
+      "MaterialPath": "Assets/Delivery/Cosmetics/Revolvers/AwesomeTest/Test.mat",
+      "Descriptor": {
+        "Type": 1,
+        "Id": "revolver_awesometest",
+        "Name": "item.revolver_awesometest",
+        "ShopPrice": 200,
+        "Icon": {
+          "AssetUri": "/Resources/UI/logo-transparent.png",
+          "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gniesbert/gnies-preview.png"
+        }
       }
     }
   },
@@ -39,13 +79,15 @@
     },
     {
       "ItemIds": [
-        "banner_gniesbert"
+        "banner_gniesbert",
+        "revolver_awesometest"
       ],
       "Start": "1970-01-01T23:00:00+00:00",
       "Length": "999999.00:00:00"
     }
   ],
   "LocalisedStrings": {
+    "achievement.firstplace": "First place temp",
     "navbar.mod_name": "DIVINE DELIVERY",
     "navbar.shop_link": "SHOP",
     "navbar.download_link": "DOWNLOAD",
@@ -63,6 +105,7 @@
     "settings.youtube": "YOUTUBE",
     "shop.owned": "OWNED",
     "category.banner": "BANNER",
+    "category.revolver": "REVOLVER",
     "page_title.index": "Divine Delivery - Leaderboard",
     "page_title.user": "Divine Delivery - {0}",
     "page_title.settings": "Divine Delivery - Settings",
@@ -74,7 +117,8 @@
     "page_desc.shop": "The items currently available for purchase.",
     "page_desc.error": "No idea why you're here, but it's probably my fault.",
     "item.banner_default": "Default",
-    "item.banner_gniesbert": "My Shitty Dog"
+    "item.banner_gniesbert": "My Shitty Dog",
+    "item.revolver_awesometest": "Awesome Test"
   },
   "LastUpdate": "2024-07-05T19:26:43.3684074Z"
 }

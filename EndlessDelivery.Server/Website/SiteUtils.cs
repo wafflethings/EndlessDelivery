@@ -5,7 +5,7 @@ namespace EndlessDelivery.Server.Website;
 
 public static class SiteUtils
 {
-    public static bool TryGetLoggedInPlayer(this HttpContext context, out SteamUser steamUser)
+    public static bool TryGetLoggedInPlayer(this HttpContext context, out SteamUser? steamUser)
     {
         string token = string.Empty;
 
@@ -17,6 +17,12 @@ public static class SiteUtils
         if (context.Request.Headers.TryGetValue("DeliveryToken", out StringValues headerToken))
         {
             token = headerToken.ToString();
+        }
+
+        if (token == string.Empty)
+        {
+            steamUser = null;
+            return false;
         }
 
         if (SteamLoginController.TryUserFromToken(token, out ulong playerId) && SteamUser.CacheHasId(playerId))

@@ -59,13 +59,15 @@ public class Score
     public readonly int Kills;
     public readonly int Deliveries;
     public readonly float Time;
+    public readonly int StartRoom;
 
-    public Score(int rooms, int kills, int deliveries, float time)
+    public Score(int rooms, int kills, int deliveries, float time, int startRoom = 0)
     {
         Rooms = rooms;
         Kills = kills;
         Deliveries = deliveries;
         Time = time;
+        StartRoom = startRoom;
     }
 
     public static Score operator +(Score a, Score b) => new(a.Rooms + b.Rooms, a.Kills + b.Kills, a.Deliveries + b.Deliveries, a.Time + b.Time);
@@ -73,5 +75,5 @@ public class Score
     public static bool operator >(Score a, Score b) => IsLargerThanOtherScore(a, b);
     public static bool operator <(Score a, Score b) => IsLargerThanOtherScore(b, a);
 
-    [JsonIgnore] public int MoneyGain => (int)(Time * 10);
+    [JsonIgnore] public int MoneyGain => ((Deliveries / 4) * 10) + (Kills / 5);
 }

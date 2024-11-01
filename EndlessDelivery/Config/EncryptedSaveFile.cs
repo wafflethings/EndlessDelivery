@@ -41,7 +41,7 @@ public class EncryptedSaveFile<T> : SaveFile<T> where T : new()
 
         for (int i = 0; i < split.Length; i++)
         {
-            Debug.Log(split[i]);
+            Plugin.Log.LogInfo(split[i]);
             bytes[i] = Convert.ToByte(split[i], 16);
         }
 

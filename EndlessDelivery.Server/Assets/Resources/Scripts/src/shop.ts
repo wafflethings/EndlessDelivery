@@ -25,8 +25,7 @@
 async function buyItem(itemId : string) : Promise<number> {
     const response : Response = await fetch("/api/users/items/buy_item", {
         method: 'POST',
-        body: "item_id=" + itemId,
-        headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}
+        body: itemId,
     });
 
     return response.status;

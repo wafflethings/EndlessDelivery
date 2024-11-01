@@ -6,11 +6,11 @@ public abstract class Item
 
     public Item(ItemDescriptor descriptor)
     {
-            Descriptor = descriptor;
-        }
+        Descriptor = descriptor;
+    }
 
     protected Item()
     {
 
-        }
+    }
 }

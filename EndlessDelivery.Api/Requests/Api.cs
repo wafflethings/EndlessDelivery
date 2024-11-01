@@ -2,12 +2,11 @@
 
 public static class Api
 {
-    private const string ApiRoot = "api/";
     private const string PingEndpoint = "ping";
 
     public static async Task<bool> ServerOnline(this ApiContext context)
     {
-        HttpResponseMessage response = await context.Client.GetAsync(context.BaseUri + ApiRoot + PingEndpoint);
+        HttpResponseMessage response = await context.Client.GetAsync(context.BaseUri + PingEndpoint);
         return response.IsSuccessStatusCode;
     }
 }

@@ -2,16 +2,16 @@
 
 public class Banner : Item
 {
-    public string AssetUri;
+    public ClientWebPair Asset;
 
-    public Banner(string assetUri, ItemDescriptor descriptor) : base(descriptor)
+    public Banner(ClientWebPair asset, ItemDescriptor descriptor) : base(descriptor)
     {
-            AssetUri = assetUri;
-        }
+        Asset = asset;
+    }
 
 #warning This constructor is only for the serializer, don't use it.
     public Banner()
     {
 
-        }
+    }
 }

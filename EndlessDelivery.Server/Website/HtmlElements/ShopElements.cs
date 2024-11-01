@@ -10,6 +10,8 @@ public static class ShopElements
     public static void AppendShopRotation(this HtmlContentBuilder builder, UserModel user)
     {
         builder.AppendHtml("<div class=\"item-card-holder\">");
+        Console.WriteLine(ContentController.CurrentContent);
+        Console.WriteLine(ContentController.CurrentContent.GetActiveShopRotation());
         foreach (string itemId in ContentController.CurrentContent.GetActiveShopRotation().ItemIds)
         {
             if (ContentController.CurrentContent.TryGetItem(itemId, out Item item))
@@ -40,7 +42,7 @@ public static class ShopElements
         string unownedStyle = itemOwned ? "display:none" : "display:block";
         string ownedStyle = itemOwned ? "display:block" : "display:none";
 
-        builder.AppendHtml($"<img class=\"item-card-icon\" src=\"{item.Descriptor.PreviewUri}\"/>");
+        builder.AppendHtml($"<img class=\"item-card-icon\" src=\"{item.Descriptor.Icon.AssetUri}\"/>");
 
         builder.AppendHtml($"<div id=\"unowned-price-text\" style=\"{unownedStyle}\">");
         builder.AppendHtml("<div class=\"price-holder\">");

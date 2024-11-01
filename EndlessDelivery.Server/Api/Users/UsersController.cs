@@ -1,10 +1,13 @@
 ﻿using EndlessDelivery.Common;
+using EndlessDelivery.Common.Communication.Scores;
 using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Server.Api.ContentFile;
 using EndlessDelivery.Server.Api.Steam;
+using EndlessDelivery.Server.Database;
 using EndlessDelivery.Server.Website;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
+using Newtonsoft.Json;
 using SixLabors.Fonts;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Drawing.Processing;
@@ -19,6 +22,8 @@ namespace EndlessDelivery.Server.Api.Users
     {
         public static async Task RegisterUser(HttpContext context, ulong id)
         {
+            await using DeliveryDbContext dbContext = new();
+
             UserModel defaultUser = new()
             {
                 SteamId = id,
@@ -30,8 +35,53 @@ namespace EndlessDelivery.Server.Api.Users
 
             Console.WriteLine($"Registering user {id}.");
 
-            await Program.SupabaseClient.From<UserModel>().Upsert(defaultUser); //somehow doing insert makes it error because userid is null. this shit sucks
+            dbContext.Users.Add(defaultUser);
+            await dbContext.SaveChangesAsync();
             await SteamUser.AddPlayerToCache(id);
+        }
+
+        [HttpPost("grant_achievement")]
+        public async Task<ObjectResult> GrantAchievement()
+        {
+            if (!Request.HttpContext.TryGetLoggedInPlayer(out SteamUser steamUser))
+            {
+                return StatusCode(StatusCodes.Status401Unauthorized, "Not logged in");
+            }
+
+            UserModel? user = await steamUser.GetUserModel();
+
+            if (user == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, string.Empty);
+            }
+
+            string achievementId = await Request.ReadBody();
+
+            if (!ContentController.CurrentContent.Achievements.TryGetValue(achievementId, out Achievement? achievement) || achievement == null)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, $"Achievement {achievementId} not found!");
+            }
+
+            user.GetAchievement(achievement);
+            return StatusCode(StatusCodes.Status200OK, string.Empty);
+        }
+
+        [HttpGet("get_achievements")]
+        public async Task<ObjectResult> GetAchievements(ulong steamId)
+        {
+            if (!SteamUser.TryGetPlayer(steamId, out SteamUser player))
+            {
+                return StatusCode(StatusCodes.Status404NotFound, $"Player {steamId} not found");
+            }
+
+            UserModel? userModel = await player.GetUserModel();
+
+            if (userModel == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server couldn't find usermodel for {steamId}");
+            }
+
+            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(userModel.OwnedAchievements));
         }
 
         [HttpGet("clear_token")]
@@ -54,7 +104,12 @@ namespace EndlessDelivery.Server.Api.Users
                 return StatusCode(StatusCodes.Status401Unauthorized);
             }
 
-            UserModel user = await steamUser.GetUserModel();
+            UserModel? user = await steamUser.GetUserModel();
+
+            if (user == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError);
+            }
 
             if (Request.Query.TryGetValue("twitter", out StringValues twitterName))
             {
@@ -71,7 +126,9 @@ namespace EndlessDelivery.Server.Api.Users
                 user.Links.Discord = discordId;
             }
 
-            await user.Update<UserModel>();
+            await using DeliveryDbContext dbContext = new();
+            dbContext.Users.Update(user);
+            await dbContext.SaveChangesAsync();
             return StatusCode(StatusCodes.Status204NoContent);
         }
 
@@ -89,11 +146,11 @@ namespace EndlessDelivery.Server.Api.Users
             }
 
             UserModel user = await steamUser.GetUserModel();
-            Banner currentBanner = ContentController.CurrentContent.GetBanner(user.Loadout.BannerId);
+            Banner currentBanner = ContentController.CurrentContent.Banners[user.Loadout.BannerId];
 
             string[] path = ["Assets"];
-            path = path.Concat(currentBanner.AssetUri.Substring(1, currentBanner.AssetUri.Length - 1).Split("/")).ToArray();
-            using Image image = await Image.LoadAsync(System.IO.Path.Combine(path));
+            path = path.Concat(currentBanner.Asset.AssetUri.Substring(1, currentBanner.Asset.AssetUri.Length - 1).Split("/")).ToArray();
+            using Image image = await Image.LoadAsync(Path.Combine(path));
 
             HttpResponseMessage response = await Program.Client.GetAsync(steamUser.AvatarFull);
             using Image pfp = await Image.LoadAsync(await response.Content.ReadAsStreamAsync());
@@ -121,17 +178,21 @@ namespace EndlessDelivery.Server.Api.Users
             int pfpHeight = (height / 2) - (pfpSize / 2) - fontHeightOffset;
             image.Mutate(img => img.DrawImage(pfp, new Point(padding, pfpHeight), 1));
 
-            int scoreIndex = (await user.GetBestScore()).Index;
-            float bigFontSize = 680f / (1 + scoreIndex.ToString().Length);
-            Font fontScaled = SystemFonts.Get("VCR OSD Mono").CreateFont(bigFontSize);
-
             image.Mutate(img => img.DrawText(new DrawingOptions(), steamUser.PersonaName, font, Color.White,
                 new PointF(padding, pfpHeight + pfpSize)));
 
-            Console.WriteLine($"{bigFontSize} * 0.5 * {charHeightPerPt}");
+            int? scoreIndex = (await user.GetBestScore())?.Index;
 
-            image.Mutate(img => img.DrawText($"#{scoreIndex + 1}", fontScaled, Color.White, new PointF(width - (int)(charWidthPerPt * bigFontSize * $"#{scoreIndex + 1}".Length) - 40,
-                (height / 2) - (bigFontSize * 0.55f * charHeightPerPt)))); //i dont know how. i dont know why. but 0.55 makes it work perfectly EVERY time. what the fuck
+            if (scoreIndex != null)
+            {
+                float bigFontSize = 680f / (1 + scoreIndex.ToString().Length);
+                Font fontScaled = SystemFonts.Get("VCR OSD Mono").CreateFont(bigFontSize);
+
+                Console.WriteLine($"{bigFontSize} * 0.5 * {charHeightPerPt}");
+
+                image.Mutate(img => img.DrawText($"#{(scoreIndex + 1).ToString()}", fontScaled, Color.White, new PointF(width - (int)(charWidthPerPt * bigFontSize * $"#{scoreIndex + 1}".Length) - 40,
+                    (height / 2) - (bigFontSize * 0.55f * charHeightPerPt)))); //i dont know how. i dont know why. but 0.55 makes it work perfectly EVERY time. what the fuck
+            }
 
             await image.SaveAsync(ms, WebpFormat.Instance);
             return File(ms.ToArray(), "image/webp");
@@ -157,7 +218,9 @@ namespace EndlessDelivery.Server.Api.Users
 
             UserModel userModel = await userToGive.GetUserModel();
             userModel.PremiumCurrency += amount;
-            await userModel.Update<UserModel>();
+            await using DeliveryDbContext dbContext = new();
+            dbContext.Users.Update(userModel);
+            await dbContext.SaveChangesAsync();
 
             return StatusCode(StatusCodes.Status200OK, ":3");
         }

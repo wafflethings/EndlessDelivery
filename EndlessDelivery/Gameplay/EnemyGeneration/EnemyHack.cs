@@ -40,7 +40,7 @@ public static class EnemyHack
             case DeliveryEnemyClass.Projectile:
                 foreach (EndlessEnemy enemy in database.projectileEnemies)
                 {
-                    Debug.Log($"Added {enemy.enemyType} to {group.name}!");
+                    Plugin.Log.LogInfo($"Added {enemy.enemyType} to {group.name}!");
                     enemies.Add(enemy);
                 }
                 break;
@@ -50,7 +50,7 @@ public static class EnemyHack
                 {
                     if (enemy.enemyType != EnemyType.Idol)
                     {
-                        Debug.Log($"Added {enemy.enemyType} to {group.name}!");
+                        Plugin.Log.LogInfo($"Added {enemy.enemyType} to {group.name}!");
                         enemies.Add(enemy);
                     }
                 }
@@ -59,7 +59,7 @@ public static class EnemyHack
             case DeliveryEnemyClass.Melee:
                 foreach (EndlessEnemy enemy in database.meleeEnemies)
                 {
-                    Debug.Log($"Added {enemy.enemyType} to {group.name}!");
+                    Plugin.Log.LogInfo($"Added {enemy.enemyType} to {group.name}!");
                     enemies.Add(enemy);
                 }
                 break;
@@ -69,7 +69,7 @@ public static class EnemyHack
                 {
                     if (enemy.enemyType != EnemyType.Sisyphus)
                     {
-                        Debug.Log($"Added {enemy.enemyType} to {group.name}!");
+                        Plugin.Log.LogInfo($"Added {enemy.enemyType} to {group.name}!");
                         enemies.Add(enemy);
                     }
                 }

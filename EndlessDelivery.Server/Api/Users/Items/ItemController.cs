@@ -1,6 +1,7 @@
 ﻿using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Server.Api.ContentFile;
 using EndlessDelivery.Server.Api.Steam;
+using EndlessDelivery.Server.Database;
 using EndlessDelivery.Server.Website;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
@@ -11,24 +12,46 @@ namespace EndlessDelivery.Server.Api.Users.Items;
 [Route("api/users/items")]
 public class ItemController : ControllerBase
 {
-    [HttpGet("set_loadout")]
-    public async Task<StatusCodeResult> UpdateLoadout(InventoryLoadout loadout)
+    [HttpGet("get_loadout")]
+    public async Task<ObjectResult> GetLoadout()
     {
         if (!HttpContext.TryGetLoggedInPlayer(out SteamUser steamUser))
         {
-            return StatusCode(StatusCodes.Status403Forbidden);
+            return StatusCode(StatusCodes.Status403Forbidden, "Not logged in");
+        }
+
+        UserModel user = await steamUser.GetUserModel();
+        return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(user.Loadout));
+    }
+
+
+    [HttpPost("set_loadout")]
+    public async Task<ObjectResult> UpdateLoadout()
+    {
+        if (!HttpContext.TryGetLoggedInPlayer(out SteamUser steamUser))
+        {
+            return StatusCode(StatusCodes.Status403Forbidden, "Not logged in");
         }
 
         UserModel user = await steamUser.GetUserModel();
 
-        if (!user.OwnedItemIds.Contains(loadout.BannerId))
+        InventoryLoadout? loadout = JsonConvert.DeserializeObject<InventoryLoadout>(await Request.ReadBody());
+
+        if (loadout == null)
         {
-            return StatusCode(StatusCodes.Status400BadRequest);
+            return StatusCode(StatusCodes.Status400BadRequest, "Null request body");
+        }
+
+        if (!user.OwnedItemIds.Contains(loadout.BannerId) || loadout.RevolverIds.Any(revId => !user.OwnedItemIds.Contains(revId)))
+        {
+            return StatusCode(StatusCodes.Status400BadRequest, "Item not owned");
         }
 
         user.Loadout = loadout;
-        await user.Update<UserModel>();
-        return StatusCode(StatusCodes.Status200OK);
+        await using DeliveryDbContext dbContext = new();
+        dbContext.Users.Update(user);
+        await dbContext.SaveChangesAsync();
+        return StatusCode(StatusCodes.Status200OK, "Success");
     }
 
     [HttpGet("active_shop")]
@@ -37,9 +60,15 @@ public class ItemController : ControllerBase
     [HttpPost("buy_item")]
     public async Task<ObjectResult> BuyItem()
     {
-        if (!HttpContext.TryGetLoggedInPlayer(out SteamUser steamUser) || !Request.Form.TryGetValue("item_id", out StringValues itemId) || !ContentController.CurrentContent.TryGetItem(itemId, out Item item))
+        string itemId = await Request.ReadBody();
+        if (!HttpContext.TryGetLoggedInPlayer(out SteamUser steamUser))
         {
-            return StatusCode(StatusCodes.Status400BadRequest, "Item ID either missing, doesn't correspond to an item, or the user is not logged in.");
+            return StatusCode(StatusCodes.Status400BadRequest, "The user is not logged in.");
+        }
+
+        if (!ContentController.CurrentContent.TryGetItem(itemId, out Item item))
+        {
+            return StatusCode(StatusCodes.Status400BadRequest, $"Item not found with id {itemId}");
         }
 
         if (!ContentController.CurrentContent.GetActiveShopRotation().ItemIds.Contains(itemId))
@@ -58,7 +87,9 @@ public class ItemController : ControllerBase
         {
             user.PremiumCurrency -= item.Descriptor.ShopPrice;
             user.OwnedItemIds.Add(item.Descriptor.Id);
-            await user.Update<UserModel>();
+            await using DeliveryDbContext dbContext = new();
+            dbContext.Users.Update(user);
+            await dbContext.SaveChangesAsync();
             return StatusCode(StatusCodes.Status200OK, "Success.");
         }
 

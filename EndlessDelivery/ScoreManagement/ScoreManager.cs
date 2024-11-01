@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AtlasLib.Saving;
+using EndlessDelivery.Achievements;
 using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common;
 using EndlessDelivery.Common.Communication.Scores;
@@ -13,30 +14,41 @@ namespace EndlessDelivery.ScoreManagement;
 public class ScoreManager
 {
     public static bool CanSubmit => !Anticheat.Anticheat.HasIllegalMods && !CheatsController.Instance.cheatsEnabled;
+    public static bool CanSubmitOnline => PrefsManager.Instance.GetInt("difficulty") >= 3 && CanSubmit; //violent + more
     public static SaveFile<Dictionary<int, Score>> LocalHighscores = SaveFile.RegisterFile(new SaveFile<Dictionary<int, Score>>("local_scores.json", Plugin.Name));
 
     public static Score CurrentDifficultyHighscore => LocalHighscores.Data.TryGetValue(PrefsManager.Instance.GetInt("difficulty"), out Score score) ? score : new Score(0,0,0,0);
 
-    public static async Task<int> SubmitScore(Score score, short difficulty)
+    public static async Task<OnlineScore?> SubmitScore(Score score, short difficulty)
     {
-        LocalHighscores.Data[difficulty] = score;
+        if (!CanSubmitOnline)
+        {
+            return null;
+        }
+
+        if (score > CurrentDifficultyHighscore)
+        {
+            LocalHighscores.Data[difficulty] = score;
+        }
 
         try
         {
-            int newPosition = await OnlineFunctionality.Context.SubmitScore(new SubmitScoreData(score, difficulty, Plugin.Version));
+            OnlineScore? submittedScore = await OnlineFunctionality.Context.SubmitScore(new SubmitScoreData(score, difficulty, Plugin.Version));
 
-            if (newPosition == -1)
+            if (submittedScore == null)
             {
-                HudMessageReceiver.Instance.SendHudMessage("Score submit error!");
+                HudMessageReceiver.Instance.SendHudMessage("Score submit error!\nSubmitted score returned null.");
+                return null;
             }
 
-            return newPosition;
+            OnlineAchievementChecker.Check(submittedScore);
+            return submittedScore;
         }
         catch (Exception ex)
         {
-            HudMessageReceiver.Instance.SendHudMessage("Score submit error!");
-            Debug.LogException(ex);
-            return -1;
+            HudMessageReceiver.Instance.SendHudMessage($"Score submit error!\nException is {ex.GetType()}.");
+            Plugin.Log.LogError(ex.ToString());
+            return null;
         }
     }
 

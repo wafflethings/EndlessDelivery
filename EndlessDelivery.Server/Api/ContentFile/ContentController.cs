@@ -21,7 +21,6 @@ public class ContentController : Controller
         }
 
         CurrentContent = JsonConvert.DeserializeObject<Cms>(System.IO.File.ReadAllText(s_cmsPath)) ?? throw new Exception("Failed to deserialize content!");;
-        CurrentContent.SetValues();
     }
 
     public static void SaveCms()
@@ -66,7 +65,6 @@ public class ContentController : Controller
         deserialized.LastUpdate = DateTime.UtcNow;
 
         CurrentContent = deserialized;
-        CurrentContent.SetValues();
         return StatusCode(StatusCodes.Status204NoContent, null);
     }
 }

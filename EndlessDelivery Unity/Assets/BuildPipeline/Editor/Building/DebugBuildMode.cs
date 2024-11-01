@@ -10,7 +10,7 @@ namespace BuildPipeline.Editor.Building
     {
         private static BuildMode s_instance = new DebugBuildMode();
         private Dictionary<AddressableAssetGroup, List<AddressableAssetEntry>> _removedEntries = new Dictionary<AddressableAssetGroup, List<AddressableAssetEntry>>();
-        
+
         [MenuItem("Addressable Build Pipeline/Debug Build")]
         public static void BuildButton()
         {
@@ -19,6 +19,8 @@ namespace BuildPipeline.Editor.Building
 
         public override void PreBuild(string buildPath, AddressableAssetSettings settings)
         {
+            _removedEntries.Clear();
+
             foreach (AddressableAssetGroup group in settings.groups)
             {
                 if (!AddressableBuilder.CommonGroupNames.Contains(group.name))
@@ -29,13 +31,13 @@ namespace BuildPipeline.Editor.Building
                 List<AddressableAssetEntry> entries = new List<AddressableAssetEntry>();
                 entries.AddRange(group.entries);
                 _removedEntries.Add(group, entries);
-                
+
                 foreach (AddressableAssetEntry entry in entries)
                 {
                     settings.RemoveAssetEntry(entry.guid);
                 }
             }
-            
+
             AddressableBuilder.RefreshGroups();
         }
 
@@ -45,7 +47,7 @@ namespace BuildPipeline.Editor.Building
             {
                 settings.MoveEntries(_removedEntries[group], group);
             }
-            
+
             AddressableBuilder.RefreshGroups();
         }
     }

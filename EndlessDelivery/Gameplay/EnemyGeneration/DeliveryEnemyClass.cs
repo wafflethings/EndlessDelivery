@@ -8,3 +8,4 @@ public enum DeliveryEnemyClass
     Special,
     Boss
 }
+

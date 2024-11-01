@@ -1,6 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Text.Encodings.Web;
+using EndlessDelivery.Common;
 using EndlessDelivery.Common.Communication.Scores;
+using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Server.Api.Scores;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Api.Users;
@@ -84,6 +86,26 @@ public class PageController : Controller
 
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
         await builder.AppendPlayerHeader(player, userModel);
+
+        builder.AppendUnderBannerBoxHolder(() =>
+        {
+            builder.AppendUnderBannerBox("Achievements", () =>
+            {
+                List<Achievement> achievements = new();
+                foreach (OwnedAchievement owned in userModel.OwnedAchievements)
+                {
+                    if (!ContentController.CurrentContent.Achievements.TryGetValue(owned.Id, out Achievement? achievement))
+                    {
+                        Console.Error.WriteLine($"User {userModel.SteamId} has achievement not in CMS: {owned.Id}");
+                        continue;
+                    }
+
+                    achievements.Add(achievement);
+                }
+
+                builder.AppendAchievements(achievements.OrderBy(x => x.OrderPriority));
+            });
+        });
         builder.AppendHtml("</div>");
 
         builder.AppendHtml("</body>");

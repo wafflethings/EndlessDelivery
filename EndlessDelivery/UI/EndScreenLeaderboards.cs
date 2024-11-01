@@ -24,7 +24,7 @@ public class EndScreenLeaderboards : MonoBehaviour
 
     private async Task DoStuff()
     {
-        if (PrefsManager.Instance.GetInt("difficulty") > 3)
+        if (PrefsManager.Instance.GetInt("difficulty") < 3)
         {
             foreach (Text text in ConnectingToServerText)
             {
@@ -44,22 +44,17 @@ public class EndScreenLeaderboards : MonoBehaviour
             return;
         }
 
-        if (EndScreen.Instance.NewBest)
-        {
-            await ScoreManager.SubmitScore(GameManager.Instance.CurrentScore, (short)PrefsManager.Instance.GetInt("difficulty"));
-        }
-
         OnlineScore[] nearScores = await ScoreManager.GetPage(await OnlineFunctionality.Context.GetLeaderboardPosition(SteamClient.SteamId) / 5);
         OnlineScore[] topScores = await OnlineFunctionality.Context.GetScoreRange(0, 10);
 
         foreach (OnlineScore scoreResult in nearScores)
         {
-            Instantiate(EntryTemplate, NearbyLeaderboardContainer).GetComponent<LeaderboardEntry>().SetValuesAndEnable(scoreResult);
+            Instantiate(EntryTemplate, NearbyLeaderboardContainer).GetComponent<LeaderboardEntry>().SetValuesAndEnable(this, scoreResult);
         }
 
         foreach (OnlineScore scoreResult in topScores)
         {
-            Instantiate(EntryTemplate, TopLeaderboardContainer).GetComponent<LeaderboardEntry>().SetValuesAndEnable(scoreResult);
+            Instantiate(EntryTemplate, TopLeaderboardContainer).GetComponent<LeaderboardEntry>().SetValuesAndEnable(this, scoreResult);
         }
 
         foreach (Text text in ConnectingToServerText)

@@ -9,7 +9,7 @@ public static class GenerationEquations
     {
         int amount = Mathf.CeilToInt(Mathf.Log(wave, 6.5f) * 3);
         amount = Mathf.Clamp(amount, 4, 10);
-        Debug.Log($"{wave} presents: {amount}");
+        Plugin.Log.LogInfo($"{wave} presents: {amount}");
         return amount;
     }
 
