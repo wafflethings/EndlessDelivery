@@ -16,7 +16,7 @@ public class JollyTerminalLeaderboards : MonoBehaviour
     public LeaderboardEntry[] Entries;
     public TMP_Text PageText;
     private OnlineScore[] _pageScores;
-    private int _page = 0;
+    private int _page;
     private int _pageAmount;
     private Coroutine? _lastRefresh;
 

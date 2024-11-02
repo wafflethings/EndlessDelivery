@@ -12,7 +12,7 @@ namespace EndlessDelivery.Gameplay.EnemyGeneration;
 /// </summary>
 public static class EnemyHack
 {
-    private static bool s_hasAdded = false;
+    private static bool s_hasAdded;
 
     public static void AddToPools(params EnemyGroup[] groups)
     {
@@ -48,11 +48,19 @@ public static class EnemyHack
             case DeliveryEnemyClass.Uncommon:
                 foreach (EndlessEnemy enemy in database.uncommonEnemies)
                 {
-                    if (enemy.enemyType != EnemyType.Idol)
+                    if (!(enemy.enemyType is EnemyType.Idol or EnemyType.Stalker))
                     {
                         Plugin.Log.LogInfo($"Added {enemy.enemyType} to {group.name}!");
                         enemies.Add(enemy);
+                        continue;
                     }
+
+                    EndlessEnemy clone = Object.Instantiate(enemy);
+                    clone.spawnCost = (int) (clone.spawnCost * 0.75f);
+                    clone.costIncreasePerSpawn = 25;
+
+                    Plugin.Log.LogInfo($"Added modded {clone.enemyType} to {group.name}!");
+                    enemies.Add(clone);
                 }
                 break;
 

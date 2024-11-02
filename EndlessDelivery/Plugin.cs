@@ -1,12 +1,9 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using EndlessDelivery.Assets;
-using EndlessDelivery.Config;
-using EndlessDelivery.Cosmetics;
 using EndlessDelivery.Online;
 using EndlessDelivery.ScoreManagement;
 using HarmonyLib;
-using UnityEngine;
 
 namespace EndlessDelivery;
 

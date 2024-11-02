@@ -7,7 +7,6 @@ using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common;
 using EndlessDelivery.Common.Communication.Scores;
 using EndlessDelivery.Online;
-using UnityEngine;
 
 namespace EndlessDelivery.ScoreManagement;
 

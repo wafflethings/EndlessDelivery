@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common.Inventory.Items;
@@ -53,7 +52,7 @@ public static class CosmeticManager
                 return false;
             }
 
-            //matPath = OnlineFunctionality.LastFetchedContent.AltRevolvers[id].MaterialPath;
+            matPath = OnlineFunctionality.LastFetchedContent.AltRevolvers[id].MaterialPath;
             return true;
         }
 

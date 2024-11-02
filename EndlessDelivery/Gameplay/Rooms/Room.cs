@@ -169,7 +169,7 @@ public class Room : MonoBehaviour
 
     private void DecideUncommons(List<EnemySpawnPoint> spawns, ref int max)
     {
-        int uncommonAmount = UnityEngine.Random.Range(1, max + 1);
+        int uncommonAmount = Random.Range(1, max + 1);
         max -= uncommonAmount;
 
         Plugin.Log.LogInfo($"Spawning {uncommonAmount} uncommons!");
@@ -212,29 +212,63 @@ public class Room : MonoBehaviour
                 break;
             }
 
-            int whichUncommon = UnityEngine.Random.value > 0.5f ? 0 : 1;
+            EnemyType[] banned = spawns[_meleeSpawnsUsed].BannedEnemies;
+            bool enemyOneBanned = banned.Contains(uncommons[0].enemyType);
+            bool enemyTwoBanned = banned.Contains(uncommons[1].enemyType);
 
-            if (GetRealCost(uncommons[0]) >= _pointsLeft)
+            int whichUncommon = Random.value > 0.5f ? 0 : 1;
+
+            if (GetRealCost(uncommons[0]) >= _pointsLeft || enemyOneBanned)
             {
                 whichUncommon = 1;
             }
 
-            if (GetRealCost(uncommons[1]) >= _pointsLeft)
+            if (GetRealCost(uncommons[1]) >= _pointsLeft || enemyTwoBanned)
             {
                 whichUncommon = 0;
             }
 
-            amounts[whichUncommon]++;
-            SetSpawnPoint(spawns[_meleeSpawnsUsed], uncommons[whichUncommon], DeliveryEnemyClass.Melee);
+            if (!enemyOneBanned && !enemyTwoBanned)
+            {
+                amounts[whichUncommon]++;
+                SetSpawnPoint(spawns[_meleeSpawnsUsed], uncommons[whichUncommon], DeliveryEnemyClass.Melee);
+                continue;
+            }
+
+            EndlessEnemy? fallbackEnemy = FindInPools(spawns[_meleeSpawnsUsed].Fallback);
+
+            if (fallbackEnemy == null)
+            {
+                Plugin.Log.LogWarning($"Couldn't find fallback enemy with type (uncommon) {spawns[_meleeSpawnsUsed].Fallback}");
+                continue;
+            }
+
+            SetSpawnPoint(spawns[_meleeSpawnsUsed], fallbackEnemy, DeliveryEnemyClass.Melee);
         }
+    }
+
+    private EndlessEnemy? FindInPools(EnemyType type)
+    {
+        foreach (KeyValuePair<DeliveryEnemyClass, EnemyGroup> group in EnemyGroup.Groups)
+        {
+            foreach (EndlessEnemy enemy in group.Value.Enemies)
+            {
+                if (enemy.enemyType == type)
+                {
+                    return enemy;
+                }
+            }
+        }
+
+        return null;
     }
 
     private void DecideSpecials(List<EnemySpawnPoint> spawns, ref int max)
     {
-        int specialAmount = UnityEngine.Random.Range(0, max + 1);
+        int specialAmount = Random.Range(0, max + 1);
         if (specialAmount == 0)
         {
-            if (UnityEngine.Random.value < 1f - (1f / _wavesSinceSpecial))
+            if (Random.value < 1f - (1f / _wavesSinceSpecial))
             {
                 specialAmount++;
             }
@@ -280,7 +314,7 @@ public class Room : MonoBehaviour
                 break;
             }
 
-            DeliveryEnemyClass type = UnityEngine.Random.value < 0.5 ? DeliveryEnemyClass.Melee : DeliveryEnemyClass.Projectile;
+            DeliveryEnemyClass type = Random.value < 0.5 ? DeliveryEnemyClass.Melee : DeliveryEnemyClass.Projectile;
 
             if (_projectileSpawnsUsed >= projectile.Count)
             {
@@ -325,6 +359,17 @@ public class Room : MonoBehaviour
 
     private void SetSpawnPoint(EnemySpawnPoint point, EndlessEnemy enemy, DeliveryEnemyClass spawnType)
     {
+        if (point.BannedEnemies.Contains(enemy.enemyType))
+        {
+            enemy = FindInPools(point.Fallback);
+
+            if (enemy == null)
+            {
+                Plugin.Log.LogWarning($"Tried to set fallback to {point.Fallback} but couldn't find it in pools");
+                return;
+            }
+        }
+
         point.Room = this;
         point.Enemy = enemy.prefab;
         _pointsLeft -= GetRealCost(enemy);

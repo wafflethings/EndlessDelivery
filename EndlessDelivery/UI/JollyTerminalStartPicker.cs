@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Globalization;
 using EndlessDelivery.Config;
-using EndlessDelivery.Gameplay;
 using TMPro;
 using UnityEngine;
 

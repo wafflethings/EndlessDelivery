@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common.Communication.Scores;
-using EndlessDelivery.Gameplay;
 using EndlessDelivery.Online;
 using EndlessDelivery.ScoreManagement;
 using Steamworks;

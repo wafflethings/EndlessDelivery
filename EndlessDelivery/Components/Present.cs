@@ -66,7 +66,7 @@ public class Present : MonoBehaviour
 
         if (_item.hooked)
         {
-            HookArm.Instance.StopThrow(0, false);
+            HookArm.Instance.StopThrow();
         }
 
         if (FistControl.Instance.currentPunch.heldItem == _item)
