@@ -53,7 +53,7 @@ public static class CosmeticManager
                 return false;
             }
 
-            matPath = OnlineFunctionality.LastFetchedContent.AltRevolvers[id].MaterialPath;
+            //matPath = OnlineFunctionality.LastFetchedContent.AltRevolvers[id].MaterialPath;
             return true;
         }
 
