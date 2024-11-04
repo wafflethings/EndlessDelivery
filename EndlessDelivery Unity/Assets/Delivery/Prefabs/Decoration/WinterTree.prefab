@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6332591990716069027}
   - component: {fileID: 2860088389047155754}
   - component: {fileID: 3505441089497306289}
-  m_Layer: 8
+  m_Layer: 24
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1288,7 +1288,7 @@ GameObject:
   - component: {fileID: 2410620934067179511}
   - component: {fileID: 9145225716950149274}
   - component: {fileID: 4359900818055181344}
-  m_Layer: 8
+  m_Layer: 24
   m_Name: Cone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2280,7 +2280,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3717932714029065623}
-  m_Layer: 8
+  m_Layer: 24
   m_Name: WinterTree
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -2317,7 +2317,7 @@ GameObject:
   - component: {fileID: 2490910594385431917}
   - component: {fileID: 4234114986091515205}
   - component: {fileID: 8389937247695147212}
-  m_Layer: 8
+  m_Layer: 24
   m_Name: Cone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
