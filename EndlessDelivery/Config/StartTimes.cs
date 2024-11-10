@@ -50,7 +50,7 @@ public class StartTimes
     {
         public static readonly int[] StartableWaves = [0, 5, 10, 25, 50];
         public Dictionary<int, float> WaveToTime = new() { { 0, GameManager.StartTime } };
-        public List<int> UnlockedStartTimes = [0];
+        public List<int> UnlockedStartTimes = [];
         public int SelectedWave;
 
         public void SetValues(int wave, float time)
@@ -84,6 +84,7 @@ public class StartTimes
 
                 if (!UnlockedStartTimes.Contains(startableWave))
                 {
+                    Plugin.Log.LogInfo($"Added {startableWave}");
                     UnlockedStartTimes.Add(startableWave);
                 }
             }

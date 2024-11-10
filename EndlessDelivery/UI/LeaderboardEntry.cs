@@ -19,13 +19,24 @@ public class LeaderboardEntry : MonoBehaviour
     [SerializeField] private Sprite _loadingPfp;
     private Coroutine? _lastPfpSetter;
 
-    public void SetValuesAndEnable(MonoBehaviour coroutineRunner, OnlineScore onlineScore)
+    public void SetValuesAndEnable(MonoBehaviour coroutineRunner, OnlineScore? onlineScore)
     {
-        Plugin.Log.LogInfo($"Received score {onlineScore.Index} {onlineScore.Score.Rooms}");
+        if (onlineScore == null)
+        {
+            SetNullValues();
+            return;
+        }
+
         Friend user = new(onlineScore.SteamId);
+        string username = user.Name;
+
+        if (onlineScore.SteamId == SteamClient.SteamId)
+        {
+            username = $"<color=orange>{username}</color>";
+        }
 
         ((IText)RankNumber).SetText((onlineScore.Index + 1).ToString());
-        ((IText)Username).SetText(user.Name);
+        ((IText)Username).SetText(username);
         ((IText)Rooms).SetText(onlineScore.Score.Rooms.ToString());
         ((IText)Delivered).SetText($"({onlineScore.Score.Deliveries})");
 
@@ -38,12 +49,21 @@ public class LeaderboardEntry : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    public void SetNullValues()
+    {
+        ((IText)RankNumber).SetText("#-");
+        ((IText)Username).SetText("-");
+        ((IText)Rooms).SetText("-");
+        ((IText)Delivered).SetText("(-)");
+        ProfileActual.sprite = _loadingPfp;
+        gameObject.SetActive(true);
+    }
+
     private IEnumerator SetAvatar(Friend user)
     {
         ProfileActual.sprite = _loadingPfp;
         Task<Steamworks.Data.Image?> imageTask = user.GetMediumAvatarAsync();
         yield return new WaitUntil(() => imageTask.IsCompleted);
-        Plugin.Log.LogInfo("Pfp");
         Texture2D texture2D = new((int)imageTask.Result.Value.Width, (int)imageTask.Result.Value.Height, TextureFormat.RGBA32, false);
         texture2D.LoadRawTextureData(imageTask.Result.Value.Data);
         texture2D.Apply();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using EndlessDelivery.Common.Inventory.Items;
+using EndlessDelivery.Common.Inventory.Items.WeaponSkins;
 using Newtonsoft.Json;
 
 namespace EndlessDelivery.Common.ContentFile;
@@ -12,11 +13,12 @@ public class Cms
     public Dictionary<string, RevolverSkin> Revolvers = new();
     public Dictionary<string, AltRevolverSkin> AltRevolvers = new();
     public Dictionary<string, ShotgunSkin> Shotguns = new();
-    // public Dictionary<string, AltShotgunSkin> AltShotguns = new();
-    // public Dictionary<string, NailgunSkin> Nailguns = new();
-    // public Dictionary<string, AltNailgunSkin> AltNailguns = new();
-    // public Dictionary<string, RailcannonSkin> Railcannons = new();
-    // public Dictionary<string, RocketSkin> Rockets = new();
+    public Dictionary<string, AltShotgunSkin> AltShotguns = new();
+    public Dictionary<string, NailgunSkin> Nailguns = new();
+    public Dictionary<string, AltNailgunSkin> AltNailguns = new();
+    public Dictionary<string, RailcannonSkin> Railcannons = new();
+    public Dictionary<string, RocketLauncherSkin> Rockets = new();
+    public Dictionary<string, PresentSkin> Presents = new();
     public List<ShopRotation> ShopRotations = new();
     public Dictionary<string, string> LocalisedStrings = new();
     public DateTime LastUpdate;

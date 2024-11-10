@@ -24,7 +24,6 @@ public class ItemController : ControllerBase
         return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(user.Loadout));
     }
 
-
     [HttpPost("set_loadout")]
     public async Task<ObjectResult> UpdateLoadout()
     {
@@ -35,7 +34,7 @@ public class ItemController : ControllerBase
 
         UserModel user = await steamUser.GetUserModel();
 
-        InventoryLoadout? loadout = JsonConvert.DeserializeObject<InventoryLoadout>(await Request.ReadBody());
+        CosmeticLoadout? loadout = JsonConvert.DeserializeObject<CosmeticLoadout>(await Request.ReadBody());
 
         if (loadout == null)
         {
@@ -52,6 +51,24 @@ public class ItemController : ControllerBase
         dbContext.Users.Update(user);
         await dbContext.SaveChangesAsync();
         return StatusCode(StatusCodes.Status200OK, "Success");
+    }
+
+    [HttpGet("get_inventory")]
+    public async Task<ObjectResult> GetInventory(ulong steamId)
+    {
+        if (!SteamUser.TryGetPlayer(steamId, out SteamUser user))
+        {
+            return StatusCode(StatusCodes.Status400BadRequest, $"No user found with id {steamId}");
+        }
+
+        UserModel? userModel = await user.GetUserModel();
+
+        if (userModel == null)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, $"Couldn't find user model for id {steamId}");
+        }
+
+        return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(userModel.OwnedItemIds));
     }
 
     [HttpGet("active_shop")]

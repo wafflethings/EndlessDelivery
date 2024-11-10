@@ -12,6 +12,7 @@ public static class Items
     private const string ActiveShopEndpoint = "active_shop";
     private const string GetLoadoutEndpoint = "get_loadout";
     private const string SetLoadoutEndpoint = "set_loadout";
+    private const string GetInventoryEndpoint = "get_inventory?steamId={0}";
 
     public static async Task<ShopRotation> GetActiveShop(this ApiContext context)
     {
@@ -20,25 +21,51 @@ public static class Items
         return JsonConvert.DeserializeObject<ShopRotation>(content) ?? throw new BadResponseException(content);
     }
 
-    public static async Task<InventoryLoadout> GetLoadout(this ApiContext context)
+    public static async Task<CosmeticLoadout> GetLoadout(this ApiContext context)
     {
         HttpRequestMessage request = new(HttpMethod.Get, context.BaseUri + ItemsRoot + GetLoadoutEndpoint);
         await context.EnsureAuth(request);
         HttpResponseMessage response = await context.Client.SendAsync(request);
         string content = await response.Content.ReadAsStringAsync();
-        InventoryLoadout? deserialized = JsonConvert.DeserializeObject<InventoryLoadout>(content);
+        CosmeticLoadout? deserialized = JsonConvert.DeserializeObject<CosmeticLoadout>(content);
         return deserialized ?? throw new BadResponseException(content);
     }
 
-    public static async Task SetLoadout(this ApiContext context, InventoryLoadout loadout)
+    public static async Task SetLoadout(this ApiContext context, CosmeticLoadout loadout)
     {
         HttpRequestMessage request = new(HttpMethod.Post, context.BaseUri + ItemsRoot + SetLoadoutEndpoint);
         await context.EnsureAuth(request);
         request.Content = new StringContent(JsonConvert.SerializeObject(loadout));
         HttpResponseMessage response = await context.Client.SendAsync(request);
+
         if (response.StatusCode == HttpStatusCode.BadRequest)
         {
             throw new BadRequestException(response.ReasonPhrase);
         }
+    }
+
+    public static async Task<List<string>> GetInventory(this ApiContext context, ulong steamId)
+    {
+        HttpResponseMessage response = await context.Client.GetAsync(context.BaseUri + ItemsRoot + string.Format(GetInventoryEndpoint, steamId));
+        string content = await response.Content.ReadAsStringAsync();
+
+        if (response.StatusCode == HttpStatusCode.BadRequest)
+        {
+            throw new BadRequestException(response.ReasonPhrase);
+        }
+
+        if (response.StatusCode == HttpStatusCode.InternalServerError)
+        {
+            throw new InternalServerException();
+        }
+
+        List<string>? deserialized = JsonConvert.DeserializeObject<List<string>>(content);
+
+        if (deserialized == null)
+        {
+            throw new BadResponseException(content);
+        }
+
+        return deserialized;
     }
 }

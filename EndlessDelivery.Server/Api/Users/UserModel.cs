@@ -13,7 +13,7 @@ public class UserModel
     public Score LifetimeStats { get; set; }
     public List<string> OwnedItemIds { get; set; } = new();
     public int PremiumCurrency { get; set; } = 0;
-    public InventoryLoadout Loadout { get; set; }
+    public CosmeticLoadout Loadout { get; set; }
     public UserLinks Links { get; set; } = new();
     public string Country { get; set; }
     public bool Admin { get; set; } = false;

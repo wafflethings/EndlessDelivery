@@ -13,8 +13,7 @@ public static class Content
 
     public static async Task<bool> ContentUpdateRequired(this ApiContext context, DateTime lastDownload)
     {
-        string url = string.Format(context.BaseUri + CmsRoot + UpdateRequiredEndpoint, lastDownload.ToString("O"));
-        HttpResponseMessage response = await context.Client.GetAsync(url);
+        HttpResponseMessage response = await context.Client.GetAsync(context.BaseUri + CmsRoot + string.Format(UpdateRequiredEndpoint, lastDownload.ToString("O")));
 
         if (response.IsSuccessStatusCode)
         {

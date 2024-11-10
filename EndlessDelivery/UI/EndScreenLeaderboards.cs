@@ -43,7 +43,8 @@ public class EndScreenLeaderboards : MonoBehaviour
             return;
         }
 
-        OnlineScore[] nearScores = await ScoreManager.GetPage(await OnlineFunctionality.Context.GetLeaderboardPosition(SteamClient.SteamId) / 5);
+        int ownPosition = await OnlineFunctionality.Context.GetLeaderboardPosition(SteamClient.SteamId);
+        OnlineScore[] nearScores = await OnlineFunctionality.Context.GetScoreRange(Mathf.Max(ownPosition - 5, 0), 10);
         OnlineScore[] topScores = await OnlineFunctionality.Context.GetScoreRange(0, 10);
 
         foreach (OnlineScore scoreResult in nearScores)

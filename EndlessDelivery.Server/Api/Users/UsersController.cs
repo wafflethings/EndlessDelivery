@@ -6,6 +6,7 @@ using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Database;
 using EndlessDelivery.Server.Website;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.Extensions.Primitives;
 using Newtonsoft.Json;
 using SixLabors.Fonts;
@@ -29,7 +30,7 @@ namespace EndlessDelivery.Server.Api.Users
                 SteamId = id,
                 CreationDate = DateTime.UtcNow,
                 LifetimeStats = new Score(0,0,0,0),
-                Loadout = InventoryLoadout.Default,
+                Loadout = CosmeticLoadout.Default,
                 Country = context.GetCountry()
             };
 
@@ -132,6 +133,7 @@ namespace EndlessDelivery.Server.Api.Users
             return StatusCode(StatusCodes.Status204NoContent);
         }
 
+        [EnableRateLimiting("fixed")]
         [HttpGet("embed/{id}")]
         public async Task<object> UserEmbed() //straight up the worst code i have ever written. i gave up and started hardcoding. but it works
         {

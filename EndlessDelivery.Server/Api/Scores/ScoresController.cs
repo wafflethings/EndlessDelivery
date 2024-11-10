@@ -29,7 +29,6 @@ namespace EndlessDelivery.Server.Api.Scores
                 .ThenByDescending(x => x.Score.Kills).ThenBy(x => x.Score.Time).ToListAsync();
         }
 
-        [EnableRateLimiting("fixed")]
         [HttpGet("get_range")]
         public async Task<ObjectResult> Get(int start, int count)
         {
@@ -49,7 +48,6 @@ namespace EndlessDelivery.Server.Api.Scores
             return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(models.ToArray()));
         }
 
-        [EnableRateLimiting("fixed")]
         [HttpGet("get_length")]
         public async Task<ObjectResult> GetLength()
         {
@@ -57,12 +55,25 @@ namespace EndlessDelivery.Server.Api.Scores
             return StatusCode(StatusCodes.Status200OK, onlineScores.Count);
         }
 
-        [EnableRateLimiting("fixed")]
         [HttpGet("get_position")]
         public async Task<ObjectResult> GetPosition(ulong steamId)
         {
             List<OnlineScore> onlineScores = await GetOnlineScores();
             return StatusCode(StatusCodes.Status200OK, onlineScores.FindIndex(x => x.SteamId == steamId));
+        }
+
+        [HttpGet("get_score")]
+        public async Task<ObjectResult> GetScore(ulong steamId)
+        {
+            List<OnlineScore> onlineScores = await GetOnlineScores();
+            OnlineScore? score = onlineScores.Find(x => x.SteamId == steamId);
+
+            if (score == null)
+            {
+                return StatusCode(StatusCodes.Status404NotFound, $"User {steamId} has no score");
+            }
+
+            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(score));
         }
 
         [HttpPost("submit_score")]
@@ -84,7 +95,6 @@ namespace EndlessDelivery.Server.Api.Scores
 
             if (!HttpContext.TryGetLoggedInPlayer(out SteamUser steamUser))
             {
-                Console.WriteLine("su");
                 return StatusCode(StatusCodes.Status500InternalServerError, "User does not have SteamUser");
             }
 
@@ -92,7 +102,6 @@ namespace EndlessDelivery.Server.Api.Scores
 
             if (user == null)
             {
-                Console.WriteLine("um");
                 return StatusCode(StatusCodes.Status500InternalServerError, "Couldn't get user model");
             }
 

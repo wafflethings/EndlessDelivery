@@ -50,12 +50,4 @@ public class ScoreManager
             return null;
         }
     }
-
-    public static async Task<OnlineScore[]> GetPage(int pageIndex)
-    {
-        int scoreCount = await OnlineFunctionality.Context.GetLeaderboardLength();
-        int startIndex = pageIndex * 5;
-        int amount = Math.Min(scoreCount - startIndex, 5);
-        return await OnlineFunctionality.Context.GetScoreRange(pageIndex * 5, amount);
-    }
 }
