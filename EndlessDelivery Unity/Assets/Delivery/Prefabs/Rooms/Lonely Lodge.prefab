@@ -4588,7 +4588,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: afa88458494508245a22705d4086d1cb, type: 2}
+  - {fileID: 2100000, guid: 6bd0ea535a362dc4d830a469f84d3cf4, type: 2}
   - {fileID: 2100000, guid: 44fd7520995a57b418838a2f67bfe6c7, type: 2}
   - {fileID: 2100000, guid: fd8bd73e38d422f4cb6595a3ecfadc31, type: 2}
   m_StaticBatchInfo:
@@ -10151,7 +10151,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: afa88458494508245a22705d4086d1cb, type: 2}
+  - {fileID: 2100000, guid: 6bd0ea535a362dc4d830a469f84d3cf4, type: 2}
   - {fileID: 2100000, guid: 44fd7520995a57b418838a2f67bfe6c7, type: 2}
   - {fileID: 2100000, guid: fd8bd73e38d422f4cb6595a3ecfadc31, type: 2}
   m_StaticBatchInfo:
@@ -14784,7 +14784,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: afa88458494508245a22705d4086d1cb, type: 2}
+  - {fileID: 2100000, guid: 6bd0ea535a362dc4d830a469f84d3cf4, type: 2}
   - {fileID: 2100000, guid: 44fd7520995a57b418838a2f67bfe6c7, type: 2}
   - {fileID: 2100000, guid: fd8bd73e38d422f4cb6595a3ecfadc31, type: 2}
   m_StaticBatchInfo:
@@ -19952,7 +19952,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: afa88458494508245a22705d4086d1cb, type: 2}
+  - {fileID: 2100000, guid: 6bd0ea535a362dc4d830a469f84d3cf4, type: 2}
   - {fileID: 2100000, guid: 44fd7520995a57b418838a2f67bfe6c7, type: 2}
   - {fileID: 2100000, guid: fd8bd73e38d422f4cb6595a3ecfadc31, type: 2}
   m_StaticBatchInfo:
@@ -62738,6 +62738,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257902590208958277, guid: ac3722b3f1414f947b098de92fca9e83,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8301503915925384454, guid: ac3722b3f1414f947b098de92fca9e83,
         type: 3}
