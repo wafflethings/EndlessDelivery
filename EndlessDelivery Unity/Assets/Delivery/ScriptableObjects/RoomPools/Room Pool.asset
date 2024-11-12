@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Room Pool
   m_EditorClassIdentifier: 
   Rooms:
-  - {fileID: 11400000, guid: b60c8aa2a1f9f4344b4038eb99d579b5, type: 2}
+  - {fileID: 11400000, guid: ee3eb973cd702bc4aaf249ad835018db, type: 2}
   - {fileID: 11400000, guid: c65de9f2830a4e24984c739b02702030, type: 2}
   - {fileID: 11400000, guid: 13d846925eb721f41b0a511674d240d4, type: 2}
