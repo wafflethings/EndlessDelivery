@@ -41,10 +41,28 @@ namespace EndlessDelivery.Server.Api.Users
             await SteamUser.AddPlayerToCache(id);
         }
 
+        [HttpGet("get_currency_amount")]
+        public async Task<ObjectResult> GetCurrencyAmount()
+        {
+            if (!Request.HttpContext.TryGetLoggedInPlayer(out SteamUser? steamUser))
+            {
+                return StatusCode(StatusCodes.Status401Unauthorized, "Not logged in");
+            }
+
+            UserModel? user = await steamUser.GetUserModel();
+
+            if (user == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, string.Empty);
+            }
+
+            return StatusCode(StatusCodes.Status200OK, user.PremiumCurrency);
+        }
+
         [HttpPost("grant_achievement")]
         public async Task<ObjectResult> GrantAchievement()
         {
-            if (!Request.HttpContext.TryGetLoggedInPlayer(out SteamUser steamUser))
+            if (!Request.HttpContext.TryGetLoggedInPlayer(out SteamUser? steamUser))
             {
                 return StatusCode(StatusCodes.Status401Unauthorized, "Not logged in");
             }

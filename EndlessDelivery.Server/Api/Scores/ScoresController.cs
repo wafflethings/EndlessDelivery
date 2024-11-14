@@ -142,7 +142,6 @@ namespace EndlessDelivery.Server.Api.Scores
             }
 
             await SetIndexes();
-
             await dbContext.SaveChangesAsync();
             return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));
         }
@@ -172,9 +171,9 @@ namespace EndlessDelivery.Server.Api.Scores
                     countryIndexes.Add(country, 0);
                 }
                 sm.CountryIndex = countryIndexes[country]++;
+                dbContext.Scores.Update(sm);
             }
 
-            dbContext.Scores.UpdateRange(models);
             await dbContext.SaveChangesAsync();
             return StatusCode(StatusCodes.Status200OK, "Indexes reset.");
         }
