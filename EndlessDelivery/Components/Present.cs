@@ -51,7 +51,7 @@ public class Present : MonoBehaviour
     public void SetColour(WeaponVariant colour)
     {
         VariantColour = colour;
-        GetComponent<Renderer>().material.color = _colour;
+        GetComponent<MeshRenderer>().material.color = _colour;
         GetComponent<Light>().color = _colour;
         GetComponent<ParticleSystem>().startColor = _colour;
         Glow.color = new Color(_colour.r, _colour.g, _colour.b, 0.5f);

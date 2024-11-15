@@ -49,11 +49,7 @@ public class AchievementHud : MonoSingleton<AchievementHud>
         _name.text = OnlineFunctionality.LastFetchedContent?.GetLocalisedString(achievement.Name) ?? achievement.Name;
 
         AsyncOperationHandle<Sprite> spriteLoad = Addressables.LoadAssetAsync<Sprite>(achievement.Icon.AddressablePath);
-
-        while (!spriteLoad.IsDone)
-        {
-            yield return null;
-        }
+        yield return new WaitUntil(() => spriteLoad.IsDone);
 
         _soundEffect?.Play();
         _icon.sprite = spriteLoad.Result;

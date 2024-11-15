@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5340808643347405859
+--- !u!1 &6208207608522034124
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,55 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 150998995579770453}
-  - component: {fileID: 336637327447359909}
-  - component: {fileID: 702993052261138349}
-  - component: {fileID: 7256652099581351603}
+  - component: {fileID: 3519596606684512786}
+  - component: {fileID: 6275129048286414224}
+  - component: {fileID: 4507579706724936908}
+  - component: {fileID: 2831391386188496460}
   m_Layer: 16
-  m_Name: Visual
-  m_TagString: EditorOnly
-  m_Icon: {fileID: 0}
+  m_Name: Melee Spawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 2800000, guid: d6a7f4252e67ae74a958a67e61a7ae9a, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &150998995579770453
+--- !u!4 &3519596606684512786
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5340808643347405859}
+  m_GameObject: {fileID: 6208207608522034124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalPosition: {x: 5.5, y: -10, z: 5.75}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3519596606684512786}
+  m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &336637327447359909
-MeshFilter:
+--- !u!114 &6275129048286414224
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5340808643347405859}
-  m_Mesh: {fileID: -1283820568726516060, guid: 06c3b585c5da8bb4faa58a741007714c, type: 3}
---- !u!23 &702993052261138349
+  m_GameObject: {fileID: 6208207608522034124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1088148131, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Class: 0
+  BannedEnemies: 
+  Fallback: 3
+  Enemy: {fileID: 0}
+  Room: {fileID: 0}
+--- !u!23 &4507579706724936908
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5340808643347405859}
+  m_GameObject: {fileID: 6208207608522034124}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -80,82 +89,11 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &7256652099581351603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5340808643347405859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebc7f2d30648aed44a1281ca9533bf5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oneTime: 1
-  disableOnExit: 0
-  dontActivateOnEnable: 0
-  reactivateOnEnable: 0
-  forEnemies: 0
-  notIfEnemiesDisabled: 0
-  onlyIfPlayerIsAlive: 0
-  delay: 0
-  ignoreColliders: []
-  obac: {fileID: 0}
-  onlyCheckObacOnce: 0
-  events:
-    toActivateObjects: []
-    toDisActivateObjects:
-    - {fileID: 5340808643347405859}
-    onActivate:
-      m_PersistentCalls:
-        m_Calls: []
-    onDisActivate:
-      m_PersistentCalls:
-        m_Calls: []
---- !u!1 &6208207608522034124
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3519596606684512786}
-  - component: {fileID: 6275129048286414224}
-  m_Layer: 0
-  m_Name: Melee Spawn
-  m_TagString: Untagged
-  m_Icon: {fileID: 2800000, guid: d6a7f4252e67ae74a958a67e61a7ae9a, type: 3}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3519596606684512786
-Transform:
+--- !u!33 &2831391386188496460
+MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6208207608522034124}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.5, y: -10, z: 5.75}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 150998995579770453}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6275129048286414224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6208207608522034124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1088148131, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Class: 0
-  Enemy: {fileID: 0}
+  m_Mesh: {fileID: 1705324974331375986, guid: 8a322482561d1254aa8ca6d1c6ebc9c4, type: 3}

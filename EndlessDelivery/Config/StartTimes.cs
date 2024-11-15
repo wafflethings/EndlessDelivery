@@ -57,6 +57,10 @@ public class StartTimes
         {
             if (wave == 0)
             {
+                if (!UnlockedStartTimes.Contains(0))
+                {
+                    UnlockedStartTimes.Add(0);
+                }
                 return;
             }
 

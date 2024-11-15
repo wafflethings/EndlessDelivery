@@ -9,10 +9,24 @@ namespace EndlessDelivery.Api.Requests;
 public static class Items
 {
     private const string ItemsRoot = "users/items/";
+    private const string BuyItemEndpoint = "buy_item";
     private const string ActiveShopEndpoint = "active_shop";
     private const string GetLoadoutEndpoint = "get_loadout";
     private const string SetLoadoutEndpoint = "set_loadout";
     private const string GetInventoryEndpoint = "get_inventory?steamId={0}";
+
+    public static async Task BuyItem(this ApiContext context, string itemId)
+    {
+        HttpRequestMessage request = new(HttpMethod.Post, context.BaseUri + ItemsRoot + BuyItemEndpoint);
+        await context.EnsureAuth(request);
+        request.Content = new StringContent(itemId);
+        HttpResponseMessage response = await context.Client.SendAsync(request);
+
+        if (response.StatusCode == HttpStatusCode.BadRequest)
+        {
+            throw new BadRequestException(response.ReasonPhrase);
+        }
+    }
 
     public static async Task<ShopRotation> GetActiveShop(this ApiContext context)
     {

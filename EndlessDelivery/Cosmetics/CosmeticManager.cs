@@ -8,6 +8,7 @@ using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Common.Inventory.Items.WeaponSkins;
 using EndlessDelivery.Online;
 using HarmonyLib;
+using Steamworks;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -17,10 +18,12 @@ namespace EndlessDelivery.Cosmetics;
 public static class CosmeticManager
 {
     public static CosmeticLoadout Loadout { get; private set; }
+    public static List<string> AllOwned { get; private set; }
 
     public static async Task FetchLoadout()
     {
         Loadout = await OnlineFunctionality.Context.GetLoadout();
+        AllOwned = await OnlineFunctionality.Context.GetInventory(SteamClient.SteamId);
     }
 
     private static bool WeaponHasSkin(GunType gunType, int variationIndex) => WeaponHasSkin(gunType, variationIndex, out _);
