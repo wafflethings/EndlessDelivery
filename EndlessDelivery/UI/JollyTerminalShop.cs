@@ -78,9 +78,10 @@ public class JollyTerminalShop : MonoBehaviour
     {
         _counterMoney = amount;
         _moneyCounter.text = amount.ToString();
-        //todo improve this, makes the layout group refresh to prevent money and text overlap
-        _moneyCounter.transform.parent.gameObject.SetActive(false);
-        _moneyCounter.transform.parent.gameObject.SetActive(true);
+
+        LayoutGroup group = _moneyCounter.GetComponentInParent<LayoutGroup>();
+        group.enabled = false;
+        group.enabled = true;
     }
 
     private IEnumerator SetInitialMoneyCoroutine()
