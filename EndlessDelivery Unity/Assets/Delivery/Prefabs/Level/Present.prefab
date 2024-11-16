@@ -10,16 +10,17 @@ GameObject:
   m_Component:
   - component: {fileID: 859807330288288586}
   - component: {fileID: 859807330288288625}
+  - component: {fileID: 5548713524085987455}
   - component: {fileID: 859807330288288587}
   - component: {fileID: 6907025644167581227}
   - component: {fileID: 8414710919386700978}
-  - component: {fileID: 5548713524085987455}
   - component: {fileID: 5095818404798359436}
   - component: {fileID: -4987194681888499943}
   - component: {fileID: 6861457855420618246}
   - component: {fileID: 740535425724844822}
   - component: {fileID: 8928512586495428297}
   - component: {fileID: 310392244102305166}
+  - component: {fileID: 1896338163950698049}
   m_Layer: 22
   m_Name: Present
   m_TagString: Untagged
@@ -58,6 +59,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &5548713524085987455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859807330288288585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -604668163, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  VariantColour: 0
+  Particles: {fileID: 8655111915251234971, guid: 7056cf40e94333a408c85168052bead1,
+    type: 3}
+  Glow: {fileID: 691022755611149383}
+  Destroyed: 0
+  _hookDeclineEffect: {fileID: 3462673710263658055, guid: ba3ad2be14552b247a6fa872f99d0bc3,
+    type: 3}
 --- !u!114 &859807330288288587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75,7 +95,7 @@ MonoBehaviour:
   reverseTransformSettings: 1
   putDownPosition: {x: 0.1, y: -0.025, z: 0.1}
   putDownRotation: {x: 30, y: -20, z: 75}
-  putDownScale: {x: 0.4, y: 0.4, z: 0.4}
+  putDownScale: {x: 0.35, y: 0.35, z: 0.35}
   pickUpSound: {fileID: 1673117908876384, guid: c509881da2714e84c9808a6a3e99441a,
     type: 3}
   itemType: 4
@@ -148,23 +168,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5548713524085987455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 859807330288288585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -604668163, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VariantColour: 0
-  Particles: {fileID: 8655111915251234971, guid: 7056cf40e94333a408c85168052bead1,
-    type: 3}
-  Glow: {fileID: 691022755611149383}
-  Destroyed: 0
 --- !u!114 &5095818404798359436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 1393707231, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnableWhippingAtDistance: 7
+  EnableWhippingAtDistance: 0
 --- !u!108 &-4987194681888499943
 Light:
   m_ObjectHideFlags: 0
@@ -1072,7 +1075,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 7.5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -1190,12 +1193,12 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 0.32597047
-          inSlope: -1.4442953
-          outSlope: -1.4442953
+          inSlope: -0.76251465
+          outSlope: -0.76251465
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0.09980804
+          outWeight: 0.12092128
         - serializedVersion: 3
           time: 1
           value: 0
@@ -2225,7 +2228,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.7
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -3969,7 +3972,7 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 1
+    enabled: 0
     ratio: 0
     light: {fileID: -4987194681888499943}
     randomDistribution: 1
@@ -4090,7 +4093,7 @@ ParticleSystem:
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.25
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4156,7 +4159,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.254717, g: 0.254717, b: 0.254717, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -4272,7 +4275,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -5009,6 +5012,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &1896338163950698049
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859807330288288585}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8214926124924819322
 GameObject:
   m_ObjectHideFlags: 0
@@ -5036,7 +5052,7 @@ Transform:
   m_GameObject: {fileID: 8214926124924819322}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalScale: {x: 12, y: 12, z: 12}
   m_Children: []
   m_Father: {fileID: 859807330288288586}
   m_RootOrder: 0
@@ -5081,7 +5097,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f66dddd6354f69948ab4b804ecce3189, type: 3}
-  m_Color: {r: 0.20000002, g: 0.7411765, b: 0.8352942, a: 0.49019608}
+  m_Color: {r: 0.20000002, g: 0.7411765, b: 0.8352942, a: 0.27058825}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

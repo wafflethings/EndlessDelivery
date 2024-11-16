@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using EndlessDelivery.Assets;
 using EndlessDelivery.Gameplay;
 using EndlessDelivery.UI;
@@ -18,16 +20,18 @@ public class Present : MonoBehaviour
     public GameObject Particles;
     public SpriteRenderer Glow;
     private ItemIdentifier _item;
-    private Collider _collider;
+    private Collider[] _colliders;
     [HideInInspector] public bool Destroyed;
+    private float _lastHook = 0;
+    [SerializeField] private GameObject _hookDeclineEffect;
 
     private Color _colour => ColourSetter.DefaultColours[(int)VariantColour];
 
     private void Start()
     {
-        _collider = GetComponent<Collider>();
+        _colliders = GetComponents<Collider>();
         _item = GetComponent<ItemIdentifier>();
-        _allPresentColliders.Add(_collider);
+        _allPresentColliders.AddRange(_colliders);
         SetColour(VariantColour);
     }
 
@@ -38,14 +42,41 @@ public class Present : MonoBehaviour
         // it has to be set back manually
     }
 
+    private void FixedUpdate()
+    {
+        if (Mathf.Abs((HookArm.Instance.hook.position - transform.position).sqrMagnitude) < (1.75f * 1.75f))
+        {
+            OnHookAttempt();
+        }
+    }
+
+    private void OnHookAttempt()
+    {
+        if (HookArm.Instance?.state != HookState.Throwing || Time.time - _lastHook < 0.25f || _item.pickedUp)
+        {
+            return;
+        }
+
+        _lastHook = Time.time;
+        Instantiate(_hookDeclineEffect, transform.position, transform.rotation);
+    }
+
     private void OnDisable()
     {
-        _allPresentColliders.Remove(_collider);
+        RemoveCollidersFromAll();
     }
 
     private void OnDestroy()
     {
-        _allPresentColliders.Remove(_collider);
+        RemoveCollidersFromAll();
+    }
+
+    private void RemoveCollidersFromAll()
+    {
+        foreach (Collider collider in _colliders)
+        {
+            _allPresentColliders.Remove(collider);
+        }
     }
 
     public void SetColour(WeaponVariant colour)
@@ -125,6 +156,12 @@ public class Present : MonoBehaviour
 
         foreach (Collider collider in _allPresentColliders)
         {
+            if (collider == null)
+            {
+                Plugin.Log.LogWarning("Null collider in _allPresentColliders, should be impossible");
+                continue;
+            }
+
             Physics.IgnoreCollision(collider, __instance.scol);
         }
     }
