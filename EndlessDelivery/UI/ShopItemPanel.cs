@@ -42,9 +42,9 @@ public class ShopItemPanel : MonoBehaviour
         _itemCost.text = _itemDescriptor.ShopPrice.ToString();
 
         //todo improve this, makes the layout group refresh to prevent money and text overlap
-        _itemCost.transform.parent.gameObject.SetActive(false);
-        yield return null;
-        _itemCost.transform.parent.gameObject.SetActive(true);
+        LayoutGroup group = _itemCost.GetComponentInParent<LayoutGroup>();
+        group.enabled = false;
+        group.enabled = true;
 
         if (CosmeticManager.AllOwned.Contains(_itemDescriptor.Id))
         {

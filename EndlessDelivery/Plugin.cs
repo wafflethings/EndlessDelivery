@@ -1,9 +1,11 @@
-﻿using BepInEx;
+﻿using System.Collections;
+using BepInEx;
 using BepInEx.Logging;
 using EndlessDelivery.Assets;
 using EndlessDelivery.Online;
 using EndlessDelivery.ScoreManagement;
 using HarmonyLib;
+using Steamworks;
 
 namespace EndlessDelivery;
 
@@ -25,20 +27,4 @@ public class Plugin : BaseUnityPlugin
         OnlineFunctionality.Init();
         new Harmony(Guid).PatchAll();
     }
-
-#if DEBUG
-    private void Update()
-    {
-        if (InputManager.Instance?.InputSource == null)
-        {
-            return;
-        }
-
-        if (InputManager.Instance.InputSource.Dodge.IsPressed && InputManager.Instance.InputSource.Hook.IsPressed && InputManager.Instance.InputSource.Slot6.WasPerformedThisFrame)
-        {
-            ScoreManager.SubmitScore(new(1,1,1,1), 0);
-            Log.LogInfo($"Ticket! [{OnlineFunctionality.GetTicket()}]");
-        }
-    }
-#endif
 }

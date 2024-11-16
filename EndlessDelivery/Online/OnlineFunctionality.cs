@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Net.Http;
 using System.Threading.Tasks;
 using AtlasLib.Saving;
+using AtlasLib.Utils;
 using EndlessDelivery.Api;
 using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common.ContentFile;
 using EndlessDelivery.Cosmetics;
+using HarmonyLib;
 using Steamworks;
 using Steamworks.Data;
 
@@ -20,6 +23,17 @@ public static class OnlineFunctionality
 
     public static void Init()
     {
+        Plugin.Log.LogMessage("Init called!");
+        CoroutineRunner.Instance.StartCoroutine(InitWhenSteamReady());
+    }
+
+    private static IEnumerator InitWhenSteamReady()
+    {
+        while (!SteamClient.IsValid)
+        {
+            yield return null;
+        }
+
         Task.Run(GetContent);
         Task.Run(CosmeticManager.FetchLoadout);
     }
