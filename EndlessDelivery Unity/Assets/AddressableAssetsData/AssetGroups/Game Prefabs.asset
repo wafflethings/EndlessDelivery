@@ -16,7 +16,49 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 1c9ef0c7fbaba1549b88547b5dfefbe7
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: dd8aba23cfdac4a3da2d521e84b64ee5
+    m_Address: Assets/Prefabs
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f8e922d1c456f94ba799c3bbb8e8122
+    m_Address: Wrapped Shop
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 300c70ee7c0971c4bb2750e134eeab40
+    m_Address: Bonus Ghost
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 621bf60f3f973ea429a5649937f1c2c6
+    m_Address: Bonus
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 957ad893ffd351a4484f477925a48834
+    m_Address: FirstRoom Prime
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f53d12327d16b8c4cb8c0ddd759db126
+    m_Address: Virtue Insignia
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bf9ccbf7adf9d948a47d809dad2b38b
+    m_Address: Assets/Particles
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Game
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2a337ff27534e164b86034852d6c1576, type: 2}
   m_SchemaSet:
