@@ -15,7 +15,7 @@ public static class Users
     public static async Task<int> GetCurrencyAmount(this ApiContext context)
     {
         HttpRequestMessage request = new(HttpMethod.Get, context.BaseUri + UsersRoot + GetCurrencyAmountEndpoint);
-        await context.EnsureAuth(request);
+        await context.AddAuth(request);
         HttpResponseMessage response = await context.Client.SendAsync(request);
 
         if (response.StatusCode == HttpStatusCode.InternalServerError)
@@ -54,7 +54,7 @@ public static class Users
     public static async Task GrantAchievement(this ApiContext context, string achievementId)
     {
         HttpRequestMessage request = new(HttpMethod.Post, context.BaseUri + UsersRoot + GrantAchievementEndpoint);
-        await context.EnsureAuth(request);
+        await context.AddAuth(request);
         request.Content = new StringContent(achievementId);
         HttpResponseMessage response = await context.Client.SendAsync(request);
 

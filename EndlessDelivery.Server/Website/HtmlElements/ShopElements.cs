@@ -32,9 +32,7 @@ public static class ShopElements
         builder.AppendHtml("</p>");
 
         builder.AppendHtml("<p class=\"item-category\">");
-        builder.Append("-- ");
         builder.Append(ContentController.CurrentContent.GetLocalisedString("category." + item.Descriptor.Type.ToString().ToLower()));
-        builder.Append(" --");
         builder.AppendHtml("</p>");
         builder.AppendHtml("</div>");
 

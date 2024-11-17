@@ -2,13 +2,13 @@
 
 public class ItemDescriptor
 {
-    public ItemType Type;
+    public StoreItemType Type;
     public string Id;
     public string Name;
     public int ShopPrice;
     public ClientWebPair Icon;
 
-    public ItemDescriptor(string id, string name, ClientWebPair icon, ItemType type, int shopPrice = 0)
+    public ItemDescriptor(string id, string name, ClientWebPair icon, StoreItemType type, int shopPrice = 0)
     {
         Id = id;
         Name = name;

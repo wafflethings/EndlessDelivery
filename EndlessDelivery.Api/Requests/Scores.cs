@@ -52,7 +52,7 @@ public static class Scores
     public static async Task<OnlineScore> SubmitScore(this ApiContext context, SubmitScoreData scoreData)
     {
         HttpRequestMessage request = new(HttpMethod.Post, context.BaseUri + ScoreRoot + SubmitScoreEndpoint);
-        await context.EnsureAuth(request);
+        await context.AddAuth(request);
         request.Content = new StringContent(JsonConvert.SerializeObject(scoreData));
         HttpResponseMessage response = await context.Client.SendAsync(request);
         string content = await response.Content.ReadAsStringAsync();

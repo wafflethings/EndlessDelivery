@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Threading.Tasks;
 using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common.Communication.Scores;
 using EndlessDelivery.Online;
-using EndlessDelivery.ScoreManagement;
 using Steamworks;
 using TMPro;
 using UnityEngine;

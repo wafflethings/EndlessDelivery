@@ -31,11 +31,11 @@ namespace EndlessDelivery.Server.Api.Users
                 CreationDate = DateTime.UtcNow,
                 LifetimeStats = new Score(0,0,0,0),
                 Loadout = CosmeticLoadout.Default,
-                Country = context.GetCountry()
+                Country = context.GetCountry(),
             };
 
             Console.WriteLine($"Registering user {id}.");
-
+            defaultUser.OwnedItemIds.AddRange(CosmeticLoadout.DefaultItems);
             dbContext.Users.Add(defaultUser);
             await dbContext.SaveChangesAsync();
             await SteamUser.AddPlayerToCache(id);

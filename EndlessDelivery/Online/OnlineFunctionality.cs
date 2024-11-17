@@ -11,6 +11,7 @@ using EndlessDelivery.Cosmetics;
 using HarmonyLib;
 using Steamworks;
 using Steamworks.Data;
+using UnityEngine;
 
 namespace EndlessDelivery.Online;
 
@@ -33,6 +34,10 @@ public static class OnlineFunctionality
         {
             yield return null;
         }
+
+        Task loginTask = Task.Run(Context.Login);
+        yield return new WaitUntil(() => loginTask.IsCompleted);
+        Plugin.Log.LogMessage("Logged in!");
 
         Task.Run(GetContent);
         Task.Run(CosmeticManager.FetchLoadout);

@@ -18,7 +18,7 @@ public static class Items
     public static async Task BuyItem(this ApiContext context, string itemId)
     {
         HttpRequestMessage request = new(HttpMethod.Post, context.BaseUri + ItemsRoot + BuyItemEndpoint);
-        await context.EnsureAuth(request);
+        await context.AddAuth(request);
         request.Content = new StringContent(itemId);
         HttpResponseMessage response = await context.Client.SendAsync(request);
 
@@ -38,7 +38,7 @@ public static class Items
     public static async Task<CosmeticLoadout> GetLoadout(this ApiContext context)
     {
         HttpRequestMessage request = new(HttpMethod.Get, context.BaseUri + ItemsRoot + GetLoadoutEndpoint);
-        await context.EnsureAuth(request);
+        await context.AddAuth(request);
         HttpResponseMessage response = await context.Client.SendAsync(request);
         string content = await response.Content.ReadAsStringAsync();
         CosmeticLoadout? deserialized = JsonConvert.DeserializeObject<CosmeticLoadout>(content);
@@ -48,7 +48,7 @@ public static class Items
     public static async Task SetLoadout(this ApiContext context, CosmeticLoadout loadout)
     {
         HttpRequestMessage request = new(HttpMethod.Post, context.BaseUri + ItemsRoot + SetLoadoutEndpoint);
-        await context.EnsureAuth(request);
+        await context.AddAuth(request);
         request.Content = new StringContent(JsonConvert.SerializeObject(loadout));
         HttpResponseMessage response = await context.Client.SendAsync(request);
 

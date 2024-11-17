@@ -1,4 +1,9 @@
-﻿namespace EndlessDelivery.Common.Inventory.Items.WeaponSkins;
+﻿namespace EndlessDelivery.Common.Inventory.Items;
+
+public class WeaponSkinItem : Item
+{
+
+}
 
 public enum GunType
 {

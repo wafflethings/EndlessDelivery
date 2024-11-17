@@ -41,7 +41,9 @@ public class ItemController : ControllerBase
             return StatusCode(StatusCodes.Status400BadRequest, "Null request body");
         }
 
-        if (!user.OwnedItemIds.Contains(loadout.BannerId) || loadout.RevolverIds.Any(revId => !user.OwnedItemIds.Contains(revId)))
+        List<List<string>> allSkins = [loadout.RevolverIds, loadout.AltRevolverIds, loadout.ShotgunIds, loadout.AltShotgunIds, loadout.NailgunIds, loadout.AltNailgunIds, loadout.RailcannonIds, loadout.RocketIds];
+
+        if (!user.OwnedItemIds.Contains(loadout.BannerId) || allSkins.Any(x => x.Any(id => !user.OwnedItemIds.Contains(id))))
         {
             return StatusCode(StatusCodes.Status400BadRequest, "Item not owned");
         }
