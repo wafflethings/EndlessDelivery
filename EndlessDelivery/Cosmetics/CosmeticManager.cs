@@ -158,7 +158,7 @@ public static class CosmeticManager
         {
             foreach (GunColorGetter colouredObject in weapon.GetComponentsInChildren<GunColorGetter>())
             {
-                colouredObject.UpdateColor();
+                colouredObject.rend.materials = colouredObject.defaultMaterials;
             }
 
             return;

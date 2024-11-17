@@ -28,7 +28,7 @@ public class LoadoutHud : MonoBehaviour
     private Item? _selectedItem;
     private StoreItemType _currentItemType;
 
-    public bool HasOneEquipButton(StoreItemType itemType) => itemType is StoreItemType.Banner or StoreItemType.Present;
+    public bool HasNoVariations(StoreItemType itemType) => itemType is StoreItemType.Banner or StoreItemType.Present;
 
     private void Awake()
     {
@@ -73,12 +73,32 @@ public class LoadoutHud : MonoBehaviour
             Destroy(oldItemButton);
         }
 
-        foreach (Item item in itemList.OrderBy(x => x.Descriptor.Name))
+        IEnumerable<Item> orderedList =  itemList.OrderBy(x => x.Descriptor.Name);
+        foreach (Item item in orderedList)
         {
             AddItem(item);
         }
 
-        SetItem(null);
+        string? targetId;
+
+        if (HasNoVariations(_currentItemType))
+        {
+            targetId = GetEquippedItemId(_currentItemType);
+        }
+        else
+        {
+            targetId = GetEquippedItemId(_currentItemType, 0);
+        }
+
+        if (targetId != null)
+        {
+            SetItem(orderedList.FirstOrDefault(item => item.Descriptor.Id == targetId));
+        }
+        else
+        {
+            SetItem(null);
+        }
+
         _page.SetActive(true);
     }
 
@@ -98,7 +118,7 @@ public class LoadoutHud : MonoBehaviour
 
     private void UpdateEquipButtons(Item? item)
     {
-        bool oneEquipButton = HasOneEquipButton(_currentItemType);
+        bool oneEquipButton = HasNoVariations(_currentItemType);
 
         if (oneEquipButton)
         {
