@@ -49,7 +49,7 @@ public class LeaderboardEntry : MonoBehaviour
         ((IText)RankNumber).SetText((onlineScore.Index + 1).ToString());
         ((IText)Username).SetText(username);
         ((IText)Rooms).SetText(onlineScore.Score.Rooms.ToString());
-        ((IText)Difficulty).SetText($"({DdUtils.IntToDifficulty(onlineScore.Difficulty)})");
+        ((IText)Difficulty).SetText(DdUtils.IntToDifficulty(onlineScore.Difficulty));
 
         if (_lastPfpSetter != null)
         {

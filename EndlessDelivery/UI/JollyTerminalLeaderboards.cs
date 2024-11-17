@@ -85,7 +85,7 @@ public class JollyTerminalLeaderboards : MonoBehaviour
             return;
         }
 
-        int pageWithPlayer = Mathf.CeilToInt(_ownScore.Index / (float)Entries.Length);
+        int pageWithPlayer = Mathf.FloorToInt(_ownScore.Index / (float)Entries.Length);
         SetPage(pageWithPlayer);
     }
 
