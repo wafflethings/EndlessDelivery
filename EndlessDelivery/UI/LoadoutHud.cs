@@ -16,11 +16,22 @@ namespace EndlessDelivery.UI;
 
 public class LoadoutHud : MonoBehaviour
 {
+    private static readonly Dictionary<StoreItemType, StoreItemType> s_alternateSwapDict = new()
+    {
+        { StoreItemType.Revolver, StoreItemType.AltRevolver },
+        { StoreItemType.Shotgun, StoreItemType.AltShotgun },
+        { StoreItemType.Nailgun, StoreItemType.AltNailgun },
+        { StoreItemType.AltRevolver, StoreItemType.Revolver },
+        { StoreItemType.AltShotgun, StoreItemType.Shotgun },
+        { StoreItemType.AltNailgun, StoreItemType.Nailgun },
+    };
+
     [SerializeField] private TMP_Text _itemNameText;
     [SerializeField] private TMP_Text _categoryTitle;
     [SerializeField] private GameObject _page;
     [SerializeField] private GameObject _templateItemButton;
     [SerializeField] private Transform _itemButtonHolder;
+    [SerializeField] private GameObject _alternateButton;
     [SerializeField] private Button _equipButton;
     [SerializeField] private TMP_Text _equipButtonText;
     [SerializeField] private LoadoutHudVariantButton[] _variantButtons;
@@ -29,6 +40,8 @@ public class LoadoutHud : MonoBehaviour
     private StoreItemType _currentItemType;
 
     public bool HasNoVariations(StoreItemType itemType) => itemType is StoreItemType.Banner or StoreItemType.Present;
+
+    public bool HasAlternates(StoreItemType itemType) => s_alternateSwapDict.ContainsKey(itemType);
 
     private void Awake()
     {
@@ -44,6 +57,17 @@ public class LoadoutHud : MonoBehaviour
     {
         _currentItemType = (StoreItemType)itemType;
         StartCoroutine(SetSlotPage());
+    }
+
+    public void SwapToAlt()
+    {
+        if (!HasAlternates(_currentItemType))
+        {
+            Plugin.Log.LogWarning($"SwapToAlt called with unsupported item {_currentItemType} - shouldn't happen.");
+            return;
+        }
+
+        SelectItemType((int)s_alternateSwapDict[_currentItemType]);
     }
 
     private IEnumerator SetSlotPage()
@@ -73,7 +97,7 @@ public class LoadoutHud : MonoBehaviour
             Destroy(oldItemButton);
         }
 
-        IEnumerable<Item> orderedList =  itemList.OrderBy(x => x.Descriptor.Name);
+        IEnumerable<Item> orderedList =  itemList.OrderBy(x => CosmeticLoadout.DefaultItems.Contains(x.Descriptor.Id) ? string.Empty : x.Descriptor.Name); // sucks but string.empty makes defaults always first
         foreach (Item item in orderedList)
         {
             AddItem(item);
@@ -98,6 +122,8 @@ public class LoadoutHud : MonoBehaviour
         {
             SetItem(null);
         }
+
+        _alternateButton.SetActive(HasAlternates(_currentItemType));
 
         _page.SetActive(true);
     }
@@ -198,8 +224,6 @@ public class LoadoutHud : MonoBehaviour
             return string.Empty;
         }
 
-        Plugin.Log.LogMessage($"{loadoutSlotList.Count} < {variation}");
-
         if (loadoutSlotList.Count <= variation)
         {
             Plugin.Log.LogWarning($"{variation} out of range of slot {itemType}.");
@@ -216,10 +240,19 @@ public class LoadoutHud : MonoBehaviour
             case StoreItemType.Revolver:
                 return CosmeticManager.Loadout.RevolverIds;
 
+            case StoreItemType.AltRevolver:
+                return CosmeticManager.Loadout.AltRevolverIds;
+
             case StoreItemType.Shotgun:
                 return CosmeticManager.Loadout.ShotgunIds;
 
+            case StoreItemType.AltShotgun:
+                return CosmeticManager.Loadout.AltShotgunIds;
+
             case StoreItemType.Nailgun:
+                return CosmeticManager.Loadout.NailgunIds;
+
+            case StoreItemType.AltNailgun:
                 return CosmeticManager.Loadout.NailgunIds;
 
             case StoreItemType.Rail:

@@ -61,4 +61,14 @@ public static class ShopElements
 
         builder.AppendHtml("</div>");
     }
+
+    public static void AppendStarCounter(this HtmlContentBuilder builder, UserModel user)
+    {
+        builder.AppendHtml("<div class=\"price-holder\">");
+        builder.AppendHtml("<img class=\"price-currency\" src=\"/Resources/UI/prem-currency.png\">");
+        builder.AppendHtml("<p class=\"price-text\" id=\"star-counter\">");
+        builder.Append(user.PremiumCurrency.ToString());
+        builder.AppendHtml("</p>");
+        builder.AppendHtml("</div>");
+    }
 }

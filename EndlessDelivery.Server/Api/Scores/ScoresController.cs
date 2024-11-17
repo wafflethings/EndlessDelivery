@@ -147,13 +147,20 @@ namespace EndlessDelivery.Server.Api.Scores
         }
 
         [HttpGet("force_reset_indexes")]
-        public async Task<ObjectResult> SetIndexes()
+        public async Task<ObjectResult> ForceSetIndexes()
         {
             if (!HttpContext.TryGetLoggedInPlayer(out SteamUser user) || !(await user.GetUserModel()).Admin)
             {
                 return StatusCode(StatusCodes.Status403Forbidden, "Go away!!!!");
             }
 
+            await SetIndexes();
+
+            return StatusCode(StatusCodes.Status200OK, "Indexes reset.");
+        }
+
+        public async Task SetIndexes()
+        {
             Dictionary<string, int> countryIndexes = new();
             List<OnlineScore> models = await GetOnlineScores();
             await using DeliveryDbContext dbContext = new();
@@ -175,7 +182,6 @@ namespace EndlessDelivery.Server.Api.Scores
             }
 
             await dbContext.SaveChangesAsync();
-            return StatusCode(StatusCodes.Status200OK, "Indexes reset.");
         }
     }
 }
