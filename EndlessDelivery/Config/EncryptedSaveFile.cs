@@ -40,13 +40,14 @@ public class EncryptedSaveFile<T> : SaveFile<T> where T : new()
 
         for (int i = 0; i < split.Length; i++)
         {
-            Plugin.Log.LogInfo(split[i]);
             bytes[i] = Convert.ToByte(split[i], 16);
         }
 
         using BsonReader reader = new(new MemoryStream(bytes));
         JsonSerializer serializer = new();
-        return serializer.Deserialize<T>(reader) ?? new T();
+        T deserialized = serializer.Deserialize<T>(reader);
+        Plugin.Log.LogMessage($"File: {JsonConvert.SerializeObject(deserialized)}");
+        return deserialized ?? new T();
     }
 
     private void ProcessBytes(ref byte[] bytes)

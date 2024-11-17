@@ -13,14 +13,20 @@ namespace EndlessDelivery.Server.Api.Users.Items;
 public class ItemController : ControllerBase
 {
     [HttpGet("get_loadout")]
-    public async Task<ObjectResult> GetLoadout()
+    public async Task<ObjectResult> GetLoadout(ulong steamId)
     {
-        if (!HttpContext.TryGetLoggedInPlayer(out SteamUser steamUser))
+        if (!SteamUser.TryGetPlayer(steamId, out SteamUser steamUser))
         {
-            return StatusCode(StatusCodes.Status403Forbidden, "Not logged in");
+            return StatusCode(StatusCodes.Status400BadRequest, $"No user with ID {steamId}");
         }
 
-        UserModel user = await steamUser.GetUserModel();
+        UserModel? user = await steamUser.GetUserModel();
+
+        if (user == null)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, $"Server couldn't find UserModel for {steamId}");
+        }
+
         return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(user.Loadout));
     }
 
@@ -41,7 +47,9 @@ public class ItemController : ControllerBase
             return StatusCode(StatusCodes.Status400BadRequest, "Null request body");
         }
 
-        if (!user.OwnedItemIds.Contains(loadout.BannerId) || loadout.RevolverIds.Any(revId => !user.OwnedItemIds.Contains(revId)))
+        List<List<string>> allSkins = [loadout.RevolverIds, loadout.AltRevolverIds, loadout.ShotgunIds, loadout.AltShotgunIds, loadout.NailgunIds, loadout.AltNailgunIds, loadout.RailcannonIds, loadout.RocketIds];
+
+        if (!user.OwnedItemIds.Contains(loadout.BannerId) || allSkins.Any(x => x.Any(id => !user.OwnedItemIds.Contains(id))))
         {
             return StatusCode(StatusCodes.Status400BadRequest, "Item not owned");
         }

@@ -11,12 +11,13 @@ using EndlessDelivery.Cosmetics;
 using HarmonyLib;
 using Steamworks;
 using Steamworks.Data;
+using UnityEngine;
 
 namespace EndlessDelivery.Online;
 
 public static class OnlineFunctionality
 {
-    public static readonly ApiContext Context = new(new HttpClient(), GetTicket, new Uri("http://localhost:7048/api/"));
+    public static readonly ApiContext Context = new(new HttpClient(), GetTicket);
     private static SaveFile<Cms?> s_cmsData = SaveFile.RegisterFile(new SaveFile<Cms?>("content.json", Plugin.Name));
 
     public static Cms? LastFetchedContent => s_cmsData.Data;
@@ -33,6 +34,10 @@ public static class OnlineFunctionality
         {
             yield return null;
         }
+
+        Task loginTask = Task.Run(Context.Login);
+        yield return new WaitUntil(() => loginTask.IsCompleted);
+        Plugin.Log.LogMessage("Logged in!");
 
         Task.Run(GetContent);
         Task.Run(CosmeticManager.FetchLoadout);

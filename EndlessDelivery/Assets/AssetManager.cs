@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using EndlessDelivery.Cosmetics.Skins;
 using EndlessDelivery.Gameplay.EnemyGeneration;
 using HarmonyLib;
 using Newtonsoft.Json;
+using Steamworks.ServerList;
 using UnityEngine.AddressableAssets;
 using UnityEngine.SceneManagement;
 
@@ -48,6 +50,11 @@ public static class AssetManager
         if (data.ContainsKey(typeof(Scene).FullName))
         {
             _scenesFromThisMod = data[typeof(Scene).FullName];
+        }
+
+        if (data.ContainsKey(typeof(BaseSkin).FullName))
+        {
+            SkinDb.Init(GetDataOfType<BaseSkin>(data));
         }
     }
 

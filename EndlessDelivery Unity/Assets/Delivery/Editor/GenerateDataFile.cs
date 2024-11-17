@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using BuildPipeline.Editor.Building;
+using EndlessDelivery.Cosmetics.Skins;
 using EndlessDelivery.Gameplay.EnemyGeneration;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -17,6 +18,7 @@ public class GenerateDataFile
         Dictionary<string, List<string>> dataInfo = new Dictionary<string, List<string>>();
         AddData<Scene>(dataInfo, "Assets/Delivery/Scenes");
         AddData<EnemyGroup>(dataInfo, "Assets/Delivery/ScriptableObjects/EnemyGroups");
+        AddData<BaseSkin>(dataInfo, "Assets/Delivery/ScriptableObjects/Skins");
 
         using (StreamWriter writer = new StreamWriter(File.OpenWrite(Path.Combine("Built Bundles", "data.json"))))
         {

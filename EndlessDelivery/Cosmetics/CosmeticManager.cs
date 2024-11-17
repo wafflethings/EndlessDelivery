@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
-using AtlasLib.Weapons;
 using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common.ContentFile;
 using EndlessDelivery.Common.Inventory.Items;
-using EndlessDelivery.Common.Inventory.Items.WeaponSkins;
+using EndlessDelivery.Cosmetics.Skins;
 using EndlessDelivery.Online;
 using HarmonyLib;
 using Steamworks;
 using UnityEngine;
-using UnityEngine.AddressableAssets;
 
 namespace EndlessDelivery.Cosmetics;
 
@@ -22,18 +21,22 @@ public static class CosmeticManager
 
     public static async Task FetchLoadout()
     {
-        Loadout = await OnlineFunctionality.Context.GetLoadout();
+        Loadout = await OnlineFunctionality.Context.GetLoadout(SteamClient.SteamId);
         AllOwned = await OnlineFunctionality.Context.GetInventory(SteamClient.SteamId);
+    }
+
+    public static void UpdateLoadout()
+    {
+        Task.Run(() => OnlineFunctionality.Context.SetLoadout(Loadout));
     }
 
     private static bool WeaponHasSkin(GunType gunType, int variationIndex) => WeaponHasSkin(gunType, variationIndex, out _);
 
-    private static bool WeaponHasSkin(GunType gunType, int variationIndex, out string matPath)
+    private static bool WeaponHasSkin(GunType gunType, int variationIndex, out string skinId)
     {
-        matPath = string.Empty;
+        skinId = string.Empty;
+        Dictionary<string, WeaponSkinItem>? skinDict = null;
         Cms? cms = OnlineFunctionality.LastFetchedContent;
-        Func<string, WeaponSkin>? skinDictGet = null;
-        int? skinDictCount = null;
         List<string>? loadoutEntry = null;
 
         if (cms == null)
@@ -45,70 +48,62 @@ public static class CosmeticManager
         switch (gunType)
         {
             case GunType.Revolver:
-                skinDictGet = id => cms.Revolvers[id];
-                skinDictCount = cms.Revolvers.Count;
+                skinDict = cms.Revolvers;
                 loadoutEntry = Loadout.RevolverIds;
                 break;
 
             case GunType.AltRevolver:
-                skinDictGet = id => cms.AltRevolvers[id];
-                skinDictCount = cms.AltRevolvers.Count;
-                loadoutEntry = Loadout.RevolverIds;
+                skinDict = cms.AltRevolvers;
+                loadoutEntry = Loadout.AltRevolverIds;
                 break;
 
             case GunType.Shotgun:
-                skinDictGet = id => cms.Shotguns[id];
-                skinDictCount = cms.Shotguns.Count;
+                skinDict = cms.Shotguns;
                 loadoutEntry = Loadout.ShotgunIds;
                 break;
 
             case GunType.AltShotgun:
-                skinDictGet = id => cms.AltShotguns[id];
-                skinDictCount = cms.AltShotguns.Count;
-                loadoutEntry = Loadout.ShotgunIds;
+                skinDict = cms.AltShotguns;
+                loadoutEntry = Loadout.AltShotgunIds;
                 break;
 
             case GunType.Nailgun:
-                skinDictGet = id => cms.Nailguns[id];
-                skinDictCount = cms.Nailguns.Count;
+                skinDict = cms.Nailguns;
                 loadoutEntry = Loadout.NailgunIds;
                 break;
 
             case GunType.AltNailgun:
-                skinDictGet = id => cms.AltNailguns[id];
-                skinDictCount = cms.AltNailguns.Count;
-                loadoutEntry = Loadout.RevolverIds;
+                skinDict = cms.AltNailguns;
+                loadoutEntry = Loadout.AltNailgunIds;
                 break;
 
             case GunType.Railcannon:
-                skinDictGet = id => cms.Railcannons[id];
-                skinDictCount = cms.Railcannons.Count;
+                skinDict = cms.Railcannons;
                 loadoutEntry = Loadout.RailcannonIds;
                 break;
 
             case GunType.RocketLauncher:
-                skinDictGet = id => cms.Rockets[id];
-                skinDictCount = cms.Rockets.Count;
+                skinDict = cms.Rockets;
                 loadoutEntry = Loadout.RocketIds;
                 break;
         }
 
-        if (skinDictCount == null || loadoutEntry == null || skinDictGet == null)
+        if (loadoutEntry == null || skinDict == null)
         {
-            Debug.LogWarning("skinDictCount, loadoutEntry, or skinDictGet were null in WeaponHasSkin!");
+            Debug.LogWarning("loadoutEntry, or skinDictGet were null in WeaponHasSkin!");
             return false;
         }
 
-        if (variationIndex < skinDictCount)
+        if (variationIndex < loadoutEntry.Count)
         {
             string id = loadoutEntry[variationIndex];
 
-            if (id == string.Empty)
+            if (CosmeticLoadout.DefaultItems.Contains(id))
             {
                 return false;
             }
 
-            matPath = skinDictGet(id).MaterialPath;
+            skinId = skinDict[id].Descriptor.Id;
             return true;
         }
 
@@ -157,70 +152,71 @@ public static class CosmeticManager
         return true;
     }
 
-    private static void SetSkin(GameObject weapon, string materialPath, bool hasSkin)
+    private static void SetSkin(GameObject weapon, string skinId, bool hasSkin)
     {
         if (!hasSkin)
         {
             foreach (GunColorGetter colouredObject in weapon.GetComponentsInChildren<GunColorGetter>())
             {
-                colouredObject.UpdateColor();;
+                colouredObject.rend.materials = colouredObject.defaultMaterials;
             }
 
             return;
         }
 
-        Material? loadedMaterial = Addressables.LoadAssetAsync<Material>(materialPath).WaitForCompletion();
+        Material? material = SkinDb.GetSkin(skinId)?.Material;
 
-        if (loadedMaterial == null)
+        if (material == null)
         {
-            throw new Exception($"Couldn't find skin at path {materialPath}");
+            Plugin.Log.LogWarning($"SkinDb didn't contain skin {skinId} or it has no material.");
+            return;
         }
 
         foreach (GunColorGetter colouredObject in weapon.GetComponentsInChildren<GunColorGetter>())
         {
-            colouredObject.GetComponent<SkinnedMeshRenderer>().material = loadedMaterial;
+            colouredObject.GetComponent<SkinnedMeshRenderer>().material = material;
         }
     }
 
     [HarmonyPatch(typeof(Revolver), nameof(Revolver.OnEnable)), HarmonyPostfix]
     private static void SetRevolverSkin(Revolver __instance)
     {
-        bool hasSkin = WeaponHasSkin(__instance.altVersion ? GunType.AltRevolver : GunType.Revolver, __instance.gunVariation, out string path);
-        SetSkin(__instance.gameObject, path, hasSkin);
+        bool hasSkin = WeaponHasSkin(__instance.altVersion ? GunType.AltRevolver : GunType.Revolver, __instance.gunVariation, out string id);
+        SetSkin(__instance.gameObject, id, hasSkin);
     }
 
     [HarmonyPatch(typeof(Shotgun), nameof(Shotgun.OnEnable)), HarmonyPostfix]
     private static void SetShotgunSkin(Shotgun __instance)
     {
-        bool hasSkin = WeaponHasSkin(GunType.Shotgun, __instance.variation, out string path);
-        SetSkin(__instance.gameObject, path, hasSkin);
+        bool hasSkin = WeaponHasSkin(GunType.Shotgun, __instance.variation, out string id);
+        SetSkin(__instance.gameObject, id, hasSkin);
     }
 
     [HarmonyPatch(typeof(ShotgunHammer), nameof(ShotgunHammer.OnEnable)), HarmonyPostfix]
     private static void SetAltShotgunSkin(ShotgunHammer __instance)
     {
-        bool hasSkin = WeaponHasSkin(GunType.AltShotgun, __instance.variation, out string path);
-        SetSkin(__instance.gameObject, path, hasSkin);
+        bool hasSkin = WeaponHasSkin(GunType.AltShotgun, __instance.variation, out string id);
+        SetSkin(__instance.gameObject, id, hasSkin);
     }
 
     [HarmonyPatch(typeof(Nailgun), nameof(Nailgun.OnEnable)), HarmonyPostfix]
     private static void SetNailgunSkin(Nailgun __instance)
     {
-        bool hasSkin = WeaponHasSkin(__instance.altVersion ? GunType.AltNailgun : GunType.Nailgun, __instance.variation, out string path);
-        SetSkin(__instance.gameObject, path, hasSkin);
+        bool hasSkin = WeaponHasSkin(__instance.altVersion ? GunType.AltNailgun : GunType.Nailgun, __instance.variation, out string id);
+        SetSkin(__instance.gameObject, id, hasSkin);
     }
 
     [HarmonyPatch(typeof(Railcannon), nameof(Railcannon.OnEnable)), HarmonyPostfix]
     private static void SetRailcannonSkin(Railcannon __instance)
     {
-        bool hasSkin = WeaponHasSkin(GunType.Railcannon, __instance.variation, out string path);
-        SetSkin(__instance.gameObject, path, hasSkin);
+        bool hasSkin = WeaponHasSkin(GunType.Railcannon, __instance.variation, out string id);
+        SetSkin(__instance.gameObject, id, hasSkin);
     }
 
     [HarmonyPatch(typeof(RocketLauncher), nameof(RocketLauncher.OnEnable)), HarmonyPostfix]
     private static void SetRocketLauncherSkin(RocketLauncher __instance)
     {
-        bool hasSkin = WeaponHasSkin(GunType.RocketLauncher, __instance.variation, out string path);
-        SetSkin(__instance.gameObject, path, hasSkin);
+        bool hasSkin = WeaponHasSkin(GunType.RocketLauncher, __instance.variation, out string id);
+        SetSkin(__instance.gameObject, id, hasSkin);
     }
 }

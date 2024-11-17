@@ -1,4 +1,5 @@
-﻿using EndlessDelivery.Common.Communication.Scores;
+﻿using EndlessDelivery.Common;
+using EndlessDelivery.Common.Communication.Scores;
 using EndlessDelivery.Server.Api.ContentFile;
 using EndlessDelivery.Server.Api.Steam;
 using Microsoft.AspNetCore.Html;
@@ -39,7 +40,7 @@ public static class LeaderboardElements
     {
         builder.AppendHtml("<div class=\"lb-top-content-group\">");
         builder.AppendHtml("<p class=\"lb-diff-text\">");
-        builder.Append(SiteUtils.IntToDifficulty(onlineScore.Difficulty));
+        builder.Append(DdUtils.IntToDifficulty(onlineScore.Difficulty));
         builder.AppendHtml("</p>");
         builder.AppendHtml("<p class=\"lb-rooms-text\">");
         builder.Append(onlineScore.Score.Rooms.ToString());

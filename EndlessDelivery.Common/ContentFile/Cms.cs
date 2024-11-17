@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using EndlessDelivery.Common.Inventory.Items;
-using EndlessDelivery.Common.Inventory.Items.WeaponSkins;
 using Newtonsoft.Json;
 
 namespace EndlessDelivery.Common.ContentFile;
@@ -10,15 +9,15 @@ public class Cms
 {
     public Dictionary<string, Achievement> Achievements = new();
     public Dictionary<string, Banner> Banners = new();
-    public Dictionary<string, RevolverSkin> Revolvers = new();
-    public Dictionary<string, AltRevolverSkin> AltRevolvers = new();
-    public Dictionary<string, ShotgunSkin> Shotguns = new();
-    public Dictionary<string, AltShotgunSkin> AltShotguns = new();
-    public Dictionary<string, NailgunSkin> Nailguns = new();
-    public Dictionary<string, AltNailgunSkin> AltNailguns = new();
-    public Dictionary<string, RailcannonSkin> Railcannons = new();
-    public Dictionary<string, RocketLauncherSkin> Rockets = new();
-    public Dictionary<string, PresentSkin> Presents = new();
+    public Dictionary<string, WeaponSkinItem> Revolvers = new();
+    public Dictionary<string, WeaponSkinItem> AltRevolvers = new();
+    public Dictionary<string, WeaponSkinItem> Shotguns = new();
+    public Dictionary<string, WeaponSkinItem> AltShotguns = new();
+    public Dictionary<string, WeaponSkinItem> Nailguns = new();
+    public Dictionary<string, WeaponSkinItem> AltNailguns = new();
+    public Dictionary<string, WeaponSkinItem> Railcannons = new();
+    public Dictionary<string, WeaponSkinItem> Rockets = new();
+    public Dictionary<string, WeaponSkinItem> Presents = new();
     public List<ShopRotation> ShopRotations = new();
     public Dictionary<string, string> LocalisedStrings = new();
     public DateTime LastUpdate;
@@ -33,10 +32,15 @@ public class Cms
             return true;
         }
 
-        if (Revolvers.TryGetValue(id, out RevolverSkin revolverSkin))
+        Dictionary<string, WeaponSkinItem>[] weaponSkinDicts = [Revolvers, AltRevolvers, Shotguns, AltShotguns, Nailguns, AltNailguns, Railcannons, Rockets, Presents];
+
+        foreach (Dictionary<string, WeaponSkinItem> weaponSkinDict in weaponSkinDicts)
         {
-            item = revolverSkin;
-            return true;
+            if (weaponSkinDict.TryGetValue(id, out WeaponSkinItem skin))
+            {
+                item = skin;
+                return true;
+            }
         }
 
         item = null;

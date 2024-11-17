@@ -58,6 +58,15 @@ public class DeliveryDbContext : DbContext
         {
             builder.ToJson();
             builder.Property(x => x.BannerId);
+            builder.Property(x => x.PresentId);
+            builder.Property(x => x.RevolverIds);
+            builder.Property(x => x.AltRevolverIds);
+            builder.Property(x => x.ShotgunIds);
+            builder.Property(x => x.AltShotgunIds);
+            builder.Property(x => x.NailgunIds);
+            builder.Property(x => x.AltNailgunIds);
+            builder.Property(x => x.RailcannonIds);
+            builder.Property(x => x.RocketIds);
         });
         userBuilder.Property(user => user.PremiumCurrency);
         userBuilder.Property(user => user.OwnedAchievements).HasConversion(

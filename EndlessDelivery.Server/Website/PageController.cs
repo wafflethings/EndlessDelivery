@@ -181,14 +181,11 @@ public class PageController : Controller
 
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
 
+        builder.AppendShopRotation(userModel);
         if (loggedIn)
         {
-            builder.AppendHtml("<p>");
-            builder.Append($"{userModel.PremiumCurrency} vbucks");
-            builder.AppendHtml("</p>");
+            builder.AppendStarCounter(userModel);
         }
-
-        builder.AppendShopRotation(userModel);
 
         builder.AppendHtml("</div>");
 

@@ -17,6 +17,7 @@ public class ShopItemPanel : MonoBehaviour
     [SerializeField] private Button _button;
     [SerializeField] private TMP_Text _itemName;
     [SerializeField] private TMP_Text _itemCost;
+    [SerializeField] private TMP_Text _itemType;
     [SerializeField] private Image _iconImage;
     [SerializeField] private Image _moneyIcon;
     private JollyTerminalShop _parentShop;
@@ -40,11 +41,7 @@ public class ShopItemPanel : MonoBehaviour
         _ownedString = cms.GetLocalisedString("shop.owned");
         _itemName.text = cms.GetLocalisedString(_itemDescriptor.Name);
         _itemCost.text = _itemDescriptor.ShopPrice.ToString();
-
-        //todo improve this, makes the layout group refresh to prevent money and text overlap
-        LayoutGroup group = _itemCost.GetComponentInParent<LayoutGroup>();
-        group.enabled = false;
-        group.enabled = true;
+        _itemType.text = cms.GetLocalisedString("category." + _itemDescriptor.Type.ToString().ToLower());
 
         if (CosmeticManager.AllOwned.Contains(_itemDescriptor.Id))
         {

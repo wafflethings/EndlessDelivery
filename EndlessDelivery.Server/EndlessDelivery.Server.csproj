@@ -6,7 +6,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
         <RootNamespace>EndlessDelivery.Server</RootNamespace>
-
     </PropertyGroup>
 
     <ItemGroup>
@@ -34,18 +33,16 @@
       <Content Update="appsettings.json">
         <CopyToPublishDirectory>Never</CopyToPublishDirectory>
       </Content>
+      <None Include="$(SolutionDir)\EndlessDelivery.Server\Assets\**" CopyToOutputDirectory="Always"  />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Assets\Resources\UI\Achievements\" />
-    </ItemGroup>
-
-    <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition=" '$(OS)' == 'Windows_NT' ">
-      <Exec Command="cd $(ProjectDir)Assets\Resources\Scripts\ &amp;&amp; call compile.bat" />
-    </Target>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition=" '$(OS)' == 'Unix' ">
-    <Exec Command="cd $(ProjectDir)Assets\Resources\Scripts\ &amp;&amp; sh compile.sh" />
+    <Exec Command="tsc --project $(ProjectDir)Assets\Resources\Scripts\tsconfig.json"/>
+  </Target>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition=" '$(OS)' == 'Windows_NT' ">
+    <Exec Command="tsc --project $(ProjectDir)Assets\Resources\Scripts\tsconfig.json"/>
   </Target>
 
 </Project>

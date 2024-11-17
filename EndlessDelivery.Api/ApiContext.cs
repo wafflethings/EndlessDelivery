@@ -18,11 +18,19 @@ public class ApiContext
         BaseUri = baseUri == null ? new Uri(ProdUrl) : baseUri;
     }
 
-    public async Task EnsureAuth(HttpRequestMessage request)
+    public async Task Login()
+    {
+        Token = await this.GetToken(_getTicket());
+    }
+
+    public async Task AddAuth(HttpRequestMessage request)
     {
         try
         {
-            Token ??= await this.GetToken(_getTicket());
+            if (Token == null)
+            {
+                throw new PermissionException("You must be logged in.");
+            }
             request.Headers.Add("DeliveryToken", Token);
         }
         catch (InternalServerException ex)

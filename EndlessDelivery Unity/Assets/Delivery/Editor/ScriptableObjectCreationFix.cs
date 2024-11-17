@@ -71,12 +71,26 @@ namespace EndlessDelivery.Editor
 
         private static string FormPathWithSuffix(string path, int suffix) => suffix == 0 ? path : path.Replace(".asset", string.Empty) + " " + suffix + ".asset";
 
+        public static IEnumerable<Type> GetLoadableTypes(this System.Reflection.Assembly assembly)
+        {
+            if (assembly == null) throw new ArgumentNullException(nameof(assembly));
+            try
+            {
+                return assembly.GetTypes();
+            }
+            catch (ReflectionTypeLoadException e)
+            {
+                return e.Types.Where(t => t != null);
+            }
+        }
+
         private static void CreateMenu()
         {
             Type soType = typeof(ScriptableObject);
 
-            foreach (Type type in GetAssemblyByName(ModAssemblyName).GetTypes())
+            foreach (Type type in GetAssemblyByName(ModAssemblyName).GetLoadableTypes())
             {
+                Debug.Log(type.Name);
                 if (!soType.IsAssignableFrom(type))
                 {
                     continue;

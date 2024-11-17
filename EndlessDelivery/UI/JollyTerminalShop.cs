@@ -78,10 +78,6 @@ public class JollyTerminalShop : MonoBehaviour
     {
         _counterMoney = amount;
         _moneyCounter.text = amount.ToString();
-
-        LayoutGroup group = _moneyCounter.GetComponentInParent<LayoutGroup>();
-        group.enabled = false;
-        group.enabled = true;
     }
 
     private IEnumerator SetInitialMoneyCoroutine()

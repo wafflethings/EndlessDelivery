@@ -134,7 +134,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (CurrentRoom.RoomHasGameplay)
         {
-            AddTime(8, "<color=orange>ROOM CLEAR</color>");
+            AddTime(6, "<color=orange>ROOM CLEAR</color>");
             PointsPerWave += 3 + RoomsComplete / 3;
             StartTimes.Instance.Data.UpdateAllLowerDifficulty(RoomsComplete, TimeLeft);
         }

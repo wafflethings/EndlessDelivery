@@ -17,10 +17,23 @@
                 if (ownedText != null) {
                     ownedText.style.display = "block";
                 }
+
+                updateStarCounter().then(r => r)
             });
         }
     });
 });
+
+async function updateStarCounter() {
+    let counter = document.getElementById("star-counter");
+    if (counter == null) {
+        return;
+    }
+    const response : Response = await fetch("/api/users/get_currency_amount", {
+        method: 'GET',
+    });
+    counter.innerText = await response.text();
+}
 
 async function buyItem(itemId : string) : Promise<number> {
     const response : Response = await fetch("/api/users/items/buy_item", {
