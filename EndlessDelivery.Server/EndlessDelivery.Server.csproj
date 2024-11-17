@@ -40,12 +40,8 @@
       <Folder Include="Assets\Resources\UI\Achievements\" />
     </ItemGroup>
 
-    <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition=" '$(OS)' == 'Windows_NT' ">
-      <Exec Command="cd $(ProjectDir)Assets\Resources\Scripts\ &amp;&amp; call compile.bat" />
-    </Target>
-
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition=" '$(OS)' == 'Unix' ">
-    <Exec Command="cd $(ProjectDir)Assets\Resources\Scripts\ &amp;&amp; sh compile.sh" />
+    <Exec Command="cd $(ProjectDir)Assets\Resources\Scripts\ &amp;&amp; tsc -b" />
   </Target>
 
 </Project>
