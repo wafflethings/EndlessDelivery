@@ -34,14 +34,18 @@
       <Content Update="appsettings.json">
         <CopyToPublishDirectory>Never</CopyToPublishDirectory>
       </Content>
+      <Content Include="Assets\*">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Assets\Resources\UI\Achievements\" />
-    </ItemGroup>
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition=" '$(OS)' == 'Unix' ">
-    <Exec Command="cd $(ProjectDir)Assets\Resources\Scripts\ &amp;&amp; tsc -b" />
+    <Exec Command="tsc --project $(ProjectDir)Assets\Resources\Scripts\tsconfig.json"/>
+  </Target>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition=" '$(OS)' == 'Windows_NT' ">
+    <Exec Command="tsc --project $(ProjectDir)Assets\Resources\Scripts\tsconfig.json"/>
   </Target>
 
 </Project>
