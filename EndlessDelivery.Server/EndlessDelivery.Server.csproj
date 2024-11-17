@@ -34,9 +34,7 @@
       <Content Update="appsettings.json">
         <CopyToPublishDirectory>Never</CopyToPublishDirectory>
       </Content>
-      <Content Include="Assets\*">
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </Content>
+      <None Include="$(SolutionDir)\EndlessDelivery.Server\Assets\**" CopyToOutputDirectory="PreserveNewest" />
     </ItemGroup>
 
 
