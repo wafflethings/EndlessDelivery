@@ -99,7 +99,7 @@ public class JollyTerminalLeaderboards : MonoBehaviour
 
     public void OpenWebsite()
     {
-        Application.OpenURL("https://delivery.wafflethings.dev");
+        Application.OpenURL("https://delivery.wafflethings.dev/");
     }
 
     private IEnumerator RefreshPage()
