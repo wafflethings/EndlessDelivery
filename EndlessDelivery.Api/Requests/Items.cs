@@ -11,7 +11,7 @@ public static class Items
     private const string ItemsRoot = "users/items/";
     private const string BuyItemEndpoint = "buy_item";
     private const string ActiveShopEndpoint = "active_shop";
-    private const string GetLoadoutEndpoint = "get_loadout";
+    private const string GetLoadoutEndpoint = "get_loadout?steamId={0}";
     private const string SetLoadoutEndpoint = "set_loadout";
     private const string GetInventoryEndpoint = "get_inventory?steamId={0}";
 
@@ -35,11 +35,9 @@ public static class Items
         return JsonConvert.DeserializeObject<ShopRotation>(content) ?? throw new BadResponseException(content);
     }
 
-    public static async Task<CosmeticLoadout> GetLoadout(this ApiContext context)
+    public static async Task<CosmeticLoadout> GetLoadout(this ApiContext context, ulong steamId)
     {
-        HttpRequestMessage request = new(HttpMethod.Get, context.BaseUri + ItemsRoot + GetLoadoutEndpoint);
-        await context.AddAuth(request);
-        HttpResponseMessage response = await context.Client.SendAsync(request);
+        HttpResponseMessage response = await context.Client.GetAsync(context.BaseUri + ItemsRoot + string.Format(GetLoadoutEndpoint, steamId));
         string content = await response.Content.ReadAsStringAsync();
         CosmeticLoadout? deserialized = JsonConvert.DeserializeObject<CosmeticLoadout>(content);
         return deserialized ?? throw new BadResponseException(content);

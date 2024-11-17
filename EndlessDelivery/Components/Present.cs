@@ -73,9 +73,14 @@ public class Present : MonoBehaviour
 
     private void RemoveCollidersFromAll()
     {
+        if (_colliders == null)
+        {
+            return;
+        }
+
         foreach (Collider collider in _colliders)
         {
-            _allPresentColliders.Remove(collider);
+            _allPresentColliders?.Remove(collider);
         }
     }
 

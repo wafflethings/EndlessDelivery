@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Threading.Tasks;
+using EndlessDelivery.Api.Exceptions;
 using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common.Communication.Scores;
 using EndlessDelivery.Online;
@@ -31,7 +32,16 @@ public class JollyTerminalLeaderboards : MonoBehaviour
     private async void SetStuff()
     {
         _pageAmount = Mathf.CeilToInt(await OnlineFunctionality.Context.GetLeaderboardLength() / (float)Entries.Length);
-        _ownScore = await OnlineFunctionality.Context.GetLeaderboardScore(SteamClient.SteamId);
+
+        try
+        {
+            _ownScore = await OnlineFunctionality.Context.GetLeaderboardScore(SteamClient.SteamId);
+        }
+        catch (NotFoundException)
+        {
+            _ownScore = null;
+        }
+
         OwnEntry.SetValuesAndEnable(this, _ownScore);
 
         if (_ownScore == null)

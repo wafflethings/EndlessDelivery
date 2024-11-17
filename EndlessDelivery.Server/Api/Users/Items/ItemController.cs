@@ -13,14 +13,20 @@ namespace EndlessDelivery.Server.Api.Users.Items;
 public class ItemController : ControllerBase
 {
     [HttpGet("get_loadout")]
-    public async Task<ObjectResult> GetLoadout()
+    public async Task<ObjectResult> GetLoadout(ulong steamId)
     {
-        if (!HttpContext.TryGetLoggedInPlayer(out SteamUser steamUser))
+        if (!SteamUser.TryGetPlayer(steamId, out SteamUser steamUser))
         {
-            return StatusCode(StatusCodes.Status403Forbidden, "Not logged in");
+            return StatusCode(StatusCodes.Status400BadRequest, $"No user with ID {steamId}");
         }
 
-        UserModel user = await steamUser.GetUserModel();
+        UserModel? user = await steamUser.GetUserModel();
+
+        if (user == null)
+        {
+            return StatusCode(StatusCodes.Status500InternalServerError, $"Server couldn't find UserModel for {steamId}");
+        }
+
         return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(user.Loadout));
     }
 

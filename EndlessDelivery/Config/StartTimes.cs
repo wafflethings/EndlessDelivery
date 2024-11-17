@@ -13,6 +13,7 @@ public class StartTimes
     [JsonIgnore] public static readonly EncryptedSaveFile<StartTimes> Instance = SaveFile.RegisterFile(new EncryptedSaveFile<StartTimes>("times.ddenc")) as EncryptedSaveFile<StartTimes> ?? throw new();
     public Dictionary<int, StartTime> DifficultyToTimes = new();
 
+    [JsonIgnore]
     public StartTime CurrentTimes
     {
         get
@@ -48,20 +49,17 @@ public class StartTimes
     [Serializable]
     public class StartTime
     {
-        public static readonly int[] StartableWaves = [0, 5, 10, 25, 50];
+        public static readonly int[] StartableWaves = [0, 5, 10, 25, 50, 75];
         public Dictionary<int, float> WaveToTime = new() { { 0, GameManager.StartTime } };
-        public List<int> UnlockedStartTimes = [];
+        public List<int> UnlockedStartTimes = new();
         public int SelectedWave;
 
         public void SetValues(int wave, float time)
         {
-            if (wave == 0)
+            Plugin.Log.LogMessage($"SetValues(wave {wave}, time {time}) | {string.Join(",", UnlockedStartTimes)}");
+            if (!UnlockedStartTimes.Contains(0))
             {
-                if (!UnlockedStartTimes.Contains(0))
-                {
-                    UnlockedStartTimes.Add(0);
-                }
-                return;
+                UnlockedStartTimes.Add(0);
             }
 
             if (StartableWaves.Contains(wave))
@@ -79,16 +77,19 @@ public class StartTimes
                 }
             }
 
+            Plugin.Log.LogMessage("Foreach");
             foreach (int startableWave in StartableWaves)
             {
+                Plugin.Log.LogMessage($"Check if {wave} != {startableWave * 2}");
                 if (wave != startableWave * 2)
                 {
+                    Plugin.Log.LogMessage("Continue");
                     continue;
                 }
 
                 if (!UnlockedStartTimes.Contains(startableWave))
                 {
-                    Plugin.Log.LogInfo($"Added {startableWave}");
+                    Plugin.Log.LogMessage($"Added {startableWave}");
                     UnlockedStartTimes.Add(startableWave);
                 }
             }

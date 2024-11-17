@@ -453,9 +453,10 @@ MonoBehaviour:
   RankNumber: {fileID: 9099013865691474945}
   Username: {fileID: 4905744010066727376}
   Rooms: {fileID: 1707017358661816713}
-  Delivered: {fileID: 1727230932599781755}
+  Difficulty: {fileID: 1727230932599781755}
   ProfileActual: {fileID: 1904334381384050187}
-  _loadingPfp: {fileID: 0}
+  Banner: {fileID: 0}
+  _loadingPfp: {fileID: 21300000, guid: 8a09f60ceb99c73498fe1ae88b1dc241, type: 3}
 --- !u!1 &6371098800511437839
 GameObject:
   m_ObjectHideFlags: 0
@@ -2496,11 +2497,11 @@ RectTransform:
   m_Father: {fileID: 6371098800511447940}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 94.62651, y: 0}
-  m_SizeDelta: {x: -380.74698, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -15, y: 0}
+  m_SizeDelta: {x: 50, y: 42}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &6371098800511444897
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3509,8 +3510,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -25.386665, y: 0}
-  m_SizeDelta: {x: -249.22667, y: -6}
+  m_AnchoredPosition: {x: -27.886665, y: 0}
+  m_SizeDelta: {x: -254.22667, y: -6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6371098800511443128
 CanvasRenderer:
@@ -4579,7 +4580,7 @@ GameObject:
   - component: {fileID: 1727230932599781755}
   - component: {fileID: 6371098800511424440}
   m_Layer: 13
-  m_Name: Delivered
+  m_Name: Difficulty
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4599,11 +4600,11 @@ RectTransform:
   m_Father: {fileID: 6371098800511447940}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -0, z: -0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 164.66522, y: -0.000015258789}
-  m_SizeDelta: {x: -360.66956, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -75, y: -0.000045776367}
+  m_SizeDelta: {x: 70, y: 20}
+  m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &6371098800511444791
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4656,7 +4657,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: (34)
+  m_Text: VIOLENT
 --- !u!1 &6371098800511438260
 GameObject:
   m_ObjectHideFlags: 0

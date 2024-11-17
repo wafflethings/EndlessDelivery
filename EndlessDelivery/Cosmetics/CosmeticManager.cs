@@ -21,7 +21,7 @@ public static class CosmeticManager
 
     public static async Task FetchLoadout()
     {
-        Loadout = await OnlineFunctionality.Context.GetLoadout();
+        Loadout = await OnlineFunctionality.Context.GetLoadout(SteamClient.SteamId);
         AllOwned = await OnlineFunctionality.Context.GetInventory(SteamClient.SteamId);
     }
 
