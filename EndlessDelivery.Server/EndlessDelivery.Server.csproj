@@ -6,7 +6,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
         <RootNamespace>EndlessDelivery.Server</RootNamespace>
-
     </PropertyGroup>
 
     <ItemGroup>
@@ -34,7 +33,7 @@
       <Content Update="appsettings.json">
         <CopyToPublishDirectory>Never</CopyToPublishDirectory>
       </Content>
-      <None Include="$(SolutionDir)\EndlessDelivery.Server\Assets\**" CopyToOutputDirectory="PreserveNewest" />
+      <None Include="$(SolutionDir)\EndlessDelivery.Server\Assets\**" CopyToOutputDirectory="Always"  />
     </ItemGroup>
 
 
