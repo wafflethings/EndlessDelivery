@@ -161,6 +161,9 @@ namespace EndlessDelivery.Server.Api.Scores
 
         public async Task SetIndexes(DeliveryDbContext dbContext)
         {
+            // Needs to save beforehard or will error because one with the same key is already being tracked
+            await dbContext.SaveChangesAsync();
+
             Dictionary<string, int> countryIndexes = new();
             List<OnlineScore> models = await GetOnlineScores();
             Dictionary<ulong, UserModel> idToUm = dbContext.Users.ToDictionary(model => model.SteamId, model => model);
