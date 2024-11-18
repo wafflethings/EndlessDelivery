@@ -141,7 +141,7 @@ namespace EndlessDelivery.Server.Api.Scores
                 dbContext.Scores.Add(newScore);
             }
 
-            await SetIndexes();
+            await SetIndexes(dbContext);
             await dbContext.SaveChangesAsync();
             return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));
         }
@@ -149,21 +149,20 @@ namespace EndlessDelivery.Server.Api.Scores
         [HttpGet("force_reset_indexes")]
         public async Task<ObjectResult> ForceSetIndexes()
         {
-            if (!HttpContext.TryGetLoggedInPlayer(out SteamUser user) || !(await user.GetUserModel()).Admin)
+            if (!HttpContext.TryGetLoggedInPlayer(out SteamUser user) || !(await user.GetUserModel()).Admin || user.SteamId == "76561199074883531") //todo remove hardcoded
             {
                 return StatusCode(StatusCodes.Status403Forbidden, "Go away!!!!");
             }
 
-            await SetIndexes();
+            await SetIndexes(new DeliveryDbContext());
 
             return StatusCode(StatusCodes.Status200OK, "Indexes reset.");
         }
 
-        public async Task SetIndexes()
+        public async Task SetIndexes(DeliveryDbContext dbContext)
         {
             Dictionary<string, int> countryIndexes = new();
             List<OnlineScore> models = await GetOnlineScores();
-            await using DeliveryDbContext dbContext = new();
             Dictionary<ulong, UserModel> idToUm = dbContext.Users.ToDictionary(model => model.SteamId, model => model);
 
             int index = 0;
