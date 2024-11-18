@@ -16,6 +16,7 @@ public class DeliveryDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlite("Data Source=DeliveryDb.db");
+        optionsBuilder.EnableSensitiveDataLogging();
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
