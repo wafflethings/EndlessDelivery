@@ -141,7 +141,7 @@ namespace EndlessDelivery.Server.Api.Scores
                 dbContext.Scores.Add(newScore);
             }
 
-            await SetIndexes(dbContext);
+            await SetIndexes();
             await dbContext.SaveChangesAsync();
             return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));
         }
@@ -154,16 +154,14 @@ namespace EndlessDelivery.Server.Api.Scores
                 return StatusCode(StatusCodes.Status403Forbidden, "Go away!!!!");
             }
 
-            await SetIndexes(new DeliveryDbContext());
+            await SetIndexes();
 
             return StatusCode(StatusCodes.Status200OK, "Indexes reset.");
         }
 
-        public async Task SetIndexes(DeliveryDbContext dbContext)
+        public async Task SetIndexes()
         {
-            // Needs to save beforehard or will error because one with the same key is already being tracked
-            await dbContext.SaveChangesAsync();
-
+            await using DeliveryDbContext dbContext = new();
             Dictionary<string, int> countryIndexes = new();
             List<OnlineScore> models = await GetOnlineScores();
             Dictionary<ulong, UserModel> idToUm = dbContext.Users.ToDictionary(model => model.SteamId, model => model);
@@ -171,6 +169,7 @@ namespace EndlessDelivery.Server.Api.Scores
             int index = 0;
             foreach (OnlineScore sm in models)
             {
+                await using DeliveryDbContext dbContextUpdate = new();
                 sm.Index = index;
                 index++;
 
@@ -180,10 +179,9 @@ namespace EndlessDelivery.Server.Api.Scores
                     countryIndexes.Add(country, 0);
                 }
                 sm.CountryIndex = countryIndexes[country]++;
-                dbContext.Scores.Update(sm);
+                dbContextUpdate.Scores.Update(sm);
+                await dbContextUpdate.SaveChangesAsync();
             }
-
-            await dbContext.SaveChangesAsync();
         }
     }
 }
