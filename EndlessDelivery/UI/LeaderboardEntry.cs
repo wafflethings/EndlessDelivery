@@ -29,6 +29,7 @@ public class LeaderboardEntry : MonoBehaviour
     [SerializeField] private Sprite _loadingPfp;
     private Coroutine? _lastPfpSetter;
     private Coroutine? _lastBannerSetter;
+    private Friend _user;
 
     public void SetValuesAndEnable(MonoBehaviour coroutineRunner, OnlineScore? onlineScore)
     {
@@ -38,8 +39,8 @@ public class LeaderboardEntry : MonoBehaviour
             return;
         }
 
-        Friend user = new(onlineScore.SteamId);
-        string username = user.Name;
+        _user = new(onlineScore.SteamId);
+        string username = _user.Name;
 
         if (onlineScore.SteamId == SteamClient.SteamId)
         {
@@ -55,7 +56,7 @@ public class LeaderboardEntry : MonoBehaviour
         {
             coroutineRunner.StopCoroutine(_lastPfpSetter);
         }
-        _lastPfpSetter = coroutineRunner.StartCoroutine(SetAvatar(user));
+        _lastPfpSetter = coroutineRunner.StartCoroutine(SetAvatar(_user));
 
         if (Banner != null)
         {
@@ -64,7 +65,7 @@ public class LeaderboardEntry : MonoBehaviour
                 coroutineRunner.StopCoroutine(_lastBannerSetter);
             }
 
-            _lastBannerSetter = coroutineRunner.StartCoroutine(SetBanner(user));
+            _lastBannerSetter = coroutineRunner.StartCoroutine(SetBanner(_user));
         }
 
         gameObject.SetActive(true);
@@ -113,5 +114,10 @@ public class LeaderboardEntry : MonoBehaviour
 
         Banner.sprite = bannerLoadTask.Result;
         Banner.gameObject.SetActive(true);
+    }
+
+    public void OpenProfile()
+    {
+        Application.OpenURL("https://delivery.wafflethings.dev/users/" + _user.Id);
     }
 }
