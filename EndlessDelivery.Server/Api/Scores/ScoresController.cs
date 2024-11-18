@@ -149,7 +149,7 @@ namespace EndlessDelivery.Server.Api.Scores
         [HttpGet("force_reset_indexes")]
         public async Task<ObjectResult> ForceSetIndexes()
         {
-            if (!HttpContext.TryGetLoggedInPlayer(out SteamUser user) || !(await user.GetUserModel()).Admin || user.SteamId == "76561199074883531") //todo remove hardcoded
+            if (!HttpContext.TryGetLoggedInPlayer(out SteamUser user) || !((await user.GetUserModel()).Admin || user.SteamId == "76561199074883531")) //todo remove hardcoded
             {
                 return StatusCode(StatusCodes.Status403Forbidden, "Go away!!!!");
             }
