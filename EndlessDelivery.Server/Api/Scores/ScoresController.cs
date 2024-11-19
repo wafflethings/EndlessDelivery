@@ -141,8 +141,8 @@ namespace EndlessDelivery.Server.Api.Scores
                 dbContext.Scores.Add(newScore);
             }
 
-            await SetIndexes();
             await dbContext.SaveChangesAsync();
+            await SetIndexes();
             return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));
         }
 
@@ -182,6 +182,7 @@ namespace EndlessDelivery.Server.Api.Scores
                 dbContextUpdate.Scores.Update(sm);
                 await dbContextUpdate.SaveChangesAsync();
             }
+            await dbContext.SaveChangesAsync();
         }
     }
 }
