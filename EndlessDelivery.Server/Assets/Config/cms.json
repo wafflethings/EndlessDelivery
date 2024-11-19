@@ -1,256 +1,274 @@
 {
-  "Achievements": {
-    "first_place_ach": {
-      "Name": "achievement.firstplace",
-      "Id": "first_place_ach",
-      "Description": "",
-      "Icon": {
-        "AssetUri": "/Resources/UI/Achievements/first-score.png",
-        "AddressablePath": "Assets/Delivery/Textures/Achievements/first-score.png"
-      },
-      "OrderPriority": 0,
-      "ItemGrants": []
-    }
-  },
-  "Banners": {
-    "banner_default": {
-      "Asset": {
-        "AssetUri": "/Resources/UI/Banners/average-british-neighbourhood.png",
-        "AddressablePath": "Assets/Delivery/Cosmetics/Banners/ABN/average-british-neighbourhood.png"
-      },
-      "Descriptor": {
-        "Type": 0,
-        "Id": "banner_default",
-        "Name": "item.misc_default",
-        "ShopPrice": 0,
-        "Icon": {
-          "AssetUri": "/Resources/UI/Banners/abn-preview.png",
-          "AddressablePath": "Assets/Delivery/Cosmetics/Banners/ABN/abn-preview.png"
+    "Achievements": {
+        "first_place_ach": {
+            "Name": "achievement.firstplace",
+            "Id": "first_place_ach",
+            "Description": "",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/first-score.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/first-score.png"
+            },
+            "OrderPriority": 0,
+            "ItemGrants": []
         }
-      }
     },
-    "banner_gniesbert": {
-      "Asset": {
-        "AssetUri": "/Resources/UI/Banners/gniesbert.png",
-        "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gniesbert/gniesbert.png"
-      },
-      "Descriptor": {
-        "Type": 0,
-        "Id": "banner_gniesbert",
-        "Name": "item.banner_gniesbert",
-        "ShopPrice": 9999,
-        "Icon": {
-          "AssetUri": "/Resources/UI/Banners/gnies-preview.png",
-          "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gniesbert/gnies-preview.png"
+    "Banners": {
+        "banner_default": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/average-british-neighbourhood.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/ABN/average-british-neighbourhood.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_default",
+                "Name": "item.misc_default",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/abn-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/ABN/abn-preview.png"
+                }
+            }
+        },
+        "banner_gniesbert": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/gniesbert.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gniesbert/gniesbert.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_gniesbert",
+                "Name": "item.banner_gniesbert",
+                "ShopPrice": 9999,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/gnies-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gniesbert/gnies-preview.png"
+                }
+            }
+        },
+        "banner_gone_fishing": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/gone-fishing.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gone Fishing/gone-fishing.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_gone_fishing",
+                "Name": "item.banner_gone_fishing",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/gone-fishing-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gone Fishing/gone-fishing-preview.png"
+                }
+            }
         }
-      }
-    }
-  },
-  "Revolvers": {
-    "revolver_default": {
-      "Descriptor": {
-        "Type": 1,
-        "Id": "revolver_default",
-        "Name": "item.misc_default",
-        "ShopPrice": 0,
-        "Icon": {
-          "AssetUri": "/Resources/UI/default-icon.png",
-          "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
-        }
-      }
     },
-    "revolver_awesometest": {
-      "Descriptor": {
-        "Type": 1,
-        "Id": "revolver_awesometest",
-        "Name": "item.revolver_awesometest",
-        "ShopPrice": 200,
-        "Icon": {
-          "AssetUri": "/Resources/UI/logo-transparent.png",
-          "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gniesbert/gnies-preview.png"
+    "Revolvers": {
+        "revolver_default": {
+            "Descriptor": {
+                "Type": 1,
+                "Id": "revolver_default",
+                "Name": "item.misc_default",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
+        },
+        "revolver_awesometest": {
+            "Descriptor": {
+                "Type": 1,
+                "Id": "revolver_awesometest",
+                "Name": "item.revolver_awesometest",
+                "ShopPrice": 200,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/logo-transparent.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gniesbert/gnies-preview.png"
+                }
+            }
         }
-      }
-    }
-  },
-  "AltRevolvers": {
-    "altrevolver_default": {
-      "Descriptor": {
-        "Type": 7,
-        "Id": "altrevolver_default",
-        "Name": "item.misc_default",
-        "ShopPrice": 0,
-        "Icon": {
-          "AssetUri": "/Resources/UI/default-icon.png",
-          "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
-        }
-      }
-    }
-  },
-  "Shotguns": {
-    "shotgun_default": {
-      "Descriptor": {
-        "Type": 2,
-        "Id": "shotgun_default",
-        "Name": "item.misc_default",
-        "ShopPrice": 0,
-        "Icon": {
-          "AssetUri": "/Resources/UI/default-icon.png",
-          "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
-        }
-      }
-    }
-  },
-  "AltShotguns": {
-    "altshotgun_default": {
-      "Descriptor": {
-        "Type": 8,
-        "Id": "altshotgun_default",
-        "Name": "item.misc_default",
-        "ShopPrice": 0,
-        "Icon": {
-          "AssetUri": "/Resources/UI/default-icon.png",
-          "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
-        }
-      }
-    }
-  },
-  "Nailguns": {
-    "nailgun_default": {
-      "Descriptor": {
-        "Type": 3,
-        "Id": "nailgun_default",
-        "Name": "item.misc_default",
-        "ShopPrice": 0,
-        "Icon": {
-          "AssetUri": "/Resources/UI/default-icon.png",
-          "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
-        }
-      }
-    }
-  },
-  "AltNailguns": {
-    "altnailgun_default": {
-      "Descriptor": {
-        "Type": 9,
-        "Id": "altnailgun_default",
-        "Name": "item.misc_default",
-        "ShopPrice": 0,
-        "Icon": {
-          "AssetUri": "/Resources/UI/default-icon.png",
-          "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
-        }
-      }
-    }
-  },
-  "Railcannons": {
-    "railcannon_default": {
-      "Descriptor": {
-        "Type": 4,
-        "Id": "railcannon_default",
-        "Name": "item.misc_default",
-        "ShopPrice": 0,
-        "Icon": {
-          "AssetUri": "/Resources/UI/default-icon.png",
-          "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
-        }
-      }
-    }
-  },
-  "Rockets": {
-    "rocket_default": {
-      "Descriptor": {
-        "Type": 5,
-        "Id": "rocket_default",
-        "Name": "item.misc_default",
-        "ShopPrice": 0,
-        "Icon": {
-          "AssetUri": "/Resources/UI/default-icon.png",
-          "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
-        }
-      }
-    }
-  },
-  "Presents": {
-    "present_default": {
-      "Descriptor": {
-        "Type": 6,
-        "Id": "present_default",
-        "Name": "item.misc_default",
-        "ShopPrice": 0,
-        "Icon": {
-          "AssetUri": "/Resources/UI/default-icon.png",
-          "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
-        }
-      }
-    }
-  },
-  "ShopRotations": [
-    {
-      "ItemIds": [
-        "banner_gniesbert",
-        "banner_default"
-      ],
-      "Start": "2024-06-08T00:00:00+01:00",
-      "Length": "1.00:00:00"
     },
-    {
-      "ItemIds": [
-        "banner_gniesbert"
-      ],
-      "Start": "2024-06-09T00:00:00+01:00",
-      "Length": "1.00:00:00"
+    "AltRevolvers": {
+        "altrevolver_default": {
+            "Descriptor": {
+                "Type": 7,
+                "Id": "altrevolver_default",
+                "Name": "item.misc_default",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
+        }
     },
-    {
-      "ItemIds": [
-        "revolver_awesometest"
-      ],
-      "Start": "1970-01-01T23:00:00+00:00",
-      "Length": "999999.00:00:00"
-    }
-  ],
-  "LocalisedStrings": {
-    "achievement.firstplace": "First place temp",
-    "navbar.mod_name": "DIVINE DELIVERY",
-    "navbar.shop_link": "SHOP",
-    "navbar.download_link": "DOWNLOAD",
-    "sidebar.admin": "ADMIN PANEL",
-    "sidebar.profile": "PROFILE",
-    "sidebar.acc_settings": "SETTINGS",
-    "sidebar.logout": "LOG OUT",
-    "sidebar.login": "LOG IN",
-    "leaderboard.extra_info": "DELIVERIES: {0}<br>KILLS: {1}<br>TIME: {2}",
-    "settings.links": "Links",
-    "settings.patreon": "Patreon",
-    "settings.patreon.link": "LINK",
-    "settings.discord": "DISCORD",
-    "settings.twitter": "TWITTER",
-    "settings.youtube": "YOUTUBE",
-    "shop.owned": "OWNED",
-    "shop.equipped": "EQUIPPED",
-    "shop.unequipped": "UNEQUIPPED",
-    "category.banner": "BANNER",
-    "category.revolver": "REVOLVER",
-    "category.shotgun": "SHOTGUN",
-    "category.nailgun": "NAILGUN",
-    "category.rail": "RAILCANNON",
-    "category.rocket": "ROCKET LAUNCHER",
-    "category.altrevolver": "SLAB REVOLVER",
-    "category.altshotgun": "IMPACT HAMMER",
-    "category.altnailgun": "SAWBLADE LAUNCHER",
-    "category.present": "PRESENT",
-    "page_title.index": "Divine Delivery - Leaderboard",
-    "page_title.user": "Divine Delivery - {0}",
-    "page_title.settings": "Divine Delivery - Settings",
-    "page_title.shop": "Divine Delivery - Shop",
-    "page_title.admin": "Divine Delivery - Admin Panel",
-    "page_title.error": "Divine Delivery - Error {0}",
-    "page_desc.index": "The leaderboard of Divine Delivery scores.",
-    "page_desc.user": "{0}'s personal account page.",
-    "page_desc.shop": "The items currently available for purchase.",
-    "page_desc.error": "No idea why you're here, but it's probably my fault.",
-    "item.banner_gniesbert": "My Shitty Dog",
-    "item.misc_default": "Default",
-    "item.revolver_awesometest": "Awesome Test"
-  },
-  "LastUpdate": "2024-11-19T00:00:00.3684074Z"
+    "Shotguns": {
+        "shotgun_default": {
+            "Descriptor": {
+                "Type": 2,
+                "Id": "shotgun_default",
+                "Name": "item.misc_default",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
+        }
+    },
+    "AltShotguns": {
+        "altshotgun_default": {
+            "Descriptor": {
+                "Type": 8,
+                "Id": "altshotgun_default",
+                "Name": "item.misc_default",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
+        }
+    },
+    "Nailguns": {
+        "nailgun_default": {
+            "Descriptor": {
+                "Type": 3,
+                "Id": "nailgun_default",
+                "Name": "item.misc_default",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
+        }
+    },
+    "AltNailguns": {
+        "altnailgun_default": {
+            "Descriptor": {
+                "Type": 9,
+                "Id": "altnailgun_default",
+                "Name": "item.misc_default",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
+        }
+    },
+    "Railcannons": {
+        "railcannon_default": {
+            "Descriptor": {
+                "Type": 4,
+                "Id": "railcannon_default",
+                "Name": "item.misc_default",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
+        }
+    },
+    "Rockets": {
+        "rocket_default": {
+            "Descriptor": {
+                "Type": 5,
+                "Id": "rocket_default",
+                "Name": "item.misc_default",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
+        }
+    },
+    "Presents": {
+        "present_default": {
+            "Descriptor": {
+                "Type": 6,
+                "Id": "present_default",
+                "Name": "item.misc_default",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
+        }
+    },
+    "ShopRotations": [
+        {
+            "ItemIds": [
+                "banner_gniesbert",
+                "banner_default"
+            ],
+            "Start": "2024-06-08T00:00:00+01:00",
+            "Length": "1.00:00:00"
+        },
+        {
+            "ItemIds": [
+                "banner_gniesbert"
+            ],
+            "Start": "2024-06-09T00:00:00+01:00",
+            "Length": "1.00:00:00"
+        },
+        {
+            "ItemIds": [
+                "banner_gone_fishing",
+                "revolver_awesometest"
+            ],
+            "Start": "1970-01-01T23:00:00+00:00",
+            "Length": "999999.00:00:00"
+        }
+    ],
+    "LocalisedStrings": {
+        "achievement.firstplace": "First place temp",
+        "navbar.mod_name": "DIVINE DELIVERY",
+        "navbar.shop_link": "SHOP",
+        "navbar.download_link": "DOWNLOAD",
+        "sidebar.admin": "ADMIN PANEL",
+        "sidebar.profile": "PROFILE",
+        "sidebar.acc_settings": "SETTINGS",
+        "sidebar.logout": "LOG OUT",
+        "sidebar.login": "LOG IN",
+        "leaderboard.extra_info": "DELIVERIES: {0}<br>KILLS: {1}<br>TIME: {2}",
+        "settings.links": "Links",
+        "settings.patreon": "Patreon",
+        "settings.patreon.link": "LINK",
+        "settings.discord": "DISCORD",
+        "settings.twitter": "TWITTER",
+        "settings.youtube": "YOUTUBE",
+        "shop.owned": "OWNED",
+        "shop.equipped": "EQUIPPED",
+        "shop.unequipped": "UNEQUIPPED",
+        "category.banner": "BANNER",
+        "category.revolver": "REVOLVER",
+        "category.shotgun": "SHOTGUN",
+        "category.nailgun": "NAILGUN",
+        "category.rail": "RAILCANNON",
+        "category.rocket": "ROCKET LAUNCHER",
+        "category.altrevolver": "SLAB REVOLVER",
+        "category.altshotgun": "IMPACT HAMMER",
+        "category.altnailgun": "SAWBLADE LAUNCHER",
+        "category.present": "PRESENT",
+        "page_title.index": "Divine Delivery - Leaderboard",
+        "page_title.user": "Divine Delivery - {0}",
+        "page_title.settings": "Divine Delivery - Settings",
+        "page_title.shop": "Divine Delivery - Shop",
+        "page_title.admin": "Divine Delivery - Admin Panel",
+        "page_title.error": "Divine Delivery - Error {0}",
+        "page_desc.index": "The leaderboard of Divine Delivery scores.",
+        "page_desc.user": "{0}'s personal account page.",
+        "page_desc.shop": "The items currently available for purchase.",
+        "page_desc.error": "No idea why you're here, but it's probably my fault.",
+        "item.banner_gniesbert": "My Shitty Dog",
+        "item.banner_gone_fishing": "Gone Fishing",
+        "item.misc_default": "Default",
+        "item.revolver_awesometest": "Awesome Test"
+    },
+    "LastUpdate": "2024-11-19T00:00:00.3684074Z"
 }
