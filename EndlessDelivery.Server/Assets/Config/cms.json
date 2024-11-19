@@ -80,10 +80,10 @@
                 "Type": 1,
                 "Id": "revolver_awesometest",
                 "Name": "item.revolver_awesometest",
-                "ShopPrice": 200,
+                "ShopPrice": 250,
                 "Icon": {
-                    "AssetUri": "/Resources/UI/logo-transparent.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gniesbert/gnies-preview.png"
+                    "AssetUri": "/Resources/UI/placeholder-item.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
         }
