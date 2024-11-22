@@ -114,6 +114,30 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
+        },
+        "shotgun_zelzmiy": {
+            "Descriptor": {
+                "Type": 2,
+                "Id": "shotgun_zelzmiy",
+                "Name": "item.shotgun_zelzmiy",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
+        },
+        "shotgun_gingerbread": {
+            "Descriptor": {
+                "Type": 2,
+                "Id": "shotgun_gingerbread",
+                "Name": "item.misc_gingerbread",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
         }
     },
     "AltShotguns": {
@@ -142,6 +166,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
+        },
+        "nailgun_gingerbread": {
+            "Descriptor": {
+                "Type": 3,
+                "Id": "nailgun_gingerbread",
+                "Name": "item.misc_gingerbread",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
         }
     },
     "AltNailguns": {
@@ -165,6 +201,18 @@
                 "Id": "railcannon_default",
                 "Name": "item.misc_default",
                 "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
+        },
+        "railcannon_gingerbread": {
+            "Descriptor": {
+                "Type": 4,
+                "Id": "railcannon_gingerbread",
+                "Name": "item.misc_gingerbread",
+                "ShopPrice": 250,
                 "Icon": {
                     "AssetUri": "/Resources/UI/default-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
@@ -219,7 +267,8 @@
         {
             "ItemIds": [
                 "banner_gone_fishing",
-                "revolver_awesometest"
+                "revolver_awesometest",
+                "shotgun_gingerbread"
             ],
             "Start": "1970-01-01T23:00:00+00:00",
             "Length": "999999.00:00:00"
@@ -268,7 +317,9 @@
         "item.banner_gniesbert": "My Shitty Dog",
         "item.banner_gone_fishing": "Gone Fishin'",
         "item.misc_default": "Default",
-        "item.revolver_awesometest": "Awesome Test"
+        "item.misc_gingerbread": "Gingerbread",
+        "item.revolver_awesometest": "Awesome Test",
+        "item.shotgun_zelzmiy": "Frosty"
     },
-    "LastUpdate": "2024-11-19T00:00:00.3684074Z"
+    "LastUpdate": "2024-11-22T00:00:00.3684074Z"
 }
