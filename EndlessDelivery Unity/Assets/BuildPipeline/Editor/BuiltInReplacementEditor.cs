@@ -23,16 +23,16 @@ namespace BuildPipeline.Editor
 			_editorInstance = CreateEditor(target, typeEditor);
 		}
 
-		public override void OnInspectorGUI()
-		{
-			EditorGUI.BeginChangeCheck();
-			_editorInstance.OnInspectorGUI();
-
-			if (EditorGUI.EndChangeCheck()) // i tried to use OnValidate but it is never called.. i love unity
-			{
-				ReplaceRendererMaterial(target as Renderer);
-			}
-		}
+		// public override void OnInspectorGUI()
+		// {
+		// 	EditorGUI.BeginChangeCheck();
+		// 	_editorInstance.OnInspectorGUI();
+		//
+		// 	if (EditorGUI.EndChangeCheck()) // i tried to use OnValidate but it is never called.. i love unity
+		// 	{
+		// 		ReplaceRendererMaterial(target as Renderer);
+		// 	}
+		// }
 
 		public static bool ReplaceRendererMaterial(Renderer renderer)
 		{

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: -1460650763, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
   m_Name: Shotgun Frosty
   m_EditorClassIdentifier: 
-  Id: shotgun_frosty
-  Material: {fileID: 0}
+  Id: shotgun_zelzmiy
+  Material: {fileID: 2100000, guid: 16541e1b1664b9d4e8a0407f75b7f951, type: 2}

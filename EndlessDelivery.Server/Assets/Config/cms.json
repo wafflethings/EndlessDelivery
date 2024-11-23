@@ -267,8 +267,8 @@
         {
             "ItemIds": [
                 "banner_gone_fishing",
-                "revolver_awesometest",
-                "shotgun_gingerbread"
+                "shotgun_gingerbread",
+                "nailgun_gingerbread"
             ],
             "Start": "1970-01-01T23:00:00+00:00",
             "Length": "999999.00:00:00"
@@ -314,6 +314,9 @@
         "page_desc.user": "{0}'s personal account page.",
         "page_desc.shop": "The items currently available for purchase.",
         "page_desc.error": "No idea why you're here, but it's probably my fault.",
+        "game_ui.achievement_unlocks": "Unlocks {0}.",
+        "game_ui.achievement_unlocks_nothing": "nothing",
+        "game_ui.hidden_achievement": "Details will be revealed when the achievement is unlocked.",
         "item.banner_gniesbert": "My Shitty Dog",
         "item.banner_gone_fishing": "Gone Fishin'",
         "item.misc_default": "Default",
@@ -321,5 +324,5 @@
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty"
     },
-    "LastUpdate": "2024-11-22T00:00:00.3684074Z"
+    "LastUpdate": "2024-11-23T00:00:00.3684074Z"
 }
