@@ -162,7 +162,6 @@ public static class CosmeticManager
                 {
                     continue;
                 }
-                Plugin.Log.LogMessage($"Reset {colouredObject.gameObject.name} GCC");
                 renderer.materials = colouredObject.defaultMaterials;
             }
 
@@ -184,7 +183,7 @@ public static class CosmeticManager
             {
                 continue;
             }
-            Plugin.Log.LogMessage($"Set {colouredObject.gameObject.name} GCC to {material.name}");
+
             renderer.material = material;
         }
     }
