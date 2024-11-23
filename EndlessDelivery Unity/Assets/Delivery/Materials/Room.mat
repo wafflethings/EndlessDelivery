@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Room
-  m_Shader: {fileID: 4800000, guid: d04867d88061feb42b08ba33fe72a2bc, type: 3}
+  m_Shader: {fileID: 4800000, guid: 848aa33c1dd05da41999520b0f55720b, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -77,5 +77,5 @@ Material:
     - _VertexWarping: 160
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 0.26845244, b: 0, a: 1}
+    - _Color: {r: 0, g: 0.028474554, b: 0.05660379, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
