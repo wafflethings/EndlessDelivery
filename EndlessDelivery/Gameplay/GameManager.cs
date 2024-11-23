@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Assets;
 using EndlessDelivery.Common;
 using EndlessDelivery.Config;
 using EndlessDelivery.Gameplay.EnemyGeneration;
+using EndlessDelivery.Online;
 using EndlessDelivery.ScoreManagement;
 using EndlessDelivery.UI;
 using EndlessDelivery.Utils;
@@ -20,7 +22,7 @@ public class GameManager : MonoSingleton<GameManager>
 {
     public const float StartTime = 45;
     public const float TimeAddLength = 0.5f;
-    
+
     public AudioSource TimeAddSound;
     public RoomPool RoomPool;
 
@@ -35,23 +37,20 @@ public class GameManager : MonoSingleton<GameManager>
     public int PointsPerWave { get; private set; }
     public Score CurrentScore => new(RoomsComplete, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed);
 
-    [SerializeField] private Vector3 _baseRoomPosition;
+    [SerializeField] private Vector3 _baseRoomPosition = new(0, 0, 100);
     private Coroutine _pauseCoroutine;
     private List<RoomData> _remainingRooms = new();
     private static readonly int s_startingPoints = 20;
 
     public static int GetRoomPoints(int roomNumber)
     {
-        Plugin.Log.LogInfo($"sp {s_startingPoints}");
         int points = s_startingPoints;
 
         for (int i = 0; i < roomNumber; i++)
         {
             points += 3 + (i + 1) / 3;
-            Plugin.Log.LogInfo($"p {s_startingPoints} ( + {3 + (i + 1) / 3})");
         }
 
-        Plugin.Log.LogInfo($"ret {points}");
         return points;
     }
 
@@ -109,12 +108,12 @@ public class GameManager : MonoSingleton<GameManager>
         TimerActive = true;
     }
 
-    public Room GenerateNewRoom()
+    private Room GenerateNewRoom()
     {
-        return Instantiate(GetRandomRoom().Prefab, _baseRoomPosition + (Vector3.right * (RoomsComplete % 3) * 100), Quaternion.identity).GetComponent<Room>();
+        return Instantiate(GetRandomRoom().Prefab, _baseRoomPosition + (Vector3.right * (RoomsComplete % 3) * 200), Quaternion.identity).GetComponent<Room>();
     }
 
-    public RoomData GetRandomRoom()
+    private RoomData GetRandomRoom()
     {
         if (_remainingRooms.Count == 0)
         {
@@ -206,11 +205,24 @@ public class GameManager : MonoSingleton<GameManager>
                 EndScreen.Instance.NewBest = true;
             }
 
-            Task.Run(() => ScoreManager.SubmitScore(CurrentScore, (short)difficulty));
+            StartCoroutine(ShowAfterSubmit(difficulty));
         }
         else
         {
             HudMessageReceiver.Instance.SendHudMessage("Score not submitting due to other mods, or cheats enabled.");
+            EndScreen.Instance.Appear();
+        }
+    }
+
+    private IEnumerator ShowAfterSubmit(int difficulty)
+    {
+        Task<bool> onlineTask = OnlineFunctionality.Context.ServerOnline();
+        yield return new WaitUntil(() => onlineTask.IsCompleted);
+
+        if (onlineTask.Result)
+        {
+            Task submitTask = ScoreManager.SubmitScore(CurrentScore, (short)difficulty);
+            yield return new WaitUntil(() => submitTask.IsCompleted);
         }
 
         EndScreen.Instance.Appear();

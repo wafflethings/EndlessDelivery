@@ -40,7 +40,6 @@ public class Room : MonoBehaviour
     private int _wavesSinceSpecial;
 
     public bool ChimneysDone => AmountDelivered.All(kvp => PresentColourAmounts[(int)kvp.Key] <= kvp.Value);
-    public bool AllDead => Enemies.All(enemy => enemy?.dead ?? true);
 
     public bool Done(WeaponVariant colour)
     {
@@ -148,7 +147,6 @@ public class Room : MonoBehaviour
     private void DecideSpawnPointEnemies()
     {
         _pointsLeft = GameManager.Instance.PointsPerWave;
-        Plugin.Log.LogInfo($"Spawning enemies: starts with {_pointsLeft}");
 
         List<EnemySpawnPoint> projectileSpawns = SpawnPoints.Where(sp => sp.Class == DeliveryEnemyClass.Projectile).ShuffleAndToList();
         List<EnemySpawnPoint> meleeSpawns = SpawnPoints.Where(sp => sp.Class == DeliveryEnemyClass.Melee).ShuffleAndToList();
@@ -172,7 +170,6 @@ public class Room : MonoBehaviour
         int uncommonAmount = Random.Range(1, max + 1);
         max -= uncommonAmount;
 
-        Plugin.Log.LogInfo($"Spawning {uncommonAmount} uncommons!");
         List<EndlessEnemy> uncommons = GetPotentialEnemies(EnemyGroup.Groups[DeliveryEnemyClass.Uncommon]).ShuffleAndToList();
 
         foreach (EndlessEnemy enemy in uncommons)
@@ -195,20 +192,17 @@ public class Room : MonoBehaviour
             uncommons.Add(uncommons[0]);
         }
 
-        Plugin.Log.LogInfo($"Uncommons are {uncommons[0].prefab.name} and {uncommons[1].prefab.name}!!");
         int[] amounts = { 0, 0 };
 
         for (int i = 0; i < uncommonAmount; i++)
         {
             if (_meleeSpawnsUsed == spawns.Count)
             {
-                Plugin.Log.LogInfo($"broke2 with {_pointsLeft}");
                 break;
             }
 
             if (GetRealCost(uncommons[0]) >= _pointsLeft && GetRealCost(uncommons[1]) >= _pointsLeft)
             {
-                Plugin.Log.LogInfo("uncommon break | cant afford");
                 break;
             }
 
@@ -278,17 +272,10 @@ public class Room : MonoBehaviour
 
         max -= specialAmount;
 
-        Plugin.Log.LogInfo($"Spawning {specialAmount} specials!");
-        foreach (EndlessEnemy enemy in GetPotentialEnemies(EnemyGroup.Groups[DeliveryEnemyClass.Special]).ShuffleAndToList())
-        {
-            Plugin.Log.LogInfo($"   {enemy}");
-        }
-
         for (int i = 0; i < specialAmount; i++)
         {
             if (_meleeSpawnsUsed == spawns.Count)
             {
-                Plugin.Log.LogInfo($"broke1 with {_pointsLeft}");
                 break;
             }
 
@@ -307,10 +294,8 @@ public class Room : MonoBehaviour
     {
         while (_pointsLeft != 0)
         {
-            Plugin.Log.LogInfo($"has {_pointsLeft} points left!");
             if (_projectileSpawnsUsed == projectile.Count && _meleeSpawnsUsed == melee.Count)
             {
-                Plugin.Log.LogInfo($"broke with {_pointsLeft}");
                 break;
             }
 
@@ -327,11 +312,6 @@ public class Room : MonoBehaviour
             }
 
             IEnumerable<EndlessEnemy> enemies = GetPotentialEnemies(EnemyGroup.Groups[type]);
-            foreach (EndlessEnemy enemy in enemies)
-            {
-                Plugin.Log.LogInfo($"   pm {enemy.prefab.name}");
-            }
-
             EndlessEnemy randomEnemy = enemies.ToList().Pick();
 
             if (randomEnemy == null)
@@ -342,7 +322,6 @@ public class Room : MonoBehaviour
 
             EnemySpawnPoint spawnPoint = type == DeliveryEnemyClass.Melee ? melee[_meleeSpawnsUsed] : projectile[_projectileSpawnsUsed];
             SetSpawnPoint(spawnPoint, randomEnemy, type);
-            Plugin.Log.LogInfo($"now at {_pointsLeft}");
         }
     }
 
@@ -373,7 +352,7 @@ public class Room : MonoBehaviour
         point.Room = this;
         point.Enemy = enemy.prefab;
         _pointsLeft -= GetRealCost(enemy);
-        Plugin.Log.LogInfo($"just spent {GetRealCost(enemy)}");
+
         if (!_amountSpawned.ContainsKey(enemy.enemyType))
         {
             _amountSpawned.Add(enemy.enemyType, 0);
