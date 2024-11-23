@@ -38,7 +38,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private Coroutine _pauseCoroutine;
     private List<RoomData> _remainingRooms = new();
-    private static readonly int _startingPoints = 10;
+    private static readonly int _startingPoints = 20;
 
     public static int GetRoomPoints(int roomNumber)
     {

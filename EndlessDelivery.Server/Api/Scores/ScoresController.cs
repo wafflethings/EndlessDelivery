@@ -141,15 +141,15 @@ namespace EndlessDelivery.Server.Api.Scores
                 dbContext.Scores.Add(newScore);
             }
 
-            await SetIndexes();
             await dbContext.SaveChangesAsync();
+            await SetIndexes();
             return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));
         }
 
         [HttpGet("force_reset_indexes")]
         public async Task<ObjectResult> ForceSetIndexes()
         {
-            if (!HttpContext.TryGetLoggedInPlayer(out SteamUser user) || !(await user.GetUserModel()).Admin)
+            if (!HttpContext.TryGetLoggedInPlayer(out SteamUser user) || !((await user.GetUserModel()).Admin || user.SteamId == "76561199074883531")) //todo remove hardcoded
             {
                 return StatusCode(StatusCodes.Status403Forbidden, "Go away!!!!");
             }
@@ -161,14 +161,15 @@ namespace EndlessDelivery.Server.Api.Scores
 
         public async Task SetIndexes()
         {
+            await using DeliveryDbContext dbContext = new();
             Dictionary<string, int> countryIndexes = new();
             List<OnlineScore> models = await GetOnlineScores();
-            await using DeliveryDbContext dbContext = new();
             Dictionary<ulong, UserModel> idToUm = dbContext.Users.ToDictionary(model => model.SteamId, model => model);
 
             int index = 0;
             foreach (OnlineScore sm in models)
             {
+                await using DeliveryDbContext dbContextUpdate = new();
                 sm.Index = index;
                 index++;
 
@@ -178,9 +179,9 @@ namespace EndlessDelivery.Server.Api.Scores
                     countryIndexes.Add(country, 0);
                 }
                 sm.CountryIndex = countryIndexes[country]++;
-                dbContext.Scores.Update(sm);
+                dbContextUpdate.Scores.Update(sm);
+                await dbContextUpdate.SaveChangesAsync();
             }
-
             await dbContext.SaveChangesAsync();
         }
     }

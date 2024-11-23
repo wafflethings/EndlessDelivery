@@ -22,6 +22,7 @@ public class JollyTerminalShop : MonoBehaviour
     [SerializeField] private GameObject _templatePanel;
     [SerializeField] private Transform _panelHolder;
     [SerializeField] private AudioSource _buySound;
+    [SerializeField] private AudioSource _buyError;
     [SerializeField] private TMP_Text _moneyCounter;
     [SerializeField] private AudioSource _moneyDecreaseTick;
     [SerializeField] private float _moneyTickInterval;
@@ -127,6 +128,12 @@ public class JollyTerminalShop : MonoBehaviour
 
     public void BuyItem(ItemDescriptor item)
     {
+        if (item.ShopPrice > _totalMoney)
+        {
+            _buyError.Play();
+            return;
+        }
+
         foreach (ShopItemPanel itemPanel in _panels)
         {
             itemPanel.Disable();
