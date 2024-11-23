@@ -97,7 +97,7 @@ public class LoadoutHud : MonoBehaviour
             Destroy(oldItemButton);
         }
 
-        IEnumerable<Item> orderedList =  itemList.OrderBy(x => CosmeticLoadout.DefaultItems.Contains(x.Descriptor.Id) ? string.Empty : x.Descriptor.Name); // sucks but string.empty makes defaults always first
+        IEnumerable<Item> orderedList =  itemList.OrderBy(x => CosmeticLoadout.DefaultItems.Contains(x.Descriptor.Id) ? string.Empty : cms.GetLocalisedString(x.Descriptor.Name)); // sucks but string.empty makes defaults always first
         foreach (Item item in orderedList)
         {
             AddItem(item);

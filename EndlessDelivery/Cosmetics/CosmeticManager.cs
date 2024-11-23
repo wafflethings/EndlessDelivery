@@ -158,13 +158,19 @@ public static class CosmeticManager
         {
             foreach (GunColorGetter colouredObject in weapon.GetComponentsInChildren<GunColorGetter>())
             {
-                colouredObject.rend.materials = colouredObject.defaultMaterials;
+                if (!colouredObject.TryGetComponent(out Renderer renderer))
+                {
+                    continue;
+                }
+                Plugin.Log.LogMessage($"Reset {colouredObject.gameObject.name} GCC");
+                renderer.materials = colouredObject.defaultMaterials;
             }
 
             return;
         }
 
         Material? material = SkinDb.GetSkin(skinId)?.Material;
+        Plugin.Log.LogMessage($"Material is {material?.name ?? "null"}");
 
         if (material == null)
         {
@@ -174,7 +180,12 @@ public static class CosmeticManager
 
         foreach (GunColorGetter colouredObject in weapon.GetComponentsInChildren<GunColorGetter>())
         {
-            colouredObject.GetComponent<SkinnedMeshRenderer>().material = material;
+            if (!colouredObject.TryGetComponent(out Renderer renderer))
+            {
+                continue;
+            }
+            Plugin.Log.LogMessage($"Set {colouredObject.gameObject.name} GCC to {material.name}");
+            renderer.material = material;
         }
     }
 
