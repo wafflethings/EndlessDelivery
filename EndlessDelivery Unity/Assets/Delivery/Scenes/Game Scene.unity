@@ -15053,6 +15053,11 @@ PrefabInstance:
       propertyPath: m_OverrideVoxelSize
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8757477265264289876, guid: 786dba9af370c954b95e072f866b3905,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 786dba9af370c954b95e072f866b3905, type: 3}
 --- !u!1001 &1285772327496817415

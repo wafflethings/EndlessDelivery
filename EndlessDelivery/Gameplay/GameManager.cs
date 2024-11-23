@@ -20,8 +20,7 @@ public class GameManager : MonoSingleton<GameManager>
 {
     public const float StartTime = 45;
     public const float TimeAddLength = 0.5f;
-
-    public NavMeshSurface Navmesh;
+    
     public AudioSource TimeAddSound;
     public RoomPool RoomPool;
 
@@ -36,19 +35,20 @@ public class GameManager : MonoSingleton<GameManager>
     public int PointsPerWave { get; private set; }
     public Score CurrentScore => new(RoomsComplete, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed);
 
+    [SerializeField] private Vector3 _baseRoomPosition;
     private Coroutine _pauseCoroutine;
     private List<RoomData> _remainingRooms = new();
-    private static readonly int _startingPoints = 20;
+    private static readonly int s_startingPoints = 20;
 
     public static int GetRoomPoints(int roomNumber)
     {
-        Plugin.Log.LogInfo($"sp {_startingPoints}");
-        int points = _startingPoints;
+        Plugin.Log.LogInfo($"sp {s_startingPoints}");
+        int points = s_startingPoints;
 
         for (int i = 0; i < roomNumber; i++)
         {
             points += 3 + (i + 1) / 3;
-            Plugin.Log.LogInfo($"p {_startingPoints} ( + {3 + (i + 1) / 3})");
+            Plugin.Log.LogInfo($"p {s_startingPoints} ( + {3 + (i + 1) / 3})");
         }
 
         Plugin.Log.LogInfo($"ret {points}");
@@ -111,9 +111,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public Room GenerateNewRoom()
     {
-        Collider collider = CurrentRoom.GetComponent<Collider>();
-        return Instantiate(GetRandomRoom().Prefab, CurrentRoom.gameObject.transform.position + (Vector3.right * collider.bounds.size.x * 2.5f), Quaternion.identity)
-            .GetComponent<Room>();
+        return Instantiate(GetRandomRoom().Prefab, _baseRoomPosition + (Vector3.right * (RoomsComplete % 3) * 100), Quaternion.identity).GetComponent<Room>();
     }
 
     public RoomData GetRandomRoom()
@@ -140,7 +138,6 @@ public class GameManager : MonoSingleton<GameManager>
         }
 
         SetRoom(GenerateNewRoom());
-        Navmesh.BuildNavMesh();
         // BlackFade.Instance.Flash(0.125f);
     }
 
