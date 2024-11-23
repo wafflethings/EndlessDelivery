@@ -174,6 +174,11 @@ public class Chimney : MonoBehaviour
     // called by event in Assets/Delivery/Prefabs/Level/Chimney/Chimney.prefab > Pit/Teleport Zone/BoxCollider
     public void WarpPlayerToNextRoom()
     {
+        if (GameManager.Instance.PreviousRoom.TryGetComponent(out GoreZone goreZone))
+        {
+            goreZone.ResetGibs();
+        }
+
         Destroy(GameManager.Instance.PreviousRoom.gameObject);
         Vector3 tpOffset = NewMovement.Instance.transform.position - Teleporter.transform.position;
         NewMovement.Instance.transform.position = GameManager.Instance.CurrentRoom.SpawnPoint.transform.position + tpOffset.Only(Axis.X, Axis.Z);
