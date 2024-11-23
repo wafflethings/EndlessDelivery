@@ -102,6 +102,11 @@ public class JollyTerminalLeaderboards : MonoBehaviour
         Application.OpenURL("https://delivery.wafflethings.dev/");
     }
 
+    public void JoinDiscord()
+    {
+        Application.OpenURL("https://discord.gg/RFwAcDaH");
+    }
+
     private IEnumerator RefreshPage()
     {
         if (_lastRefresh != null)

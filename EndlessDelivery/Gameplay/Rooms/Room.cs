@@ -192,7 +192,7 @@ public class Room : MonoBehaviour
             uncommons.Add(uncommons[0]);
         }
 
-        int[] amounts = { 0, 0 };
+        int[] amounts = [0, 0];
 
         for (int i = 0; i < uncommonAmount; i++)
         {

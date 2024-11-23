@@ -110,6 +110,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private Room GenerateNewRoom()
     {
+        Plugin.Log.LogMessage($"RoomsComplete {RoomsComplete} - mod {RoomsComplete % 3}");
         return Instantiate(GetRandomRoom().Prefab, _baseRoomPosition + (Vector3.right * (RoomsComplete % 3) * 200), Quaternion.identity).GetComponent<Room>();
     }
 
@@ -135,6 +136,10 @@ public class GameManager : MonoSingleton<GameManager>
             PointsPerWave += 3 + RoomsComplete / 3;
             StartTimes.Instance.Data.UpdateAllLowerDifficulty(RoomsComplete, TimeLeft);
         }
+        else if (!GameStarted)
+        {
+            StartGame();
+        }
 
         SetRoom(GenerateNewRoom());
         // BlackFade.Instance.Flash(0.125f);
@@ -142,11 +147,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void SetRoom(Room room)
     {
-        if (room.RoomHasGameplay && !GameStarted)
-        {
-            StartGame();
-        }
-
         if (CurrentRoom != room)
         {
             PreviousRoom = CurrentRoom;
