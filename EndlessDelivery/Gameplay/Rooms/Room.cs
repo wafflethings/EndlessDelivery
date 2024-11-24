@@ -385,9 +385,9 @@ public class Room : MonoBehaviour
     {
         if (collider.GetComponent<NewMovement>() != null && !RoomActivated)
         {
-            RoomActivated = true;
             GameManager.Instance.SetRoom(this);
             Arena?.Activate();
+            RoomActivated = true;
         }
     }
 }

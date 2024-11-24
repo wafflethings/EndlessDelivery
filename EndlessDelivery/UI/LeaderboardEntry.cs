@@ -29,7 +29,9 @@ public class LeaderboardEntry : MonoBehaviour
     [SerializeField] private Sprite _loadingPfp;
     private Coroutine? _lastPfpSetter;
     private Coroutine? _lastBannerSetter;
+    private Coroutine? _lastUsernameSetter;
     private Friend _user;
+    private OnlineScore? _score;
 
     public void SetValuesAndEnable(MonoBehaviour coroutineRunner, OnlineScore? onlineScore)
     {
@@ -39,18 +41,18 @@ public class LeaderboardEntry : MonoBehaviour
             return;
         }
 
-        _user = new(onlineScore.SteamId);
-        string username = _user.Name;
-
-        if (onlineScore.SteamId == SteamClient.SteamId)
-        {
-            username = $"<color=orange>{username}</color>";
-        }
+        _score = onlineScore;
+        _user = new Friend(onlineScore.SteamId);
 
         ((IText)RankNumber).SetText((onlineScore.Index + 1).ToString());
-        ((IText)Username).SetText(username);
         ((IText)Rooms).SetText(onlineScore.Score.Rooms.ToString());
         ((IText)Difficulty).SetText(DdUtils.IntToDifficulty(onlineScore.Difficulty));
+
+        if (_lastUsernameSetter != null)
+        {
+            coroutineRunner.StopCoroutine(_lastUsernameSetter);
+        }
+        _lastUsernameSetter = coroutineRunner.StartCoroutine(SetUsername(_user));
 
         if (_lastPfpSetter != null)
         {
@@ -79,6 +81,20 @@ public class LeaderboardEntry : MonoBehaviour
         ((IText)Difficulty).SetText("(-)");
         ProfileActual.sprite = _loadingPfp;
         gameObject.SetActive(true);
+    }
+
+    private IEnumerator SetUsername(Friend user)
+    {
+        Task<string> usernameTask = OnlineFunctionality.Context.GetUsername(user.Id);
+        yield return new WaitUntil(() => usernameTask.IsCompleted);
+        string username = usernameTask.Result;
+
+        if (_score.SteamId == SteamClient.SteamId)
+        {
+            username = $"<color=orange>{username}</color>";
+        }
+
+        ((IText)Username).SetText(username);
     }
 
     private IEnumerator SetAvatar(Friend user)

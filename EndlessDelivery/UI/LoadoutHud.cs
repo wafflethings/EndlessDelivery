@@ -74,6 +74,15 @@ public class LoadoutHud : MonoBehaviour
     {
         _page.SetActive(false);
 
+        Task<bool> onlineTask = OnlineFunctionality.Context.ServerOnline();
+        yield return new WaitUntil(() => onlineTask.IsCompleted);
+
+        if (!onlineTask.Result)
+        {
+            HudMessageReceiver.Instance.SendHudMessage("Server offline!");
+            yield break;
+        }
+
         Task<Cms> cmsTask = OnlineFunctionality.GetContent();
         Task loadoutTask = CosmeticManager.FetchLoadout();
         yield return new WaitUntil(() => cmsTask.IsCompleted && loadoutTask.IsCompleted);

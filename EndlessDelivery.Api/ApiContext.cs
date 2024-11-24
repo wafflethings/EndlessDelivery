@@ -15,6 +15,12 @@ public class ApiContext
     {
         Client = client;
         _getTicket = getTicket;
+
+        if (baseUri != null && !baseUri.AbsoluteUri.EndsWith("/"))
+        {
+            baseUri = new(baseUri.OriginalString + "/");
+        }
+
         BaseUri = baseUri == null ? new Uri(ProdUrl) : baseUri;
     }
 

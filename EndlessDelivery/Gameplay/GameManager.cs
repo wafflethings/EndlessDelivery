@@ -221,8 +221,22 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (onlineTask.Result)
         {
-            Task submitTask = ScoreManager.SubmitScore(CurrentScore, (short)difficulty);
-            yield return new WaitUntil(() => submitTask.IsCompleted);
+            Task<bool> updateRequiredTask = OnlineFunctionality.Context.UpdateRequired(Plugin.Version);
+            yield return new WaitUntil(() => updateRequiredTask.IsCompleted);
+
+            if (!updateRequiredTask.Result)
+            {
+                Task submitTask = ScoreManager.SubmitScore(CurrentScore, (short)difficulty);
+                yield return new WaitUntil(() => submitTask.IsCompleted);
+            }
+            else
+            {
+                HudMessageReceiver.Instance.SendHudMessage("Update required to submit scores!");
+            }
+        }
+        else
+        {
+            HudMessageReceiver.Instance.SendHudMessage("Server offline!");
         }
 
         EndScreen.Instance.Appear();
