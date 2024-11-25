@@ -9,7 +9,8 @@
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/first-score.png"
             },
             "OrderPriority": 0,
-            "ItemGrants": []
+            "ItemGrants": [],
+            "HideDetails": true
         }
     },
     "Banners": {
@@ -71,7 +72,7 @@
                 "ShopPrice": 0,
                 "Icon": {
                     "AssetUri": "/Resources/UI/placeholder-item.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
         },
@@ -97,7 +98,7 @@
                 "ShopPrice": 0,
                 "Icon": {
                     "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
         }
@@ -111,7 +112,7 @@
                 "ShopPrice": 0,
                 "Icon": {
                     "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
         },
@@ -149,7 +150,7 @@
                 "ShopPrice": 0,
                 "Icon": {
                     "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
         },
@@ -175,7 +176,7 @@
                 "ShopPrice": 0,
                 "Icon": {
                     "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
         },
@@ -201,7 +202,7 @@
                 "ShopPrice": 0,
                 "Icon": {
                     "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
         }
@@ -215,7 +216,7 @@
                 "ShopPrice": 0,
                 "Icon": {
                     "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
         },
@@ -241,7 +242,7 @@
                 "ShopPrice": 0,
                 "Icon": {
                     "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
         }
@@ -255,7 +256,7 @@
                 "ShopPrice": 0,
                 "Icon": {
                     "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
         }
@@ -337,5 +338,5 @@
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty"
     },
-    "LastUpdate": "2024-11-25T20:00:00.3684074Z"
+    "LastUpdate": "2024-11-25T21:00:00.3684074Z"
 }
