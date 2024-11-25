@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1630573294, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
-  m_Name: Grotto
+  m_Script: {fileID: -1227911718, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: Gingerbread Hammer
   m_EditorClassIdentifier: 
-  Name: The Grotto
-  Author: Fri
-  Id: grotto
-  Prefab: {fileID: 5142735560282619816, guid: 2e246549cae47894288afed40e3d3b8c, type: 3}
+  Id: altshotgun_gingerbread
+  Material: {fileID: 2100000, guid: 00c42c3904b67b44e9fa9bb0246b0cef, type: 2}

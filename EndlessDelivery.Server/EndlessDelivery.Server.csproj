@@ -36,6 +36,10 @@
       <None Include="$(SolutionDir)\EndlessDelivery.Server\Assets\**" CopyToOutputDirectory="Always"  />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Assets\Resources\DiscordIcons\" />
+    </ItemGroup>
+
 
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent" Condition=" '$(OS)' == 'Unix' ">
     <Exec Command="tsc --project $(ProjectDir)Assets\Resources\Scripts\tsconfig.json"/>

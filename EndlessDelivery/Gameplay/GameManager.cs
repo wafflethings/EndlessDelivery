@@ -32,6 +32,7 @@ public class GameManager : MonoSingleton<GameManager>
     public int DeliveredPresents { get; set; }
     public int RoomsComplete { get; private set; }
     public Room CurrentRoom { get; private set; }
+    public RoomData CurrentRoomData { get; private set; }
     public Room PreviousRoom { get; private set; }
     public bool TimerActive { get; private set; }
     public int PointsPerWave { get; private set; }
@@ -40,15 +41,17 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private Vector3 _baseRoomPosition = new(0, 0, 100);
     private Coroutine _pauseCoroutine;
     private List<RoomData> _remainingRooms = new();
-    private static readonly int s_startingPoints = 20;
+
+    private const int StartingPoints = 20;
+    private const int MaxPointGain = 15;
 
     public static int GetRoomPoints(int roomNumber)
     {
-        int points = s_startingPoints;
+        int points = StartingPoints;
 
         for (int i = 0; i < roomNumber; i++)
         {
-            points += 3 + (i + 1) / 3;
+            points += Mathf.Min(3 + (i + 1) / 3, MaxPointGain);
         }
 
         return points;
@@ -71,7 +74,7 @@ public class GameManager : MonoSingleton<GameManager>
                 EndGame();
             }
 
-            if (!CurrentRoom.RoomCleared && CurrentRoom.RoomActivated && EnemyTracker.Instance.enemies.All(enemy => enemy.dead))
+            if (!CurrentRoom.RoomCleared && CurrentRoom.RoomActivated && CurrentRoom.AllEnemiesSpawned && EnemyTracker.Instance.enemies.All(enemy => enemy.dead))
             {
                 CurrentRoom.RoomCleared = true;
                 MusicManager.Instance.PlayCleanMusic();
@@ -110,8 +113,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     private Room GenerateNewRoom()
     {
-        Plugin.Log.LogMessage($"RoomsComplete {RoomsComplete} - mod {RoomsComplete % 3}");
-        return Instantiate(GetRandomRoom().Prefab, _baseRoomPosition + (Vector3.right * (RoomsComplete % 3) * 200), Quaternion.identity).GetComponent<Room>();
+        CurrentRoomData = GetRandomRoom();
+        return Instantiate(CurrentRoomData.Prefab, _baseRoomPosition + (Vector3.right * (RoomsComplete % 3) * 200), Quaternion.identity).GetComponent<Room>();
     }
 
     private RoomData GetRandomRoom()
@@ -133,7 +136,7 @@ public class GameManager : MonoSingleton<GameManager>
         if (CurrentRoom.RoomHasGameplay)
         {
             AddTime(6, "<color=orange>ROOM CLEAR</color>");
-            PointsPerWave += 3 + RoomsComplete / 3;
+            PointsPerWave += Mathf.Min(3 + RoomsComplete / 3, StartingPoints);
             StartTimes.Instance.Data.UpdateAllLowerDifficulty(RoomsComplete, TimeLeft);
         }
         else if (!GameStarted)

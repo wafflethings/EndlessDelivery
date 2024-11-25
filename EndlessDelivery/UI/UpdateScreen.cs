@@ -29,18 +29,21 @@ public class UpdateScreen : MonoBehaviour
         Task<bool> updateRequiredTask = OnlineFunctionality.Context.UpdateRequired(Plugin.Version);
         yield return new WaitUntil(() => updateRequiredTask.IsCompleted);
 
-        gameObject.SetActive(updateRequiredTask.Result);
-        GameStateManager.Instance.RegisterState(new GameState("pause", [gameObject])
+        if (updateRequiredTask.Result)
         {
-            cursorLock = LockMode.Unlock,
-            cameraInputLock = LockMode.Lock,
-            playerInputLock = LockMode.Lock
-        });
+            gameObject.SetActive(true);
+            GameStateManager.Instance.RegisterState(new GameState("pause", [gameObject])
+            {
+                cursorLock = LockMode.Unlock,
+                cameraInputLock = LockMode.Lock,
+                playerInputLock = LockMode.Lock
+            });
 
-        NewMovement.Instance.enabled = false;
-        GunControl.Instance.enabled = false;
-        FistControl.Instance.enabled = false;
-        Time.timeScale = 0;
+            NewMovement.Instance.enabled = false;
+            GunControl.Instance.enabled = false;
+            FistControl.Instance.enabled = false;
+            Time.timeScale = 0;
+        }
     }
 
     public void ReenablePlayer()
