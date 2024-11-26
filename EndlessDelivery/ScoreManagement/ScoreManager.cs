@@ -25,6 +25,11 @@ public class ScoreManager
             return null;
         }
 
+        if (await OnlineFunctionality.Context.UpdateRequired(Plugin.Version))
+        {
+            return null;
+        }
+
         if (score > CurrentDifficultyHighscore)
         {
             LocalHighscores.Data[difficulty] = score;
@@ -32,20 +37,13 @@ public class ScoreManager
 
         try
         {
-            OnlineScore? submittedScore = await OnlineFunctionality.Context.SubmitScore(new SubmitScoreData(score, difficulty, Plugin.Version));
-
-            if (submittedScore == null)
-            {
-                HudMessageReceiver.Instance.SendHudMessage("Score submit error!\nSubmitted score returned null.");
-                return null;
-            }
-
+            OnlineScore submittedScore = await OnlineFunctionality.Context.SubmitScore(new SubmitScoreData(score, difficulty, Plugin.Version));
             OnlineAchievementChecker.Check(submittedScore);
             return submittedScore;
         }
         catch (Exception ex)
         {
-            HudMessageReceiver.Instance.SendHudMessage($"Score submit error!\nException is {ex.GetType()}.");
+            HudMessageReceiver.Instance.SendHudMessage($"Score submit error!\nUpdate or upload your logs. {ex.GetType()}.");
             Plugin.Log.LogError(ex.ToString());
             return null;
         }

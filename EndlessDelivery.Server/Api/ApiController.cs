@@ -12,6 +12,9 @@ public class ApiController : Controller
         return StatusCode(StatusCodes.Status200OK);
     }
 
+    [HttpGet("update_required")]
+    public ObjectResult UpdateRequired(string version) => StatusCode(StatusCodes.Status200OK, version != Plugin.Version);
+
     [HttpGet]
     public void RedirectToDocs()
     {

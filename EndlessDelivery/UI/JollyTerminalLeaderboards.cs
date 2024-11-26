@@ -23,14 +23,16 @@ public class JollyTerminalLeaderboards : MonoBehaviour
     private int _pageAmount;
     private Coroutine? _lastRefresh;
     private OnlineScore? _ownScore;
-
-    public void Start()
-    {
-        SetStuff();
-    }
+    private bool _initialized;
 
     private async void SetStuff()
     {
+        if (!await OnlineFunctionality.Context.ServerOnline())
+        {
+            return;
+        }
+
+        _initialized = true;
         _pageAmount = Mathf.CeilToInt(await OnlineFunctionality.Context.GetLeaderboardLength() / (float)Entries.Length);
 
         try
@@ -52,6 +54,11 @@ public class JollyTerminalLeaderboards : MonoBehaviour
 
     public void OnEnable()
     {
+        if (!_initialized)
+        {
+            SetStuff();
+        }
+
         foreach (LeaderboardEntry entry in Entries)
         {
             entry.gameObject.SetActive(false);

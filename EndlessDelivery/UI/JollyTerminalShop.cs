@@ -39,6 +39,20 @@ public class JollyTerminalShop : MonoBehaviour
             return;
         }
 
+        StartCoroutine(InitializeIfOnline());
+    }
+
+    private IEnumerator InitializeIfOnline()
+    {
+        Task<bool> onlineTask = OnlineFunctionality.Context.ServerOnline();
+        yield return new WaitUntil(() => onlineTask.IsCompleted);
+
+        if (!onlineTask.Result)
+        {
+            HudMessageReceiver.Instance.SendHudMessage("Server offline!");
+            yield break;
+        }
+
         StartCoroutine(SetInitialMoneyCoroutine());
         StartCoroutine(RefreshShop());
     }

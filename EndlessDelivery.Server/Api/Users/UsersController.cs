@@ -88,12 +88,12 @@ namespace EndlessDelivery.Server.Api.Users
         [HttpGet("get_achievements")]
         public async Task<ObjectResult> GetAchievements(ulong steamId)
         {
-            if (!SteamUser.TryGetPlayer(steamId, out SteamUser player))
+            if (!SteamUser.TryGetPlayer(steamId, out SteamUser steamUser))
             {
                 return StatusCode(StatusCodes.Status404NotFound, $"Player {steamId} not found");
             }
 
-            UserModel? userModel = await player.GetUserModel();
+            UserModel? userModel = await steamUser.GetUserModel();
 
             if (userModel == null)
             {
@@ -101,6 +101,17 @@ namespace EndlessDelivery.Server.Api.Users
             }
 
             return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(userModel.OwnedAchievements));
+        }
+
+        [HttpGet("get_username")]
+        public ObjectResult GetUsername(ulong steamId)
+        {
+            if (!SteamUser.TryGetPlayer(steamId, out SteamUser steamUser))
+            {
+                return StatusCode(StatusCodes.Status404NotFound, $"Player {steamId} not found");
+            }
+
+            return StatusCode(StatusCodes.Status200OK, steamUser.PersonaName);
         }
 
         [HttpGet("clear_token")]

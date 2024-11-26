@@ -9,7 +9,8 @@
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/first-score.png"
             },
             "OrderPriority": 0,
-            "ItemGrants": []
+            "ItemGrants": [],
+            "HideDetails": true
         }
     },
     "Banners": {
@@ -70,7 +71,7 @@
                 "Name": "item.misc_default",
                 "ShopPrice": 0,
                 "Icon": {
-                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AssetUri": "/Resources/UI/placeholder-item.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
@@ -83,7 +84,7 @@
                 "ShopPrice": 250,
                 "Icon": {
                     "AssetUri": "/Resources/UI/placeholder-item.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
                 }
             }
         }
@@ -122,8 +123,8 @@
                 "Name": "item.shotgun_zelzmiy",
                 "ShopPrice": 0,
                 "Icon": {
-                    "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                    "AssetUri": "/Resources/UI/placeholder-item.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
                 }
             }
         },
@@ -134,8 +135,8 @@
                 "Name": "item.misc_gingerbread",
                 "ShopPrice": 250,
                 "Icon": {
-                    "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                    "AssetUri": "/Resources/UI/placeholder-item.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
                 }
             }
         }
@@ -150,6 +151,18 @@
                 "Icon": {
                     "AssetUri": "/Resources/UI/default-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
+        },
+        "altshotgun_gingerbread": {
+            "Descriptor": {
+                "Type": 8,
+                "Id": "altshotgun_gingerbread",
+                "Name": "item.misc_gingerbread",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/placeholder-item.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
                 }
             }
         }
@@ -174,8 +187,8 @@
                 "Name": "item.misc_gingerbread",
                 "ShopPrice": 250,
                 "Icon": {
-                    "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                    "AssetUri": "/Resources/UI/placeholder-item.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
                 }
             }
         }
@@ -214,8 +227,8 @@
                 "Name": "item.misc_gingerbread",
                 "ShopPrice": 250,
                 "Icon": {
-                    "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                    "AssetUri": "/Resources/UI/placeholder-item.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
                 }
             }
         }
@@ -266,10 +279,9 @@
         },
         {
             "ItemIds": [
-                "banner_gone_fishing",
                 "shotgun_gingerbread",
+                "altshotgun_gingerbread",
                 "nailgun_gingerbread",
-                "shotgun_frosty",
                 "railcannon_gingerbread"
             ],
             "Start": "1970-01-01T23:00:00+00:00",
@@ -326,5 +338,5 @@
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty"
     },
-    "LastUpdate": "2024-11-23T00:00:00.3684074Z"
+    "LastUpdate": "2024-11-25T21:00:00.3684074Z"
 }

@@ -52,6 +52,11 @@
     text-decoration: none !important;
 }
 
+.top-bar-wordmark {
+    margin: 0 0 0 0;
+    height: 24px
+}
+
 .circle-clip {
     clip-path: circle();
 }

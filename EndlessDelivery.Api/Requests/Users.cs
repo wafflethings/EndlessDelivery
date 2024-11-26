@@ -11,6 +11,7 @@ public static class Users
     private const string GetCurrencyAmountEndpoint = "get_currency_amount";
     private const string GetAchievementsEndpoint = "get_achievements?steamId={0}";
     private const string GrantAchievementEndpoint = "grant_achievement";
+    private const string GetUsernameEndpoint = "get_username?steamId={0}";
 
     public static async Task<int> GetCurrencyAmount(this ApiContext context)
     {
@@ -49,6 +50,18 @@ public static class Users
         string content = await response.Content.ReadAsStringAsync();
         List<OwnedAchievement>? list = JsonConvert.DeserializeObject<List<OwnedAchievement>>(content);
         return list ?? throw new BadResponseException(content);
+    }
+
+    public static async Task<string> GetUsername(this ApiContext context, ulong userId)
+    {
+        HttpResponseMessage response = await context.Client.GetAsync(context.BaseUri + UsersRoot + string.Format(GetUsernameEndpoint, userId));
+
+        if (response.StatusCode == HttpStatusCode.NotFound)
+        {
+            throw new BadRequestException($"the user with ID {userId} was not found");
+        }
+
+        return await response.Content.ReadAsStringAsync();
     }
 
     public static async Task GrantAchievement(this ApiContext context, string achievementId)

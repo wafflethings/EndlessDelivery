@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using AtlasLib.Utils;
 using EndlessDelivery.Components;
@@ -30,7 +31,6 @@ public class Room : MonoBehaviour
     [HideInInspector] public bool RoomActivated;
 
     public Dictionary<WeaponVariant, Chimney> AllChimneys = new() { { WeaponVariant.BlueVariant, null }, { WeaponVariant.GreenVariant, null }, { WeaponVariant.RedVariant, null }, { WeaponVariant.GoldVariant, null } };
-
     public Dictionary<WeaponVariant, int> AmountDelivered = new() { { WeaponVariant.BlueVariant, 0 }, { WeaponVariant.GreenVariant, 0 }, { WeaponVariant.RedVariant, 0 }, { WeaponVariant.GoldVariant, 0 } };
 
     private Dictionary<EnemyType, int> _amountSpawned = new();
@@ -39,6 +39,7 @@ public class Room : MonoBehaviour
     private int _projectileSpawnsUsed;
     private int _wavesSinceSpecial;
 
+    public bool AllEnemiesSpawned => Arena.currentEnemy == Arena.enemies.Length;
     public bool ChimneysDone => AmountDelivered.All(kvp => PresentColourAmounts[(int)kvp.Key] <= kvp.Value);
 
     public bool Done(WeaponVariant colour)
@@ -167,7 +168,7 @@ public class Room : MonoBehaviour
 
     private void DecideUncommons(List<EnemySpawnPoint> spawns, ref int max)
     {
-        int uncommonAmount = Random.Range(1, max + 1);
+        int uncommonAmount = UnityEngine.Random.Range(1, max + 1);
         max -= uncommonAmount;
 
         List<EndlessEnemy> uncommons = GetPotentialEnemies(EnemyGroup.Groups[DeliveryEnemyClass.Uncommon]).ShuffleAndToList();
@@ -210,7 +211,7 @@ public class Room : MonoBehaviour
             bool enemyOneBanned = banned.Contains(uncommons[0].enemyType);
             bool enemyTwoBanned = banned.Contains(uncommons[1].enemyType);
 
-            int whichUncommon = Random.value > 0.5f ? 0 : 1;
+            int whichUncommon = UnityEngine.Random.value > 0.5f ? 0 : 1;
 
             if (GetRealCost(uncommons[0]) >= _pointsLeft || enemyOneBanned)
             {
@@ -259,10 +260,10 @@ public class Room : MonoBehaviour
 
     private void DecideSpecials(List<EnemySpawnPoint> spawns, ref int max)
     {
-        int specialAmount = Random.Range(0, max + 1);
+        int specialAmount = UnityEngine.Random.Range(0, max + 1);
         if (specialAmount == 0)
         {
-            if (Random.value < 1f - (1f / _wavesSinceSpecial))
+            if (UnityEngine.Random.value < 1f - (1f / _wavesSinceSpecial))
             {
                 specialAmount++;
             }
@@ -299,7 +300,7 @@ public class Room : MonoBehaviour
                 break;
             }
 
-            DeliveryEnemyClass type = Random.value < 0.5 ? DeliveryEnemyClass.Melee : DeliveryEnemyClass.Projectile;
+            DeliveryEnemyClass type = UnityEngine.Random.value < 0.5 ? DeliveryEnemyClass.Melee : DeliveryEnemyClass.Projectile;
 
             if (_projectileSpawnsUsed >= projectile.Count)
             {
@@ -385,9 +386,9 @@ public class Room : MonoBehaviour
     {
         if (collider.GetComponent<NewMovement>() != null && !RoomActivated)
         {
-            RoomActivated = true;
             GameManager.Instance.SetRoom(this);
             Arena?.Activate();
+            RoomActivated = true;
         }
     }
 }

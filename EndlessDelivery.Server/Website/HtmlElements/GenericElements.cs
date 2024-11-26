@@ -38,6 +38,9 @@ public static class GenericElements
         builder.AppendHtml("<a href=\"/\" class=\"top-bar-title-text\">");
         builder.Append(ContentController.CurrentContent.GetLocalisedString("navbar.mod_name"));
         builder.AppendHtml("</a>");
+        // builder.AppendHtml("<a href=\"/\">");
+        // builder.AppendHtml("<img src=\"/Resources/UI/wordmark.png\" class=\"top-bar-wordmark\"/>");
+        // builder.AppendHtml("</a>");
         builder.AppendHtml("</div>");
         builder.AppendHtml("<div class=\"top-bar-group\">");
         builder.AppendHtml("<a href=\"/shop\">");
