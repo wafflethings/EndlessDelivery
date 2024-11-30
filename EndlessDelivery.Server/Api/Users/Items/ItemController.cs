@@ -1,4 +1,5 @@
-﻿using EndlessDelivery.Common.Inventory.Items;
+﻿using EndlessDelivery.Common.ContentFile;
+using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Server.Api.ContentFile;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Database;
@@ -119,5 +120,53 @@ public class ItemController : ControllerBase
         }
 
         return StatusCode(StatusCodes.Status400BadRequest, "Insufficient currency.");
+    }
+
+    [HttpPost("claim_daily_reward")]
+    public async Task<ObjectResult> ClaimReward()
+    {
+        if (!HttpContext.TryGetLoggedInPlayer(out SteamUser steamUser))
+        {
+            return StatusCode(StatusCodes.Status400BadRequest, "The user is not logged in.");
+        }
+
+        UserModel user = await steamUser.GetUserModel();
+
+        CalendarReward reward = ContentController.CurrentContent.CurrentCalendarReward;
+        if (reward == null)
+        {
+            return StatusCode(StatusCodes.Status400BadRequest, "No reward is currently active.");
+        }
+
+        if (user.ClaimedDays.Contains(reward.Id))
+        {
+            return StatusCode(StatusCodes.Status400BadRequest, "Reward already claimed.");
+        }
+
+        user.ClaimedDays.Add(reward.Id);
+
+        if (reward.HasCurrency)
+        {
+            user.PremiumCurrency += reward.CurrencyAmount;
+        }
+
+        if (reward.HasItem)
+        {
+            user.OwnedItemIds.Add(reward.ItemId);
+        }
+
+        return StatusCode(StatusCodes.Status200OK, "The user is not logged in.");
+    }
+
+    [HttpGet("get_claimed_rewards")]
+    public async Task<ObjectResult> GetClaimedRewards()
+    {
+        if (!HttpContext.TryGetLoggedInPlayer(out SteamUser steamUser))
+        {
+            return StatusCode(StatusCodes.Status400BadRequest, "The user is not logged in.");
+        }
+
+        UserModel user = await steamUser.GetUserModel();
+        return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(user.ClaimedDays));
     }
 }
