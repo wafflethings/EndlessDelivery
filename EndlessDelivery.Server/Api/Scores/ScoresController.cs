@@ -126,7 +126,7 @@ namespace EndlessDelivery.Server.Api.Scores
             dbContext.Users.Update(user);
 
             OnlineScore? userOnlineScore = await user.GetBestScore();
-            if (userOnlineScore != null && userOnlineScore.Score > scoreRequest.Score)
+            if (userOnlineScore != null && userOnlineScore.Score > scoreRequest.Score || newScore.Difficulty < 4)
             {
                 await dbContext.SaveChangesAsync();
                 return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));

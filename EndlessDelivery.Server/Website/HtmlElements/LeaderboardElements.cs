@@ -32,6 +32,9 @@ public static class LeaderboardElements
         builder.AppendHtml(string.Format(ContentController.CurrentContent.GetLocalisedString("leaderboard.extra_info"), onlineScore.Score.Deliveries, onlineScore.Score.Kills,
             TimeSpan.FromSeconds(onlineScore.Score.Time).ToString("mm':'ss'.'ff")));
         builder.AppendHtml("</p>");
+        builder.AppendHtml("<p class=\"lb-date-text\">");
+        builder.Append(string.Format(ContentController.CurrentContent.GetLocalisedString("leaderboard.achieved_on"), onlineScore.Date.ToString("dd/MM/yyyy")));
+        builder.AppendHtml("</p>");
         builder.AppendHtml("</div>");
         builder.AppendHtml("</div>");
     }
@@ -59,9 +62,6 @@ public static class LeaderboardElements
         builder.AppendHtml($"<a class=\"leaderboard-entry-name\" href=\"/users/{steamUser.SteamId}\">");
         builder.Append(steamUser.PersonaName);
         builder.AppendHtml("</a>");
-        builder.AppendHtml("<p class=\"lb-date-text\">");
-        builder.Append(onlineScore.Date.ToString("dd/MM/yyyy"));
-        builder.AppendHtml("</p>");
         builder.AppendHtml("</div>");
     }
 }

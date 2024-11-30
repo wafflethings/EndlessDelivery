@@ -289,7 +289,7 @@
         }
     ],
     "LocalisedStrings": {
-        "achievement.firstplace": "First place temp",
+        "achievement.firstplace": "PREMIER POSTMAN",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -299,6 +299,8 @@
         "sidebar.logout": "LOG OUT",
         "sidebar.login": "LOG IN",
         "leaderboard.extra_info": "DELIVERIES: {0}<br>KILLS: {1}<br>TIME: {2}",
+        "leaderboard.achieved_on": "Achieved on {0}.",
+        "profile.score_box_content": "{0} <span class=\"darker-score-text\">rooms cleared</span><br>{1} <span class=\"darker-score-text\">presents delivered</span><br>{2} <span class=\"darker-score-text\">elapsed</span><br>{3} <span class=\"darker-score-text\">enemies killed</span>",
         "settings.links": "Links",
         "settings.patreon": "Patreon",
         "settings.patreon.link": "LINK",
@@ -331,6 +333,7 @@
         "game_ui.achievement_unlocks": "Unlocks {0}.",
         "game_ui.achievement_unlocks_nothing": "nothing",
         "game_ui.hidden_achievement": "Details will be revealed when the achievement is unlocked.",
+        "game_ui.shop_remaining_time": "NEW ITEMS IN <color=orange>{0}",
         "item.banner_gniesbert": "My Shitty Dog",
         "item.banner_gone_fishing": "Gone Fishin'",
         "item.misc_default": "Default",

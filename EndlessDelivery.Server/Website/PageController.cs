@@ -87,6 +87,23 @@ public class PageController : Controller
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
         await builder.AppendPlayerHeader(player, userModel);
 
+        // OnlineScore? bestScore = await userModel.GetBestScore();
+        // builder.AppendUnderBannerBoxHolder(() =>
+        // {
+        //     builder.AppendUnderBannerBox("Best Score", () =>
+        //     {
+        //         builder.AppendUnderBannerBoxScoreContent(bestScore?.Score);
+        //     });
+        // });
+
+        builder.AppendUnderBannerBoxHolder(() =>
+        {
+            builder.AppendUnderBannerBox("Lifetime Stats", () =>
+            {
+                builder.AppendUnderBannerBoxScoreContent(userModel.LifetimeStats);
+            });
+        });
+
         builder.AppendUnderBannerBoxHolder(() =>
         {
             builder.AppendUnderBannerBox("Achievements", () =>
@@ -106,7 +123,9 @@ public class PageController : Controller
                 builder.AppendAchievements(achievements.OrderBy(x => x.OrderPriority));
             });
         });
+
         builder.AppendHtml("</div>");
+        builder.AppendHtml("<br>");
 
         builder.AppendHtml("</body>");
         builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/build/misc.js\"></script>");

@@ -81,6 +81,21 @@ public static class UserPageElements
         builder.AppendHtml("</div>");
     }
 
+    public static void AppendUnderBannerBoxScoreContent(this HtmlContentBuilder builder, Score? score)
+    {
+        string time = "No time";
+
+        if (score != null)
+        {
+            TimeSpan timeSpan = TimeSpan.FromSeconds(score.Time);
+            time = timeSpan.ToWordString();
+        }
+
+        builder.AppendHtml("<p class=\"profile-score-text\">");
+        builder.AppendHtml(string.Format(ContentController.CurrentContent.GetLocalisedString("profile.score_box_content"), score?.Rooms ?? 0, score?.Deliveries ?? 0, time, score?.Kills ?? 0));
+        builder.AppendHtml("</p>");
+    }
+
     public static void AppendAchievements(this HtmlContentBuilder builder, IEnumerable<Achievement> achievements)
     {
         builder.AppendHtml("<div class=\"achievement-holder\">");
@@ -96,7 +111,7 @@ public static class UserPageElements
     public static void AppendAchievement(this HtmlContentBuilder builder, Achievement achievement)
     {
         builder.AppendHtml("<div class=\"achievement-box\">");
-        builder.AppendHtml($"<img class=\"achievement-icon\" src=\"{achievement.Icon.AssetUri}\">");
+        builder.AppendHtml($"<img class=\"achievement-icon\" src=\"{achievement.Icon.AssetUri}\" class=\"pixel-perfect\">");
         builder.AppendHtml("<p class=\"achievement-text\">");
         builder.Append(ContentController.CurrentContent.GetLocalisedString(achievement.Name));
         builder.AppendHtml("</p>");

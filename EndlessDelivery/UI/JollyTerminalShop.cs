@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using EndlessDelivery.Api.Requests;
+using EndlessDelivery.Common;
 using EndlessDelivery.Common.ContentFile;
 using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Cosmetics;
@@ -18,12 +19,12 @@ namespace EndlessDelivery.UI;
 
 public class JollyTerminalShop : MonoBehaviour
 {
-
     [SerializeField] private GameObject _templatePanel;
     [SerializeField] private Transform _panelHolder;
     [SerializeField] private AudioSource _buySound;
     [SerializeField] private AudioSource _buyError;
     [SerializeField] private TMP_Text _moneyCounter;
+    [SerializeField] private TMP_Text _timeRemainingText;
     [SerializeField] private AudioSource _moneyDecreaseTick;
     [SerializeField] private float _moneyTickInterval;
     [SerializeField] private float _moneyDecreaseInterval;
@@ -31,6 +32,8 @@ public class JollyTerminalShop : MonoBehaviour
     private bool _hasInitialized = false;
     private int _totalMoney = 0;
     private int _counterMoney = 0;
+    private DateTime _endTime;
+    private string _timeRemainingString = "{0}";
 
     private void OnEnable()
     {
@@ -40,6 +43,22 @@ public class JollyTerminalShop : MonoBehaviour
         }
 
         StartCoroutine(InitializeIfOnline());
+    }
+
+    private void FixedUpdate()
+    {
+        if (_endTime != default)
+        {
+            return;
+        }
+
+        _timeRemainingText.text = string.Format(_timeRemainingString, (_endTime - DateTime.UtcNow).ToWordString());
+
+        if (DateTime.UtcNow > _endTime)
+        {
+            StartCoroutine(RefreshShop());
+            _endTime = DateTime.MaxValue; // to prevent spamming this coroutine before the value sets
+        }
     }
 
     private IEnumerator InitializeIfOnline()
@@ -68,6 +87,8 @@ public class JollyTerminalShop : MonoBehaviour
         Task<Cms> cmsTask = OnlineFunctionality.GetContent();
         yield return new WaitUntil(() => shopTask.IsCompleted && cmsTask.IsCompleted);
 
+        _timeRemainingString = cmsTask.Result.GetLocalisedString("game_ui.shop_remaining_time");
+        _endTime = shopTask.Result.End;
         foreach (string itemId in shopTask.Result.ItemIds)
         {
             if (!cmsTask.Result.TryGetItem(itemId, out Item item))
