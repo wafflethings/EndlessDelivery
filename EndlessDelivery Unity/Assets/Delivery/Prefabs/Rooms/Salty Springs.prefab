@@ -10053,7 +10053,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -10070,7 +10070,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -10087,7 +10087,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -10104,7 +10104,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -10121,7 +10121,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -10138,7 +10138,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -10183,30 +10183,30 @@ MonoBehaviour:
   - {x: 0, y: -3.25, z: 0}
   - {x: 72, y: -3.25, z: 0}
   m_Textures0:
-  - {x: 0, y: -3.25}
-  - {x: 72, y: -3.25}
-  - {x: 0, y: 44.75}
-  - {x: 72, y: 44.75}
-  - {x: 0, y: -3.25}
-  - {x: 72, y: -3.25}
-  - {x: 0, y: 44.75}
-  - {x: 72, y: 44.75}
-  - {x: -72, y: -3.25}
-  - {x: -0, y: -3.25}
-  - {x: -72, y: 44.75}
-  - {x: 0, y: 44.75}
-  - {x: -72, y: -3.25}
-  - {x: 0, y: -3.25}
-  - {x: -72, y: 44.75}
-  - {x: 0, y: 44.75}
-  - {x: 0, y: 0}
-  - {x: -72, y: 0}
-  - {x: 0, y: -72}
-  - {x: -72, y: -72}
-  - {x: 0, y: -72}
-  - {x: 72, y: -72}
-  - {x: 0, y: 0}
-  - {x: 72, y: 0}
+  - {x: 27, y: 14.75}
+  - {x: 45, y: 14.75}
+  - {x: 27, y: 26.75}
+  - {x: 45, y: 26.75}
+  - {x: 27, y: 14.75}
+  - {x: 45, y: 14.75}
+  - {x: 27, y: 26.75}
+  - {x: 45, y: 26.75}
+  - {x: -45, y: 14.75}
+  - {x: -27, y: 14.75}
+  - {x: -45, y: 26.75}
+  - {x: -27, y: 26.75}
+  - {x: -45, y: 14.75}
+  - {x: -27, y: 14.75}
+  - {x: -45, y: 26.75}
+  - {x: -27, y: 26.75}
+  - {x: -27, y: -27}
+  - {x: -45, y: -27}
+  - {x: -27, y: -45}
+  - {x: -45, y: -45}
+  - {x: 27, y: -45}
+  - {x: 45, y: -45}
+  - {x: 27, y: -27}
+  - {x: 45, y: -27}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
