@@ -385,7 +385,7 @@
                 "AssetUri": "/Resources/UI/Achievements/first-score.png",
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/first-score.png"
             },
-            "ItemGrants": [],
+            "ItemGrants": ["shotgun_gold"],
             "HideDetails": false,
             "Serverside": true
         },
@@ -397,7 +397,7 @@
                 "AssetUri": "/Resources/UI/Achievements/top25.png",
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/top25.png"
             },
-            "ItemGrants": [],
+            "ItemGrants": ["shotgun_silver"],
             "HideDetails": false,
             "Serverside": true,
             "Disabled": true
@@ -410,7 +410,7 @@
                 "AssetUri": "/Resources/UI/Achievements/top50.png",
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/top50.png"
             },
-            "ItemGrants": [],
+            "ItemGrants": ["shotgun_bronze"],
             "HideDetails": false,
             "Serverside": true,
             "Disabled": true
@@ -435,7 +435,7 @@
                 "AssetUri": "/Resources/UI/Achievements/nodmg.png",
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/nodmg.png"
             },
-            "ItemGrants": [],
+            "ItemGrants": ["banner_hell2"],
             "HideDetails": false,
             "Serverside": false
         },
@@ -447,7 +447,7 @@
                 "AssetUri": "/Resources/UI/Achievements/quickclear.png",
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/quickclear.png"
             },
-            "ItemGrants": [],
+            "ItemGrants": ["present_skull"],
             "HideDetails": false,
             "Serverside": false
         },
@@ -459,7 +459,7 @@
                 "AssetUri": "/Resources/UI/Achievements/every-room.png",
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/every-room.png"
             },
-            "ItemGrants": ["present_skull"],
+            "ItemGrants": ["banner_shipment"],
             "HideDetails": false,
             "Serverside": false
         },
@@ -636,6 +636,54 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Screen Field/screenfield-preview.png"
                 }
             }
+        },
+        "banner_hell2": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/hell2.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Hell 2/hell2.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_hell2",
+                "Name": "item.banner_hell2",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/hell2-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Hell 2/hell2-preview.png"
+                }
+            }
+        },
+        "banner_shipment": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/shipment.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Shipment/shipment.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_shipment",
+                "Name": "item.banner_shipment",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/shipment-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Shipment/shipment-preview.png"
+                }
+            }
+        },
+        "banner_grotto": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/grotto.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Grotto/grotto.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_grotto",
+                "Name": "item.banner_grotto",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/grotto-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Grotto/grotto-preview.png"
+                }
+            }
         }
     },
     "Revolvers": {
@@ -748,6 +796,42 @@
                 "Icon": {
                     "AssetUri": "/Resources/UI/Shotguns/gingerbread-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Shotgun/Gingerbread/gingerbread-icon.png"
+                }
+            }
+        },
+        "shotgun_gold": {
+            "Descriptor": {
+                "Type": 2,
+                "Id": "shotgun_gold",
+                "Name": "item.shotgun_gold",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Shotguns/gold-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Shotgun/Deluxe Gold/gold-icon.png"
+                }
+            }
+        },
+        "shotgun_silver": {
+            "Descriptor": {
+                "Type": 2,
+                "Id": "shotgun_silver",
+                "Name": "item.shotgun_silver",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Shotguns/silver-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Shotgun/Deluxe Silver/silver-icon.png"
+                }
+            }
+        },
+        "shotgun_bronze": {
+            "Descriptor": {
+                "Type": 2,
+                "Id": "shotgun_bronze",
+                "Name": "item.shotgun_bronze",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Shotguns/bronze-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Shotgun/Deluxe Bronze/bronze-icon.png"
                 }
             }
         }
@@ -1000,8 +1084,11 @@
         "item.banner_gone_fishing": "Gone Fishing",
         "item.banner_goblin": "Hall of Gob",
         "item.banner_hell": "Hell",
+        "item.banner_hell2": "Agony",
         "item.banner_vault": "Vault",
         "item.banner_split": "Split",
+        "item.banner_grotto": "The Grotto",
+        "item.banner_shipment": "Shipment",
         "item.banner_redcane": "Candy Cane",
         "item.banner_greencane": "Peppermint Stick",
         "item.banner_screenfield": "Screen",
@@ -1012,7 +1099,10 @@
         "item.present_skull": "Encased Skull",
         "item.present_maurice": "Maurice",
         "item.revolver_awesometest": "Awesome Test",
-        "item.shotgun_zelzmiy": "Frosty the Shotgun"
+        "item.shotgun_zelzmiy": "Frosty the Shotgun",
+        "item.shotgun_bronze": "Deluxe (Gold)",
+        "item.shotgun_silver": "Deluxe (Silver)",
+        "item.shotgun_gold": "Deluxe (Bronze)"
     },
-    "LastUpdate": "2024-12-01T17:27:04.3684074Z"
+    "LastUpdate": "2024-12-01T21:00:04.3684074Z"
 }

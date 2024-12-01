@@ -82,6 +82,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3378ad3c959731444b1bd78f9fd2831a
+    m_Address: Assets/Delivery/Cosmetics/Shotgun/Deluxe Gold/gold-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2737ec6aa5e0b05459444b237aa26c1a
+    m_Address: Assets/Delivery/Cosmetics/Shotgun/Deluxe Silver/silver-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: edd3fcb7c1e3c5646b6f9139d9f2e585
+    m_Address: Assets/Delivery/Cosmetics/Shotgun/Deluxe Bronze/bronze-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2a337ff27534e164b86034852d6c1576, type: 2}
   m_SchemaSet:
