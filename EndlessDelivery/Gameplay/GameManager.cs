@@ -83,7 +83,7 @@ public class GameManager : MonoSingleton<GameManager>
             {
                 CurrentRoom.RoomCleared = true;
                 MusicManager.Instance.PlayCleanMusic();
-                RoomCleared.Invoke(CurrentRoom);
+                RoomCleared?.Invoke(CurrentRoom);
                 AddTime(4, "<color=orange>FULL CLEAR</color>");
             }
         }
@@ -137,7 +137,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void RoomEnd()
     {
-        RoomComplete.Invoke(CurrentRoom);
+        RoomComplete?.Invoke(CurrentRoom);
         RoomsComplete++;
 
         if (CurrentRoom.RoomHasGameplay)
@@ -169,7 +169,7 @@ public class GameManager : MonoSingleton<GameManager>
             room.RoomAlreadyVisited = true;
         }
 
-        RoomStarted.Invoke(CurrentRoom);
+        RoomStarted?.Invoke(CurrentRoom);
     }
 
     public void StartGame()

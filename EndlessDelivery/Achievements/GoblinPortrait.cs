@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using AtlasLib.Saving;
+using EndlessDelivery.Achievements;
 using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Config;
 using EndlessDelivery.Gameplay;
@@ -15,6 +16,7 @@ public class GoblinPortrait : MonoBehaviour
 {
     public static readonly EncryptedSaveFile<List<string>> Instance = SaveFile.RegisterFile(new EncryptedSaveFile<List<string>>("gob.ddenc")) as EncryptedSaveFile<List<string>> ?? throw new();
     private const int RequiredCount = 10;
+    private const string AchId = "ach_gobstopper";
 
     public void OnBreak()
     {
@@ -46,8 +48,6 @@ public class GoblinPortrait : MonoBehaviour
             return;
         }
 
-        string achId = "ach_gobstopper";
-        AchievementHud.Instance.AddAchievement(OnlineFunctionality.LastFetchedContent.Achievements[achId]);
-        Task.Run(() => OnlineFunctionality.Context.GrantAchievement(achId));
+        AchievementManager.ShowAndGiveLocal(AchId);
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using AtlasLib.Saving;
+using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common;
 using EndlessDelivery.Common.Achievements;
 using EndlessDelivery.Common.Communication.Scores;
@@ -8,11 +10,11 @@ using EndlessDelivery.UI;
 
 namespace EndlessDelivery.Achievements;
 
-public class OnlineAchievementChecker
+public class AchievementManager
 {
     public static SaveFile<List<string>> OwnedAchievements = SaveFile.RegisterFile(new SaveFile<List<string>>("dont_show_achs.json", Plugin.Name));
 
-    public static void Check(OnlineScore score)
+    public static void CheckOnline(OnlineScore score)
     {
         if (OnlineFunctionality.LastFetchedContent == null)
         {
@@ -36,5 +38,16 @@ public class OnlineAchievementChecker
                 AchievementHud.Instance.AddAchievement(achievement);
             }
         }
+    }
+
+    public static void ShowAndGiveLocal(string id)
+    {
+        if (OwnedAchievements.Data.Contains(id))
+        {
+            return;
+        }
+
+        AchievementHud.Instance.AddAchievement(OnlineFunctionality.LastFetchedContent.Achievements[id]);
+        Task.Run(() => OnlineFunctionality.Context.GrantAchievement(id));
     }
 }

@@ -21,7 +21,12 @@ public class AllRooms : MonoBehaviour
         {
             Instance.Data ??= new List<string>();
             List<string> data = Instance.Data;
-            string id = GameManager.Instance.CurrentRoomData.Id;
+            string? id = GameManager.Instance.CurrentRoomData?.Id;
+
+            if (id == null)
+            {
+                return;
+            }
 
             if (!data.Contains(id))
             {
@@ -30,8 +35,7 @@ public class AllRooms : MonoBehaviour
 
             if (data.Count == GameManager.Instance.RoomPool.Rooms.Length)
             {
-                AchievementHud.Instance.AddAchievement(OnlineFunctionality.LastFetchedContent.Achievements[AchId]);
-                Task.Run(() => OnlineFunctionality.Context.GrantAchievement(AchId));
+                AchievementManager.ShowAndGiveLocal(AchId);
             }
         };
     }

@@ -10,7 +10,6 @@ public class EventAchievementGiver : MonoBehaviour
 {
     public void Give(string id)
     {
-        AchievementHud.Instance.AddAchievement(OnlineFunctionality.LastFetchedContent.Achievements[id]);
-        Task.Run(() => OnlineFunctionality.Context.GrantAchievement(id));
+        AchievementManager.ShowAndGiveLocal(id);
     }
 }

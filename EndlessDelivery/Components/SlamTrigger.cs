@@ -17,7 +17,7 @@ public class SlamTrigger : MonoBehaviour
 
         if (NewMovement.Instance.gc.heavyFall)
         {
-            _event.Invoke();
+            _event?.Invoke();
         }
     }
 }

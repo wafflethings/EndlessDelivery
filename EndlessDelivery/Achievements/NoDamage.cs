@@ -15,6 +15,7 @@ namespace EndlessDelivery.Achievements;
 public class NoDamage : MonoBehaviour
 {
     private const string AchId = "ach_nodmg";
+    private int _completeRooms;
     private static bool s_tookDmg;
 
     private void Awake()
@@ -23,12 +24,17 @@ public class NoDamage : MonoBehaviour
         {
             if (s_tookDmg || !room.RoomHasGameplay)
             {
+                _completeRooms = 0;
                 s_tookDmg = false;
                 return;
             }
 
-            AchievementHud.Instance.AddAchievement(OnlineFunctionality.LastFetchedContent.Achievements[AchId]);
-            Task.Run(() => OnlineFunctionality.Context.GrantAchievement(AchId));
+            _completeRooms++;
+
+            if (_completeRooms == 5)
+            {
+                AchievementManager.ShowAndGiveLocal(AchId);
+            }
         };
     }
 
