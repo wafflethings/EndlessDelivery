@@ -24,7 +24,7 @@ public class AchievementManager
 
         if (OnlineFunctionality.LastFetchedContent == null)
         {
-            Plugin.Log.LogWarning("OnlineAchievementChecker.Check has somehow been called before CMS fetched.");
+            Plugin.Log.LogWarning("OnlineAchievementChecker.CheckOnline has somehow been called before CMS fetched.");
             return;
         }
 
@@ -58,6 +58,7 @@ public class AchievementManager
             return;
         }
 
+        OwnedAchievements.Data.Add(id);
         AchievementHud.Instance.AddAchievement(OnlineFunctionality.LastFetchedContent.Achievements[id]);
         Task.Run(() => OnlineFunctionality.Context.GrantAchievement(id));
     }

@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Cosmetics Icons
+  m_EditorClassIdentifier: 
+  m_GroupName: Cosmetics Icons
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 6097dc7bff8bcea4199f1cd102ffc1f6
+  m_SerializeEntries:
+  - m_GUID: 4c016e9d264a9e84b87c30de98ced9f6
+    m_Address: Assets/Delivery/Cosmetics/Presents/Fumo/fumo-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a68b31c355e54324194428c2ddf9d753
+    m_Address: Assets/Delivery/Cosmetics/default-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0d10d399d8e24b4ab9ce0075c1147e5
+    m_Address: Assets/Delivery/Cosmetics/placeholder-item.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fdb1733173a13cf448280ccc27563f57
+    m_Address: Assets/Delivery/Cosmetics/Presents/Skull/skull-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a987d6b51bd7d284890d77cc1715fd11
+    m_Address: Assets/Delivery/Cosmetics/Presents/Maurice/maurice-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6fb2c6142a1d1744eae05e0de08c70f9
+    m_Address: Assets/Delivery/Cosmetics/Slab/Gingerbread/slab-gingerbread-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9eb7d1b4ebcfefc40a944fc1ea10111c
+    m_Address: Assets/Delivery/Cosmetics/Shotgun/Gingerbread/gingerbread-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f331bd42a3dc6964e81cee3eeaff6398
+    m_Address: Assets/Delivery/Cosmetics/Shotgun/Frosty/frosty-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3979cc9f4b11da5469ef6c6b39ccde01
+    m_Address: Assets/Delivery/Cosmetics/Nailgun/Gingerbread/gingerbread-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 383ff1e73ca75df4a801f78a6941c005
+    m_Address: Assets/Delivery/Cosmetics/Hammer/Gingerbread/gingerbread-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4310d379052575b4e868bc9563dc8c99
+    m_Address: Assets/Delivery/Cosmetics/Railcannon/Gingerbread/gingerbread-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2a337ff27534e164b86034852d6c1576, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 41e4405ae1c83df44af5134bd856395f, type: 2}

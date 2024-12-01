@@ -41,6 +41,7 @@ public static class UserUtils
                 using DeliveryDbContext dbContext = new();
                 user.GetAchievement(achievement);
                 dbContext.Users.Update(user);
+                dbContext.SaveChanges();
             }
         }
     }
