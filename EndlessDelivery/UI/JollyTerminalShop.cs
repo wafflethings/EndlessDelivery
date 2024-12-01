@@ -37,11 +37,6 @@ public class JollyTerminalShop : MonoBehaviour
 
     private void OnEnable()
     {
-        if (_hasInitialized)
-        {
-            return;
-        }
-
         StartCoroutine(InitializeIfOnline());
     }
 

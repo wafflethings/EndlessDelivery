@@ -17,12 +17,7 @@ public static class DdUtils
 
     public static string ToWordString(this TimeSpan timeSpan)
     {
-        string time = $"{timeSpan.Seconds} seconds";
-
-        if (timeSpan.Minutes > 0)
-        {
-            time = $"{timeSpan.Minutes} minutes, " + time;
-        }
+        string time = $"{timeSpan.Minutes} minutes";
 
         if (timeSpan.Hours > 0)
         {

@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Jumper Slab
-  m_Shader: {fileID: 4800000, guid: ec5e1a038b0541241b697b44f7d47cf2, type: 3}
+  m_Shader: {fileID: 4800000, guid: 69682c08da084bd46a8d9ceafc90c684, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -44,7 +44,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: a2df6442dc17b6349baafa5b17bec935, type: 3}
+        m_Texture: {fileID: 2800000, guid: 55dd2b784c43cd64ca6b03d0abcb4127, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -85,4 +85,4 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _EmissiveColor: {r: 1, g: 0.19339621, b: 0.25656253, a: 0}
+    - _EmissiveColor: {r: 0.12834764, g: 1, b: 0, a: 0}

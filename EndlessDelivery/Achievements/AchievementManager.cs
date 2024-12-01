@@ -28,6 +28,8 @@ public class AchievementManager
             return;
         }
 
+        OwnedAchievements.Data ??= new();
+
         foreach (ServerSideAchievement serverAchievement in ServerSideAchievement.AllAchievements)
         {
             Plugin.Log.LogInfo($"Checking ach: {serverAchievement.Id}");
@@ -52,6 +54,8 @@ public class AchievementManager
         {
             return;
         }
+
+        OwnedAchievements.Data ??= new();
 
         if (OwnedAchievements.Data.Contains(id))
         {

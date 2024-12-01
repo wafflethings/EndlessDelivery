@@ -72,6 +72,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ce69612e89ed97145ab53dade77de6a7
+    m_Address: Assets/Delivery/Cosmetics/Slab/Jumper/jumper-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6636c4b5fd73a9e449dce31f95158c3f
+    m_Address: Assets/Delivery/Cosmetics/Revolver/Jumper/jumper-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2a337ff27534e164b86034852d6c1576, type: 2}
   m_SchemaSet:

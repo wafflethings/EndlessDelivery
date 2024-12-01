@@ -1,19 +1,379 @@
 {
     "CalendarRewards": {
         "day1_2024": {
-            "Date": "2024-11-30T00:00:00Z",
-            "Name": "item.shotgun_awesometest",
-            "Description": "item.shotgun_zelzmiy",
-            "Subtitle": "item.shotgun_zelzmiy",
+            "Date": "2024-12-01T00:00:00Z",
+            "Name": "calendar.500stars",
+            "Description": "calendar.day1_desc",
+            "Subtitle": "category.currency",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/currency-reward.png",
+                "AddressablePath": "Assets/Delivery/Textures/currency-reward.png"
             },
             "Id": "day1_2024",
             "HasItem": false,
             "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 500
+        },
+        "day2_2024": {
+            "Date": "2024-12-02T00:00:00Z",
+            "Name": "item.shotgun_zelzmiy",
+            "Description": "calendar.day2_desc",
+            "Subtitle": "category.shotgun",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Shotguns/frosty-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Shotgun/Frosty/frosty-icon.png"
+            },
+            "Id": "day2_2024",
+            "HasItem": true,
+            "ItemId": "shotgun_zelzmiy",
             "HasCurrency": false,
-            "CurrencyAmount": 10
+            "CurrencyAmount": 0
+        },
+        "day3_2024": {
+            "Date": "2024-12-03T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day3_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day4_2024": {
+            "Date": "2024-12-03T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day3_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day5_2024": {
+            "Date": "2024-12-05T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day5_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day6_2024": {
+            "Date": "2024-12-06T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day6_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day7_2024": {
+            "Date": "2024-12-07T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day7_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day8_2024": {
+            "Date": "2024-12-08T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day8_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day9_2024": {
+            "Date": "2024-12-09T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day9_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day10_2024": {
+            "Date": "2024-12-10T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day10_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day11_2024": {
+            "Date": "2024-12-11T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day11_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day12_2024": {
+            "Date": "2024-12-12T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day12_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day13_2024": {
+            "Date": "2024-12-13T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day13_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day14_2024": {
+            "Date": "2024-12-14T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day14_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day15_2024": {
+            "Date": "2024-12-15T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day15_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day16_2024": {
+            "Date": "2024-12-16T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day16_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day17_2024": {
+            "Date": "2024-12-17T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day17_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day18_2024": {
+            "Date": "2024-12-18T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day18_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day19_2024": {
+            "Date": "2024-12-19T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day19_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day20_2024": {
+            "Date": "2024-12-20T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day20_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day21_2024": {
+            "Date": "2024-12-21T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day21_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day22_2024": {
+            "Date": "2024-12-22T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day22_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day23_2024": {
+            "Date": "2024-12-23T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day23_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day24_2024": {
+            "Date": "2024-12-24T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day24_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
+        },
+        "day25_2024": {
+            "Date": "2024-12-25T00:00:00Z",
+            "Name": "reward name - replace",
+            "Description": "reward desc - replace",
+            "Subtitle": "reward sub - replace",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day25_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": true,
+            "CurrencyAmount": 0
         }
     },
     "Achievements": {
@@ -298,6 +658,18 @@
                 "Icon": {
                     "AssetUri": "/Resources/UI/placeholder-item.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                }
+            }
+        },
+        "revolver_jumper": {
+            "Descriptor": {
+                "Type": 1,
+                "Id": "revolver_jumper",
+                "Name": "item.misc_jumper",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Revolvers/jumper-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Revolver/Jumper/jumper-icon.png"
                 }
             }
         }
@@ -586,6 +958,9 @@
         "achievement.every_room_desc": "Complete every room.",
         "achievement.reunited": "REUNITED",
         "achievement.reunited_desc": "Bring Florp his trapped friend.",
+        "calendar.500stars": "500 STARS",
+        "calendar.day1_desc": "Five hundred free <color=orange>stars</color> to spend in the shop. More interesting rewards are coming, this is just because hardly anyone will play on the first day.\n\nReward for day 1.",
+        "calendar.day2_desc": "A snowman-themed <color=orange>shotgun</color> which smiles idly as it watches you consume the blood of your enemies. Textured by <color=orange>zelzmiy</color> and <color=orange>Fri</color>.\n\nReward for day 2.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -616,6 +991,7 @@
         "category.altshotgun": "IMPACT HAMMER",
         "category.altnailgun": "SAWBLADE LAUNCHER",
         "category.present": "PRESENT",
+        "category.currency": "CURRENCY",
         "page_title.index": "Divine Delivery - Leaderboard",
         "page_title.user": "Divine Delivery - {0}",
         "page_title.settings": "Divine Delivery - Settings",
@@ -649,7 +1025,7 @@
         "item.present_skull": "Encased Skull",
         "item.present_maurice": "Maurice",
         "item.revolver_awesometest": "Awesome Test",
-        "item.shotgun_zelzmiy": "Frosty"
+        "item.shotgun_zelzmiy": "Frosty the Shotgun"
     },
-    "LastUpdate": "2024-12-01T14:00:03.3684074Z"
+    "LastUpdate": "2024-12-01T14:00:04.3684074Z"
 }
