@@ -78,6 +78,8 @@ MonoBehaviour:
   Destroyed: 0
   _hookDeclineEffect: {fileID: 3462673710263658055, guid: ba3ad2be14552b247a6fa872f99d0bc3,
     type: 3}
+  _meshRenderer: {fileID: 310392244102305166}
+  _meshFilter: {fileID: 8928512586495428297}
 --- !u!114 &859807330288288587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +96,7 @@ MonoBehaviour:
   pickedUp: 0
   reverseTransformSettings: 1
   putDownPosition: {x: 0.1, y: -0.025, z: 0.1}
-  putDownRotation: {x: 30, y: -20, z: 75}
+  putDownRotation: {x: 335, y: 135, z: 115}
   putDownScale: {x: 0.35, y: 0.35, z: 0.35}
   pickUpSound: {fileID: 1673117908876384, guid: c509881da2714e84c9808a6a3e99441a,
     type: 3}

@@ -5,6 +5,7 @@ using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Config;
 using EndlessDelivery.Gameplay;
 using EndlessDelivery.Online;
+using EndlessDelivery.ScoreManagement;
 using EndlessDelivery.UI;
 using UnityEngine;
 
@@ -19,6 +20,11 @@ public class AllRooms : MonoBehaviour
     {
         GameManager.Instance.RoomComplete += _ =>
         {
+            if (!ScoreManager.CanSubmit)
+            {
+                return;
+            }
+
             Instance.Data ??= new List<string>();
             List<string> data = Instance.Data;
             string? id = GameManager.Instance.CurrentRoomData?.Id;

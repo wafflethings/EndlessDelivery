@@ -115,7 +115,7 @@ public static class UserPageElements
         builder.AppendHtml("<p class=\"achievement-text\">");
         builder.Append(ContentController.CurrentContent.GetLocalisedString(achievement.Name));
         builder.AppendHtml("</p>");
-        builder.AppendHtml("<div>");
+        builder.AppendHtml("</div>");
     }
 
     public static void AppendSocialLinks(this HtmlContentBuilder builder, UserModel userModel)

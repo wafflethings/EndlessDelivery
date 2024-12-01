@@ -3,7 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using EndlessDelivery.Assets;
+using EndlessDelivery.Common.Inventory.Items;
+using EndlessDelivery.Cosmetics;
+using EndlessDelivery.Cosmetics.Skins;
 using EndlessDelivery.Gameplay;
+using EndlessDelivery.Online;
 using EndlessDelivery.UI;
 using EndlessDelivery.Utils;
 using HarmonyLib;
@@ -24,15 +28,37 @@ public class Present : MonoBehaviour
     [HideInInspector] public bool Destroyed;
     private float _lastHook = 0;
     [SerializeField] private GameObject _hookDeclineEffect;
+    [SerializeField] private MeshRenderer _meshRenderer;
+    [SerializeField] private MeshFilter _meshFilter;
 
     private Color _colour => ColourSetter.DefaultColours[(int)VariantColour];
 
     private void Start()
     {
+        SetSkin();
         _colliders = GetComponents<Collider>();
         _item = GetComponent<ItemIdentifier>();
         _allPresentColliders.AddRange(_colliders);
         SetColour(VariantColour);
+    }
+
+    private void SetSkin()
+    {
+        if (CosmeticLoadout.Default.PresentId == CosmeticManager.Loadout.PresentId)
+        {
+            return;
+        }
+
+        PresentSkin? skin = SkinDb.GetSkin(CosmeticManager.Loadout.PresentId) as PresentSkin;
+
+        if (skin == null)
+        {
+            Plugin.Log.LogWarning($"Present skin was null: {CosmeticManager.Loadout.PresentId}");
+            return;
+        }
+
+        _meshFilter.mesh = skin.Mesh;
+        _meshRenderer.materials = skin.Materials;
     }
 
     private void Update()
@@ -44,7 +70,7 @@ public class Present : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Mathf.Abs((HookArm.Instance.hook.position - transform.position).sqrMagnitude) < (1.75f * 1.75f))
+        if (Mathf.Abs((HookArm.Instance.hook.position - transform.position).sqrMagnitude) < (2f * 2f))
         {
             OnHookAttempt();
         }
@@ -87,7 +113,7 @@ public class Present : MonoBehaviour
     public void SetColour(WeaponVariant colour)
     {
         VariantColour = colour;
-        GetComponent<MeshRenderer>().material.color = _colour;
+        _meshRenderer.material.color = _colour;
         GetComponent<Light>().color = _colour;
         GetComponent<ParticleSystem>().startColor = _colour;
         Glow.color = new Color(_colour.r, _colour.g, _colour.b, 0.5f);

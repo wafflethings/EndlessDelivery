@@ -6,6 +6,7 @@ using EndlessDelivery.Common;
 using EndlessDelivery.Common.Achievements;
 using EndlessDelivery.Common.Communication.Scores;
 using EndlessDelivery.Online;
+using EndlessDelivery.ScoreManagement;
 using EndlessDelivery.UI;
 
 namespace EndlessDelivery.Achievements;
@@ -16,6 +17,11 @@ public class AchievementManager
 
     public static void CheckOnline(OnlineScore score)
     {
+        if (!ScoreManager.CanSubmit)
+        {
+            return;
+        }
+
         if (OnlineFunctionality.LastFetchedContent == null)
         {
             Plugin.Log.LogWarning("OnlineAchievementChecker.Check has somehow been called before CMS fetched.");
@@ -42,6 +48,11 @@ public class AchievementManager
 
     public static void ShowAndGiveLocal(string id)
     {
+        if (!ScoreManager.CanSubmit)
+        {
+            return;
+        }
+
         if (OwnedAchievements.Data.Contains(id))
         {
             return;

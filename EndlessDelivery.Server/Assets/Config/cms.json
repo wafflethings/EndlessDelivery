@@ -384,6 +384,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
+        },
+        "present_skull": {
+            "Descriptor": {
+                "Type": 6,
+                "Id": "present_skull",
+                "Name": "item.present_skull",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
         }
     },
     "ShopRotations": [
@@ -491,8 +503,9 @@
         "item.misc_gingerbread": "Gingerbread",
         "item.present_goblin": "Encased Gob",
         "item.present_v1": "V1 Fumo",
+        "item.present_skull": "Encased Skull",
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty"
     },
-    "LastUpdate": "2024-12-01T00:00:02.3684074Z"
+    "LastUpdate": "2024-12-01T00:00:03.3684074Z"
 }
