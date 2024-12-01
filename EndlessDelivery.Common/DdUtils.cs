@@ -17,16 +17,16 @@ public static class DdUtils
 
     public static string ToWordString(this TimeSpan timeSpan)
     {
-        string time = $"{timeSpan.Minutes} minutes";
+        string time = $"{timeSpan.Minutes} minute{(timeSpan.Minutes == 1 ? string.Empty : "s")}";
 
         if (timeSpan.Hours > 0)
         {
-            time = $"{timeSpan.Hours} hours, " + time;
+            time = $"{timeSpan.Hours} hour{(timeSpan.Hours == 1 ? string.Empty : "s")}, " + time;
         }
 
         if (timeSpan.Days > 0)
         {
-            time = $"{timeSpan.Days} days, " + time;
+            time = $"{timeSpan.Days} day{(timeSpan.Days == 1 ? string.Empty : "s")}, " + time;
         }
 
         return time;

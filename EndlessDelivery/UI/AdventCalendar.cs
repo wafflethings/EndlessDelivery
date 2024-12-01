@@ -17,7 +17,7 @@ namespace EndlessDelivery.UI;
 
 public class AdventCalendar : MonoBehaviour
 {
-    private static readonly string[] s_buttonOrder = ["day15_2024", "day16_2024", "day4_2024", "day0_2024", "day8_2024", "day22_2024", "day24_2024", "day18_2024", "day10_2024",
+    private static readonly string[] s_buttonOrder = ["day15_2024", "day16_2024", "day4_2024", "day25_2024", "day8_2024", "day22_2024", "day24_2024", "day18_2024", "day10_2024",
         "day20_2024", "day6_2024", "day13_2024", "day23_2024", "day3_2024", "day17_2024", "day7_2024", "day19_2024", "day14_2024", "day12_2024", "day1_2024", "day5_2024", "day9_2024", "day21_2024", "day2_2024", "day11_2024"];
 
     [SerializeField] private GameObject _templateButton;
@@ -38,6 +38,7 @@ public class AdventCalendar : MonoBehaviour
     public void Claim()
     {
         _claimButtonText.text = OnlineFunctionality.LastFetchedContent.GetLocalisedString("game_ui.calendar_claimed");
+        _claimButton.interactable = false;
         Task.Run(async () =>
         {
             await OnlineFunctionality.Context.ClaimDailyReward();

@@ -155,7 +155,11 @@ public class ItemController : ControllerBase
             user.OwnedItemIds.Add(reward.ItemId);
         }
 
-        return StatusCode(StatusCodes.Status200OK, "The user is not logged in.");
+        await using DeliveryDbContext dbContext = new();
+        dbContext.Users.Update(user);
+        await dbContext.SaveChangesAsync();
+
+        return StatusCode(StatusCodes.Status200OK, "Success.");
     }
 
     [HttpGet("get_claimed_rewards")]

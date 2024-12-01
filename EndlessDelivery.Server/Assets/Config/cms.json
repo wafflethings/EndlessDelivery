@@ -1004,7 +1004,7 @@
         "page_desc.error": "No idea why you're here, but it's probably my fault.",
         "game_ui.achievement_unlocks": "Unlocks {0}.",
         "game_ui.achievement_unlocks_nothing": "nothing",
-        "game_ui.calendar_unclaimed": "CLAIMED",
+        "game_ui.calendar_unclaimed": "CLAIM",
         "game_ui.calendar_claimed": "CLAIMED",
         "game_ui.calendar_missed": "MISSED",
         "game_ui.hidden_achievement": "Details will be revealed when the achievement is unlocked.",
@@ -1027,5 +1027,5 @@
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty the Shotgun"
     },
-    "LastUpdate": "2024-12-01T14:00:04.3684074Z"
+    "LastUpdate": "2024-12-01T16:00:04.3684074Z"
 }

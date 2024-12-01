@@ -292,7 +292,7 @@ MonoBehaviour:
   _image: {fileID: 602632410137419571}
   _todayColour: {r: 1, g: 1, b: 1, a: 1}
   _beforeTodayColour: {r: 1, g: 1, b: 1, a: 0.7490196}
-  _afterTodayColour: {r: 0, g: 0, b: 0, a: 0.2509804}
+  _afterTodayColour: {r: 1, g: 1, b: 1, a: 0.2509804}
 --- !u!1 &5716975343014560447
 GameObject:
   m_ObjectHideFlags: 0
