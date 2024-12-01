@@ -34,14 +34,13 @@ public class AchievementManager
         {
             Plugin.Log.LogInfo($"Checking ach: {serverAchievement.Id}");
 
-            if (!OnlineFunctionality.LastFetchedContent.Achievements.TryGetValue(serverAchievement.Id, out Achievement? achievement) || achievement == null)
+            if (!OnlineFunctionality.LastFetchedContent.Achievements.TryGetValue(serverAchievement.Id, out Achievement? achievement) || achievement == null || achievement.Disabled)
             {
                 continue;
             }
 
             if (!OwnedAchievements.Data.Contains(serverAchievement.Id) && serverAchievement.ShouldGrant(score))
             {
-                Plugin.Log.LogInfo("Granted");
                 OwnedAchievements.Data.Add(serverAchievement.Id);
                 AchievementHud.Instance.AddAchievement(achievement);
             }
@@ -62,8 +61,13 @@ public class AchievementManager
             return;
         }
 
+        if (!OnlineFunctionality.LastFetchedContent.Achievements.TryGetValue(id, out Achievement achievement) || achievement.Disabled)
+        {
+            return;
+        }
+
         OwnedAchievements.Data.Add(id);
-        AchievementHud.Instance.AddAchievement(OnlineFunctionality.LastFetchedContent.Achievements[id]);
+        AchievementHud.Instance.AddAchievement(achievement);
         Task.Run(() => OnlineFunctionality.Context.GrantAchievement(id));
     }
 }

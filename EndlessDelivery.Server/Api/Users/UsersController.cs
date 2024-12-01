@@ -81,7 +81,7 @@ namespace EndlessDelivery.Server.Api.Users
                 return StatusCode(StatusCodes.Status400BadRequest, $"Achievement {achievementId} not found!");
             }
 
-            if (achievement.Serverside)
+            if (achievement.Serverside || achievement.Disabled)
             {
                 return StatusCode(StatusCodes.Status400BadRequest, "Nice try, stop cheating.");
             }

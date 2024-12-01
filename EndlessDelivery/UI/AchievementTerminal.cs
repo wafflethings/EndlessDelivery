@@ -42,6 +42,11 @@ public class AchievementTerminal : MonoBehaviour
 
         foreach (Achievement achievement in cms.Achievements.Values.OrderBy(x => !ownedAchievementIds.Contains(x.Id)).ThenBy(x => cms.GetLocalisedString(x.Id)))
         {
+            if (achievement.Disabled)
+            {
+                continue;
+            }
+
             AddAchievement(achievement, ownedAchievementIds.Contains(achievement.Id));
         }
 
