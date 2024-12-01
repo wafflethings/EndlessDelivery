@@ -102,6 +102,11 @@ public static class UserPageElements
 
         foreach (Achievement achievement in achievements)
         {
+            if (achievement.Disabled)
+            {
+                continue;
+            }
+            
             builder.AppendAchievement(achievement);
         }
 

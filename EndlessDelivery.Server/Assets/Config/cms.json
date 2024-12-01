@@ -399,7 +399,8 @@
             },
             "ItemGrants": [],
             "HideDetails": false,
-            "Serverside": true
+            "Serverside": true,
+            "Disabled": true
         },
         "ach_top50": {
             "Name": "achievement.top50",
@@ -411,7 +412,8 @@
             },
             "ItemGrants": [],
             "HideDetails": false,
-            "Serverside": true
+            "Serverside": true,
+            "Disabled": true
         },
         "ach_gobstopper": {
             "Name": "achievement.gobstopper",

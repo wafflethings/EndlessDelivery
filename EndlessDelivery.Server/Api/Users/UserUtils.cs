@@ -36,7 +36,7 @@ public static class UserUtils
                 continue;
             }
 
-            if (user.OwnedAchievements.All(x => x.Id != serverAchievement.Id) && serverAchievement.ShouldGrant(newScore))
+            if (user.OwnedAchievements.All(x => x.Id != serverAchievement.Id) && serverAchievement.ShouldGrant(newScore) && !serverAchievement.Disabled)
             {
                 using DeliveryDbContext dbContext = new();
                 user.GetAchievement(achievement);

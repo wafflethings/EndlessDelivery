@@ -11,4 +11,5 @@ public class Achievement
     public string[] ItemGrants;
     public bool HideDetails;
     public bool Serverside;
+    public bool Disabled = false;
 }
