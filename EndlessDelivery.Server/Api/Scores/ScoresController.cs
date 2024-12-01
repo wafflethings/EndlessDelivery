@@ -155,7 +155,6 @@ namespace EndlessDelivery.Server.Api.Scores
             }
 
             await SetIndexes();
-
             return StatusCode(StatusCodes.Status200OK, "Indexes reset.");
         }
 
