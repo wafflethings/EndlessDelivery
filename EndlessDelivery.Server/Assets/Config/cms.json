@@ -20,14 +20,28 @@
         "first_place_ach": {
             "Name": "achievement.firstplace",
             "Id": "first_place_ach",
-            "Description": "",
+            "Description": "achievement.firstplace_desc",
             "Icon": {
                 "AssetUri": "/Resources/UI/Achievements/first-score.png",
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/first-score.png"
             },
             "OrderPriority": 0,
             "ItemGrants": [],
-            "HideDetails": true
+            "HideDetails": false,
+            "Serverside": true
+        },
+        "ach_gobstopper": {
+            "Name": "achievement.gobstopper",
+            "Id": "ach_gobstopper",
+            "Description": "achievement.gobstopper_desc",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/goblin.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/goblin.png"
+            },
+            "OrderPriority": 1,
+            "ItemGrants": [],
+            "HideDetails": false,
+            "Serverside": false
         }
     },
     "Banners": {
@@ -315,6 +329,9 @@
     ],
     "LocalisedStrings": {
         "achievement.firstplace": "PREMIER POSTMAN",
+        "achievement.firstplace_desc": "Earn first place on the leaderboard.",
+        "achievement.gobstopper": "GOBSTOPPER",
+        "achievement.gobstopper_desc": "Destroy 10 different paintings of Goblin, the stupid-looking black cat.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
