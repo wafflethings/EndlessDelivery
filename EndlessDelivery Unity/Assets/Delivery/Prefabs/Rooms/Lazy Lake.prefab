@@ -64439,7 +64439,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64456,7 +64456,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64473,7 +64473,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64490,7 +64490,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64507,7 +64507,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64524,7 +64524,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64541,7 +64541,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64558,7 +64558,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64575,7 +64575,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64592,7 +64592,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64609,7 +64609,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64626,7 +64626,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64643,7 +64643,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64660,7 +64660,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64677,7 +64677,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64694,7 +64694,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64711,7 +64711,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64728,7 +64728,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64745,7 +64745,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64762,7 +64762,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64779,7 +64779,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64796,7 +64796,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64813,7 +64813,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64830,7 +64830,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64847,7 +64847,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64864,7 +64864,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64881,7 +64881,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64898,7 +64898,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64915,7 +64915,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64932,7 +64932,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64949,7 +64949,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64966,7 +64966,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -64983,7 +64983,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65000,7 +65000,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65017,7 +65017,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65034,7 +65034,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65051,7 +65051,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65068,7 +65068,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65085,7 +65085,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65102,7 +65102,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65119,7 +65119,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65136,7 +65136,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65153,7 +65153,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65170,7 +65170,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65187,7 +65187,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65204,7 +65204,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65221,7 +65221,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65238,7 +65238,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65255,7 +65255,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65272,7 +65272,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65289,7 +65289,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65306,7 +65306,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65323,7 +65323,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65340,7 +65340,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65357,7 +65357,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65374,7 +65374,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65391,7 +65391,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65408,7 +65408,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65425,7 +65425,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65442,7 +65442,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65459,7 +65459,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65476,7 +65476,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65493,7 +65493,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65510,7 +65510,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65527,7 +65527,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65544,7 +65544,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65561,7 +65561,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65578,7 +65578,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65595,7 +65595,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65612,7 +65612,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65629,7 +65629,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65646,7 +65646,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65663,7 +65663,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65680,7 +65680,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65697,7 +65697,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65714,7 +65714,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65731,7 +65731,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65748,7 +65748,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65765,7 +65765,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65782,7 +65782,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65799,7 +65799,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65816,7 +65816,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65833,7 +65833,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65850,7 +65850,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65867,7 +65867,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65884,7 +65884,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65901,7 +65901,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65918,7 +65918,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65935,7 +65935,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65952,7 +65952,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65969,7 +65969,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -65986,7 +65986,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66003,7 +66003,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66020,7 +66020,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66037,7 +66037,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66054,7 +66054,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66071,7 +66071,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66088,7 +66088,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66105,7 +66105,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66122,7 +66122,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66139,7 +66139,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66156,7 +66156,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66173,7 +66173,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66190,7 +66190,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66207,7 +66207,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66224,7 +66224,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66241,7 +66241,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66258,7 +66258,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66275,7 +66275,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66292,7 +66292,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66309,7 +66309,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66326,7 +66326,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66343,7 +66343,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66360,7 +66360,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66377,7 +66377,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66394,7 +66394,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66411,7 +66411,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66428,7 +66428,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66445,7 +66445,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66462,7 +66462,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66479,7 +66479,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66496,7 +66496,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66513,7 +66513,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66530,7 +66530,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66547,7 +66547,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66564,7 +66564,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66581,7 +66581,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66598,7 +66598,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66615,7 +66615,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66632,7 +66632,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66649,7 +66649,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66666,7 +66666,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66683,7 +66683,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66700,7 +66700,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66717,7 +66717,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66734,7 +66734,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66751,7 +66751,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66768,7 +66768,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66785,7 +66785,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66802,7 +66802,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66819,7 +66819,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66836,7 +66836,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66853,7 +66853,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66870,7 +66870,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66887,7 +66887,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66904,7 +66904,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66921,7 +66921,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66938,7 +66938,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66955,7 +66955,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66972,7 +66972,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -66989,7 +66989,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67006,7 +67006,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67023,7 +67023,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67040,7 +67040,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67057,7 +67057,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67074,7 +67074,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67091,7 +67091,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67108,7 +67108,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67125,7 +67125,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67142,7 +67142,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67159,7 +67159,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67176,7 +67176,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67193,7 +67193,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67210,7 +67210,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67227,7 +67227,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67244,7 +67244,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67261,7 +67261,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67278,7 +67278,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67295,7 +67295,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67312,7 +67312,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67329,7 +67329,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67346,7 +67346,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67363,7 +67363,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67380,7 +67380,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67397,7 +67397,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67414,7 +67414,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67431,7 +67431,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67448,7 +67448,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67465,7 +67465,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67482,7 +67482,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67499,7 +67499,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67516,7 +67516,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67533,7 +67533,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67550,7 +67550,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67567,7 +67567,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67584,7 +67584,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67601,7 +67601,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67618,7 +67618,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67635,7 +67635,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67652,7 +67652,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67669,7 +67669,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67686,7 +67686,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67703,7 +67703,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67720,7 +67720,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67737,7 +67737,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67754,7 +67754,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67771,7 +67771,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67788,7 +67788,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67805,7 +67805,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67822,7 +67822,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67839,7 +67839,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67856,7 +67856,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67873,7 +67873,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67890,7 +67890,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67907,7 +67907,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67924,7 +67924,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67941,7 +67941,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67958,7 +67958,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67975,7 +67975,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -67992,7 +67992,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68009,7 +68009,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68026,7 +68026,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68043,7 +68043,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68060,7 +68060,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68077,7 +68077,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68094,7 +68094,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68111,7 +68111,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68128,7 +68128,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68145,7 +68145,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68162,7 +68162,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68179,7 +68179,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68196,7 +68196,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68213,7 +68213,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68230,7 +68230,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68247,7 +68247,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68264,7 +68264,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68281,7 +68281,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68298,7 +68298,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68315,7 +68315,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68332,7 +68332,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68349,7 +68349,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68366,7 +68366,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68383,7 +68383,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68400,7 +68400,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68417,7 +68417,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68434,7 +68434,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68451,7 +68451,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68468,7 +68468,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68485,7 +68485,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68502,7 +68502,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68519,7 +68519,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68536,7 +68536,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68553,7 +68553,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68570,7 +68570,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68587,7 +68587,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68604,7 +68604,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68621,7 +68621,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68638,7 +68638,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68655,7 +68655,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68672,7 +68672,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68689,7 +68689,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68706,7 +68706,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68723,7 +68723,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68740,7 +68740,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68757,7 +68757,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68774,7 +68774,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68791,7 +68791,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68808,7 +68808,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68825,7 +68825,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68842,7 +68842,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68859,7 +68859,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68876,7 +68876,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68893,7 +68893,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68910,7 +68910,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68927,7 +68927,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68944,7 +68944,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68961,7 +68961,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68978,7 +68978,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -68995,7 +68995,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69012,7 +69012,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69029,7 +69029,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69046,7 +69046,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69063,7 +69063,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69080,7 +69080,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69097,7 +69097,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69114,7 +69114,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69131,7 +69131,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69148,7 +69148,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69165,7 +69165,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69182,7 +69182,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69199,7 +69199,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69216,7 +69216,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69233,7 +69233,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69250,7 +69250,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69267,7 +69267,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69284,7 +69284,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69301,7 +69301,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69318,7 +69318,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69335,7 +69335,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69352,7 +69352,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69369,7 +69369,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69386,7 +69386,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69403,7 +69403,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69420,7 +69420,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69437,7 +69437,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69454,7 +69454,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69471,7 +69471,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69488,7 +69488,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69505,7 +69505,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69522,7 +69522,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69539,7 +69539,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69556,7 +69556,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69573,7 +69573,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69590,7 +69590,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69607,7 +69607,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69624,7 +69624,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69641,7 +69641,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69658,7 +69658,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69675,7 +69675,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69692,7 +69692,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69709,7 +69709,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69726,7 +69726,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69743,7 +69743,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69760,7 +69760,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69777,7 +69777,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69794,7 +69794,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69811,7 +69811,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69828,7 +69828,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69845,7 +69845,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69862,7 +69862,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69879,7 +69879,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69896,7 +69896,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69913,7 +69913,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69930,7 +69930,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69947,7 +69947,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69964,7 +69964,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69981,7 +69981,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -69998,7 +69998,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70015,7 +70015,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70032,7 +70032,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70049,7 +70049,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70066,7 +70066,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70083,7 +70083,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70100,7 +70100,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70117,7 +70117,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70134,7 +70134,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70151,7 +70151,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70168,7 +70168,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70185,7 +70185,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70202,7 +70202,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70219,7 +70219,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70236,7 +70236,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70253,7 +70253,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70270,7 +70270,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70287,7 +70287,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70304,7 +70304,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70321,7 +70321,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70338,7 +70338,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70355,7 +70355,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70372,7 +70372,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70389,7 +70389,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70406,7 +70406,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70423,7 +70423,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70440,7 +70440,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70457,7 +70457,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70474,7 +70474,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70491,7 +70491,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70508,7 +70508,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70525,7 +70525,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70542,7 +70542,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70559,7 +70559,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70576,7 +70576,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70593,7 +70593,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70610,7 +70610,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70627,7 +70627,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70644,7 +70644,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70661,7 +70661,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -70678,7 +70678,7 @@ MonoBehaviour:
       m_FlipV: 0
       m_SwapUV: 0
       m_Fill: 1
-      m_Scale: {x: 1, y: 1}
+      m_Scale: {x: 0.25, y: 0.25}
       m_Offset: {x: 0, y: 0}
       m_Rotation: 0
       m_Anchor: 9
@@ -72542,1478 +72542,1478 @@ MonoBehaviour:
   - {x: 0, y: -20.75, z: -8.75}
   - {x: -8.75, y: -20.75, z: -8.75}
   m_Textures0:
-  - {x: -35, y: 7.125}
-  - {x: -35, y: 14.09375}
-  - {x: -26.25, y: 14.09375}
-  - {x: -26.25, y: 7.125}
-  - {x: -35, y: 14.09375}
-  - {x: -35, y: 21.0625}
-  - {x: -26.25, y: 21.0625}
-  - {x: -26.25, y: 14.09375}
-  - {x: -26.25, y: 21.0625}
-  - {x: -17.5, y: 21.0625}
-  - {x: -17.5, y: 14.09375}
-  - {x: -26.25, y: 14.09375}
-  - {x: -17.5, y: 14.09375}
-  - {x: -17.5, y: 7.125}
-  - {x: -26.25, y: 7.125}
-  - {x: -26.25, y: 14.09375}
-  - {x: -35, y: 21.0625}
-  - {x: -35, y: 28.03125}
-  - {x: -26.25, y: 28.03125}
-  - {x: -26.25, y: 21.0625}
-  - {x: -35, y: 28.03125}
-  - {x: -35, y: 35}
-  - {x: -26.25, y: 35}
-  - {x: -26.25, y: 28.03125}
-  - {x: -26.25, y: 35}
-  - {x: -17.5, y: 35}
-  - {x: -17.5, y: 28.03125}
-  - {x: -26.25, y: 28.03125}
-  - {x: -17.5, y: 28.03125}
-  - {x: -17.5, y: 21.0625}
-  - {x: -26.25, y: 21.0625}
-  - {x: -26.25, y: 28.03125}
-  - {x: -17.5, y: 21.0625}
-  - {x: -17.5, y: 28.03125}
-  - {x: -8.75, y: 28.03125}
-  - {x: -8.75, y: 21.0625}
-  - {x: -17.5, y: 28.03125}
-  - {x: -17.5, y: 35}
-  - {x: -8.75, y: 35}
-  - {x: -8.75, y: 28.03125}
-  - {x: -8.75, y: 35}
-  - {x: 0, y: 35}
-  - {x: 0, y: 28.03125}
-  - {x: -8.75, y: 28.03125}
-  - {x: 0, y: 28.03125}
-  - {x: 0, y: 21.0625}
-  - {x: -8.75, y: 21.0625}
-  - {x: -8.75, y: 28.03125}
-  - {x: -17.5, y: 7.125}
-  - {x: -17.5, y: 14.09375}
-  - {x: -8.75, y: 14.09375}
   - {x: -8.75, y: 7.125}
-  - {x: -17.5, y: 14.09375}
-  - {x: -17.5, y: 21.0625}
-  - {x: -8.75, y: 21.0625}
+  - {x: -8.75, y: 8.8671875}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -6.5625, y: 7.125}
+  - {x: -8.75, y: 8.8671875}
+  - {x: -8.75, y: 10.609375}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -4.375, y: 10.609375}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -4.375, y: 7.125}
+  - {x: -6.5625, y: 7.125}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -8.75, y: 10.609375}
+  - {x: -8.75, y: 12.3515625}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -8.75, y: 12.3515625}
   - {x: -8.75, y: 14.09375}
-  - {x: -8.75, y: 21.0625}
-  - {x: 0, y: 21.0625}
+  - {x: -6.5625, y: 14.09375}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: -6.5625, y: 14.09375}
+  - {x: -4.375, y: 14.09375}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -4.375, y: 10.609375}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: -4.375, y: 10.609375}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: -2.1875, y: 10.609375}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -4.375, y: 14.09375}
+  - {x: -2.1875, y: 14.09375}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: -2.1875, y: 14.09375}
   - {x: 0, y: 14.09375}
+  - {x: 0, y: 12.3515625}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: 0, y: 12.3515625}
+  - {x: 0, y: 10.609375}
+  - {x: -2.1875, y: 10.609375}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: -4.375, y: 7.125}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: -2.1875, y: 7.125}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -4.375, y: 10.609375}
+  - {x: -2.1875, y: 10.609375}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: -2.1875, y: 10.609375}
+  - {x: 0, y: 10.609375}
+  - {x: 0, y: 8.8671875}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: 0, y: 8.8671875}
+  - {x: 0, y: 7.125}
+  - {x: -2.1875, y: 7.125}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: 0, y: 7.125}
+  - {x: 0, y: 8.8671875}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 2.1875, y: 7.125}
+  - {x: 0, y: 8.8671875}
+  - {x: 0, y: 10.609375}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 4.375, y: 10.609375}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 4.375, y: 7.125}
+  - {x: 2.1875, y: 7.125}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 0, y: 10.609375}
+  - {x: 0, y: 12.3515625}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 0, y: 12.3515625}
+  - {x: 0, y: 14.09375}
+  - {x: 2.1875, y: 14.09375}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 2.1875, y: 14.09375}
+  - {x: 4.375, y: 14.09375}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 4.375, y: 10.609375}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 4.375, y: 10.609375}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 4.375, y: 14.09375}
+  - {x: 6.5625, y: 14.09375}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 6.5625, y: 14.09375}
+  - {x: 8.75, y: 14.09375}
+  - {x: 8.75, y: 12.3515625}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 8.75, y: 12.3515625}
+  - {x: 8.75, y: 10.609375}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 4.375, y: 7.125}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 6.5625, y: 7.125}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 4.375, y: 10.609375}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 8.75, y: 10.609375}
+  - {x: 8.75, y: 8.8671875}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 8.75, y: 8.8671875}
+  - {x: 8.75, y: 7.125}
+  - {x: 6.5625, y: 7.125}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 0, y: 0.15625}
+  - {x: 0, y: 1.8984375}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 2.1875, y: 0.15625}
+  - {x: 0, y: 1.8984375}
+  - {x: 0, y: 3.640625}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 4.375, y: 3.640625}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 4.375, y: 0.15625}
+  - {x: 2.1875, y: 0.15625}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 0, y: 3.640625}
+  - {x: 0, y: 5.3828125}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 0, y: 5.3828125}
+  - {x: 0, y: 7.125}
+  - {x: 2.1875, y: 7.125}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 2.1875, y: 7.125}
+  - {x: 4.375, y: 7.125}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 4.375, y: 3.640625}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 4.375, y: 3.640625}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 4.375, y: 7.125}
+  - {x: 6.5625, y: 7.125}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 6.5625, y: 7.125}
+  - {x: 8.75, y: 7.125}
+  - {x: 8.75, y: 5.3828125}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 8.75, y: 5.3828125}
+  - {x: 8.75, y: 3.640625}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 4.375, y: 0.15625}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: 6.5625, y: 0.15625}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 4.375, y: 3.640625}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 8.75, y: 3.640625}
+  - {x: 8.75, y: 1.8984375}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: 8.75, y: 1.8984375}
+  - {x: 8.75, y: 0.15625}
+  - {x: 6.5625, y: 0.15625}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: -8.75, y: 0.15625}
+  - {x: -8.75, y: 1.8984375}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -6.5625, y: 0.15625}
+  - {x: -8.75, y: 1.8984375}
+  - {x: -8.75, y: 3.640625}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -4.375, y: 3.640625}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -4.375, y: 0.15625}
+  - {x: -6.5625, y: 0.15625}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -8.75, y: 3.640625}
+  - {x: -8.75, y: 5.3828125}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -8.75, y: 5.3828125}
+  - {x: -8.75, y: 7.125}
+  - {x: -6.5625, y: 7.125}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: -6.5625, y: 7.125}
+  - {x: -4.375, y: 7.125}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -4.375, y: 3.640625}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: -4.375, y: 3.640625}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: -2.1875, y: 3.640625}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -4.375, y: 7.125}
+  - {x: -2.1875, y: 7.125}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: -2.1875, y: 7.125}
+  - {x: 0, y: 7.125}
+  - {x: 0, y: 5.3828125}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: 0, y: 5.3828125}
+  - {x: 0, y: 3.640625}
+  - {x: -2.1875, y: 3.640625}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: -4.375, y: 0.15625}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: -2.1875, y: 0.15625}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -4.375, y: 3.640625}
+  - {x: -2.1875, y: 3.640625}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: -2.1875, y: 3.640625}
+  - {x: 0, y: 3.640625}
+  - {x: 0, y: 1.8984375}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: 0, y: 1.8984375}
+  - {x: 0, y: 0.15625}
+  - {x: -2.1875, y: 0.15625}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: -8.75, y: 7.125}
+  - {x: -8.75, y: 8.8671875}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -6.5625, y: 7.125}
+  - {x: -8.75, y: 8.8671875}
+  - {x: -8.75, y: 10.609375}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -4.375, y: 10.609375}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -4.375, y: 7.125}
+  - {x: -6.5625, y: 7.125}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -8.75, y: 10.609375}
+  - {x: -8.75, y: 12.3515625}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -8.75, y: 12.3515625}
   - {x: -8.75, y: 14.09375}
+  - {x: -6.5625, y: 14.09375}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: -6.5625, y: 14.09375}
+  - {x: -4.375, y: 14.09375}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -4.375, y: 10.609375}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: -4.375, y: 10.609375}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: -2.1875, y: 10.609375}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -4.375, y: 14.09375}
+  - {x: -2.1875, y: 14.09375}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: -2.1875, y: 14.09375}
   - {x: 0, y: 14.09375}
+  - {x: 0, y: 12.3515625}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: 0, y: 12.3515625}
+  - {x: 0, y: 10.609375}
+  - {x: -2.1875, y: 10.609375}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: -4.375, y: 7.125}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: -2.1875, y: 7.125}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -4.375, y: 10.609375}
+  - {x: -2.1875, y: 10.609375}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: -2.1875, y: 10.609375}
+  - {x: 0, y: 10.609375}
+  - {x: 0, y: 8.8671875}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: 0, y: 8.8671875}
   - {x: 0, y: 7.125}
+  - {x: -2.1875, y: 7.125}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: 0, y: 7.125}
+  - {x: 0, y: 8.8671875}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 2.1875, y: 7.125}
+  - {x: 0, y: 8.8671875}
+  - {x: 0, y: 10.609375}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 4.375, y: 10.609375}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 4.375, y: 7.125}
+  - {x: 2.1875, y: 7.125}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 0, y: 10.609375}
+  - {x: 0, y: 12.3515625}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 0, y: 12.3515625}
+  - {x: 0, y: 14.09375}
+  - {x: 2.1875, y: 14.09375}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 2.1875, y: 14.09375}
+  - {x: 4.375, y: 14.09375}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 4.375, y: 10.609375}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 4.375, y: 10.609375}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 4.375, y: 14.09375}
+  - {x: 6.5625, y: 14.09375}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 6.5625, y: 14.09375}
+  - {x: 8.75, y: 14.09375}
+  - {x: 8.75, y: 12.3515625}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 8.75, y: 12.3515625}
+  - {x: 8.75, y: 10.609375}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 4.375, y: 7.125}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 6.5625, y: 7.125}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 4.375, y: 10.609375}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 8.75, y: 10.609375}
+  - {x: 8.75, y: 8.8671875}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 8.75, y: 8.8671875}
+  - {x: 8.75, y: 7.125}
+  - {x: 6.5625, y: 7.125}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 0, y: 0.15625}
+  - {x: 0, y: 1.8984375}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 2.1875, y: 0.15625}
+  - {x: 0, y: 1.8984375}
+  - {x: 0, y: 3.640625}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 4.375, y: 3.640625}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 4.375, y: 0.15625}
+  - {x: 2.1875, y: 0.15625}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 0, y: 3.640625}
+  - {x: 0, y: 5.3828125}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 0, y: 5.3828125}
+  - {x: 0, y: 7.125}
+  - {x: 2.1875, y: 7.125}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 2.1875, y: 7.125}
+  - {x: 4.375, y: 7.125}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 4.375, y: 3.640625}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 4.375, y: 3.640625}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 4.375, y: 7.125}
+  - {x: 6.5625, y: 7.125}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 6.5625, y: 7.125}
+  - {x: 8.75, y: 7.125}
+  - {x: 8.75, y: 5.3828125}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 8.75, y: 5.3828125}
+  - {x: 8.75, y: 3.640625}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 4.375, y: 0.15625}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: 6.5625, y: 0.15625}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 4.375, y: 3.640625}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 8.75, y: 3.640625}
+  - {x: 8.75, y: 1.8984375}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: 8.75, y: 1.8984375}
+  - {x: 8.75, y: 0.15625}
+  - {x: 6.5625, y: 0.15625}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: -8.75, y: 0.15625}
+  - {x: -8.75, y: 1.8984375}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -6.5625, y: 0.15625}
+  - {x: -8.75, y: 1.8984375}
+  - {x: -8.75, y: 3.640625}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -4.375, y: 3.640625}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -4.375, y: 0.15625}
+  - {x: -6.5625, y: 0.15625}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -8.75, y: 3.640625}
+  - {x: -8.75, y: 5.3828125}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -8.75, y: 5.3828125}
   - {x: -8.75, y: 7.125}
+  - {x: -6.5625, y: 7.125}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: -6.5625, y: 7.125}
+  - {x: -4.375, y: 7.125}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -4.375, y: 3.640625}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: -4.375, y: 3.640625}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: -2.1875, y: 3.640625}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -4.375, y: 7.125}
+  - {x: -2.1875, y: 7.125}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: -2.1875, y: 7.125}
+  - {x: 0, y: 7.125}
+  - {x: 0, y: 5.3828125}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: 0, y: 5.3828125}
+  - {x: 0, y: 3.640625}
+  - {x: -2.1875, y: 3.640625}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: -4.375, y: 0.15625}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: -2.1875, y: 0.15625}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -4.375, y: 3.640625}
+  - {x: -2.1875, y: 3.640625}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: -2.1875, y: 3.640625}
+  - {x: 0, y: 3.640625}
+  - {x: 0, y: 1.8984375}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: 0, y: 1.8984375}
+  - {x: 0, y: 0.15625}
+  - {x: -2.1875, y: 0.15625}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: 0, y: 7.125}
+  - {x: -2.1875, y: 7.125}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: 0, y: 8.8671875}
+  - {x: -2.1875, y: 7.125}
+  - {x: -4.375, y: 7.125}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -4.375, y: 10.609375}
+  - {x: -2.1875, y: 10.609375}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: -2.1875, y: 10.609375}
+  - {x: 0, y: 10.609375}
+  - {x: 0, y: 8.8671875}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: -4.375, y: 7.125}
+  - {x: -6.5625, y: 7.125}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -6.5625, y: 7.125}
+  - {x: -8.75, y: 7.125}
+  - {x: -8.75, y: 8.8671875}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -8.75, y: 8.8671875}
+  - {x: -8.75, y: 10.609375}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -4.375, y: 10.609375}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -4.375, y: 10.609375}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -8.75, y: 10.609375}
+  - {x: -8.75, y: 12.3515625}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: -8.75, y: 12.3515625}
   - {x: -8.75, y: 14.09375}
-  - {x: 0, y: 7.125}
+  - {x: -6.5625, y: 14.09375}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: -6.5625, y: 14.09375}
+  - {x: -4.375, y: 14.09375}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: 0, y: 10.609375}
+  - {x: -2.1875, y: 10.609375}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: 0, y: 12.3515625}
+  - {x: -2.1875, y: 10.609375}
+  - {x: -4.375, y: 10.609375}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -4.375, y: 14.09375}
+  - {x: -2.1875, y: 14.09375}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: -2.1875, y: 14.09375}
   - {x: 0, y: 14.09375}
-  - {x: 8.75, y: 14.09375}
+  - {x: 0, y: 12.3515625}
+  - {x: -2.1875, y: 12.3515625}
   - {x: 8.75, y: 7.125}
+  - {x: 6.5625, y: 7.125}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 8.75, y: 8.8671875}
+  - {x: 6.5625, y: 7.125}
+  - {x: 4.375, y: 7.125}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 4.375, y: 10.609375}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 8.75, y: 10.609375}
+  - {x: 8.75, y: 8.8671875}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 4.375, y: 7.125}
+  - {x: 2.1875, y: 7.125}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 2.1875, y: 7.125}
+  - {x: 0, y: 7.125}
+  - {x: 0, y: 8.8671875}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 0, y: 8.8671875}
+  - {x: 0, y: 10.609375}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 4.375, y: 10.609375}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 4.375, y: 10.609375}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 0, y: 10.609375}
+  - {x: 0, y: 12.3515625}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 0, y: 12.3515625}
   - {x: 0, y: 14.09375}
-  - {x: 0, y: 21.0625}
-  - {x: 8.75, y: 21.0625}
+  - {x: 2.1875, y: 14.09375}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 2.1875, y: 14.09375}
+  - {x: 4.375, y: 14.09375}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 8.75, y: 10.609375}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 8.75, y: 12.3515625}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 4.375, y: 10.609375}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 4.375, y: 14.09375}
+  - {x: 6.5625, y: 14.09375}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 6.5625, y: 14.09375}
   - {x: 8.75, y: 14.09375}
-  - {x: 8.75, y: 21.0625}
-  - {x: 17.5, y: 21.0625}
-  - {x: 17.5, y: 14.09375}
-  - {x: 8.75, y: 14.09375}
-  - {x: 17.5, y: 14.09375}
-  - {x: 17.5, y: 7.125}
-  - {x: 8.75, y: 7.125}
-  - {x: 8.75, y: 14.09375}
-  - {x: 0, y: 21.0625}
-  - {x: 0, y: 28.03125}
-  - {x: 8.75, y: 28.03125}
-  - {x: 8.75, y: 21.0625}
-  - {x: 0, y: 28.03125}
-  - {x: 0, y: 35}
-  - {x: 8.75, y: 35}
-  - {x: 8.75, y: 28.03125}
-  - {x: 8.75, y: 35}
-  - {x: 17.5, y: 35}
-  - {x: 17.5, y: 28.03125}
-  - {x: 8.75, y: 28.03125}
-  - {x: 17.5, y: 28.03125}
-  - {x: 17.5, y: 21.0625}
-  - {x: 8.75, y: 21.0625}
-  - {x: 8.75, y: 28.03125}
-  - {x: 17.5, y: 21.0625}
-  - {x: 17.5, y: 28.03125}
-  - {x: 26.25, y: 28.03125}
-  - {x: 26.25, y: 21.0625}
-  - {x: 17.5, y: 28.03125}
-  - {x: 17.5, y: 35}
-  - {x: 26.25, y: 35}
-  - {x: 26.25, y: 28.03125}
-  - {x: 26.25, y: 35}
-  - {x: 35, y: 35}
-  - {x: 35, y: 28.03125}
-  - {x: 26.25, y: 28.03125}
-  - {x: 35, y: 28.03125}
-  - {x: 35, y: 21.0625}
-  - {x: 26.25, y: 21.0625}
-  - {x: 26.25, y: 28.03125}
-  - {x: 17.5, y: 7.125}
-  - {x: 17.5, y: 14.09375}
-  - {x: 26.25, y: 14.09375}
-  - {x: 26.25, y: 7.125}
-  - {x: 17.5, y: 14.09375}
-  - {x: 17.5, y: 21.0625}
-  - {x: 26.25, y: 21.0625}
-  - {x: 26.25, y: 14.09375}
-  - {x: 26.25, y: 21.0625}
-  - {x: 35, y: 21.0625}
-  - {x: 35, y: 14.09375}
-  - {x: 26.25, y: 14.09375}
-  - {x: 35, y: 14.09375}
-  - {x: 35, y: 7.125}
-  - {x: 26.25, y: 7.125}
-  - {x: 26.25, y: 14.09375}
-  - {x: 0, y: -20.75}
-  - {x: 0, y: -13.78125}
-  - {x: 8.75, y: -13.78125}
-  - {x: 8.75, y: -20.75}
-  - {x: 0, y: -13.78125}
-  - {x: 0, y: -6.8125}
-  - {x: 8.75, y: -6.8125}
-  - {x: 8.75, y: -13.78125}
-  - {x: 8.75, y: -6.8125}
-  - {x: 17.5, y: -6.8125}
-  - {x: 17.5, y: -13.78125}
-  - {x: 8.75, y: -13.78125}
-  - {x: 17.5, y: -13.78125}
-  - {x: 17.5, y: -20.75}
-  - {x: 8.75, y: -20.75}
-  - {x: 8.75, y: -13.78125}
-  - {x: 0, y: -6.8125}
-  - {x: 0, y: 0.15625}
+  - {x: 8.75, y: 12.3515625}
+  - {x: 6.5625, y: 12.3515625}
   - {x: 8.75, y: 0.15625}
-  - {x: 8.75, y: -6.8125}
+  - {x: 6.5625, y: 0.15625}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: 8.75, y: 1.8984375}
+  - {x: 6.5625, y: 0.15625}
+  - {x: 4.375, y: 0.15625}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 4.375, y: 3.640625}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 8.75, y: 3.640625}
+  - {x: 8.75, y: 1.8984375}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: 4.375, y: 0.15625}
+  - {x: 2.1875, y: 0.15625}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 2.1875, y: 0.15625}
   - {x: 0, y: 0.15625}
+  - {x: 0, y: 1.8984375}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 0, y: 1.8984375}
+  - {x: 0, y: 3.640625}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 4.375, y: 3.640625}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 4.375, y: 3.640625}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 0, y: 3.640625}
+  - {x: 0, y: 5.3828125}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 0, y: 5.3828125}
   - {x: 0, y: 7.125}
+  - {x: 2.1875, y: 7.125}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 2.1875, y: 7.125}
+  - {x: 4.375, y: 7.125}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 8.75, y: 3.640625}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 8.75, y: 5.3828125}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 4.375, y: 3.640625}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 4.375, y: 7.125}
+  - {x: 6.5625, y: 7.125}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 6.5625, y: 7.125}
   - {x: 8.75, y: 7.125}
-  - {x: 8.75, y: 0.15625}
-  - {x: 8.75, y: 7.125}
-  - {x: 17.5, y: 7.125}
-  - {x: 17.5, y: 0.15625}
-  - {x: 8.75, y: 0.15625}
-  - {x: 17.5, y: 0.15625}
-  - {x: 17.5, y: -6.8125}
-  - {x: 8.75, y: -6.8125}
-  - {x: 8.75, y: 0.15625}
-  - {x: 17.5, y: -6.8125}
-  - {x: 17.5, y: 0.15625}
-  - {x: 26.25, y: 0.15625}
-  - {x: 26.25, y: -6.8125}
-  - {x: 17.5, y: 0.15625}
-  - {x: 17.5, y: 7.125}
-  - {x: 26.25, y: 7.125}
-  - {x: 26.25, y: 0.15625}
-  - {x: 26.25, y: 7.125}
-  - {x: 35, y: 7.125}
-  - {x: 35, y: 0.15625}
-  - {x: 26.25, y: 0.15625}
-  - {x: 35, y: 0.15625}
-  - {x: 35, y: -6.8125}
-  - {x: 26.25, y: -6.8125}
-  - {x: 26.25, y: 0.15625}
-  - {x: 17.5, y: -20.75}
-  - {x: 17.5, y: -13.78125}
-  - {x: 26.25, y: -13.78125}
-  - {x: 26.25, y: -20.75}
-  - {x: 17.5, y: -13.78125}
-  - {x: 17.5, y: -6.8125}
-  - {x: 26.25, y: -6.8125}
-  - {x: 26.25, y: -13.78125}
-  - {x: 26.25, y: -6.8125}
-  - {x: 35, y: -6.8125}
-  - {x: 35, y: -13.78125}
-  - {x: 26.25, y: -13.78125}
-  - {x: 35, y: -13.78125}
-  - {x: 35, y: -20.75}
-  - {x: 26.25, y: -20.75}
-  - {x: 26.25, y: -13.78125}
-  - {x: -35, y: -20.75}
-  - {x: -35, y: -13.78125}
-  - {x: -26.25, y: -13.78125}
-  - {x: -26.25, y: -20.75}
-  - {x: -35, y: -13.78125}
-  - {x: -35, y: -6.8125}
-  - {x: -26.25, y: -6.8125}
-  - {x: -26.25, y: -13.78125}
-  - {x: -26.25, y: -6.8125}
-  - {x: -17.5, y: -6.8125}
-  - {x: -17.5, y: -13.78125}
-  - {x: -26.25, y: -13.78125}
-  - {x: -17.5, y: -13.78125}
-  - {x: -17.5, y: -20.75}
-  - {x: -26.25, y: -20.75}
-  - {x: -26.25, y: -13.78125}
-  - {x: -35, y: -6.8125}
-  - {x: -35, y: 0.15625}
-  - {x: -26.25, y: 0.15625}
-  - {x: -26.25, y: -6.8125}
-  - {x: -35, y: 0.15625}
-  - {x: -35, y: 7.125}
-  - {x: -26.25, y: 7.125}
-  - {x: -26.25, y: 0.15625}
-  - {x: -26.25, y: 7.125}
-  - {x: -17.5, y: 7.125}
-  - {x: -17.5, y: 0.15625}
-  - {x: -26.25, y: 0.15625}
-  - {x: -17.5, y: 0.15625}
-  - {x: -17.5, y: -6.8125}
-  - {x: -26.25, y: -6.8125}
-  - {x: -26.25, y: 0.15625}
-  - {x: -17.5, y: -6.8125}
-  - {x: -17.5, y: 0.15625}
+  - {x: 8.75, y: 5.3828125}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 0, y: 0.15625}
+  - {x: -2.1875, y: 0.15625}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: 0, y: 1.8984375}
+  - {x: -2.1875, y: 0.15625}
+  - {x: -4.375, y: 0.15625}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -4.375, y: 3.640625}
+  - {x: -2.1875, y: 3.640625}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: -2.1875, y: 3.640625}
+  - {x: 0, y: 3.640625}
+  - {x: 0, y: 1.8984375}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: -4.375, y: 0.15625}
+  - {x: -6.5625, y: 0.15625}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -6.5625, y: 0.15625}
   - {x: -8.75, y: 0.15625}
-  - {x: -8.75, y: -6.8125}
-  - {x: -17.5, y: 0.15625}
-  - {x: -17.5, y: 7.125}
+  - {x: -8.75, y: 1.8984375}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -8.75, y: 1.8984375}
+  - {x: -8.75, y: 3.640625}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -4.375, y: 3.640625}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -4.375, y: 3.640625}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -8.75, y: 3.640625}
+  - {x: -8.75, y: 5.3828125}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: -8.75, y: 5.3828125}
   - {x: -8.75, y: 7.125}
-  - {x: -8.75, y: 0.15625}
-  - {x: -8.75, y: 7.125}
+  - {x: -6.5625, y: 7.125}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: -6.5625, y: 7.125}
+  - {x: -4.375, y: 7.125}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: 0, y: 3.640625}
+  - {x: -2.1875, y: 3.640625}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: 0, y: 5.3828125}
+  - {x: -2.1875, y: 3.640625}
+  - {x: -4.375, y: 3.640625}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -4.375, y: 7.125}
+  - {x: -2.1875, y: 7.125}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: -2.1875, y: 7.125}
   - {x: 0, y: 7.125}
-  - {x: 0, y: 0.15625}
-  - {x: -8.75, y: 0.15625}
-  - {x: 0, y: 0.15625}
-  - {x: 0, y: -6.8125}
-  - {x: -8.75, y: -6.8125}
-  - {x: -8.75, y: 0.15625}
-  - {x: -17.5, y: -20.75}
-  - {x: -17.5, y: -13.78125}
-  - {x: -8.75, y: -13.78125}
-  - {x: -8.75, y: -20.75}
-  - {x: -17.5, y: -13.78125}
-  - {x: -17.5, y: -6.8125}
-  - {x: -8.75, y: -6.8125}
-  - {x: -8.75, y: -13.78125}
-  - {x: -8.75, y: -6.8125}
-  - {x: 0, y: -6.8125}
-  - {x: 0, y: -13.78125}
-  - {x: -8.75, y: -13.78125}
-  - {x: 0, y: -13.78125}
-  - {x: 0, y: -20.75}
-  - {x: -8.75, y: -20.75}
-  - {x: -8.75, y: -13.78125}
-  - {x: -35, y: 7.125}
-  - {x: -35, y: 14.09375}
-  - {x: -26.25, y: 14.09375}
-  - {x: -26.25, y: 7.125}
-  - {x: -35, y: 14.09375}
-  - {x: -35, y: 21.0625}
-  - {x: -26.25, y: 21.0625}
-  - {x: -26.25, y: 14.09375}
-  - {x: -26.25, y: 21.0625}
-  - {x: -17.5, y: 21.0625}
-  - {x: -17.5, y: 14.09375}
-  - {x: -26.25, y: 14.09375}
-  - {x: -17.5, y: 14.09375}
-  - {x: -17.5, y: 7.125}
-  - {x: -26.25, y: 7.125}
-  - {x: -26.25, y: 14.09375}
-  - {x: -35, y: 21.0625}
-  - {x: -35, y: 28.03125}
-  - {x: -26.25, y: 28.03125}
-  - {x: -26.25, y: 21.0625}
-  - {x: -35, y: 28.03125}
-  - {x: -35, y: 35}
-  - {x: -26.25, y: 35}
-  - {x: -26.25, y: 28.03125}
-  - {x: -26.25, y: 35}
-  - {x: -17.5, y: 35}
-  - {x: -17.5, y: 28.03125}
-  - {x: -26.25, y: 28.03125}
-  - {x: -17.5, y: 28.03125}
-  - {x: -17.5, y: 21.0625}
-  - {x: -26.25, y: 21.0625}
-  - {x: -26.25, y: 28.03125}
-  - {x: -17.5, y: 21.0625}
-  - {x: -17.5, y: 28.03125}
-  - {x: -8.75, y: 28.03125}
-  - {x: -8.75, y: 21.0625}
-  - {x: -17.5, y: 28.03125}
-  - {x: -17.5, y: 35}
-  - {x: -8.75, y: 35}
-  - {x: -8.75, y: 28.03125}
-  - {x: -8.75, y: 35}
-  - {x: 0, y: 35}
-  - {x: 0, y: 28.03125}
-  - {x: -8.75, y: 28.03125}
-  - {x: 0, y: 28.03125}
-  - {x: 0, y: 21.0625}
-  - {x: -8.75, y: 21.0625}
-  - {x: -8.75, y: 28.03125}
-  - {x: -17.5, y: 7.125}
-  - {x: -17.5, y: 14.09375}
+  - {x: 0, y: 5.3828125}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: 0, y: 7.125}
+  - {x: -2.1875, y: 7.125}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: 0, y: 8.8671875}
+  - {x: -2.1875, y: 7.125}
+  - {x: -4.375, y: 7.125}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -4.375, y: 10.609375}
+  - {x: -2.1875, y: 10.609375}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: -2.1875, y: 10.609375}
+  - {x: 0, y: 10.609375}
+  - {x: 0, y: 8.8671875}
+  - {x: -2.1875, y: 8.8671875}
+  - {x: -4.375, y: 7.125}
+  - {x: -6.5625, y: 7.125}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -6.5625, y: 7.125}
+  - {x: -8.75, y: 7.125}
+  - {x: -8.75, y: 8.8671875}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -8.75, y: 8.8671875}
+  - {x: -8.75, y: 10.609375}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -4.375, y: 10.609375}
+  - {x: -4.375, y: 8.8671875}
+  - {x: -6.5625, y: 8.8671875}
+  - {x: -4.375, y: 10.609375}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -6.5625, y: 10.609375}
+  - {x: -8.75, y: 10.609375}
+  - {x: -8.75, y: 12.3515625}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: -8.75, y: 12.3515625}
   - {x: -8.75, y: 14.09375}
-  - {x: -8.75, y: 7.125}
-  - {x: -17.5, y: 14.09375}
-  - {x: -17.5, y: 21.0625}
-  - {x: -8.75, y: 21.0625}
-  - {x: -8.75, y: 14.09375}
-  - {x: -8.75, y: 21.0625}
-  - {x: 0, y: 21.0625}
+  - {x: -6.5625, y: 14.09375}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: -6.5625, y: 14.09375}
+  - {x: -4.375, y: 14.09375}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -6.5625, y: 12.3515625}
+  - {x: 0, y: 10.609375}
+  - {x: -2.1875, y: 10.609375}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: 0, y: 12.3515625}
+  - {x: -2.1875, y: 10.609375}
+  - {x: -4.375, y: 10.609375}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: -4.375, y: 12.3515625}
+  - {x: -4.375, y: 14.09375}
+  - {x: -2.1875, y: 14.09375}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: -2.1875, y: 14.09375}
   - {x: 0, y: 14.09375}
-  - {x: -8.75, y: 14.09375}
+  - {x: 0, y: 12.3515625}
+  - {x: -2.1875, y: 12.3515625}
+  - {x: 8.75, y: 7.125}
+  - {x: 6.5625, y: 7.125}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 8.75, y: 8.8671875}
+  - {x: 6.5625, y: 7.125}
+  - {x: 4.375, y: 7.125}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 4.375, y: 10.609375}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 8.75, y: 10.609375}
+  - {x: 8.75, y: 8.8671875}
+  - {x: 6.5625, y: 8.8671875}
+  - {x: 4.375, y: 7.125}
+  - {x: 2.1875, y: 7.125}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 2.1875, y: 7.125}
+  - {x: 0, y: 7.125}
+  - {x: 0, y: 8.8671875}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 0, y: 8.8671875}
+  - {x: 0, y: 10.609375}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 4.375, y: 10.609375}
+  - {x: 4.375, y: 8.8671875}
+  - {x: 2.1875, y: 8.8671875}
+  - {x: 4.375, y: 10.609375}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 2.1875, y: 10.609375}
+  - {x: 0, y: 10.609375}
+  - {x: 0, y: 12.3515625}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 0, y: 12.3515625}
   - {x: 0, y: 14.09375}
+  - {x: 2.1875, y: 14.09375}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 2.1875, y: 14.09375}
+  - {x: 4.375, y: 14.09375}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 2.1875, y: 12.3515625}
+  - {x: 8.75, y: 10.609375}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 8.75, y: 12.3515625}
+  - {x: 6.5625, y: 10.609375}
+  - {x: 4.375, y: 10.609375}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 4.375, y: 12.3515625}
+  - {x: 4.375, y: 14.09375}
+  - {x: 6.5625, y: 14.09375}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 6.5625, y: 14.09375}
+  - {x: 8.75, y: 14.09375}
+  - {x: 8.75, y: 12.3515625}
+  - {x: 6.5625, y: 12.3515625}
+  - {x: 8.75, y: 0.15625}
+  - {x: 6.5625, y: 0.15625}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: 8.75, y: 1.8984375}
+  - {x: 6.5625, y: 0.15625}
+  - {x: 4.375, y: 0.15625}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 4.375, y: 3.640625}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 8.75, y: 3.640625}
+  - {x: 8.75, y: 1.8984375}
+  - {x: 6.5625, y: 1.8984375}
+  - {x: 4.375, y: 0.15625}
+  - {x: 2.1875, y: 0.15625}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 2.1875, y: 0.15625}
+  - {x: 0, y: 0.15625}
+  - {x: 0, y: 1.8984375}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 0, y: 1.8984375}
+  - {x: 0, y: 3.640625}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 4.375, y: 3.640625}
+  - {x: 4.375, y: 1.8984375}
+  - {x: 2.1875, y: 1.8984375}
+  - {x: 4.375, y: 3.640625}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 2.1875, y: 3.640625}
+  - {x: 0, y: 3.640625}
+  - {x: 0, y: 5.3828125}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 0, y: 5.3828125}
   - {x: 0, y: 7.125}
+  - {x: 2.1875, y: 7.125}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 2.1875, y: 7.125}
+  - {x: 4.375, y: 7.125}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 2.1875, y: 5.3828125}
+  - {x: 8.75, y: 3.640625}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 8.75, y: 5.3828125}
+  - {x: 6.5625, y: 3.640625}
+  - {x: 4.375, y: 3.640625}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 4.375, y: 5.3828125}
+  - {x: 4.375, y: 7.125}
+  - {x: 6.5625, y: 7.125}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 6.5625, y: 7.125}
+  - {x: 8.75, y: 7.125}
+  - {x: 8.75, y: 5.3828125}
+  - {x: 6.5625, y: 5.3828125}
+  - {x: 0, y: 0.15625}
+  - {x: -2.1875, y: 0.15625}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: 0, y: 1.8984375}
+  - {x: -2.1875, y: 0.15625}
+  - {x: -4.375, y: 0.15625}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -4.375, y: 3.640625}
+  - {x: -2.1875, y: 3.640625}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: -2.1875, y: 3.640625}
+  - {x: 0, y: 3.640625}
+  - {x: 0, y: 1.8984375}
+  - {x: -2.1875, y: 1.8984375}
+  - {x: -4.375, y: 0.15625}
+  - {x: -6.5625, y: 0.15625}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -6.5625, y: 0.15625}
+  - {x: -8.75, y: 0.15625}
+  - {x: -8.75, y: 1.8984375}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -8.75, y: 1.8984375}
+  - {x: -8.75, y: 3.640625}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -4.375, y: 3.640625}
+  - {x: -4.375, y: 1.8984375}
+  - {x: -6.5625, y: 1.8984375}
+  - {x: -4.375, y: 3.640625}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -6.5625, y: 3.640625}
+  - {x: -8.75, y: 3.640625}
+  - {x: -8.75, y: 5.3828125}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: -8.75, y: 5.3828125}
   - {x: -8.75, y: 7.125}
-  - {x: -8.75, y: 14.09375}
+  - {x: -6.5625, y: 7.125}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: -6.5625, y: 7.125}
+  - {x: -4.375, y: 7.125}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -6.5625, y: 5.3828125}
+  - {x: 0, y: 3.640625}
+  - {x: -2.1875, y: 3.640625}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: 0, y: 5.3828125}
+  - {x: -2.1875, y: 3.640625}
+  - {x: -4.375, y: 3.640625}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: -4.375, y: 5.3828125}
+  - {x: -4.375, y: 7.125}
+  - {x: -2.1875, y: 7.125}
+  - {x: -2.1875, y: 5.3828125}
+  - {x: -2.1875, y: 7.125}
   - {x: 0, y: 7.125}
-  - {x: 0, y: 14.09375}
-  - {x: 8.75, y: 14.09375}
-  - {x: 8.75, y: 7.125}
-  - {x: 0, y: 14.09375}
-  - {x: 0, y: 21.0625}
-  - {x: 8.75, y: 21.0625}
-  - {x: 8.75, y: 14.09375}
-  - {x: 8.75, y: 21.0625}
-  - {x: 17.5, y: 21.0625}
-  - {x: 17.5, y: 14.09375}
-  - {x: 8.75, y: 14.09375}
-  - {x: 17.5, y: 14.09375}
-  - {x: 17.5, y: 7.125}
-  - {x: 8.75, y: 7.125}
-  - {x: 8.75, y: 14.09375}
-  - {x: 0, y: 21.0625}
-  - {x: 0, y: 28.03125}
-  - {x: 8.75, y: 28.03125}
-  - {x: 8.75, y: 21.0625}
-  - {x: 0, y: 28.03125}
-  - {x: 0, y: 35}
-  - {x: 8.75, y: 35}
-  - {x: 8.75, y: 28.03125}
-  - {x: 8.75, y: 35}
-  - {x: 17.5, y: 35}
-  - {x: 17.5, y: 28.03125}
-  - {x: 8.75, y: 28.03125}
-  - {x: 17.5, y: 28.03125}
-  - {x: 17.5, y: 21.0625}
-  - {x: 8.75, y: 21.0625}
-  - {x: 8.75, y: 28.03125}
-  - {x: 17.5, y: 21.0625}
-  - {x: 17.5, y: 28.03125}
-  - {x: 26.25, y: 28.03125}
-  - {x: 26.25, y: 21.0625}
-  - {x: 17.5, y: 28.03125}
-  - {x: 17.5, y: 35}
-  - {x: 26.25, y: 35}
-  - {x: 26.25, y: 28.03125}
-  - {x: 26.25, y: 35}
-  - {x: 35, y: 35}
-  - {x: 35, y: 28.03125}
-  - {x: 26.25, y: 28.03125}
-  - {x: 35, y: 28.03125}
-  - {x: 35, y: 21.0625}
-  - {x: 26.25, y: 21.0625}
-  - {x: 26.25, y: 28.03125}
-  - {x: 17.5, y: 7.125}
-  - {x: 17.5, y: 14.09375}
-  - {x: 26.25, y: 14.09375}
-  - {x: 26.25, y: 7.125}
-  - {x: 17.5, y: 14.09375}
-  - {x: 17.5, y: 21.0625}
-  - {x: 26.25, y: 21.0625}
-  - {x: 26.25, y: 14.09375}
-  - {x: 26.25, y: 21.0625}
-  - {x: 35, y: 21.0625}
-  - {x: 35, y: 14.09375}
-  - {x: 26.25, y: 14.09375}
-  - {x: 35, y: 14.09375}
-  - {x: 35, y: 7.125}
-  - {x: 26.25, y: 7.125}
-  - {x: 26.25, y: 14.09375}
-  - {x: 0, y: -20.75}
-  - {x: 0, y: -13.78125}
-  - {x: 8.75, y: -13.78125}
-  - {x: 8.75, y: -20.75}
-  - {x: 0, y: -13.78125}
-  - {x: 0, y: -6.8125}
-  - {x: 8.75, y: -6.8125}
-  - {x: 8.75, y: -13.78125}
-  - {x: 8.75, y: -6.8125}
-  - {x: 17.5, y: -6.8125}
-  - {x: 17.5, y: -13.78125}
-  - {x: 8.75, y: -13.78125}
-  - {x: 17.5, y: -13.78125}
-  - {x: 17.5, y: -20.75}
-  - {x: 8.75, y: -20.75}
-  - {x: 8.75, y: -13.78125}
-  - {x: 0, y: -6.8125}
-  - {x: 0, y: 0.15625}
-  - {x: 8.75, y: 0.15625}
-  - {x: 8.75, y: -6.8125}
-  - {x: 0, y: 0.15625}
-  - {x: 0, y: 7.125}
-  - {x: 8.75, y: 7.125}
-  - {x: 8.75, y: 0.15625}
-  - {x: 8.75, y: 7.125}
-  - {x: 17.5, y: 7.125}
-  - {x: 17.5, y: 0.15625}
-  - {x: 8.75, y: 0.15625}
-  - {x: 17.5, y: 0.15625}
-  - {x: 17.5, y: -6.8125}
-  - {x: 8.75, y: -6.8125}
-  - {x: 8.75, y: 0.15625}
-  - {x: 17.5, y: -6.8125}
-  - {x: 17.5, y: 0.15625}
-  - {x: 26.25, y: 0.15625}
-  - {x: 26.25, y: -6.8125}
-  - {x: 17.5, y: 0.15625}
-  - {x: 17.5, y: 7.125}
-  - {x: 26.25, y: 7.125}
-  - {x: 26.25, y: 0.15625}
-  - {x: 26.25, y: 7.125}
-  - {x: 35, y: 7.125}
-  - {x: 35, y: 0.15625}
-  - {x: 26.25, y: 0.15625}
-  - {x: 35, y: 0.15625}
-  - {x: 35, y: -6.8125}
-  - {x: 26.25, y: -6.8125}
-  - {x: 26.25, y: 0.15625}
-  - {x: 17.5, y: -20.75}
-  - {x: 17.5, y: -13.78125}
-  - {x: 26.25, y: -13.78125}
-  - {x: 26.25, y: -20.75}
-  - {x: 17.5, y: -13.78125}
-  - {x: 17.5, y: -6.8125}
-  - {x: 26.25, y: -6.8125}
-  - {x: 26.25, y: -13.78125}
-  - {x: 26.25, y: -6.8125}
-  - {x: 35, y: -6.8125}
-  - {x: 35, y: -13.78125}
-  - {x: 26.25, y: -13.78125}
-  - {x: 35, y: -13.78125}
-  - {x: 35, y: -20.75}
-  - {x: 26.25, y: -20.75}
-  - {x: 26.25, y: -13.78125}
-  - {x: -35, y: -20.75}
-  - {x: -35, y: -13.78125}
-  - {x: -26.25, y: -13.78125}
-  - {x: -26.25, y: -20.75}
-  - {x: -35, y: -13.78125}
-  - {x: -35, y: -6.8125}
-  - {x: -26.25, y: -6.8125}
-  - {x: -26.25, y: -13.78125}
-  - {x: -26.25, y: -6.8125}
-  - {x: -17.5, y: -6.8125}
-  - {x: -17.5, y: -13.78125}
-  - {x: -26.25, y: -13.78125}
-  - {x: -17.5, y: -13.78125}
-  - {x: -17.5, y: -20.75}
-  - {x: -26.25, y: -20.75}
-  - {x: -26.25, y: -13.78125}
-  - {x: -35, y: -6.8125}
-  - {x: -35, y: 0.15625}
-  - {x: -26.25, y: 0.15625}
-  - {x: -26.25, y: -6.8125}
-  - {x: -35, y: 0.15625}
-  - {x: -35, y: 7.125}
-  - {x: -26.25, y: 7.125}
-  - {x: -26.25, y: 0.15625}
-  - {x: -26.25, y: 7.125}
-  - {x: -17.5, y: 7.125}
-  - {x: -17.5, y: 0.15625}
-  - {x: -26.25, y: 0.15625}
-  - {x: -17.5, y: 0.15625}
-  - {x: -17.5, y: -6.8125}
-  - {x: -26.25, y: -6.8125}
-  - {x: -26.25, y: 0.15625}
-  - {x: -17.5, y: -6.8125}
-  - {x: -17.5, y: 0.15625}
-  - {x: -8.75, y: 0.15625}
-  - {x: -8.75, y: -6.8125}
-  - {x: -17.5, y: 0.15625}
-  - {x: -17.5, y: 7.125}
-  - {x: -8.75, y: 7.125}
-  - {x: -8.75, y: 0.15625}
-  - {x: -8.75, y: 7.125}
-  - {x: 0, y: 7.125}
-  - {x: 0, y: 0.15625}
-  - {x: -8.75, y: 0.15625}
-  - {x: 0, y: 0.15625}
-  - {x: 0, y: -6.8125}
-  - {x: -8.75, y: -6.8125}
-  - {x: -8.75, y: 0.15625}
-  - {x: -17.5, y: -20.75}
-  - {x: -17.5, y: -13.78125}
-  - {x: -8.75, y: -13.78125}
-  - {x: -8.75, y: -20.75}
-  - {x: -17.5, y: -13.78125}
-  - {x: -17.5, y: -6.8125}
-  - {x: -8.75, y: -6.8125}
-  - {x: -8.75, y: -13.78125}
-  - {x: -8.75, y: -6.8125}
-  - {x: 0, y: -6.8125}
-  - {x: 0, y: -13.78125}
-  - {x: -8.75, y: -13.78125}
-  - {x: 0, y: -13.78125}
-  - {x: 0, y: -20.75}
-  - {x: -8.75, y: -20.75}
-  - {x: -8.75, y: -13.78125}
-  - {x: 0, y: 7.125}
-  - {x: -8.75, y: 7.125}
-  - {x: -8.75, y: 14.09375}
-  - {x: 0, y: 14.09375}
-  - {x: -8.75, y: 7.125}
-  - {x: -17.5, y: 7.125}
-  - {x: -17.5, y: 14.09375}
-  - {x: -8.75, y: 14.09375}
-  - {x: -17.5, y: 14.09375}
-  - {x: -17.5, y: 21.0625}
-  - {x: -8.75, y: 21.0625}
-  - {x: -8.75, y: 14.09375}
-  - {x: -8.75, y: 21.0625}
-  - {x: 0, y: 21.0625}
-  - {x: 0, y: 14.09375}
-  - {x: -8.75, y: 14.09375}
-  - {x: -17.5, y: 7.125}
-  - {x: -26.25, y: 7.125}
-  - {x: -26.25, y: 14.09375}
-  - {x: -17.5, y: 14.09375}
-  - {x: -26.25, y: 7.125}
-  - {x: -35, y: 7.125}
-  - {x: -35, y: 14.09375}
-  - {x: -26.25, y: 14.09375}
-  - {x: -35, y: 14.09375}
-  - {x: -35, y: 21.0625}
-  - {x: -26.25, y: 21.0625}
-  - {x: -26.25, y: 14.09375}
-  - {x: -26.25, y: 21.0625}
-  - {x: -17.5, y: 21.0625}
-  - {x: -17.5, y: 14.09375}
-  - {x: -26.25, y: 14.09375}
-  - {x: -17.5, y: 21.0625}
-  - {x: -26.25, y: 21.0625}
-  - {x: -26.25, y: 28.03125}
-  - {x: -17.5, y: 28.03125}
-  - {x: -26.25, y: 21.0625}
-  - {x: -35, y: 21.0625}
-  - {x: -35, y: 28.03125}
-  - {x: -26.25, y: 28.03125}
-  - {x: -35, y: 28.03125}
-  - {x: -35, y: 35}
-  - {x: -26.25, y: 35}
-  - {x: -26.25, y: 28.03125}
-  - {x: -26.25, y: 35}
-  - {x: -17.5, y: 35}
-  - {x: -17.5, y: 28.03125}
-  - {x: -26.25, y: 28.03125}
-  - {x: 0, y: 21.0625}
-  - {x: -8.75, y: 21.0625}
-  - {x: -8.75, y: 28.03125}
-  - {x: 0, y: 28.03125}
-  - {x: -8.75, y: 21.0625}
-  - {x: -17.5, y: 21.0625}
-  - {x: -17.5, y: 28.03125}
-  - {x: -8.75, y: 28.03125}
-  - {x: -17.5, y: 28.03125}
-  - {x: -17.5, y: 35}
-  - {x: -8.75, y: 35}
-  - {x: -8.75, y: 28.03125}
-  - {x: -8.75, y: 35}
-  - {x: 0, y: 35}
-  - {x: 0, y: 28.03125}
-  - {x: -8.75, y: 28.03125}
-  - {x: 35, y: 7.125}
-  - {x: 26.25, y: 7.125}
-  - {x: 26.25, y: 14.09375}
-  - {x: 35, y: 14.09375}
-  - {x: 26.25, y: 7.125}
-  - {x: 17.5, y: 7.125}
-  - {x: 17.5, y: 14.09375}
-  - {x: 26.25, y: 14.09375}
-  - {x: 17.5, y: 14.09375}
-  - {x: 17.5, y: 21.0625}
-  - {x: 26.25, y: 21.0625}
-  - {x: 26.25, y: 14.09375}
-  - {x: 26.25, y: 21.0625}
-  - {x: 35, y: 21.0625}
-  - {x: 35, y: 14.09375}
-  - {x: 26.25, y: 14.09375}
-  - {x: 17.5, y: 7.125}
-  - {x: 8.75, y: 7.125}
-  - {x: 8.75, y: 14.09375}
-  - {x: 17.5, y: 14.09375}
-  - {x: 8.75, y: 7.125}
-  - {x: 0, y: 7.125}
-  - {x: 0, y: 14.09375}
-  - {x: 8.75, y: 14.09375}
-  - {x: 0, y: 14.09375}
-  - {x: 0, y: 21.0625}
-  - {x: 8.75, y: 21.0625}
-  - {x: 8.75, y: 14.09375}
-  - {x: 8.75, y: 21.0625}
-  - {x: 17.5, y: 21.0625}
-  - {x: 17.5, y: 14.09375}
-  - {x: 8.75, y: 14.09375}
-  - {x: 17.5, y: 21.0625}
-  - {x: 8.75, y: 21.0625}
-  - {x: 8.75, y: 28.03125}
-  - {x: 17.5, y: 28.03125}
-  - {x: 8.75, y: 21.0625}
-  - {x: 0, y: 21.0625}
-  - {x: 0, y: 28.03125}
-  - {x: 8.75, y: 28.03125}
-  - {x: 0, y: 28.03125}
-  - {x: 0, y: 35}
-  - {x: 8.75, y: 35}
-  - {x: 8.75, y: 28.03125}
-  - {x: 8.75, y: 35}
-  - {x: 17.5, y: 35}
-  - {x: 17.5, y: 28.03125}
-  - {x: 8.75, y: 28.03125}
-  - {x: 35, y: 21.0625}
-  - {x: 26.25, y: 21.0625}
-  - {x: 26.25, y: 28.03125}
-  - {x: 35, y: 28.03125}
-  - {x: 26.25, y: 21.0625}
-  - {x: 17.5, y: 21.0625}
-  - {x: 17.5, y: 28.03125}
-  - {x: 26.25, y: 28.03125}
-  - {x: 17.5, y: 28.03125}
-  - {x: 17.5, y: 35}
-  - {x: 26.25, y: 35}
-  - {x: 26.25, y: 28.03125}
-  - {x: 26.25, y: 35}
-  - {x: 35, y: 35}
-  - {x: 35, y: 28.03125}
-  - {x: 26.25, y: 28.03125}
-  - {x: 35, y: -20.75}
-  - {x: 26.25, y: -20.75}
-  - {x: 26.25, y: -13.78125}
-  - {x: 35, y: -13.78125}
-  - {x: 26.25, y: -20.75}
-  - {x: 17.5, y: -20.75}
-  - {x: 17.5, y: -13.78125}
-  - {x: 26.25, y: -13.78125}
-  - {x: 17.5, y: -13.78125}
-  - {x: 17.5, y: -6.8125}
-  - {x: 26.25, y: -6.8125}
-  - {x: 26.25, y: -13.78125}
-  - {x: 26.25, y: -6.8125}
-  - {x: 35, y: -6.8125}
-  - {x: 35, y: -13.78125}
-  - {x: 26.25, y: -13.78125}
-  - {x: 17.5, y: -20.75}
-  - {x: 8.75, y: -20.75}
-  - {x: 8.75, y: -13.78125}
-  - {x: 17.5, y: -13.78125}
-  - {x: 8.75, y: -20.75}
-  - {x: -0, y: -20.75}
-  - {x: -0, y: -13.78125}
-  - {x: 8.75, y: -13.78125}
-  - {x: -0, y: -13.78125}
-  - {x: -0, y: -6.8125}
-  - {x: 8.75, y: -6.8125}
-  - {x: 8.75, y: -13.78125}
-  - {x: 8.75, y: -6.8125}
-  - {x: 17.5, y: -6.8125}
-  - {x: 17.5, y: -13.78125}
-  - {x: 8.75, y: -13.78125}
-  - {x: 17.5, y: -6.8125}
-  - {x: 8.75, y: -6.8125}
-  - {x: 8.75, y: 0.15625}
-  - {x: 17.5, y: 0.15625}
-  - {x: 8.75, y: -6.8125}
-  - {x: -0, y: -6.8125}
-  - {x: 0, y: 0.15625}
-  - {x: 8.75, y: 0.15625}
-  - {x: 0, y: 0.15625}
-  - {x: 0, y: 7.125}
-  - {x: 8.75, y: 7.125}
-  - {x: 8.75, y: 0.15625}
-  - {x: 8.75, y: 7.125}
-  - {x: 17.5, y: 7.125}
-  - {x: 17.5, y: 0.15625}
-  - {x: 8.75, y: 0.15625}
-  - {x: 35, y: -6.8125}
-  - {x: 26.25, y: -6.8125}
-  - {x: 26.25, y: 0.15625}
-  - {x: 35, y: 0.15625}
-  - {x: 26.25, y: -6.8125}
-  - {x: 17.5, y: -6.8125}
-  - {x: 17.5, y: 0.15625}
-  - {x: 26.25, y: 0.15625}
-  - {x: 17.5, y: 0.15625}
-  - {x: 17.5, y: 7.125}
-  - {x: 26.25, y: 7.125}
-  - {x: 26.25, y: 0.15625}
-  - {x: 26.25, y: 7.125}
-  - {x: 35, y: 7.125}
-  - {x: 35, y: 0.15625}
-  - {x: 26.25, y: 0.15625}
-  - {x: -0, y: -20.75}
-  - {x: -8.75, y: -20.75}
-  - {x: -8.75, y: -13.78125}
-  - {x: -0, y: -13.78125}
-  - {x: -8.75, y: -20.75}
-  - {x: -17.5, y: -20.75}
-  - {x: -17.5, y: -13.78125}
-  - {x: -8.75, y: -13.78125}
-  - {x: -17.5, y: -13.78125}
-  - {x: -17.5, y: -6.8125}
-  - {x: -8.75, y: -6.8125}
-  - {x: -8.75, y: -13.78125}
-  - {x: -8.75, y: -6.8125}
-  - {x: -0, y: -6.8125}
-  - {x: -0, y: -13.78125}
-  - {x: -8.75, y: -13.78125}
-  - {x: -17.5, y: -20.75}
-  - {x: -26.25, y: -20.75}
-  - {x: -26.25, y: -13.78125}
-  - {x: -17.5, y: -13.78125}
-  - {x: -26.25, y: -20.75}
-  - {x: -35, y: -20.75}
-  - {x: -35, y: -13.78125}
-  - {x: -26.25, y: -13.78125}
-  - {x: -35, y: -13.78125}
-  - {x: -35, y: -6.8125}
-  - {x: -26.25, y: -6.8125}
-  - {x: -26.25, y: -13.78125}
-  - {x: -26.25, y: -6.8125}
-  - {x: -17.5, y: -6.8125}
-  - {x: -17.5, y: -13.78125}
-  - {x: -26.25, y: -13.78125}
-  - {x: -17.5, y: -6.8125}
-  - {x: -26.25, y: -6.8125}
-  - {x: -26.25, y: 0.15625}
-  - {x: -17.5, y: 0.15625}
-  - {x: -26.25, y: -6.8125}
-  - {x: -35, y: -6.8125}
-  - {x: -35, y: 0.15625}
-  - {x: -26.25, y: 0.15625}
-  - {x: -35, y: 0.15625}
-  - {x: -35, y: 7.125}
-  - {x: -26.25, y: 7.125}
-  - {x: -26.25, y: 0.15625}
-  - {x: -26.25, y: 7.125}
-  - {x: -17.5, y: 7.125}
-  - {x: -17.5, y: 0.15625}
-  - {x: -26.25, y: 0.15625}
-  - {x: -0, y: -6.8125}
-  - {x: -8.75, y: -6.8125}
-  - {x: -8.75, y: 0.15625}
-  - {x: 0, y: 0.15625}
-  - {x: -8.75, y: -6.8125}
-  - {x: -17.5, y: -6.8125}
-  - {x: -17.5, y: 0.15625}
-  - {x: -8.75, y: 0.15625}
-  - {x: -17.5, y: 0.15625}
-  - {x: -17.5, y: 7.125}
-  - {x: -8.75, y: 7.125}
-  - {x: -8.75, y: 0.15625}
-  - {x: -8.75, y: 7.125}
-  - {x: 0, y: 7.125}
-  - {x: 0, y: 0.15625}
-  - {x: -8.75, y: 0.15625}
-  - {x: 0, y: 7.125}
-  - {x: -8.75, y: 7.125}
-  - {x: -8.75, y: 14.09375}
-  - {x: 0, y: 14.09375}
-  - {x: -8.75, y: 7.125}
-  - {x: -17.5, y: 7.125}
-  - {x: -17.5, y: 14.09375}
-  - {x: -8.75, y: 14.09375}
-  - {x: -17.5, y: 14.09375}
-  - {x: -17.5, y: 21.0625}
-  - {x: -8.75, y: 21.0625}
-  - {x: -8.75, y: 14.09375}
-  - {x: -8.75, y: 21.0625}
-  - {x: 0, y: 21.0625}
-  - {x: 0, y: 14.09375}
-  - {x: -8.75, y: 14.09375}
-  - {x: -17.5, y: 7.125}
-  - {x: -26.25, y: 7.125}
-  - {x: -26.25, y: 14.09375}
-  - {x: -17.5, y: 14.09375}
-  - {x: -26.25, y: 7.125}
-  - {x: -35, y: 7.125}
-  - {x: -35, y: 14.09375}
-  - {x: -26.25, y: 14.09375}
-  - {x: -35, y: 14.09375}
-  - {x: -35, y: 21.0625}
-  - {x: -26.25, y: 21.0625}
-  - {x: -26.25, y: 14.09375}
-  - {x: -26.25, y: 21.0625}
-  - {x: -17.5, y: 21.0625}
-  - {x: -17.5, y: 14.09375}
-  - {x: -26.25, y: 14.09375}
-  - {x: -17.5, y: 21.0625}
-  - {x: -26.25, y: 21.0625}
-  - {x: -26.25, y: 28.03125}
-  - {x: -17.5, y: 28.03125}
-  - {x: -26.25, y: 21.0625}
-  - {x: -35, y: 21.0625}
-  - {x: -35, y: 28.03125}
-  - {x: -26.25, y: 28.03125}
-  - {x: -35, y: 28.03125}
-  - {x: -35, y: 35}
-  - {x: -26.25, y: 35}
-  - {x: -26.25, y: 28.03125}
-  - {x: -26.25, y: 35}
-  - {x: -17.5, y: 35}
-  - {x: -17.5, y: 28.03125}
-  - {x: -26.25, y: 28.03125}
-  - {x: 0, y: 21.0625}
-  - {x: -8.75, y: 21.0625}
-  - {x: -8.75, y: 28.03125}
-  - {x: 0, y: 28.03125}
-  - {x: -8.75, y: 21.0625}
-  - {x: -17.5, y: 21.0625}
-  - {x: -17.5, y: 28.03125}
-  - {x: -8.75, y: 28.03125}
-  - {x: -17.5, y: 28.03125}
-  - {x: -17.5, y: 35}
-  - {x: -8.75, y: 35}
-  - {x: -8.75, y: 28.03125}
-  - {x: -8.75, y: 35}
-  - {x: 0, y: 35}
-  - {x: 0, y: 28.03125}
-  - {x: -8.75, y: 28.03125}
-  - {x: 35, y: 7.125}
-  - {x: 26.25, y: 7.125}
-  - {x: 26.25, y: 14.09375}
-  - {x: 35, y: 14.09375}
-  - {x: 26.25, y: 7.125}
-  - {x: 17.5, y: 7.125}
-  - {x: 17.5, y: 14.09375}
-  - {x: 26.25, y: 14.09375}
-  - {x: 17.5, y: 14.09375}
-  - {x: 17.5, y: 21.0625}
-  - {x: 26.25, y: 21.0625}
-  - {x: 26.25, y: 14.09375}
-  - {x: 26.25, y: 21.0625}
-  - {x: 35, y: 21.0625}
-  - {x: 35, y: 14.09375}
-  - {x: 26.25, y: 14.09375}
-  - {x: 17.5, y: 7.125}
-  - {x: 8.75, y: 7.125}
-  - {x: 8.75, y: 14.09375}
-  - {x: 17.5, y: 14.09375}
-  - {x: 8.75, y: 7.125}
-  - {x: 0, y: 7.125}
-  - {x: 0, y: 14.09375}
-  - {x: 8.75, y: 14.09375}
-  - {x: 0, y: 14.09375}
-  - {x: 0, y: 21.0625}
-  - {x: 8.75, y: 21.0625}
-  - {x: 8.75, y: 14.09375}
-  - {x: 8.75, y: 21.0625}
-  - {x: 17.5, y: 21.0625}
-  - {x: 17.5, y: 14.09375}
-  - {x: 8.75, y: 14.09375}
-  - {x: 17.5, y: 21.0625}
-  - {x: 8.75, y: 21.0625}
-  - {x: 8.75, y: 28.03125}
-  - {x: 17.5, y: 28.03125}
-  - {x: 8.75, y: 21.0625}
-  - {x: 0, y: 21.0625}
-  - {x: 0, y: 28.03125}
-  - {x: 8.75, y: 28.03125}
-  - {x: 0, y: 28.03125}
-  - {x: 0, y: 35}
-  - {x: 8.75, y: 35}
-  - {x: 8.75, y: 28.03125}
-  - {x: 8.75, y: 35}
-  - {x: 17.5, y: 35}
-  - {x: 17.5, y: 28.03125}
-  - {x: 8.75, y: 28.03125}
-  - {x: 35, y: 21.0625}
-  - {x: 26.25, y: 21.0625}
-  - {x: 26.25, y: 28.03125}
-  - {x: 35, y: 28.03125}
-  - {x: 26.25, y: 21.0625}
-  - {x: 17.5, y: 21.0625}
-  - {x: 17.5, y: 28.03125}
-  - {x: 26.25, y: 28.03125}
-  - {x: 17.5, y: 28.03125}
-  - {x: 17.5, y: 35}
-  - {x: 26.25, y: 35}
-  - {x: 26.25, y: 28.03125}
-  - {x: 26.25, y: 35}
-  - {x: 35, y: 35}
-  - {x: 35, y: 28.03125}
-  - {x: 26.25, y: 28.03125}
-  - {x: 35, y: -20.75}
-  - {x: 26.25, y: -20.75}
-  - {x: 26.25, y: -13.78125}
-  - {x: 35, y: -13.78125}
-  - {x: 26.25, y: -20.75}
-  - {x: 17.5, y: -20.75}
-  - {x: 17.5, y: -13.78125}
-  - {x: 26.25, y: -13.78125}
-  - {x: 17.5, y: -13.78125}
-  - {x: 17.5, y: -6.8125}
-  - {x: 26.25, y: -6.8125}
-  - {x: 26.25, y: -13.78125}
-  - {x: 26.25, y: -6.8125}
-  - {x: 35, y: -6.8125}
-  - {x: 35, y: -13.78125}
-  - {x: 26.25, y: -13.78125}
-  - {x: 17.5, y: -20.75}
-  - {x: 8.75, y: -20.75}
-  - {x: 8.75, y: -13.78125}
-  - {x: 17.5, y: -13.78125}
-  - {x: 8.75, y: -20.75}
-  - {x: 0, y: -20.75}
-  - {x: 0, y: -13.78125}
-  - {x: 8.75, y: -13.78125}
-  - {x: 0, y: -13.78125}
-  - {x: 0, y: -6.8125}
-  - {x: 8.75, y: -6.8125}
-  - {x: 8.75, y: -13.78125}
-  - {x: 8.75, y: -6.8125}
-  - {x: 17.5, y: -6.8125}
-  - {x: 17.5, y: -13.78125}
-  - {x: 8.75, y: -13.78125}
-  - {x: 17.5, y: -6.8125}
-  - {x: 8.75, y: -6.8125}
-  - {x: 8.75, y: 0.15625}
-  - {x: 17.5, y: 0.15625}
-  - {x: 8.75, y: -6.8125}
-  - {x: 0, y: -6.8125}
-  - {x: 0, y: 0.15625}
-  - {x: 8.75, y: 0.15625}
-  - {x: 0, y: 0.15625}
-  - {x: 0, y: 7.125}
-  - {x: 8.75, y: 7.125}
-  - {x: 8.75, y: 0.15625}
-  - {x: 8.75, y: 7.125}
-  - {x: 17.5, y: 7.125}
-  - {x: 17.5, y: 0.15625}
-  - {x: 8.75, y: 0.15625}
-  - {x: 35, y: -6.8125}
-  - {x: 26.25, y: -6.8125}
-  - {x: 26.25, y: 0.15625}
-  - {x: 35, y: 0.15625}
-  - {x: 26.25, y: -6.8125}
-  - {x: 17.5, y: -6.8125}
-  - {x: 17.5, y: 0.15625}
-  - {x: 26.25, y: 0.15625}
-  - {x: 17.5, y: 0.15625}
-  - {x: 17.5, y: 7.125}
-  - {x: 26.25, y: 7.125}
-  - {x: 26.25, y: 0.15625}
-  - {x: 26.25, y: 7.125}
-  - {x: 35, y: 7.125}
-  - {x: 35, y: 0.15625}
-  - {x: 26.25, y: 0.15625}
-  - {x: 0, y: -20.75}
-  - {x: -8.75, y: -20.75}
-  - {x: -8.75, y: -13.78125}
-  - {x: 0, y: -13.78125}
-  - {x: -8.75, y: -20.75}
-  - {x: -17.5, y: -20.75}
-  - {x: -17.5, y: -13.78125}
-  - {x: -8.75, y: -13.78125}
-  - {x: -17.5, y: -13.78125}
-  - {x: -17.5, y: -6.8125}
-  - {x: -8.75, y: -6.8125}
-  - {x: -8.75, y: -13.78125}
-  - {x: -8.75, y: -6.8125}
-  - {x: 0, y: -6.8125}
-  - {x: 0, y: -13.78125}
-  - {x: -8.75, y: -13.78125}
-  - {x: -17.5, y: -20.75}
-  - {x: -26.25, y: -20.75}
-  - {x: -26.25, y: -13.78125}
-  - {x: -17.5, y: -13.78125}
-  - {x: -26.25, y: -20.75}
-  - {x: -35, y: -20.75}
-  - {x: -35, y: -13.78125}
-  - {x: -26.25, y: -13.78125}
-  - {x: -35, y: -13.78125}
-  - {x: -35, y: -6.8125}
-  - {x: -26.25, y: -6.8125}
-  - {x: -26.25, y: -13.78125}
-  - {x: -26.25, y: -6.8125}
-  - {x: -17.5, y: -6.8125}
-  - {x: -17.5, y: -13.78125}
-  - {x: -26.25, y: -13.78125}
-  - {x: -17.5, y: -6.8125}
-  - {x: -26.25, y: -6.8125}
-  - {x: -26.25, y: 0.15625}
-  - {x: -17.5, y: 0.15625}
-  - {x: -26.25, y: -6.8125}
-  - {x: -35, y: -6.8125}
-  - {x: -35, y: 0.15625}
-  - {x: -26.25, y: 0.15625}
-  - {x: -35, y: 0.15625}
-  - {x: -35, y: 7.125}
-  - {x: -26.25, y: 7.125}
-  - {x: -26.25, y: 0.15625}
-  - {x: -26.25, y: 7.125}
-  - {x: -17.5, y: 7.125}
-  - {x: -17.5, y: 0.15625}
-  - {x: -26.25, y: 0.15625}
-  - {x: 0, y: -6.8125}
-  - {x: -8.75, y: -6.8125}
-  - {x: -8.75, y: 0.15625}
-  - {x: 0, y: 0.15625}
-  - {x: -8.75, y: -6.8125}
-  - {x: -17.5, y: -6.8125}
-  - {x: -17.5, y: 0.15625}
-  - {x: -8.75, y: 0.15625}
-  - {x: -17.5, y: 0.15625}
-  - {x: -17.5, y: 7.125}
-  - {x: -8.75, y: 7.125}
-  - {x: -8.75, y: 0.15625}
-  - {x: -8.75, y: 7.125}
-  - {x: 0, y: 7.125}
-  - {x: 0, y: 0.15625}
-  - {x: -8.75, y: 0.15625}
-  - {x: 0, y: -35}
-  - {x: 0, y: -26.25}
-  - {x: 8.75, y: -26.25}
-  - {x: 8.75, y: -35}
-  - {x: 0, y: -26.25}
-  - {x: 0, y: -17.5}
-  - {x: 8.75, y: -17.5}
-  - {x: 8.75, y: -26.25}
-  - {x: 8.75, y: -17.5}
-  - {x: 17.5, y: -17.5}
-  - {x: 17.5, y: -26.25}
-  - {x: 8.75, y: -26.25}
-  - {x: 17.5, y: -26.25}
-  - {x: 17.5, y: -35}
-  - {x: 8.75, y: -35}
-  - {x: 8.75, y: -26.25}
-  - {x: 0, y: -17.5}
+  - {x: 0, y: 5.3828125}
+  - {x: -2.1875, y: 5.3828125}
   - {x: 0, y: -8.75}
+  - {x: 0, y: -6.5625}
+  - {x: 2.1875, y: -6.5625}
+  - {x: 2.1875, y: -8.75}
+  - {x: 0, y: -6.5625}
+  - {x: 0, y: -4.375}
+  - {x: 2.1875, y: -4.375}
+  - {x: 2.1875, y: -6.5625}
+  - {x: 2.1875, y: -4.375}
+  - {x: 4.375, y: -4.375}
+  - {x: 4.375, y: -6.5625}
+  - {x: 2.1875, y: -6.5625}
+  - {x: 4.375, y: -6.5625}
+  - {x: 4.375, y: -8.75}
+  - {x: 2.1875, y: -8.75}
+  - {x: 2.1875, y: -6.5625}
+  - {x: 0, y: -4.375}
+  - {x: 0, y: -2.1875}
+  - {x: 2.1875, y: -2.1875}
+  - {x: 2.1875, y: -4.375}
+  - {x: 0, y: -2.1875}
+  - {x: 0, y: 0}
+  - {x: 2.1875, y: 0}
+  - {x: 2.1875, y: -2.1875}
+  - {x: 2.1875, y: 0}
+  - {x: 4.375, y: 0}
+  - {x: 4.375, y: -2.1875}
+  - {x: 2.1875, y: -2.1875}
+  - {x: 4.375, y: -2.1875}
+  - {x: 4.375, y: -4.375}
+  - {x: 2.1875, y: -4.375}
+  - {x: 2.1875, y: -2.1875}
+  - {x: 4.375, y: -4.375}
+  - {x: 4.375, y: -2.1875}
+  - {x: 6.5625, y: -2.1875}
+  - {x: 6.5625, y: -4.375}
+  - {x: 4.375, y: -2.1875}
+  - {x: 4.375, y: 0}
+  - {x: 6.5625, y: 0}
+  - {x: 6.5625, y: -2.1875}
+  - {x: 6.5625, y: 0}
+  - {x: 8.75, y: 0}
+  - {x: 8.75, y: -2.1875}
+  - {x: 6.5625, y: -2.1875}
+  - {x: 8.75, y: -2.1875}
+  - {x: 8.75, y: -4.375}
+  - {x: 6.5625, y: -4.375}
+  - {x: 6.5625, y: -2.1875}
+  - {x: 4.375, y: -8.75}
+  - {x: 4.375, y: -6.5625}
+  - {x: 6.5625, y: -6.5625}
+  - {x: 6.5625, y: -8.75}
+  - {x: 4.375, y: -6.5625}
+  - {x: 4.375, y: -4.375}
+  - {x: 6.5625, y: -4.375}
+  - {x: 6.5625, y: -6.5625}
+  - {x: 6.5625, y: -4.375}
+  - {x: 8.75, y: -4.375}
+  - {x: 8.75, y: -6.5625}
+  - {x: 6.5625, y: -6.5625}
+  - {x: 8.75, y: -6.5625}
   - {x: 8.75, y: -8.75}
-  - {x: 8.75, y: -17.5}
+  - {x: 6.5625, y: -8.75}
+  - {x: 6.5625, y: -6.5625}
+  - {x: -8.75, y: -8.75}
+  - {x: -8.75, y: -6.5625}
+  - {x: -6.5625, y: -6.5625}
+  - {x: -6.5625, y: -8.75}
+  - {x: -8.75, y: -6.5625}
+  - {x: -8.75, y: -4.375}
+  - {x: -6.5625, y: -4.375}
+  - {x: -6.5625, y: -6.5625}
+  - {x: -6.5625, y: -4.375}
+  - {x: -4.375, y: -4.375}
+  - {x: -4.375, y: -6.5625}
+  - {x: -6.5625, y: -6.5625}
+  - {x: -4.375, y: -6.5625}
+  - {x: -4.375, y: -8.75}
+  - {x: -6.5625, y: -8.75}
+  - {x: -6.5625, y: -6.5625}
+  - {x: -8.75, y: -4.375}
+  - {x: -8.75, y: -2.1875}
+  - {x: -6.5625, y: -2.1875}
+  - {x: -6.5625, y: -4.375}
+  - {x: -8.75, y: -2.1875}
+  - {x: -8.75, y: 0}
+  - {x: -6.5625, y: 0}
+  - {x: -6.5625, y: -2.1875}
+  - {x: -6.5625, y: 0}
+  - {x: -4.375, y: 0}
+  - {x: -4.375, y: -2.1875}
+  - {x: -6.5625, y: -2.1875}
+  - {x: -4.375, y: -2.1875}
+  - {x: -4.375, y: -4.375}
+  - {x: -6.5625, y: -4.375}
+  - {x: -6.5625, y: -2.1875}
+  - {x: -4.375, y: -4.375}
+  - {x: -4.375, y: -2.1875}
+  - {x: -2.1875, y: -2.1875}
+  - {x: -2.1875, y: -4.375}
+  - {x: -4.375, y: -2.1875}
+  - {x: -4.375, y: 0}
+  - {x: -2.1875, y: 0}
+  - {x: -2.1875, y: -2.1875}
+  - {x: -2.1875, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: -2.1875}
+  - {x: -2.1875, y: -2.1875}
+  - {x: 0, y: -2.1875}
+  - {x: 0, y: -4.375}
+  - {x: -2.1875, y: -4.375}
+  - {x: -2.1875, y: -2.1875}
+  - {x: -4.375, y: -8.75}
+  - {x: -4.375, y: -6.5625}
+  - {x: -2.1875, y: -6.5625}
+  - {x: -2.1875, y: -8.75}
+  - {x: -4.375, y: -6.5625}
+  - {x: -4.375, y: -4.375}
+  - {x: -2.1875, y: -4.375}
+  - {x: -2.1875, y: -6.5625}
+  - {x: -2.1875, y: -4.375}
+  - {x: 0, y: -4.375}
+  - {x: 0, y: -6.5625}
+  - {x: -2.1875, y: -6.5625}
+  - {x: 0, y: -6.5625}
   - {x: 0, y: -8.75}
-  - {x: 0, y: 0}
-  - {x: 8.75, y: 0}
-  - {x: 8.75, y: -8.75}
-  - {x: 8.75, y: 0}
-  - {x: 17.5, y: 0}
-  - {x: 17.5, y: -8.75}
-  - {x: 8.75, y: -8.75}
-  - {x: 17.5, y: -8.75}
-  - {x: 17.5, y: -17.5}
-  - {x: 8.75, y: -17.5}
-  - {x: 8.75, y: -8.75}
-  - {x: 17.5, y: -17.5}
-  - {x: 17.5, y: -8.75}
-  - {x: 26.25, y: -8.75}
-  - {x: 26.25, y: -17.5}
-  - {x: 17.5, y: -8.75}
-  - {x: 17.5, y: 0}
-  - {x: 26.25, y: 0}
-  - {x: 26.25, y: -8.75}
-  - {x: 26.25, y: 0}
-  - {x: 35, y: 0}
-  - {x: 35, y: -8.75}
-  - {x: 26.25, y: -8.75}
-  - {x: 35, y: -8.75}
-  - {x: 35, y: -17.5}
-  - {x: 26.25, y: -17.5}
-  - {x: 26.25, y: -8.75}
-  - {x: 17.5, y: -35}
-  - {x: 17.5, y: -26.25}
-  - {x: 26.25, y: -26.25}
-  - {x: 26.25, y: -35}
-  - {x: 17.5, y: -26.25}
-  - {x: 17.5, y: -17.5}
-  - {x: 26.25, y: -17.5}
-  - {x: 26.25, y: -26.25}
-  - {x: 26.25, y: -17.5}
-  - {x: 35, y: -17.5}
-  - {x: 35, y: -26.25}
-  - {x: 26.25, y: -26.25}
-  - {x: 35, y: -26.25}
-  - {x: 35, y: -35}
-  - {x: 26.25, y: -35}
-  - {x: 26.25, y: -26.25}
-  - {x: -35, y: -35}
-  - {x: -35, y: -26.25}
-  - {x: -26.25, y: -26.25}
-  - {x: -26.25, y: -35}
-  - {x: -35, y: -26.25}
-  - {x: -35, y: -17.5}
-  - {x: -26.25, y: -17.5}
-  - {x: -26.25, y: -26.25}
-  - {x: -26.25, y: -17.5}
-  - {x: -17.5, y: -17.5}
-  - {x: -17.5, y: -26.25}
-  - {x: -26.25, y: -26.25}
-  - {x: -17.5, y: -26.25}
-  - {x: -17.5, y: -35}
-  - {x: -26.25, y: -35}
-  - {x: -26.25, y: -26.25}
-  - {x: -35, y: -17.5}
-  - {x: -35, y: -8.75}
-  - {x: -26.25, y: -8.75}
-  - {x: -26.25, y: -17.5}
-  - {x: -35, y: -8.75}
-  - {x: -35, y: 0}
-  - {x: -26.25, y: 0}
-  - {x: -26.25, y: -8.75}
-  - {x: -26.25, y: 0}
-  - {x: -17.5, y: 0}
-  - {x: -17.5, y: -8.75}
-  - {x: -26.25, y: -8.75}
-  - {x: -17.5, y: -8.75}
-  - {x: -17.5, y: -17.5}
-  - {x: -26.25, y: -17.5}
-  - {x: -26.25, y: -8.75}
-  - {x: -17.5, y: -17.5}
-  - {x: -17.5, y: -8.75}
-  - {x: -8.75, y: -8.75}
-  - {x: -8.75, y: -17.5}
-  - {x: -17.5, y: -8.75}
-  - {x: -17.5, y: 0}
+  - {x: -2.1875, y: -8.75}
+  - {x: -2.1875, y: -6.5625}
   - {x: -8.75, y: 0}
-  - {x: -8.75, y: -8.75}
-  - {x: -8.75, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: -8.75}
-  - {x: -8.75, y: -8.75}
-  - {x: 0, y: -8.75}
-  - {x: 0, y: -17.5}
-  - {x: -8.75, y: -17.5}
-  - {x: -8.75, y: -8.75}
-  - {x: -17.5, y: -35}
-  - {x: -17.5, y: -26.25}
-  - {x: -8.75, y: -26.25}
-  - {x: -8.75, y: -35}
-  - {x: -17.5, y: -26.25}
-  - {x: -17.5, y: -17.5}
-  - {x: -8.75, y: -17.5}
-  - {x: -8.75, y: -26.25}
-  - {x: -8.75, y: -17.5}
-  - {x: 0, y: -17.5}
-  - {x: 0, y: -26.25}
-  - {x: -8.75, y: -26.25}
-  - {x: 0, y: -26.25}
-  - {x: 0, y: -35}
-  - {x: -8.75, y: -35}
-  - {x: -8.75, y: -26.25}
-  - {x: -35, y: 0}
-  - {x: -35, y: 8.75}
-  - {x: -26.25, y: 8.75}
-  - {x: -26.25, y: 0}
-  - {x: -35, y: 8.75}
-  - {x: -35, y: 17.5}
-  - {x: -26.25, y: 17.5}
-  - {x: -26.25, y: 8.75}
-  - {x: -26.25, y: 17.5}
-  - {x: -17.5, y: 17.5}
-  - {x: -17.5, y: 8.75}
-  - {x: -26.25, y: 8.75}
-  - {x: -17.5, y: 8.75}
-  - {x: -17.5, y: 0}
-  - {x: -26.25, y: 0}
-  - {x: -26.25, y: 8.75}
-  - {x: -35, y: 17.5}
-  - {x: -35, y: 26.25}
-  - {x: -26.25, y: 26.25}
-  - {x: -26.25, y: 17.5}
-  - {x: -35, y: 26.25}
-  - {x: -35, y: 35}
-  - {x: -26.25, y: 35}
-  - {x: -26.25, y: 26.25}
-  - {x: -26.25, y: 35}
-  - {x: -17.5, y: 35}
-  - {x: -17.5, y: 26.25}
-  - {x: -26.25, y: 26.25}
-  - {x: -17.5, y: 26.25}
-  - {x: -17.5, y: 17.5}
-  - {x: -26.25, y: 17.5}
-  - {x: -26.25, y: 26.25}
-  - {x: -17.5, y: 17.5}
-  - {x: -17.5, y: 26.25}
-  - {x: -8.75, y: 26.25}
-  - {x: -8.75, y: 17.5}
-  - {x: -17.5, y: 26.25}
-  - {x: -17.5, y: 35}
-  - {x: -8.75, y: 35}
-  - {x: -8.75, y: 26.25}
-  - {x: -8.75, y: 35}
-  - {x: 0, y: 35}
-  - {x: 0, y: 26.25}
-  - {x: -8.75, y: 26.25}
-  - {x: 0, y: 26.25}
-  - {x: 0, y: 17.5}
-  - {x: -8.75, y: 17.5}
-  - {x: -8.75, y: 26.25}
-  - {x: -17.5, y: 0}
-  - {x: -17.5, y: 8.75}
+  - {x: -8.75, y: 2.1875}
+  - {x: -6.5625, y: 2.1875}
+  - {x: -6.5625, y: 0}
+  - {x: -8.75, y: 2.1875}
+  - {x: -8.75, y: 4.375}
+  - {x: -6.5625, y: 4.375}
+  - {x: -6.5625, y: 2.1875}
+  - {x: -6.5625, y: 4.375}
+  - {x: -4.375, y: 4.375}
+  - {x: -4.375, y: 2.1875}
+  - {x: -6.5625, y: 2.1875}
+  - {x: -4.375, y: 2.1875}
+  - {x: -4.375, y: 0}
+  - {x: -6.5625, y: 0}
+  - {x: -6.5625, y: 2.1875}
+  - {x: -8.75, y: 4.375}
+  - {x: -8.75, y: 6.5625}
+  - {x: -6.5625, y: 6.5625}
+  - {x: -6.5625, y: 4.375}
+  - {x: -8.75, y: 6.5625}
   - {x: -8.75, y: 8.75}
-  - {x: -8.75, y: 0}
-  - {x: -17.5, y: 8.75}
-  - {x: -17.5, y: 17.5}
-  - {x: -8.75, y: 17.5}
-  - {x: -8.75, y: 8.75}
-  - {x: -8.75, y: 17.5}
-  - {x: 0, y: 17.5}
+  - {x: -6.5625, y: 8.75}
+  - {x: -6.5625, y: 6.5625}
+  - {x: -6.5625, y: 8.75}
+  - {x: -4.375, y: 8.75}
+  - {x: -4.375, y: 6.5625}
+  - {x: -6.5625, y: 6.5625}
+  - {x: -4.375, y: 6.5625}
+  - {x: -4.375, y: 4.375}
+  - {x: -6.5625, y: 4.375}
+  - {x: -6.5625, y: 6.5625}
+  - {x: -4.375, y: 4.375}
+  - {x: -4.375, y: 6.5625}
+  - {x: -2.1875, y: 6.5625}
+  - {x: -2.1875, y: 4.375}
+  - {x: -4.375, y: 6.5625}
+  - {x: -4.375, y: 8.75}
+  - {x: -2.1875, y: 8.75}
+  - {x: -2.1875, y: 6.5625}
+  - {x: -2.1875, y: 8.75}
   - {x: 0, y: 8.75}
-  - {x: -8.75, y: 8.75}
-  - {x: 0, y: 8.75}
+  - {x: 0, y: 6.5625}
+  - {x: -2.1875, y: 6.5625}
+  - {x: 0, y: 6.5625}
+  - {x: 0, y: 4.375}
+  - {x: -2.1875, y: 4.375}
+  - {x: -2.1875, y: 6.5625}
+  - {x: -4.375, y: 0}
+  - {x: -4.375, y: 2.1875}
+  - {x: -2.1875, y: 2.1875}
+  - {x: -2.1875, y: 0}
+  - {x: -4.375, y: 2.1875}
+  - {x: -4.375, y: 4.375}
+  - {x: -2.1875, y: 4.375}
+  - {x: -2.1875, y: 2.1875}
+  - {x: -2.1875, y: 4.375}
+  - {x: 0, y: 4.375}
+  - {x: 0, y: 2.1875}
+  - {x: -2.1875, y: 2.1875}
+  - {x: 0, y: 2.1875}
   - {x: 0, y: 0}
-  - {x: -8.75, y: 0}
-  - {x: -8.75, y: 8.75}
+  - {x: -2.1875, y: 0}
+  - {x: -2.1875, y: 2.1875}
   - {x: 0, y: 0}
+  - {x: 0, y: 2.1875}
+  - {x: 2.1875, y: 2.1875}
+  - {x: 2.1875, y: 0}
+  - {x: 0, y: 2.1875}
+  - {x: 0, y: 4.375}
+  - {x: 2.1875, y: 4.375}
+  - {x: 2.1875, y: 2.1875}
+  - {x: 2.1875, y: 4.375}
+  - {x: 4.375, y: 4.375}
+  - {x: 4.375, y: 2.1875}
+  - {x: 2.1875, y: 2.1875}
+  - {x: 4.375, y: 2.1875}
+  - {x: 4.375, y: 0}
+  - {x: 2.1875, y: 0}
+  - {x: 2.1875, y: 2.1875}
+  - {x: 0, y: 4.375}
+  - {x: 0, y: 6.5625}
+  - {x: 2.1875, y: 6.5625}
+  - {x: 2.1875, y: 4.375}
+  - {x: 0, y: 6.5625}
   - {x: 0, y: 8.75}
+  - {x: 2.1875, y: 8.75}
+  - {x: 2.1875, y: 6.5625}
+  - {x: 2.1875, y: 8.75}
+  - {x: 4.375, y: 8.75}
+  - {x: 4.375, y: 6.5625}
+  - {x: 2.1875, y: 6.5625}
+  - {x: 4.375, y: 6.5625}
+  - {x: 4.375, y: 4.375}
+  - {x: 2.1875, y: 4.375}
+  - {x: 2.1875, y: 6.5625}
+  - {x: 4.375, y: 4.375}
+  - {x: 4.375, y: 6.5625}
+  - {x: 6.5625, y: 6.5625}
+  - {x: 6.5625, y: 4.375}
+  - {x: 4.375, y: 6.5625}
+  - {x: 4.375, y: 8.75}
+  - {x: 6.5625, y: 8.75}
+  - {x: 6.5625, y: 6.5625}
+  - {x: 6.5625, y: 8.75}
   - {x: 8.75, y: 8.75}
+  - {x: 8.75, y: 6.5625}
+  - {x: 6.5625, y: 6.5625}
+  - {x: 8.75, y: 6.5625}
+  - {x: 8.75, y: 4.375}
+  - {x: 6.5625, y: 4.375}
+  - {x: 6.5625, y: 6.5625}
+  - {x: 4.375, y: 0}
+  - {x: 4.375, y: 2.1875}
+  - {x: 6.5625, y: 2.1875}
+  - {x: 6.5625, y: 0}
+  - {x: 4.375, y: 2.1875}
+  - {x: 4.375, y: 4.375}
+  - {x: 6.5625, y: 4.375}
+  - {x: 6.5625, y: 2.1875}
+  - {x: 6.5625, y: 4.375}
+  - {x: 8.75, y: 4.375}
+  - {x: 8.75, y: 2.1875}
+  - {x: 6.5625, y: 2.1875}
+  - {x: 8.75, y: 2.1875}
   - {x: 8.75, y: 0}
-  - {x: 0, y: 8.75}
-  - {x: 0, y: 17.5}
-  - {x: 8.75, y: 17.5}
-  - {x: 8.75, y: 8.75}
-  - {x: 8.75, y: 17.5}
-  - {x: 17.5, y: 17.5}
-  - {x: 17.5, y: 8.75}
-  - {x: 8.75, y: 8.75}
-  - {x: 17.5, y: 8.75}
-  - {x: 17.5, y: 0}
-  - {x: 8.75, y: 0}
-  - {x: 8.75, y: 8.75}
-  - {x: 0, y: 17.5}
-  - {x: 0, y: 26.25}
-  - {x: 8.75, y: 26.25}
-  - {x: 8.75, y: 17.5}
-  - {x: 0, y: 26.25}
-  - {x: 0, y: 35}
-  - {x: 8.75, y: 35}
-  - {x: 8.75, y: 26.25}
-  - {x: 8.75, y: 35}
-  - {x: 17.5, y: 35}
-  - {x: 17.5, y: 26.25}
-  - {x: 8.75, y: 26.25}
-  - {x: 17.5, y: 26.25}
-  - {x: 17.5, y: 17.5}
-  - {x: 8.75, y: 17.5}
-  - {x: 8.75, y: 26.25}
-  - {x: 17.5, y: 17.5}
-  - {x: 17.5, y: 26.25}
-  - {x: 26.25, y: 26.25}
-  - {x: 26.25, y: 17.5}
-  - {x: 17.5, y: 26.25}
-  - {x: 17.5, y: 35}
-  - {x: 26.25, y: 35}
-  - {x: 26.25, y: 26.25}
-  - {x: 26.25, y: 35}
-  - {x: 35, y: 35}
-  - {x: 35, y: 26.25}
-  - {x: 26.25, y: 26.25}
-  - {x: 35, y: 26.25}
-  - {x: 35, y: 17.5}
-  - {x: 26.25, y: 17.5}
-  - {x: 26.25, y: 26.25}
-  - {x: 17.5, y: 0}
-  - {x: 17.5, y: 8.75}
-  - {x: 26.25, y: 8.75}
-  - {x: 26.25, y: 0}
-  - {x: 17.5, y: 8.75}
-  - {x: 17.5, y: 17.5}
-  - {x: 26.25, y: 17.5}
-  - {x: 26.25, y: 8.75}
-  - {x: 26.25, y: 17.5}
-  - {x: 35, y: 17.5}
-  - {x: 35, y: 8.75}
-  - {x: 26.25, y: 8.75}
-  - {x: 35, y: 8.75}
-  - {x: 35, y: 0}
-  - {x: 26.25, y: 0}
-  - {x: 26.25, y: 8.75}
-  - {x: 0, y: 0}
+  - {x: 6.5625, y: 0}
+  - {x: 6.5625, y: 2.1875}
+  - {x: -6.5625, y: 0}
   - {x: -8.75, y: 0}
-  - {x: -8.75, y: 8.75}
-  - {x: 0, y: 8.75}
+  - {x: -8.75, y: 2.1875}
+  - {x: -6.5625, y: 2.1875}
   - {x: -8.75, y: 0}
-  - {x: -17.5, y: 0}
-  - {x: -17.5, y: 8.75}
+  - {x: -10.9375, y: 0}
+  - {x: -10.9375, y: 2.1875}
+  - {x: -8.75, y: 2.1875}
+  - {x: -10.9375, y: 2.1875}
+  - {x: -10.9375, y: 4.375}
+  - {x: -8.75, y: 4.375}
+  - {x: -8.75, y: 2.1875}
+  - {x: -8.75, y: 4.375}
+  - {x: -6.5625, y: 4.375}
+  - {x: -6.5625, y: 2.1875}
+  - {x: -8.75, y: 2.1875}
+  - {x: -10.9375, y: 0}
+  - {x: -13.125, y: 0}
+  - {x: -13.125, y: 2.1875}
+  - {x: -10.9375, y: 2.1875}
+  - {x: -13.125, y: 0}
+  - {x: -15.3125, y: 0}
+  - {x: -15.3125, y: 2.1875}
+  - {x: -13.125, y: 2.1875}
+  - {x: -15.3125, y: 2.1875}
+  - {x: -15.3125, y: 4.375}
+  - {x: -13.125, y: 4.375}
+  - {x: -13.125, y: 2.1875}
+  - {x: -13.125, y: 4.375}
+  - {x: -10.9375, y: 4.375}
+  - {x: -10.9375, y: 2.1875}
+  - {x: -13.125, y: 2.1875}
+  - {x: -10.9375, y: 4.375}
+  - {x: -13.125, y: 4.375}
+  - {x: -13.125, y: 6.5625}
+  - {x: -10.9375, y: 6.5625}
+  - {x: -13.125, y: 4.375}
+  - {x: -15.3125, y: 4.375}
+  - {x: -15.3125, y: 6.5625}
+  - {x: -13.125, y: 6.5625}
+  - {x: -15.3125, y: 6.5625}
+  - {x: -15.3125, y: 8.75}
+  - {x: -13.125, y: 8.75}
+  - {x: -13.125, y: 6.5625}
+  - {x: -13.125, y: 8.75}
+  - {x: -10.9375, y: 8.75}
+  - {x: -10.9375, y: 6.5625}
+  - {x: -13.125, y: 6.5625}
+  - {x: -6.5625, y: 4.375}
+  - {x: -8.75, y: 4.375}
+  - {x: -8.75, y: 6.5625}
+  - {x: -6.5625, y: 6.5625}
+  - {x: -8.75, y: 4.375}
+  - {x: -10.9375, y: 4.375}
+  - {x: -10.9375, y: 6.5625}
+  - {x: -8.75, y: 6.5625}
+  - {x: -10.9375, y: 6.5625}
+  - {x: -10.9375, y: 8.75}
   - {x: -8.75, y: 8.75}
-  - {x: -17.5, y: 8.75}
-  - {x: -17.5, y: 17.5}
-  - {x: -8.75, y: 17.5}
+  - {x: -8.75, y: 6.5625}
   - {x: -8.75, y: 8.75}
-  - {x: -8.75, y: 17.5}
-  - {x: 0, y: 17.5}
-  - {x: 0, y: 8.75}
-  - {x: -8.75, y: 8.75}
-  - {x: -17.5, y: 0}
-  - {x: -26.25, y: 0}
-  - {x: -26.25, y: 8.75}
-  - {x: -17.5, y: 8.75}
-  - {x: -26.25, y: 0}
-  - {x: -35, y: 0}
-  - {x: -35, y: 8.75}
-  - {x: -26.25, y: 8.75}
-  - {x: -35, y: 8.75}
-  - {x: -35, y: 17.5}
-  - {x: -26.25, y: 17.5}
-  - {x: -26.25, y: 8.75}
-  - {x: -26.25, y: 17.5}
-  - {x: -17.5, y: 17.5}
-  - {x: -17.5, y: 8.75}
-  - {x: -26.25, y: 8.75}
-  - {x: -17.5, y: 17.5}
-  - {x: -26.25, y: 17.5}
-  - {x: -26.25, y: 26.25}
-  - {x: -17.5, y: 26.25}
-  - {x: -26.25, y: 17.5}
-  - {x: -35, y: 17.5}
-  - {x: -35, y: 26.25}
-  - {x: -26.25, y: 26.25}
-  - {x: -35, y: 26.25}
-  - {x: -35, y: 35}
-  - {x: -26.25, y: 35}
-  - {x: -26.25, y: 26.25}
-  - {x: -26.25, y: 35}
-  - {x: -17.5, y: 35}
-  - {x: -17.5, y: 26.25}
-  - {x: -26.25, y: 26.25}
-  - {x: 0, y: 17.5}
-  - {x: -8.75, y: 17.5}
-  - {x: -8.75, y: 26.25}
-  - {x: 0, y: 26.25}
-  - {x: -8.75, y: 17.5}
-  - {x: -17.5, y: 17.5}
-  - {x: -17.5, y: 26.25}
-  - {x: -8.75, y: 26.25}
-  - {x: -17.5, y: 26.25}
-  - {x: -17.5, y: 35}
-  - {x: -8.75, y: 35}
-  - {x: -8.75, y: 26.25}
-  - {x: -8.75, y: 35}
-  - {x: 0, y: 35}
-  - {x: 0, y: 26.25}
-  - {x: -8.75, y: 26.25}
-  - {x: 17.5, y: 0}
-  - {x: 8.75, y: 0}
-  - {x: 8.75, y: 8.75}
-  - {x: 17.5, y: 8.75}
-  - {x: 8.75, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 8.75}
-  - {x: 8.75, y: 8.75}
-  - {x: 0, y: 8.75}
-  - {x: 0, y: 17.5}
-  - {x: 8.75, y: 17.5}
-  - {x: 8.75, y: 8.75}
-  - {x: 8.75, y: 17.5}
-  - {x: 17.5, y: 17.5}
-  - {x: 17.5, y: 8.75}
-  - {x: 8.75, y: 8.75}
-  - {x: 17.5, y: 17.5}
-  - {x: 8.75, y: 17.5}
-  - {x: 8.75, y: 26.25}
-  - {x: 17.5, y: 26.25}
-  - {x: 8.75, y: 17.5}
-  - {x: 0, y: 17.5}
-  - {x: 0, y: 26.25}
-  - {x: 8.75, y: 26.25}
-  - {x: 0, y: 26.25}
-  - {x: 0, y: 35}
-  - {x: 8.75, y: 35}
-  - {x: 8.75, y: 26.25}
-  - {x: 8.75, y: 35}
-  - {x: 17.5, y: 35}
-  - {x: 17.5, y: 26.25}
-  - {x: 8.75, y: 26.25}
-  - {x: 17.5, y: -35}
-  - {x: 8.75, y: -35}
-  - {x: 8.75, y: -26.25}
-  - {x: 17.5, y: -26.25}
-  - {x: 8.75, y: -35}
-  - {x: 0, y: -35}
-  - {x: 0, y: -26.25}
-  - {x: 8.75, y: -26.25}
-  - {x: 0, y: -26.25}
-  - {x: 0, y: -17.5}
-  - {x: 8.75, y: -17.5}
-  - {x: 8.75, y: -26.25}
-  - {x: 8.75, y: -17.5}
-  - {x: 17.5, y: -17.5}
-  - {x: 17.5, y: -26.25}
-  - {x: 8.75, y: -26.25}
-  - {x: 17.5, y: -17.5}
-  - {x: 8.75, y: -17.5}
-  - {x: 8.75, y: -8.75}
-  - {x: 17.5, y: -8.75}
-  - {x: 8.75, y: -17.5}
-  - {x: 0, y: -17.5}
-  - {x: 0, y: -8.75}
-  - {x: 8.75, y: -8.75}
-  - {x: 0, y: -8.75}
-  - {x: 0, y: 0}
-  - {x: 8.75, y: 0}
-  - {x: 8.75, y: -8.75}
-  - {x: 8.75, y: 0}
-  - {x: 17.5, y: 0}
-  - {x: 17.5, y: -8.75}
-  - {x: 8.75, y: -8.75}
-  - {x: 0, y: -35}
-  - {x: -8.75, y: -35}
-  - {x: -8.75, y: -26.25}
-  - {x: 0, y: -26.25}
-  - {x: -8.75, y: -35}
-  - {x: -17.5, y: -35}
-  - {x: -17.5, y: -26.25}
-  - {x: -8.75, y: -26.25}
-  - {x: -17.5, y: -26.25}
-  - {x: -17.5, y: -17.5}
-  - {x: -8.75, y: -17.5}
-  - {x: -8.75, y: -26.25}
-  - {x: -8.75, y: -17.5}
-  - {x: 0, y: -17.5}
-  - {x: 0, y: -26.25}
-  - {x: -8.75, y: -26.25}
-  - {x: -17.5, y: -35}
-  - {x: -26.25, y: -35}
-  - {x: -26.25, y: -26.25}
-  - {x: -17.5, y: -26.25}
-  - {x: -26.25, y: -35}
-  - {x: -35, y: -35}
-  - {x: -35, y: -26.25}
-  - {x: -26.25, y: -26.25}
-  - {x: -35, y: -26.25}
-  - {x: -35, y: -17.5}
-  - {x: -26.25, y: -17.5}
-  - {x: -26.25, y: -26.25}
-  - {x: -26.25, y: -17.5}
-  - {x: -17.5, y: -17.5}
-  - {x: -17.5, y: -26.25}
-  - {x: -26.25, y: -26.25}
-  - {x: -17.5, y: -17.5}
-  - {x: -26.25, y: -17.5}
-  - {x: -26.25, y: -8.75}
-  - {x: -17.5, y: -8.75}
-  - {x: -26.25, y: -17.5}
-  - {x: -35, y: -17.5}
-  - {x: -35, y: -8.75}
-  - {x: -26.25, y: -8.75}
-  - {x: -35, y: -8.75}
-  - {x: -35, y: 0}
-  - {x: -26.25, y: 0}
-  - {x: -26.25, y: -8.75}
-  - {x: -26.25, y: 0}
-  - {x: -17.5, y: 0}
-  - {x: -17.5, y: -8.75}
-  - {x: -26.25, y: -8.75}
-  - {x: 0, y: -17.5}
-  - {x: -8.75, y: -17.5}
+  - {x: -6.5625, y: 8.75}
+  - {x: -6.5625, y: 6.5625}
+  - {x: -8.75, y: 6.5625}
+  - {x: -2.1875, y: 0}
+  - {x: -4.375, y: 0}
+  - {x: -4.375, y: 2.1875}
+  - {x: -2.1875, y: 2.1875}
+  - {x: -4.375, y: 0}
+  - {x: -6.5625, y: 0}
+  - {x: -6.5625, y: 2.1875}
+  - {x: -4.375, y: 2.1875}
+  - {x: -6.5625, y: 2.1875}
+  - {x: -6.5625, y: 4.375}
+  - {x: -4.375, y: 4.375}
+  - {x: -4.375, y: 2.1875}
+  - {x: -4.375, y: 4.375}
+  - {x: -2.1875, y: 4.375}
+  - {x: -2.1875, y: 2.1875}
+  - {x: -4.375, y: 2.1875}
+  - {x: -2.1875, y: 4.375}
+  - {x: -4.375, y: 4.375}
+  - {x: -4.375, y: 6.5625}
+  - {x: -2.1875, y: 6.5625}
+  - {x: -4.375, y: 4.375}
+  - {x: -6.5625, y: 4.375}
+  - {x: -6.5625, y: 6.5625}
+  - {x: -4.375, y: 6.5625}
+  - {x: -6.5625, y: 6.5625}
+  - {x: -6.5625, y: 8.75}
+  - {x: -4.375, y: 8.75}
+  - {x: -4.375, y: 6.5625}
+  - {x: -4.375, y: 8.75}
+  - {x: -2.1875, y: 8.75}
+  - {x: -2.1875, y: 6.5625}
+  - {x: -4.375, y: 6.5625}
+  - {x: -2.1875, y: -8.75}
+  - {x: -4.375, y: -8.75}
+  - {x: -4.375, y: -6.5625}
+  - {x: -2.1875, y: -6.5625}
+  - {x: -4.375, y: -8.75}
+  - {x: -6.5625, y: -8.75}
+  - {x: -6.5625, y: -6.5625}
+  - {x: -4.375, y: -6.5625}
+  - {x: -6.5625, y: -6.5625}
+  - {x: -6.5625, y: -4.375}
+  - {x: -4.375, y: -4.375}
+  - {x: -4.375, y: -6.5625}
+  - {x: -4.375, y: -4.375}
+  - {x: -2.1875, y: -4.375}
+  - {x: -2.1875, y: -6.5625}
+  - {x: -4.375, y: -6.5625}
+  - {x: -2.1875, y: -4.375}
+  - {x: -4.375, y: -4.375}
+  - {x: -4.375, y: -2.1875}
+  - {x: -2.1875, y: -2.1875}
+  - {x: -4.375, y: -4.375}
+  - {x: -6.5625, y: -4.375}
+  - {x: -6.5625, y: -2.1875}
+  - {x: -4.375, y: -2.1875}
+  - {x: -6.5625, y: -2.1875}
+  - {x: -6.5625, y: 0}
+  - {x: -4.375, y: 0}
+  - {x: -4.375, y: -2.1875}
+  - {x: -4.375, y: 0}
+  - {x: -2.1875, y: 0}
+  - {x: -2.1875, y: -2.1875}
+  - {x: -4.375, y: -2.1875}
+  - {x: -6.5625, y: -8.75}
   - {x: -8.75, y: -8.75}
-  - {x: 0, y: -8.75}
-  - {x: -8.75, y: -17.5}
-  - {x: -17.5, y: -17.5}
-  - {x: -17.5, y: -8.75}
+  - {x: -8.75, y: -6.5625}
+  - {x: -6.5625, y: -6.5625}
   - {x: -8.75, y: -8.75}
-  - {x: -17.5, y: -8.75}
-  - {x: -17.5, y: 0}
+  - {x: -10.9375, y: -8.75}
+  - {x: -10.9375, y: -6.5625}
+  - {x: -8.75, y: -6.5625}
+  - {x: -10.9375, y: -6.5625}
+  - {x: -10.9375, y: -4.375}
+  - {x: -8.75, y: -4.375}
+  - {x: -8.75, y: -6.5625}
+  - {x: -8.75, y: -4.375}
+  - {x: -6.5625, y: -4.375}
+  - {x: -6.5625, y: -6.5625}
+  - {x: -8.75, y: -6.5625}
+  - {x: -10.9375, y: -8.75}
+  - {x: -13.125, y: -8.75}
+  - {x: -13.125, y: -6.5625}
+  - {x: -10.9375, y: -6.5625}
+  - {x: -13.125, y: -8.75}
+  - {x: -15.3125, y: -8.75}
+  - {x: -15.3125, y: -6.5625}
+  - {x: -13.125, y: -6.5625}
+  - {x: -15.3125, y: -6.5625}
+  - {x: -15.3125, y: -4.375}
+  - {x: -13.125, y: -4.375}
+  - {x: -13.125, y: -6.5625}
+  - {x: -13.125, y: -4.375}
+  - {x: -10.9375, y: -4.375}
+  - {x: -10.9375, y: -6.5625}
+  - {x: -13.125, y: -6.5625}
+  - {x: -10.9375, y: -4.375}
+  - {x: -13.125, y: -4.375}
+  - {x: -13.125, y: -2.1875}
+  - {x: -10.9375, y: -2.1875}
+  - {x: -13.125, y: -4.375}
+  - {x: -15.3125, y: -4.375}
+  - {x: -15.3125, y: -2.1875}
+  - {x: -13.125, y: -2.1875}
+  - {x: -15.3125, y: -2.1875}
+  - {x: -15.3125, y: 0}
+  - {x: -13.125, y: 0}
+  - {x: -13.125, y: -2.1875}
+  - {x: -13.125, y: 0}
+  - {x: -10.9375, y: 0}
+  - {x: -10.9375, y: -2.1875}
+  - {x: -13.125, y: -2.1875}
+  - {x: -6.5625, y: -4.375}
+  - {x: -8.75, y: -4.375}
+  - {x: -8.75, y: -2.1875}
+  - {x: -6.5625, y: -2.1875}
+  - {x: -8.75, y: -4.375}
+  - {x: -10.9375, y: -4.375}
+  - {x: -10.9375, y: -2.1875}
+  - {x: -8.75, y: -2.1875}
+  - {x: -10.9375, y: -2.1875}
+  - {x: -10.9375, y: 0}
   - {x: -8.75, y: 0}
-  - {x: -8.75, y: -8.75}
+  - {x: -8.75, y: -2.1875}
   - {x: -8.75, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: -8.75}
-  - {x: -8.75, y: -8.75}
+  - {x: -6.5625, y: 0}
+  - {x: -6.5625, y: -2.1875}
+  - {x: -8.75, y: -2.1875}
   m_Textures2: []
   m_Textures3: []
   m_Tangents:
