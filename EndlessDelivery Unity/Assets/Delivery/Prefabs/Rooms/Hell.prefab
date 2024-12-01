@@ -11421,7 +11421,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6ac014bcb4d742f41a3d1c2f67b1ab2f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Volume: 0.4125
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -11430,7 +11430,7 @@ AudioSource:
   Priority: 0
   DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 20
+  MaxDistance: 30
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -11440,7 +11440,7 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.1
+      time: 0.1280609
       value: 1
       inSlope: 0
       outSlope: 0
@@ -11449,7 +11449,7 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.53935546
+      time: 0.58272094
       value: 0.41616648
       inSlope: -1.300071
       outSlope: -1.300071
@@ -54004,7 +54004,7 @@ MonoBehaviour:
   - {x: -5.5, y: 1, z: -2.625}
   - {x: -5.5, y: 0.5, z: -2.75}
   - {x: -5.5, y: 0.5, z: 0.125}
-  - {x: 6.5, y: 0, z: 4}
+  - {x: 6.5, y: 0, z: 2.75}
   - {x: 6.5, y: 0, z: 0}
   - {x: 6.5, y: 0.1875, z: 0}
   - {x: 6.5, y: 0.1875, z: 1}
@@ -54061,7 +54061,7 @@ MonoBehaviour:
   - {x: 6.5, y: 0.1875, z: -18.3135}
   - {x: 6.5, y: 0, z: -18.3135}
   - {x: 6.5, y: 0, z: 0}
-  - {x: 6.5, y: 0, z: 4}
+  - {x: 6.5, y: 0, z: 2.75}
   - {x: 6.380001, y: 0, z: 0.00999999}
   - {x: 6.380001, y: 0, z: 3.9899998}
   - {x: -5.5, y: 0, z: -2.625}
@@ -54216,7 +54216,7 @@ MonoBehaviour:
   - {x: -5.38, y: 0.125, z: 3.9899998}
   - {x: -5.38, y: 0.125, z: 0.00999999}
   - {x: 0.5000005, y: 0.125, z: 0.00999999}
-  - {x: 6.5, y: 0, z: 4}
+  - {x: 6.5, y: 0, z: 2.75}
   - {x: 0.5, y: 0, z: 4}
   - {x: 0.5, y: 0, z: 3.9899998}
   - {x: 6.380001, y: 0, z: 3.9899998}
@@ -54348,7 +54348,7 @@ MonoBehaviour:
   - {x: 6.5, y: 0.1875, z: 3}
   - {x: 6.5, y: 0.1875, z: 13}
   - {x: 6.5, y: 0, z: 3}
-  - {x: 6.5, y: 0, z: 4}
+  - {x: 6.5, y: 0, z: 2.75}
   - {x: 6.5, y: 0.1875, z: 1}
   - {x: 6.5, y: 0.1875, z: 3}
   - {x: 6.5, y: 0.1875, z: 13}
@@ -54399,7 +54399,7 @@ MonoBehaviour:
   - {x: 0.5, y: 0, z: 13}
   - {x: -5.5, y: 0, z: 13}
   - {x: -5.5, y: 0, z: 3.75}
-  - {x: 6.5, y: 0, z: 4}
+  - {x: 6.5, y: 0, z: 2.75}
   - {x: 6.5, y: 0, z: 3}
   - {x: 0.5, y: 0, z: 3.75}
   - {x: 0.5, y: 0, z: 4}
@@ -54737,7 +54737,7 @@ MonoBehaviour:
   - {x: 2.625, y: 1}
   - {x: 2.75, y: 0.5}
   - {x: -0.125, y: 0.5}
-  - {x: 4, y: 0}
+  - {x: 2.75, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0.1875}
   - {x: 1, y: 0.1875}
@@ -54794,7 +54794,7 @@ MonoBehaviour:
   - {x: -8.353405, y: 0.1875}
   - {x: -8.353405, y: 0}
   - {x: -6.5, y: 0}
-  - {x: -6.5, y: 4}
+  - {x: -6.5, y: 2.75}
   - {x: -6.380001, y: 0.00999999}
   - {x: -6.380001, y: 3.9899998}
   - {x: 5.5, y: -2.625}
@@ -54949,14 +54949,14 @@ MonoBehaviour:
   - {x: 5.38, y: 3.9899998}
   - {x: 5.38, y: 0.00999999}
   - {x: -0.5000005, y: 0.00999999}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
+  - {x: 6.5, y: 2.75}
+  - {x: 0.5, y: 4}
+  - {x: 0.5, y: 3.9899998}
+  - {x: 6.380001, y: 3.9899998}
+  - {x: 0.5, y: 4}
+  - {x: -5.5, y: 3.625}
+  - {x: -5.38, y: 3.9899998}
+  - {x: 0.5, y: 3.9899998}
   - {x: 6.380001, y: 0}
   - {x: 0.5, y: 0}
   - {x: 0.5, y: 0.125}
@@ -55081,7 +55081,7 @@ MonoBehaviour:
   - {x: 3, y: 0.1875}
   - {x: 13, y: 0.1875}
   - {x: 3, y: 0}
-  - {x: 4, y: 0}
+  - {x: 2.75, y: 0}
   - {x: 1, y: 0.1875}
   - {x: 3, y: 0.1875}
   - {x: 13, y: 0.1875}
@@ -55124,22 +55124,22 @@ MonoBehaviour:
   - {x: 1, y: 1}
   - {x: 1, y: 1.25}
   - {x: 3, y: 1.25}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
+  - {x: -0.5, y: 4}
+  - {x: -0.5, y: 3.75}
+  - {x: 5.5, y: 3.75}
+  - {x: 5.5, y: 3.625}
+  - {x: -0.5, y: 3.75}
+  - {x: -0.5, y: 13}
+  - {x: 5.5, y: 13}
+  - {x: 5.5, y: 3.75}
+  - {x: -6.5, y: 2.75}
+  - {x: -6.5, y: 3}
+  - {x: -0.5, y: 3.75}
+  - {x: -0.5, y: 4}
+  - {x: -6.5, y: 3}
+  - {x: -6.5, y: 13}
+  - {x: -0.5, y: 13}
+  - {x: -0.5, y: 3.75}
   - {x: 17.93723, y: 1}
   - {x: 10.249865, y: 1}
   - {x: 2.5625, y: 1}
@@ -55684,14 +55684,14 @@ MonoBehaviour:
   - {x: -1, y: 0, z: 0, w: -1}
   - {x: -1, y: 0, z: 0, w: -1}
   - {x: -1, y: 0, z: 0, w: -1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: -0, y: 1, z: 0, w: 1}
+  - {x: 1, y: 0, z: 0, w: 1}
+  - {x: -0, y: 1, z: 0, w: 1}
+  - {x: -0, y: 1, z: 0, w: 1}
+  - {x: 1, y: 0, z: 0, w: -1}
+  - {x: -0, y: 1, z: 0, w: 1}
+  - {x: 1, y: 0, z: 0, w: 1}
   - {x: 1, y: 0, z: 0, w: -1}
   - {x: 1, y: 0, z: 0, w: -1}
   - {x: 1, y: 0, z: 0, w: -1}
@@ -55815,7 +55815,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 1, w: -1}
   - {x: 0, y: 0, z: 1, w: -1}
   - {x: 0, y: 0, z: 1, w: -1}
-  - {x: 0, y: 0, z: 1, w: 1}
+  - {x: 0, y: 0, z: 1, w: -1}
   - {x: 0, y: 0, z: 1, w: -1}
   - {x: 0, y: 0, z: 1, w: -1}
   - {x: 0, y: 0, z: 1, w: -1}
@@ -55859,22 +55859,22 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 1, w: -1}
   - {x: 0, y: 0, z: 1, w: -1}
   - {x: 0, y: 0, z: 1, w: -1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
-  - {x: NaN, y: NaN, z: NaN, w: 1}
+  - {x: -0, y: 1, z: 0, w: 1}
+  - {x: -1, y: 0, z: 0, w: 1}
+  - {x: -0, y: 1, z: 0, w: 1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -0, y: 1, z: 0, w: 1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -0, y: 1, z: 0, w: 1}
+  - {x: -1, y: 0, z: 0, w: 1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
+  - {x: -1, y: 0, z: 0, w: -1}
   - {x: 0, y: 0, z: -1, w: -1}
   - {x: 0, y: 0, z: -1, w: -1}
   - {x: 0, y: 0, z: -1, w: -1}
@@ -67856,6 +67856,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9145225716950149274, guid: 992343c46dcac0f4fb308769f1577e59,
+        type: 3}
+      propertyPath: m_SelectedVertices.Array.size
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 992343c46dcac0f4fb308769f1577e59, type: 3}
