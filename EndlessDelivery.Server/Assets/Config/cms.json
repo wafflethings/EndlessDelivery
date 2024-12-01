@@ -550,7 +550,7 @@
                 "Type": 0,
                 "Id": "banner_hell",
                 "Name": "item.banner_hell",
-                "ShopPrice": 250,
+                "ShopPrice": 150,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Banners/hell-preview.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Hell/hell-preview.png"
@@ -566,7 +566,7 @@
                 "Type": 0,
                 "Id": "banner_vault",
                 "Name": "item.banner_vault",
-                "ShopPrice": 250,
+                "ShopPrice": 150,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Banners/vault-preview.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Vault/vault-preview.png"
@@ -582,7 +582,7 @@
                 "Type": 0,
                 "Id": "banner_split",
                 "Name": "item.banner_split",
-                "ShopPrice": 250,
+                "ShopPrice": 150,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Banners/split-preview.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Split/split-preview.png"
@@ -598,7 +598,7 @@
                 "Type": 0,
                 "Id": "banner_redcane",
                 "Name": "item.banner_redcane",
-                "ShopPrice": 250,
+                "ShopPrice": 150,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Banners/redcane-preview.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Red Cane/redcane-preview.png"
@@ -614,7 +614,7 @@
                 "Type": 0,
                 "Id": "banner_greencane",
                 "Name": "item.banner_greencane",
-                "ShopPrice": 250,
+                "ShopPrice": 150,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Banners/greencane-preview.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Green Cane/greencane-preview.png"
@@ -630,7 +630,7 @@
                 "Type": 0,
                 "Id": "banner_screenfield",
                 "Name": "item.banner_screenfield",
-                "ShopPrice": 250,
+                "ShopPrice": 150,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Banners/screenfield-preview.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Screen Field/screenfield-preview.png"
@@ -716,7 +716,7 @@
                 "Type": 1,
                 "Id": "revolver_jumper",
                 "Name": "item.misc_jumper",
-                "ShopPrice": 250,
+                "ShopPrice": 300,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Revolvers/jumper-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Revolver/Jumper/jumper-icon.png"
@@ -742,7 +742,7 @@
                 "Type": 7,
                 "Id": "altrevolver_gingerbread",
                 "Name": "item.misc_gingerbread",
-                "ShopPrice": 250,
+                "ShopPrice": 300,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Alt Revolvers/slab-gingerbread-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Slab/Gingerbread/slab-gingerbread-icon.png"
@@ -754,7 +754,7 @@
                 "Type": 7,
                 "Id": "altrevolver_jumper",
                 "Name": "item.misc_jumper",
-                "ShopPrice": 250,
+                "ShopPrice": 300,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Alt Revolvers/jumper-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Slab/Jumper/jumper-icon.png"
@@ -792,7 +792,7 @@
                 "Type": 2,
                 "Id": "shotgun_gingerbread",
                 "Name": "item.misc_gingerbread",
-                "ShopPrice": 250,
+                "ShopPrice": 300,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Shotguns/gingerbread-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Shotgun/Gingerbread/gingerbread-icon.png"
@@ -854,7 +854,7 @@
                 "Type": 8,
                 "Id": "altshotgun_gingerbread",
                 "Name": "item.misc_gingerbread",
-                "ShopPrice": 250,
+                "ShopPrice": 300,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Hammers/gingerbread-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Hammer/Gingerbread/gingerbread-icon.png"
@@ -880,7 +880,7 @@
                 "Type": 3,
                 "Id": "nailgun_gingerbread",
                 "Name": "item.misc_gingerbread",
-                "ShopPrice": 250,
+                "ShopPrice": 300,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Nailguns/gingerbread-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Nailgun/Gingerbread/gingerbread-icon.png"
@@ -920,7 +920,7 @@
                 "Type": 4,
                 "Id": "railcannon_gingerbread",
                 "Name": "item.misc_gingerbread",
-                "ShopPrice": 250,
+                "ShopPrice": 300,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Railcannons/gingerbread-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Railcannon/Gingerbread/gingerbread-icon.png"
@@ -972,7 +972,7 @@
                 "Type": 6,
                 "Id": "present_skull",
                 "Name": "item.present_skull",
-                "ShopPrice": 250,
+                "ShopPrice": 200,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Presents/skull-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Skull/skull-icon.png"
@@ -984,7 +984,7 @@
                 "Type": 6,
                 "Id": "present_maurice",
                 "Name": "item.present_maurice",
-                "ShopPrice": 250,
+                "ShopPrice": 200,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Presents/maurice-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Maurice/maurice-icon.png"
@@ -1104,5 +1104,5 @@
         "item.shotgun_silver": "Deluxe (Silver)",
         "item.shotgun_gold": "Deluxe (Gold)"
     },
-    "LastUpdate": "2024-12-01T21:00:06.3684074Z"
+    "LastUpdate": "2024-12-01T23:21:06.3684074Z"
 }
