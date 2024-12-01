@@ -121,7 +121,6 @@ namespace EndlessDelivery.Server.Api.Scores
             user.LifetimeStats += newScore.Score;
             user.Country = HttpContext.GetCountry();
             user.PremiumCurrency += newScore.Score.MoneyGain;
-            user.CheckOnlineAchievements(newScore);
             await using DeliveryDbContext dbContext = new();
             dbContext.Users.Update(user);
 
@@ -143,6 +142,7 @@ namespace EndlessDelivery.Server.Api.Scores
 
             await dbContext.SaveChangesAsync();
             await SetIndexes();
+            user.CheckOnlineAchievements(newScore);
             return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));
         }
 

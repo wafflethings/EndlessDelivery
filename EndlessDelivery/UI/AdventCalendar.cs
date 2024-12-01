@@ -37,6 +37,7 @@ public class AdventCalendar : MonoBehaviour
 
     public void Claim()
     {
+        _claimButtonText.text = OnlineFunctionality.LastFetchedContent.GetLocalisedString("game_ui.calendar_claimed");
         Task.Run(async () =>
         {
             await OnlineFunctionality.Context.ClaimDailyReward();
@@ -60,8 +61,10 @@ public class AdventCalendar : MonoBehaviour
         _subtitleText.text = cms.GetLocalisedString(reward.Subtitle);
 
         bool isClaimed = _ownedDays.Contains(dayId);
-        _claimButton.interactable = !isClaimed || dayId != cms.CurrentCalendarReward.Id;
-        _claimButtonText.text = cms.GetLocalisedString(isClaimed ? "game_ui.calendar_claimed" : "game_ui.calendar_unclaimed");
+        _claimButton.interactable = !isClaimed && dayId == cms.CurrentCalendarReward?.Id;
+
+        string unclaimedString = dayId == cms.CurrentCalendarReward?.Id ? "game_ui.calendar_unclaimed" : "game_ui.calendar_missed";
+        _claimButtonText.text = cms.GetLocalisedString(isClaimed ? "game_ui.calendar_claimed" : unclaimedString);
 
         _claimPage.SetActive(true);
     }

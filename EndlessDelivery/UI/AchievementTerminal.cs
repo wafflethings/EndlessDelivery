@@ -26,6 +26,7 @@ public class AchievementTerminal : MonoBehaviour
 
     private void Awake()
     {
+        SetAchievement(null);
         StartCoroutine(PopulateAchievements());
     }
 
@@ -52,11 +53,17 @@ public class AchievementTerminal : MonoBehaviour
         Instantiate(_buttonTemplate, _achievementHolder).GetComponent<AchievementTerminalButton>().SetUp(this, achievement, isOwned);
     }
 
-    public void SetAchievement(Achievement achievement)
+    public void SetAchievement(Achievement? achievement)
     {
         Cms cms = OnlineFunctionality.LastFetchedContent;
-        _achievementNameText.text = cms.GetLocalisedString(achievement.Name);
-        _achievementDescText.text = achievement.HideDetails ? cms.GetLocalisedString("game_ui.hidden_achievement") : cms.GetLocalisedString(achievement.Description);
+        _achievementNameText.text = achievement == null ? "-" : cms.GetLocalisedString(achievement.Name);
+        _achievementDescText.text = achievement == null ? "-" : achievement.HideDetails ? cms.GetLocalisedString("game_ui.hidden_achievement") : cms.GetLocalisedString(achievement.Description);
+
+        if (achievement == null)
+        {
+            _achievementUnlocksText.text = "-";
+            return;
+        }
 
         List<Item> items = new();
         foreach (string itemGrantId in achievement.ItemGrants)

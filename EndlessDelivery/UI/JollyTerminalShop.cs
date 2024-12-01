@@ -47,7 +47,7 @@ public class JollyTerminalShop : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (_endTime != default)
+        if (_endTime == default)
         {
             return;
         }
