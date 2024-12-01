@@ -106,7 +106,7 @@ public static class UserPageElements
             {
                 continue;
             }
-            
+
             builder.AppendAchievement(achievement);
         }
 

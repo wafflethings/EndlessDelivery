@@ -19,6 +19,7 @@ public class AchievementHud : MonoSingleton<AchievementHud>
     [SerializeField] private AudioSource? _soundEffect;
     [SerializeField] private GameObject? _holder;
     [SerializeField] private TMP_Text? _name;
+    [SerializeField] private TMP_Text? _desc;
     [SerializeField] private Image? _icon;
     private bool _canShowNextAchievement = true;
     private Queue<Achievement> _achievements = new();
@@ -39,14 +40,15 @@ public class AchievementHud : MonoSingleton<AchievementHud>
 
     private IEnumerator ShowCoroutine(Achievement achievement)
     {
-        if (_holder == null || _name == null || _icon == null)
+        if (_holder == null || _name == null || _desc == null || _icon == null)
         {
-            Plugin.Log.LogWarning("AchievementHud has _holder, _name, or _icon null! Returning.");
+            Plugin.Log.LogWarning("AchievementHud has _holder, _name, _desc, or _icon null! Returning.");
             _canShowNextAchievement = true;
             yield break;
         }
 
         _name.text = OnlineFunctionality.LastFetchedContent?.GetLocalisedString(achievement.Name) ?? achievement.Name;
+        _desc.text = OnlineFunctionality.LastFetchedContent?.GetLocalisedString(achievement.Description) ?? achievement.Description;
 
         AsyncOperationHandle<Sprite> spriteLoad = Addressables.LoadAssetAsync<Sprite>(achievement.Icon.AddressablePath);
         yield return new WaitUntil(() => spriteLoad.IsDone);
