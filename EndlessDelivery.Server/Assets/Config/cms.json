@@ -100,6 +100,18 @@
             "ItemGrants": [],
             "HideDetails": false,
             "Serverside": false
+        },
+        "ach_reunited": {
+            "Name": "achievement.reunited",
+            "Id": "ach_reunited",
+            "Description": "achievement.reunited_desc",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/reunited.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/reunited.png"
+            },
+            "ItemGrants": ["present_v1fumo"],
+            "HideDetails": false,
+            "Serverside": false
         }
     },
     "Banners": {
@@ -360,6 +372,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
+        },
+        "present_v1fumo": {
+            "Descriptor": {
+                "Type": 6,
+                "Id": "present_v1fumo",
+                "Name": "item.present_v1fumo",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
         }
     },
     "ShopRotations": [
@@ -412,6 +436,8 @@
         "achievement.quick_clear_desc": "Clear a room in under four seconds.",
         "achievement.every_room": "COLD TOURIST DESTINATIONS",
         "achievement.every_room_desc": "Complete every room.",
+        "achievement.reunited": "REUNITED",
+        "achievement.reunited_desc": "Bring Florp his trapped friend.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -464,6 +490,7 @@
         "item.misc_default": "Default",
         "item.misc_gingerbread": "Gingerbread",
         "item.present_goblin": "Encased Gob",
+        "item.present_v1": "V1 Fumo",
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty"
     },
