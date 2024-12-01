@@ -61,7 +61,7 @@
                 "AssetUri": "/Resources/UI/Achievements/goblin.png",
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/goblin.png"
             },
-            "ItemGrants": ["present_goblin"],
+            "ItemGrants": ["banner_goblin"],
             "HideDetails": false,
             "Serverside": false
         },
@@ -160,6 +160,22 @@
                 "Icon": {
                     "AssetUri": "/Resources/UI/Banners/gone-fishing-preview.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gone Fishing/gone-fishing-preview.png"
+                }
+            }
+        },
+        "banner_goblin": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/gob.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gob/gob.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_goblin",
+                "Name": "item.banner_goblin",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/gob-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gob/gob-preview.png"
                 }
             }
         }
@@ -361,18 +377,6 @@
                 }
             }
         },
-        "present_goblin": {
-            "Descriptor": {
-                "Type": 6,
-                "Id": "present_goblin",
-                "Name": "item.present_goblin",
-                "ShopPrice": 0,
-                "Icon": {
-                    "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
-                }
-            }
-        },
         "present_v1fumo": {
             "Descriptor": {
                 "Type": 6,
@@ -380,8 +384,8 @@
                 "Name": "item.present_v1fumo",
                 "ShopPrice": 0,
                 "Icon": {
-                    "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                    "AssetUri": "/Resources/UI/Presents/fumo-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Fumo/fumo-icon.png"
                 }
             }
         },
@@ -390,10 +394,10 @@
                 "Type": 6,
                 "Id": "present_skull",
                 "Name": "item.present_skull",
-                "ShopPrice": 0,
+                "ShopPrice": 250,
                 "Icon": {
-                    "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                    "AssetUri": "/Resources/UI/Presents/skull-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Skull/skull-icon.png"
                 }
             }
         }
@@ -501,7 +505,7 @@
         "item.banner_gone_fishing": "Gone Fishin'",
         "item.misc_default": "Default",
         "item.misc_gingerbread": "Gingerbread",
-        "item.present_goblin": "Encased Gob",
+        "item.banner_goblin": "Hall of Gob",
         "item.present_v1": "V1 Fumo",
         "item.present_skull": "Encased Skull",
         "item.revolver_awesometest": "Awesome Test",
