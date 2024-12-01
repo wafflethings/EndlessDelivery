@@ -290,6 +290,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
+        },
+        "present_goblin": {
+            "Descriptor": {
+                "Type": 6,
+                "Id": "present_goblin",
+                "Name": "item.present_goblin",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
         }
     },
     "ShopRotations": [
@@ -383,6 +395,7 @@
         "item.banner_gone_fishing": "Gone Fishin'",
         "item.misc_default": "Default",
         "item.misc_gingerbread": "Gingerbread",
+        "item.present_goblin": "Encased Gob",
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty"
     },
