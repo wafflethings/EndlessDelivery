@@ -142,7 +142,7 @@ namespace EndlessDelivery.Server.Api.Scores
 
             await dbContext.SaveChangesAsync();
             await SetIndexes();
-            user.CheckOnlineAchievements(newScore);
+            user.CheckOnlineAchievements();
             return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));
         }
 

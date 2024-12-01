@@ -27,8 +27,15 @@ public static class UserUtils
         }
     }
 
-    public static void CheckOnlineAchievements(this UserModel user, OnlineScore newScore)
+    public static async Task CheckOnlineAchievements(this UserModel user)
     {
+        OnlineScore? score = await user.GetBestScore();
+
+        if (score == null)
+        {
+            return;
+        }
+
         foreach (ServerSideAchievement serverAchievement in ServerSideAchievement.AllAchievements)
         {
             if (!ContentController.CurrentContent.Achievements.TryGetValue(serverAchievement.Id, out Achievement? achievement) || achievement == null)
@@ -36,12 +43,12 @@ public static class UserUtils
                 continue;
             }
 
-            if (user.OwnedAchievements.All(x => x.Id != serverAchievement.Id) && serverAchievement.ShouldGrant(newScore) && !achievement.Disabled)
+            if (user.OwnedAchievements.All(x => x.Id != serverAchievement.Id) && serverAchievement.ShouldGrant(score) && !achievement.Disabled)
             {
-                using DeliveryDbContext dbContext = new();
+                await using DeliveryDbContext dbContext = new();
                 user.GetAchievement(achievement);
                 dbContext.Users.Update(user);
-                dbContext.SaveChanges();
+                await dbContext.SaveChangesAsync();
             }
         }
     }
