@@ -104,25 +104,28 @@ public class PageController : Controller
             });
         });
 
-        builder.AppendUnderBannerBoxHolder(() =>
+        if (userModel.OwnedAchievements.Count > 0)
         {
-            builder.AppendUnderBannerBox("Achievements", () =>
+            builder.AppendUnderBannerBoxHolder(() =>
             {
-                List<Achievement> achievements = new();
-                foreach (OwnedAchievement owned in userModel.OwnedAchievements)
+                builder.AppendUnderBannerBox("Achievements", () =>
                 {
-                    if (!ContentController.CurrentContent.Achievements.TryGetValue(owned.Id, out Achievement? achievement))
+                    List<Achievement> achievements = new();
+                    foreach (OwnedAchievement owned in userModel.OwnedAchievements)
                     {
-                        Console.Error.WriteLine($"User {userModel.SteamId} has achievement not in CMS: {owned.Id}");
-                        continue;
+                        if (!ContentController.CurrentContent.Achievements.TryGetValue(owned.Id, out Achievement? achievement))
+                        {
+                            Console.Error.WriteLine($"User {userModel.SteamId} has achievement not in CMS: {owned.Id}");
+                            continue;
+                        }
+
+                        achievements.Add(achievement);
                     }
 
-                    achievements.Add(achievement);
-                }
-
-                builder.AppendAchievements(achievements.OrderBy(x => x.OrderPriority));
+                    builder.AppendAchievements(achievements.OrderBy(x => ContentController.CurrentContent.GetLocalisedString(x.Name)));
+                });
             });
-        });
+        }
 
         builder.AppendHtml("</div>");
         builder.AppendHtml("<br>");

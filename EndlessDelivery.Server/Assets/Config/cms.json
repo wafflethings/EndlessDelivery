@@ -25,7 +25,30 @@
                 "AssetUri": "/Resources/UI/Achievements/first-score.png",
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/first-score.png"
             },
-            "OrderPriority": 0,
+            "ItemGrants": [],
+            "HideDetails": false,
+            "Serverside": true
+        },
+        "ach_top25": {
+            "Name": "achievement.top25",
+            "Id": "ach_top25",
+            "Description": "achievement.top25_desc",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/top25.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/top25.png"
+            },
+            "ItemGrants": [],
+            "HideDetails": false,
+            "Serverside": true
+        },
+        "ach_top50": {
+            "Name": "achievement.top50",
+            "Id": "ach_top50",
+            "Description": "achievement.top50_desc",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/top50.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/top50.png"
+            },
             "ItemGrants": [],
             "HideDetails": false,
             "Serverside": true
@@ -38,8 +61,55 @@
                 "AssetUri": "/Resources/UI/Achievements/goblin.png",
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/goblin.png"
             },
-            "OrderPriority": 1,
+            "ItemGrants": ["banner_goblin"],
+            "HideDetails": false,
+            "Serverside": false
+        },
+        "ach_nodmg": {
+            "Name": "achievement.nodamage",
+            "Id": "ach_nodmg",
+            "Description": "achievement.nodamage_desc",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/nodmg.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/nodmg.png"
+            },
             "ItemGrants": [],
+            "HideDetails": false,
+            "Serverside": false
+        },
+        "ach_quick_clear": {
+            "Name": "achievement.quick_clear",
+            "Id": "ach_quick_clear",
+            "Description": "achievement.quick_clear_desc",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/quickclear.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/quickclear.png"
+            },
+            "ItemGrants": [],
+            "HideDetails": false,
+            "Serverside": false
+        },
+        "ach_every_room": {
+            "Name": "achievement.every_room",
+            "Id": "ach_every_room",
+            "Description": "achievement.every_room_desc",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/every-room.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/every-room.png"
+            },
+            "ItemGrants": [],
+            "HideDetails": false,
+            "Serverside": false
+        },
+        "ach_reunited": {
+            "Name": "achievement.reunited",
+            "Id": "ach_reunited",
+            "Description": "achievement.reunited_desc",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/reunited.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/reunited.png"
+            },
+            "ItemGrants": ["present_v1fumo"],
             "HideDetails": false,
             "Serverside": false
         }
@@ -92,6 +162,118 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gone Fishing/gone-fishing-preview.png"
                 }
             }
+        },
+        "banner_goblin": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/gob.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gob/gob.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_goblin",
+                "Name": "item.banner_goblin",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/gob-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gob/gob-preview.png"
+                }
+            }
+        },
+        "banner_hell": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/hell.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Hell/hell.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_hell",
+                "Name": "item.banner_hell",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/hell-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Hell/hell-preview.png"
+                }
+            }
+        },
+        "banner_vault": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/vault.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Vault/vault.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_vault",
+                "Name": "item.banner_vault",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/vault-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Vault/vault-preview.png"
+                }
+            }
+        },
+        "banner_split": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/split.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Split/split.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_split",
+                "Name": "item.banner_split",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/split-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Split/split-preview.png"
+                }
+            }
+        },
+        "banner_redcane": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/redcane.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Red Cane/redcane.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_redcane",
+                "Name": "item.banner_redcane",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/redcane-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Red Cane/redcane-preview.png"
+                }
+            }
+        },
+        "banner_greencane": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/greencane.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Green Cane/greencane.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_greencane",
+                "Name": "item.banner_greencane",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/greencane-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Green Cane/greencane-preview.png"
+                }
+            }
+        },
+        "banner_screenfield": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/screenfield.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Screen Field/screenfield.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_screenfield",
+                "Name": "item.banner_screenfield",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/screenfield-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Screen Field/screenfield-preview.png"
+                }
+            }
         }
     },
     "Revolvers": {
@@ -132,6 +314,30 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
+        },
+        "altrevolver_gingerbread": {
+            "Descriptor": {
+                "Type": 7,
+                "Id": "altrevolver_gingerbread",
+                "Name": "item.misc_gingerbread",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Alt Revolvers/slab-gingerbread-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Slab/Gingerbread/slab-gingerbread-icon.png"
+                }
+            }
+        },
+        "altrevolver_jumper": {
+            "Descriptor": {
+                "Type": 7,
+                "Id": "altrevolver_jumper",
+                "Name": "item.misc_jumper",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Alt Revolvers/jumper-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Slab/Jumper/jumper-icon.png"
+                }
+            }
         }
     },
     "Shotguns": {
@@ -154,8 +360,8 @@
                 "Name": "item.shotgun_zelzmiy",
                 "ShopPrice": 0,
                 "Icon": {
-                    "AssetUri": "/Resources/UI/placeholder-item.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                    "AssetUri": "/Resources/UI/Shotguns/frosty-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Shotgun/Frosty/frosty-icon.png"
                 }
             }
         },
@@ -166,8 +372,8 @@
                 "Name": "item.misc_gingerbread",
                 "ShopPrice": 250,
                 "Icon": {
-                    "AssetUri": "/Resources/UI/placeholder-item.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                    "AssetUri": "/Resources/UI/Shotguns/gingerbread-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Shotgun/Gingerbread/gingerbread-icon.png"
                 }
             }
         }
@@ -192,8 +398,8 @@
                 "Name": "item.misc_gingerbread",
                 "ShopPrice": 250,
                 "Icon": {
-                    "AssetUri": "/Resources/UI/placeholder-item.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                    "AssetUri": "/Resources/UI/Hammers/gingerbread-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Hammer/Gingerbread/gingerbread-icon.png"
                 }
             }
         }
@@ -218,8 +424,8 @@
                 "Name": "item.misc_gingerbread",
                 "ShopPrice": 250,
                 "Icon": {
-                    "AssetUri": "/Resources/UI/placeholder-item.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                    "AssetUri": "/Resources/UI/Nailguns/gingerbread-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Nailgun/Gingerbread/gingerbread-icon.png"
                 }
             }
         }
@@ -258,8 +464,8 @@
                 "Name": "item.misc_gingerbread",
                 "ShopPrice": 250,
                 "Icon": {
-                    "AssetUri": "/Resources/UI/placeholder-item.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/placeholder-item.png"
+                    "AssetUri": "/Resources/UI/Railcannons/gingerbread-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Railcannon/Gingerbread/gingerbread-icon.png"
                 }
             }
         }
@@ -291,15 +497,39 @@
                 }
             }
         },
-        "present_goblin": {
+        "present_v1fumo": {
             "Descriptor": {
                 "Type": 6,
-                "Id": "present_goblin",
-                "Name": "item.present_goblin",
+                "Id": "present_v1fumo",
+                "Name": "item.present_v1fumo",
                 "ShopPrice": 0,
                 "Icon": {
-                    "AssetUri": "/Resources/UI/default-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                    "AssetUri": "/Resources/UI/Presents/fumo-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Fumo/fumo-icon.png"
+                }
+            }
+        },
+        "present_skull": {
+            "Descriptor": {
+                "Type": 6,
+                "Id": "present_skull",
+                "Name": "item.present_skull",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Presents/skull-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Skull/skull-icon.png"
+                }
+            }
+        },
+        "present_maurice": {
+            "Descriptor": {
+                "Type": 6,
+                "Id": "present_maurice",
+                "Name": "item.present_maurice",
+                "ShopPrice": 250,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Presents/maurice-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Maurice/maurice-icon.png"
                 }
             }
         }
@@ -322,28 +552,40 @@
         },
         {
             "ItemIds": [
-                "banner_gone_fishing",
-                "shotgun_gingerbread",
-                "nailgun_gingerbread"
+                "banner_split",
+                "present_skull",
+                "altrevolver_jumper"
             ],
             "Start": "2024-12-01T00:00:00+00:00",
-            "Length": "1.00:00:00"
+            "Length": "2.00:00:00"
         },
         {
             "ItemIds": [
-                "banner_gniesbert",
+                "banner_redcane",
                 "railcannon_gingerbread",
-                "shotgun_frosty"
+                "shotgun_gingerbread"
             ],
             "Start": "2024-12-02T00:00:00+00:00",
             "Length": "1.00:00:00"
         }
     ],
     "LocalisedStrings": {
-        "achievement.firstplace": "PREMIER POSTMAN",
+        "achievement.firstplace": "DELIVERY DIVINITY",
         "achievement.firstplace_desc": "Earn first place on the leaderboard.",
+        "achievement.top25": "PREMIER POSTMAN",
+        "achievement.top25_desc": "Earn a spot in the top 25 on the leaderboard.",
+        "achievement.top50": "MAILING MASTERY",
+        "achievement.top50_desc": "Earn a spot in the top 50 on the leaderboard.",
         "achievement.gobstopper": "GOBSTOPPER",
-        "achievement.gobstopper_desc": "Destroy 10 different paintings of Goblin, the stupid-looking black cat.",
+        "achievement.gobstopper_desc": "Destroy 10 different paintings of Goblin, the mysterious black cat.",
+        "achievement.nodamage": "FLAWLESS",
+        "achievement.nodamage_desc": "Complete five consecutive rooms without taking damage.",
+        "achievement.quick_clear": "NEXT DAY DELIVERY",
+        "achievement.quick_clear_desc": "Clear a room in under four seconds.",
+        "achievement.every_room": "COLD TOURIST DESTINATIONS",
+        "achievement.every_room_desc": "Complete every room.",
+        "achievement.reunited": "REUNITED",
+        "achievement.reunited_desc": "Bring Florp his trapped friend.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -392,12 +634,22 @@
         "game_ui.hidden_achievement": "Details will be revealed when the achievement is unlocked.",
         "game_ui.shop_remaining_time": "NEW ITEMS IN <color=orange>{0}",
         "item.banner_gniesbert": "My Shitty Dog",
-        "item.banner_gone_fishing": "Gone Fishin'",
+        "item.banner_gone_fishing": "Gone Fishing",
+        "item.banner_goblin": "Hall of Gob",
+        "item.banner_hell": "Hell",
+        "item.banner_vault": "Vault",
+        "item.banner_split": "Split",
+        "item.banner_redcane": "Candy Cane",
+        "item.banner_greencane": "Peppermint Stick",
+        "item.banner_screenfield": "Screen",
         "item.misc_default": "Default",
         "item.misc_gingerbread": "Gingerbread",
-        "item.present_goblin": "Encased Gob",
+        "item.misc_jumper": "Sweater",
+        "item.present_v1": "V1 Fumo",
+        "item.present_skull": "Encased Skull",
+        "item.present_maurice": "Maurice",
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty"
     },
-    "LastUpdate": "2024-12-01T00:00:01.3684074Z"
+    "LastUpdate": "2024-12-01T14:00:03.3684074Z"
 }

@@ -86,6 +86,11 @@ namespace EndlessDelivery.Server.Api.Users
                 return StatusCode(StatusCodes.Status400BadRequest, "Nice try, stop cheating.");
             }
 
+            if (user.OwnedAchievements.Any(x => x.Id == achievementId))
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, $"Achievement {achievementId} already owned");
+            }
+
             await using DeliveryDbContext dbContext = new();
             user.GetAchievement(achievement);
             dbContext.Users.Update(user);

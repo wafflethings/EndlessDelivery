@@ -111,11 +111,11 @@ public static class UserPageElements
     public static void AppendAchievement(this HtmlContentBuilder builder, Achievement achievement)
     {
         builder.AppendHtml("<div class=\"achievement-box\">");
-        builder.AppendHtml($"<img class=\"achievement-icon\" src=\"{achievement.Icon.AssetUri}\" class=\"pixel-perfect\">");
+        builder.AppendHtml($"<img class=\"achievement-icon pixel-perfect\" src=\"{achievement.Icon.AssetUri}\"/>");
         builder.AppendHtml("<p class=\"achievement-text\">");
         builder.Append(ContentController.CurrentContent.GetLocalisedString(achievement.Name));
         builder.AppendHtml("</p>");
-        builder.AppendHtml("<div>");
+        builder.AppendHtml("</div>");
     }
 
     public static void AppendSocialLinks(this HtmlContentBuilder builder, UserModel userModel)

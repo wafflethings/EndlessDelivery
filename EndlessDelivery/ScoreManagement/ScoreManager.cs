@@ -38,7 +38,7 @@ public class ScoreManager
         try
         {
             OnlineScore submittedScore = await OnlineFunctionality.Context.SubmitScore(new SubmitScoreData(score, difficulty, Plugin.Version));
-            OnlineAchievementChecker.Check(submittedScore);
+            AchievementManager.CheckOnline(submittedScore);
             return submittedScore;
         }
         catch (Exception ex)
