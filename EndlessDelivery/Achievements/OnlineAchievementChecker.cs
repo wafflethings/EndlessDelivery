@@ -31,6 +31,7 @@ public class OnlineAchievementChecker
 
             if (!OwnedAchievements.Data.Contains(serverAchievement.Id) && serverAchievement.ShouldGrant(score))
             {
+                Plugin.Log.LogInfo("Granted");
                 OwnedAchievements.Data.Add(serverAchievement.Id);
                 AchievementHud.Instance.AddAchievement(achievement);
             }

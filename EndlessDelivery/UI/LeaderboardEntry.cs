@@ -100,7 +100,7 @@ public class LeaderboardEntry : MonoBehaviour
     private IEnumerator SetAvatar(Friend user)
     {
         ProfileActual.sprite = _loadingPfp;
-        Task<Steamworks.Data.Image?> imageTask = user.GetMediumAvatarAsync();
+        Task<Steamworks.Data.Image?> imageTask = user.GetLargeAvatarAsync();
         yield return new WaitUntil(() => imageTask.IsCompleted);
         Texture2D texture2D = new((int)imageTask.Result.Value.Width, (int)imageTask.Result.Value.Height, TextureFormat.RGBA32, false);
         texture2D.LoadRawTextureData(imageTask.Result.Value.Data);

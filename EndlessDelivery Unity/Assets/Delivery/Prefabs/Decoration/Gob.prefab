@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8734771450549303266}
   - component: {fileID: 4649587524835926599}
   - component: {fileID: 7392826890445547302}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Small frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,9 +88,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2373739695433299448}
-  m_Layer: 0
+  - component: {fileID: 1287498571289888380}
+  - component: {fileID: 3118365398507449354}
+  - component: {fileID: 7411107161807607955}
+  m_Layer: 8
   m_Name: Gob
-  m_TagString: Untagged
+  m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,6 +114,87 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1287498571289888380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4165630558510243105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1eba9c2ad214f54cb2cc64ba60aec35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unbreakable: 0
+  weak: 0
+  precisionOnly: 1
+  interrupt: 0
+  breakOnThrown: 0
+  playerOnly: 1
+  accurateExplosionsOnly: 1
+  forceGroundSlammable: 0
+  breakParticle: {fileID: 6311402704591156762, guid: 1d9fa574f363f7145a5e2b89504f4571,
+    type: 3}
+  breakParticleFallback:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  particleAtBoundsCenter: 0
+  customPositionRotation: {fileID: 0}
+  crate: 0
+  bounceHealth: 0
+  crateCoin: {fileID: 0}
+  coinAmount: 0
+  protectorCrate: 0
+  activateOnBreak: []
+  destroyOnBreak: []
+  destroyEvent:
+    toActivateObjects: []
+    toDisActivateObjects: []
+    onActivate:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 3118365398507449354}
+          m_MethodName: OnBreak
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    onDisActivate:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &3118365398507449354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4165630558510243105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1417649723, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &7411107161807607955
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4165630558510243105}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 12, z: 12}
+  m_Center: {x: -0.5, y: 6, z: -6}
 --- !u!1 &6370391260688194970
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,7 +208,7 @@ GameObject:
   - component: {fileID: 4577233030425092743}
   - component: {fileID: 5628713767725085621}
   - component: {fileID: 1698263678395632813}
-  m_Layer: 24
+  m_Layer: 8
   m_Name: Cube (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

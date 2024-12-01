@@ -10,5 +10,6 @@ public class Achievement
     public ClientWebPair Icon;
     public int OrderPriority;
     public string[] ItemGrants;
-    public bool HideDetails = true;
+    public bool HideDetails;
+    public bool Serverside;
 }

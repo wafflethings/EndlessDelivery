@@ -18,4 +18,5 @@ public class UserModel
     public string Country { get; set; }
     public bool Admin { get; set; } = false;
     public List<OwnedAchievement> OwnedAchievements { get; set; } = new();
+    public List<string> ClaimedDays = new();
 }

@@ -26,5 +26,5 @@ public static class DiscordRpc
         activity.Details = $"ROOMS: {GameManager.Instance.RoomsComplete}";
     }
 
-    private static string GetUrl(RoomData data) => $"https://delivery.wafflethings.dev/Resources/DiscordIcons/{data.Id}.png";
+    private static string GetUrl(RoomData? data) => $"https://delivery.wafflethings.dev/Resources/DiscordIcons/{data?.Id ?? "startroom"}.png";
 }

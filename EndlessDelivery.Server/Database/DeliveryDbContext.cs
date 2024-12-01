@@ -72,5 +72,6 @@ public class DeliveryDbContext : DbContext
         userBuilder.Property(user => user.OwnedAchievements).HasConversion(
             a => (string)JsonConvert.SerializeObject(a),
             a => JsonConvert.DeserializeObject<List<OwnedAchievement>>(a));;
+        userBuilder.Property(user => user.ClaimedDays);
     }
 }

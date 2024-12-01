@@ -1,16 +1,47 @@
 {
+    "CalendarRewards": {
+        "day1_2024": {
+            "Date": "2024-11-30T00:00:00Z",
+            "Name": "item.shotgun_awesometest",
+            "Description": "item.shotgun_zelzmiy",
+            "Subtitle": "item.shotgun_zelzmiy",
+            "Icon": {
+                "AssetUri": "/Resources/UI/default-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+            },
+            "Id": "day1_2024",
+            "HasItem": false,
+            "ItemId": "",
+            "HasCurrency": false,
+            "CurrencyAmount": 10
+        }
+    },
     "Achievements": {
         "first_place_ach": {
             "Name": "achievement.firstplace",
             "Id": "first_place_ach",
-            "Description": "",
+            "Description": "achievement.firstplace_desc",
             "Icon": {
                 "AssetUri": "/Resources/UI/Achievements/first-score.png",
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/first-score.png"
             },
             "OrderPriority": 0,
             "ItemGrants": [],
-            "HideDetails": true
+            "HideDetails": false,
+            "Serverside": true
+        },
+        "ach_gobstopper": {
+            "Name": "achievement.gobstopper",
+            "Id": "ach_gobstopper",
+            "Description": "achievement.gobstopper_desc",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/goblin.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/goblin.png"
+            },
+            "OrderPriority": 1,
+            "ItemGrants": [],
+            "HideDetails": false,
+            "Serverside": false
         }
     },
     "Banners": {
@@ -259,6 +290,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
+        },
+        "present_goblin": {
+            "Descriptor": {
+                "Type": 6,
+                "Id": "present_goblin",
+                "Name": "item.present_goblin",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/default-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
         }
     },
     "ShopRotations": [
@@ -279,17 +322,28 @@
         },
         {
             "ItemIds": [
+                "banner_gone_fishing",
                 "shotgun_gingerbread",
-                "altshotgun_gingerbread",
-                "nailgun_gingerbread",
-                "railcannon_gingerbread"
+                "nailgun_gingerbread"
             ],
-            "Start": "1970-01-01T23:00:00+00:00",
-            "Length": "999999.00:00:00"
+            "Start": "2024-12-01T00:00:00+00:00",
+            "Length": "1.00:00:00"
+        },
+        {
+            "ItemIds": [
+                "banner_gniesbert",
+                "railcannon_gingerbread",
+                "shotgun_frosty"
+            ],
+            "Start": "2024-12-02T00:00:00+00:00",
+            "Length": "1.00:00:00"
         }
     ],
     "LocalisedStrings": {
-        "achievement.firstplace": "First place temp",
+        "achievement.firstplace": "PREMIER POSTMAN",
+        "achievement.firstplace_desc": "Earn first place on the leaderboard.",
+        "achievement.gobstopper": "GOBSTOPPER",
+        "achievement.gobstopper_desc": "Destroy 10 different paintings of Goblin, the stupid-looking black cat.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -299,6 +353,8 @@
         "sidebar.logout": "LOG OUT",
         "sidebar.login": "LOG IN",
         "leaderboard.extra_info": "DELIVERIES: {0}<br>KILLS: {1}<br>TIME: {2}",
+        "leaderboard.achieved_on": "Achieved on {0}.",
+        "profile.score_box_content": "{0} <span class=\"darker-score-text\">rooms cleared</span><br>{1} <span class=\"darker-score-text\">presents delivered</span><br>{2} <span class=\"darker-score-text\">elapsed</span><br>{3} <span class=\"darker-score-text\">enemies killed</span>",
         "settings.links": "Links",
         "settings.patreon": "Patreon",
         "settings.patreon.link": "LINK",
@@ -330,13 +386,18 @@
         "page_desc.error": "No idea why you're here, but it's probably my fault.",
         "game_ui.achievement_unlocks": "Unlocks {0}.",
         "game_ui.achievement_unlocks_nothing": "nothing",
+        "game_ui.calendar_unclaimed": "CLAIMED",
+        "game_ui.calendar_claimed": "CLAIMED",
+        "game_ui.calendar_missed": "MISSED",
         "game_ui.hidden_achievement": "Details will be revealed when the achievement is unlocked.",
+        "game_ui.shop_remaining_time": "NEW ITEMS IN <color=orange>{0}",
         "item.banner_gniesbert": "My Shitty Dog",
         "item.banner_gone_fishing": "Gone Fishin'",
         "item.misc_default": "Default",
         "item.misc_gingerbread": "Gingerbread",
+        "item.present_goblin": "Encased Gob",
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty"
     },
-    "LastUpdate": "2024-11-25T21:00:00.3684074Z"
+    "LastUpdate": "2024-12-01T00:00:01.3684074Z"
 }

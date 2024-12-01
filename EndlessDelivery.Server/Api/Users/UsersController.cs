@@ -81,7 +81,15 @@ namespace EndlessDelivery.Server.Api.Users
                 return StatusCode(StatusCodes.Status400BadRequest, $"Achievement {achievementId} not found!");
             }
 
+            if (achievement.Serverside)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, "Nice try, stop cheating.");
+            }
+
+            await using DeliveryDbContext dbContext = new();
             user.GetAchievement(achievement);
+            dbContext.Users.Update(user);
+            await dbContext.SaveChangesAsync();
             return StatusCode(StatusCodes.Status200OK, string.Empty);
         }
 

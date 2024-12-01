@@ -36,7 +36,7 @@ namespace EndlessDelivery.Server.Api.Scores
 
             if (start > onlineScores.Count - 1)
             {
-                return StatusCode(StatusCodes.Status400BadRequest, "Start was too high");
+                return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(new OnlineScore[] {}));
             }
 
             if (start + count > onlineScores.Count)
@@ -121,12 +121,11 @@ namespace EndlessDelivery.Server.Api.Scores
             user.LifetimeStats += newScore.Score;
             user.Country = HttpContext.GetCountry();
             user.PremiumCurrency += newScore.Score.MoneyGain;
-            user.CheckOnlineAchievements(newScore);
             await using DeliveryDbContext dbContext = new();
             dbContext.Users.Update(user);
 
             OnlineScore? userOnlineScore = await user.GetBestScore();
-            if (userOnlineScore != null && userOnlineScore.Score > scoreRequest.Score)
+            if (userOnlineScore != null && userOnlineScore.Score > scoreRequest.Score || newScore.Difficulty < 3)
             {
                 await dbContext.SaveChangesAsync();
                 return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));
@@ -143,6 +142,7 @@ namespace EndlessDelivery.Server.Api.Scores
 
             await dbContext.SaveChangesAsync();
             await SetIndexes();
+            user.CheckOnlineAchievements(newScore);
             return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));
         }
 

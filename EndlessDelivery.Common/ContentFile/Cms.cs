@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using EndlessDelivery.Common.Inventory.Items;
 using Newtonsoft.Json;
 
@@ -7,6 +8,7 @@ namespace EndlessDelivery.Common.ContentFile;
 
 public class Cms
 {
+    public Dictionary<string, CalendarReward> CalendarRewards = new();
     public Dictionary<string, Achievement> Achievements = new();
     public Dictionary<string, Banner> Banners = new();
     public Dictionary<string, WeaponSkinItem> Revolvers = new();
@@ -46,6 +48,8 @@ public class Cms
         item = null;
         return false;
     }
+
+    [JsonIgnore] public CalendarReward CurrentCalendarReward => CalendarRewards.FirstOrDefault(x => x.Value.Date == DateTime.UtcNow.Date).Value;
 
     public ShopRotation GetActiveShopRotation()
     {

@@ -154,6 +154,11 @@ public class Chimney : MonoBehaviour
 
         foreach (Collider collider in GameManager.Instance.PreviousRoom.EnvColliders)
         {
+            if (NewMovement.Instance.playerCollider == null || collider == null)
+            {
+                continue;
+            }
+
             Physics.IgnoreCollision(NewMovement.Instance.playerCollider, collider, true);
         }
 

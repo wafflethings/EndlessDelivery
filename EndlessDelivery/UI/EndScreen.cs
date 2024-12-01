@@ -80,6 +80,7 @@ public class EndScreen : MonoSingleton<EndScreen>
         _appearedSelf = true;
         MusicManager.Instance.forcedOff = true;
         MusicManager.Instance.StopMusic();
+        AudioObject.SetActive(true);
     }
 
     private void SetPanelValues(Score score, ReachValueText rooms, ReachValueText kills, ReachValueText deliveries, ReachValueText time)
