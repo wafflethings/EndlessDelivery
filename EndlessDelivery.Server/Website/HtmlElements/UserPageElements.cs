@@ -111,7 +111,7 @@ public static class UserPageElements
     public static void AppendAchievement(this HtmlContentBuilder builder, Achievement achievement)
     {
         builder.AppendHtml("<div class=\"achievement-box\">");
-        builder.AppendHtml($"<img class=\"achievement-icon pixel-perfect\" src=\"{achievement.Icon.AssetUri}\">");
+        builder.AppendHtml($"<img class=\"achievement-icon pixel-perfect\" src=\"{achievement.Icon.AssetUri}\"/>");
         builder.AppendHtml("<p class=\"achievement-text\">");
         builder.Append(ContentController.CurrentContent.GetLocalisedString(achievement.Name));
         builder.AppendHtml("</p>");

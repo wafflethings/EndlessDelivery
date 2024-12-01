@@ -19,9 +19,9 @@ public class NoDamage : MonoBehaviour
 
     private void Awake()
     {
-        GameManager.Instance.RoomComplete += _ =>
+        GameManager.Instance.RoomComplete += room =>
         {
-            if (s_tookDmg)
+            if (s_tookDmg || !room.RoomHasGameplay)
             {
                 s_tookDmg = false;
                 return;

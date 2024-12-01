@@ -19,6 +19,7 @@ public class AllRooms : MonoBehaviour
     {
         GameManager.Instance.RoomComplete += _ =>
         {
+            Instance.Data ??= new List<string>();
             List<string> data = Instance.Data;
             string id = GameManager.Instance.CurrentRoomData.Id;
 
