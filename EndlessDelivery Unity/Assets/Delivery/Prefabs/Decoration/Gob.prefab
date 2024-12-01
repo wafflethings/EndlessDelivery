@@ -134,7 +134,7 @@ MonoBehaviour:
   playerOnly: 1
   accurateExplosionsOnly: 1
   forceGroundSlammable: 0
-  breakParticle: {fileID: 1485315732388572, guid: 6fa80043faec31d4bb3abcf5b0b21b20,
+  breakParticle: {fileID: 6311402704591156762, guid: 1d9fa574f363f7145a5e2b89504f4571,
     type: 3}
   breakParticleFallback:
     m_AssetGUID: 
@@ -155,7 +155,18 @@ MonoBehaviour:
     toDisActivateObjects: []
     onActivate:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 3118365398507449354}
+          m_MethodName: OnBreak
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onDisActivate:
       m_PersistentCalls:
         m_Calls: []

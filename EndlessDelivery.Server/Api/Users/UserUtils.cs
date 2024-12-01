@@ -38,7 +38,9 @@ public static class UserUtils
 
             if (user.OwnedAchievements.All(x => x.Id != serverAchievement.Id) && serverAchievement.ShouldGrant(newScore))
             {
+                using DeliveryDbContext dbContext = new();
                 user.GetAchievement(achievement);
+                dbContext.Users.Update(user);
             }
         }
     }

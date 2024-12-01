@@ -17,15 +17,7 @@ public class EncryptedSaveFile<T> : SaveFile<T> where T : new()
 
     protected override string Serialize(T value)
     {
-        MemoryStream ms = new();
-
-        using (BsonWriter writer = new(ms))
-        {
-            JsonSerializer serializer = new();
-            serializer.Serialize(writer, value);
-        }
-
-        byte[] bytes = ms.ToArray();
+        byte[] bytes = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(value));
         bytes = Encoding.UTF8.GetBytes(BitConverter.ToString(bytes));
         ProcessBytes(ref bytes);
         return Encoding.UTF8.GetString(bytes);
@@ -43,9 +35,7 @@ public class EncryptedSaveFile<T> : SaveFile<T> where T : new()
             bytes[i] = Convert.ToByte(split[i], 16);
         }
 
-        using BsonReader reader = new(new MemoryStream(bytes));
-        JsonSerializer serializer = new();
-        T deserialized = serializer.Deserialize<T>(reader);
+        T deserialized = JsonConvert.DeserializeObject<T>(Encoding.UTF8.GetString(bytes));
         Plugin.Log.LogMessage($"File: {JsonConvert.SerializeObject(deserialized)}");
         return deserialized ?? new T();
     }

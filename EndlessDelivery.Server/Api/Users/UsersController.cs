@@ -64,6 +64,7 @@ namespace EndlessDelivery.Server.Api.Users
         {
             if (!Request.HttpContext.TryGetLoggedInPlayer(out SteamUser? steamUser))
             {
+                Console.WriteLine("Dbg1");
                 return StatusCode(StatusCodes.Status401Unauthorized, "Not logged in");
             }
 
@@ -71,22 +72,29 @@ namespace EndlessDelivery.Server.Api.Users
 
             if (user == null)
             {
+                Console.WriteLine("Dbg2");
                 return StatusCode(StatusCodes.Status500InternalServerError, string.Empty);
             }
 
             string achievementId = await Request.ReadBody();
+            Console.WriteLine("Dbg3 [" + achievementId + "]");
 
             if (!ContentController.CurrentContent.Achievements.TryGetValue(achievementId, out Achievement? achievement) || achievement == null)
             {
+                Console.WriteLine("Dbg4");
                 return StatusCode(StatusCodes.Status400BadRequest, $"Achievement {achievementId} not found!");
             }
 
             if (achievement.Serverside)
             {
+                Console.WriteLine("Dbg5");
                 return StatusCode(StatusCodes.Status400BadRequest, "Nice try, stop cheating.");
             }
 
+            Console.WriteLine("Dbg6");
+            await using DeliveryDbContext dbContext = new();
             user.GetAchievement(achievement);
+            dbContext.Users.Update(user);
             return StatusCode(StatusCodes.Status200OK, string.Empty);
         }
 

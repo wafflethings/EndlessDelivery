@@ -16,7 +16,7 @@ public class GoblinPortrait : MonoBehaviour
     public static readonly EncryptedSaveFile<List<string>> Instance = SaveFile.RegisterFile(new EncryptedSaveFile<List<string>>("gob.ddenc")) as EncryptedSaveFile<List<string>> ?? throw new();
     private const int RequiredCount = 10;
 
-    private void OnDestroy()
+    public void OnBreak()
     {
         if (!ScoreManager.CanSubmit)
         {
