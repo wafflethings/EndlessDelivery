@@ -75,8 +75,14 @@ public class JollyTerminalShop : MonoBehaviour
     {
         foreach (ShopItemPanel panel in _panels)
         {
+            if (panel == null || panel.gameObject == null)
+            {
+                continue;
+            }
+
             Destroy(panel.gameObject);
         }
+        _panels.Clear();
 
         Task<ShopRotation> shopTask = OnlineFunctionality.Context.GetActiveShop();
         Task<Cms> cmsTask = OnlineFunctionality.GetContent();
