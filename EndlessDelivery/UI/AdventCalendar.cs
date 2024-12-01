@@ -37,6 +37,7 @@ public class AdventCalendar : MonoBehaviour
 
     public void Claim()
     {
+        _ownedDays.Add(OnlineFunctionality.LastFetchedContent.CurrentCalendarReward.Id);
         _claimButtonText.text = OnlineFunctionality.LastFetchedContent.GetLocalisedString("game_ui.calendar_claimed");
         _claimButton.interactable = false;
         Task.Run(async () =>

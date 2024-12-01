@@ -48,6 +48,19 @@ public class LoadoutHud : MonoBehaviour
         SelectItemType((int)StoreItemType.Revolver);
     }
 
+    private void OnEnable()
+    {
+        StartCoroutine(FetchLoadoutBeforeEnable());
+    }
+
+    private IEnumerator FetchLoadoutBeforeEnable()
+    {
+        _page.SetActive(false);
+        Task loadoutTask = CosmeticManager.FetchLoadout();
+        yield return new WaitUntil(() => loadoutTask.IsCompleted);
+        _page.SetActive(true);
+    }
+
     private void OnDisable()
     {
         CosmeticManager.UpdateLoadout();
@@ -84,8 +97,7 @@ public class LoadoutHud : MonoBehaviour
         }
 
         Task<Cms> cmsTask = OnlineFunctionality.GetContent();
-        Task loadoutTask = CosmeticManager.FetchLoadout();
-        yield return new WaitUntil(() => cmsTask.IsCompleted && loadoutTask.IsCompleted);
+        yield return new WaitUntil(() => cmsTask.IsCompleted);
         Cms cms = cmsTask.Result;
 
         _categoryTitle.text = cms.GetLocalisedString("category." + _currentItemType.ToString().ToLower());
