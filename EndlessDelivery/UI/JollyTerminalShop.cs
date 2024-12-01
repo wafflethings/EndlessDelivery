@@ -106,8 +106,8 @@ public class JollyTerminalShop : MonoBehaviour
         GameObject panelObject = Instantiate(_templatePanel, _panelHolder);
         panelObject.SetActive(false);
         ShopItemPanel panel = panelObject.GetComponent<ShopItemPanel>();
-        panel.SetUp(this, item);
         _panels.Add(panel);
+        panel.SetUp(this, item);
     }
 
     private void SetCounter(int amount)

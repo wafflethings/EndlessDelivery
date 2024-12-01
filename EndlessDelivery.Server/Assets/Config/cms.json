@@ -300,8 +300,17 @@
                 "shotgun_gingerbread",
                 "nailgun_gingerbread"
             ],
-            "Start": "1970-01-01T23:00:00+00:00",
-            "Length": "999999.00:00:00"
+            "Start": "2024-12-01T00:00:00+00:00",
+            "Length": "1.00:00:00"
+        },
+        {
+            "ItemIds": [
+                "banner_gniesbert",
+                "railcannon_gingerbread",
+                "shotgun_frosty"
+            ],
+            "Start": "2024-12-02T00:00:00+00:00",
+            "Length": "1.00:00:00"
         }
     ],
     "LocalisedStrings": {
@@ -359,5 +368,5 @@
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty"
     },
-    "LastUpdate": "2024-11-30T22:00:00.3684074Z"
+    "LastUpdate": "2024-12-01T00:00:00.3684074Z"
 }

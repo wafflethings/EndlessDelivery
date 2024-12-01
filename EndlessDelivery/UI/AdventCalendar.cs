@@ -31,7 +31,7 @@ public class AdventCalendar : MonoBehaviour
     [SerializeField] private TMP_Text _claimButtonText;
     [SerializeField] private TMP_Text _timeRemainingText;
     private List<string> _ownedDays = new();
-    private List<GameObject> _oldButtons = new();
+    private List<GameObject> _buttons = new();
     private string _timeRemainingString = "{0}";
     private DateTime _endTime;
 
@@ -90,7 +90,7 @@ public class AdventCalendar : MonoBehaviour
         _endTime = !hasNextDay ? DateTime.MaxValue : next.Date + TimeSpan.FromDays(1);
         _timeRemainingText.gameObject.SetActive(hasNextDay);
 
-        foreach (GameObject oldButton in _oldButtons)
+        foreach (GameObject oldButton in _buttons)
         {
             Destroy(oldButton);
         }
@@ -114,7 +114,9 @@ public class AdventCalendar : MonoBehaviour
                 continue;
             }
 
-            Instantiate(_templateButton, _buttonHolder).GetComponent<AdventCalendarButton>().SetUp(this, OnlineFunctionality.LastFetchedContent.CalendarRewards[dayId]);
+            GameObject button = Instantiate(_templateButton, _buttonHolder);
+            _buttons.Add(button);
+            button.GetComponent<AdventCalendarButton>().SetUp(this, OnlineFunctionality.LastFetchedContent.CalendarRewards[dayId]);
         }
     }
 }
