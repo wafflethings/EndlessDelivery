@@ -40,7 +40,7 @@ public class AchievementTerminal : MonoBehaviour
         Cms cms = cmsTask.Result;
         List<string> ownedAchievementIds = achievementsTask.Result.Select(x => x.Id).ToList();
 
-        foreach (Achievement achievement in cms.Achievements.Values.OrderBy(x => ownedAchievementIds.Contains(x.Id)).ThenBy(x => cms.GetLocalisedString(x.Id)))
+        foreach (Achievement achievement in cms.Achievements.Values.OrderBy(x => !ownedAchievementIds.Contains(x.Id)).ThenBy(x => cms.GetLocalisedString(x.Id)))
         {
             AddAchievement(achievement, ownedAchievementIds.Contains(achievement.Id));
         }

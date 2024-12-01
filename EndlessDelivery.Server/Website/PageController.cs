@@ -120,7 +120,7 @@ public class PageController : Controller
                     achievements.Add(achievement);
                 }
 
-                builder.AppendAchievements(achievements.OrderBy(x => x.OrderPriority));
+                builder.AppendAchievements(achievements.OrderBy(x => ContentController.CurrentContent.GetLocalisedString(x.Name)));
             });
         });
 

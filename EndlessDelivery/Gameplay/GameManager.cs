@@ -38,6 +38,11 @@ public class GameManager : MonoSingleton<GameManager>
     public int PointsPerWave { get; private set; }
     public Score CurrentScore => new(RoomsComplete, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed);
 
+    public delegate void RoomEvent(Room room);
+    public event RoomEvent RoomStarted;
+    public event RoomEvent RoomCleared;
+    public event RoomEvent RoomComplete;
+
     [SerializeField] private Vector3 _baseRoomPosition = new(0, 0, 100);
     private Coroutine _pauseCoroutine;
     private List<RoomData> _remainingRooms = new();
@@ -78,6 +83,7 @@ public class GameManager : MonoSingleton<GameManager>
             {
                 CurrentRoom.RoomCleared = true;
                 MusicManager.Instance.PlayCleanMusic();
+                RoomCleared.Invoke(CurrentRoom);
                 AddTime(4, "<color=orange>FULL CLEAR</color>");
             }
         }
@@ -131,6 +137,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void RoomEnd()
     {
+        RoomComplete.Invoke(CurrentRoom);
         RoomsComplete++;
 
         if (CurrentRoom.RoomHasGameplay)
@@ -161,6 +168,8 @@ public class GameManager : MonoSingleton<GameManager>
         {
             room.RoomAlreadyVisited = true;
         }
+
+        RoomStarted.Invoke(CurrentRoom);
     }
 
     public void StartGame()

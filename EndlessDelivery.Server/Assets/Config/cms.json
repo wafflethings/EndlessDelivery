@@ -25,7 +25,30 @@
                 "AssetUri": "/Resources/UI/Achievements/first-score.png",
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/first-score.png"
             },
-            "OrderPriority": 0,
+            "ItemGrants": [],
+            "HideDetails": false,
+            "Serverside": true
+        },
+        "ach_top25": {
+            "Name": "achievement.top25",
+            "Id": "ach_top25",
+            "Description": "achievement.top25_desc",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/top25.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/top25.png"
+            },
+            "ItemGrants": [],
+            "HideDetails": false,
+            "Serverside": true
+        },
+        "ach_top50": {
+            "Name": "achievement.top50",
+            "Id": "ach_top50",
+            "Description": "achievement.top50_desc",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/top50.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/top50.png"
+            },
             "ItemGrants": [],
             "HideDetails": false,
             "Serverside": true
@@ -38,7 +61,42 @@
                 "AssetUri": "/Resources/UI/Achievements/goblin.png",
                 "AddressablePath": "Assets/Delivery/Textures/Achievements/goblin.png"
             },
-            "OrderPriority": 1,
+            "ItemGrants": ["present_goblin"],
+            "HideDetails": false,
+            "Serverside": false
+        },
+        "ach_nodmg": {
+            "Name": "achievement.nodamage",
+            "Id": "ach_nodmg",
+            "Description": "achievement.nodamage_desc",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/nodmg.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/nodmg.png"
+            },
+            "ItemGrants": [],
+            "HideDetails": false,
+            "Serverside": false
+        },
+        "ach_quick_clear": {
+            "Name": "achievement.quick_clear",
+            "Id": "ach_quick_clear",
+            "Description": "achievement.quick_clear_desc",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/quickclear.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/quickclear.png"
+            },
+            "ItemGrants": [],
+            "HideDetails": false,
+            "Serverside": false
+        },
+        "ach_every_room": {
+            "Name": "achievement.every_room",
+            "Id": "ach_every_room",
+            "Description": "achievement.every_room_desc",
+            "Icon": {
+                "AssetUri": "/Resources/UI/Achievements/every-room.png",
+                "AddressablePath": "Assets/Delivery/Textures/Achievements/every-room.png"
+            },
             "ItemGrants": [],
             "HideDetails": false,
             "Serverside": false
@@ -340,10 +398,20 @@
         }
     ],
     "LocalisedStrings": {
-        "achievement.firstplace": "PREMIER POSTMAN",
+        "achievement.firstplace": "DELIVERY DIVINITY",
         "achievement.firstplace_desc": "Earn first place on the leaderboard.",
+        "achievement.top25": "PREMIER POSTMAN",
+        "achievement.top25_desc": "Earn a spot in the top 25 on the leaderboard.",
+        "achievement.top50": "MAILING MASTERY",
+        "achievement.top50_desc": "Earn a spot in the top 50 on the leaderboard.",
         "achievement.gobstopper": "GOBSTOPPER",
-        "achievement.gobstopper_desc": "Destroy 10 different paintings of Goblin, the stupid-looking black cat.",
+        "achievement.gobstopper_desc": "Destroy 10 different paintings of Goblin, the mysterious black cat.",
+        "achievement.nodamage": "FLAWLESS",
+        "achievement.nodamage_desc": "Complete a room without taking damage.",
+        "achievement.quick_clear": "NEXT DAY DELIVERY",
+        "achievement.quick_clear_desc": "Clear a room in under four seconds.",
+        "achievement.every_room": "COLD TOURIST DESTINATIONS",
+        "achievement.every_room_desc": "Complete every room.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -399,5 +467,5 @@
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty"
     },
-    "LastUpdate": "2024-12-01T00:00:01.3684074Z"
+    "LastUpdate": "2024-12-01T00:00:02.3684074Z"
 }

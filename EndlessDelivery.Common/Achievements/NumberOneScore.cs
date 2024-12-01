@@ -2,9 +2,18 @@
 
 namespace EndlessDelivery.Common.Achievements;
 
-public class NumberOneScore : ServerSideAchievement
+public class PositionAchievement : ServerSideAchievement
 {
-    public override string Id => "first_place_ach";
+    private string _id;
+    private int _minIndex;
 
-    public override bool ShouldGrant(OnlineScore score) => score.Index == 0;
+    public override string Id => _id;
+
+    public override bool ShouldGrant(OnlineScore score) => score.Index <= _minIndex;
+
+    public PositionAchievement(string id, int minIndex)
+    {
+        _id = id;
+        _minIndex = minIndex;
+    }
 }
