@@ -35,7 +35,7 @@ public class Podium : MonoBehaviour
 
             Task<string> usernameTask = OnlineFunctionality.Context.GetUsername(score.SteamId);
             yield return new WaitUntil(() => usernameTask.IsCompleted);
-            _nameTexts[index].text = usernameTask.Result.ToUpperInvariant();
+            _nameTexts[index].text = $"#{index + 1} - " + usernameTask.Result.ToUpperInvariant();
 
             Material[] materialArray = _pfpRenderers[index].materials;
             materialArray[1].mainTextureScale = new Vector2(1, -1);

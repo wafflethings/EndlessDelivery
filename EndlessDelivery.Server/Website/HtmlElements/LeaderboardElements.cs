@@ -29,11 +29,11 @@ public static class LeaderboardElements
         builder.AppendHtml("<div class=\"leaderboard-secondary-content\">");
         builder.AppendHtml("<div class=\"leaderboard-internal-content\">");
         builder.AppendHtml("<p class=\"leaderboard-entry\">");
-        builder.AppendHtml(string.Format(ContentController.CurrentContent.GetLocalisedString("leaderboard.extra_info"), onlineScore.Score.Deliveries, onlineScore.Score.Kills,
+        builder.AppendHtml(string.Format(ContentController.CurrentContent.GetString("leaderboard.extra_info"), onlineScore.Score.Deliveries, onlineScore.Score.Kills,
             TimeSpan.FromSeconds(onlineScore.Score.Time).ToString("mm':'ss'.'ff")));
         builder.AppendHtml("</p>");
         builder.AppendHtml("<p class=\"lb-date-text\">");
-        builder.Append(string.Format(ContentController.CurrentContent.GetLocalisedString("leaderboard.achieved_on"), onlineScore.Date.ToString("dd/MM/yyyy")));
+        builder.Append(string.Format(ContentController.CurrentContent.GetString("leaderboard.achieved_on"), onlineScore.Date.ToString("dd/MM/yyyy")));
         builder.AppendHtml("</p>");
         builder.AppendHtml("</div>");
         builder.AppendHtml("</div>");

@@ -20,7 +20,7 @@ namespace EndlessDelivery.Gameplay;
 [HarmonyPatch]
 public class GameManager : MonoSingleton<GameManager>
 {
-    public const float StartTime = 45;
+    public const float StartTime = 50;
     public const float TimeAddLength = 0.5f;
 
     public AudioSource TimeAddSound;
@@ -47,7 +47,7 @@ public class GameManager : MonoSingleton<GameManager>
     private Coroutine _pauseCoroutine;
     private List<RoomData> _remainingRooms = new();
 
-    private const int StartingPoints = 20;
+    private const int StartingPoints = 15;
     private const int MaxPointGain = 15;
 
     public static int GetRoomPoints(int roomNumber)
@@ -84,7 +84,7 @@ public class GameManager : MonoSingleton<GameManager>
                 CurrentRoom.RoomCleared = true;
                 MusicManager.Instance.PlayCleanMusic();
                 RoomCleared?.Invoke(CurrentRoom);
-                AddTime(4, "<color=orange>FULL CLEAR</color>");
+                AddTime(6, "<color=orange>FULL CLEAR</color>");
             }
         }
     }

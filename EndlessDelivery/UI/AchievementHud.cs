@@ -47,8 +47,8 @@ public class AchievementHud : MonoSingleton<AchievementHud>
             yield break;
         }
 
-        _name.text = OnlineFunctionality.LastFetchedContent?.GetLocalisedString(achievement.Name) ?? achievement.Name;
-        _desc.text = OnlineFunctionality.LastFetchedContent?.GetLocalisedString(achievement.Description) ?? achievement.Description;
+        _name.text = OnlineFunctionality.LastFetchedContent?.GetString(achievement.Name) ?? achievement.Name;
+        _desc.text = OnlineFunctionality.LastFetchedContent?.GetString(achievement.Description) ?? achievement.Description;
 
         AsyncOperationHandle<Sprite> spriteLoad = Addressables.LoadAssetAsync<Sprite>(achievement.Icon.AddressablePath);
         yield return new WaitUntil(() => spriteLoad.IsDone);

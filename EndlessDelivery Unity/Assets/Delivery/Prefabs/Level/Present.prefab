@@ -1345,11 +1345,11 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   RotationModule:
-    enabled: 0
+    enabled: 1
     x:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 2
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1401,8 +1401,8 @@ ParticleSystem:
         m_RotationOrder: 4
     y:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 2
+      scalar: 1
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -1454,8 +1454,8 @@ ParticleSystem:
         m_RotationOrder: 4
     curve:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0.7853982
+      minMaxState: 2
+      scalar: 2.4541075
       minScalar: 0.7853982
       maxCurve:
         serializedVersion: 2
@@ -1470,8 +1470,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 1
+          time: 0.9748535
+          value: -0.83333397
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1486,7 +1486,7 @@ ParticleSystem:
         m_Curve:
         - serializedVersion: 3
           time: 0
-          value: 1
+          value: -1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1494,8 +1494,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 1
+          time: 0.984548
+          value: -0.58333266
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -4921,7 +4921,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0a68e2ca3e98f1345a93e23f6cd261f8, type: 2}
+  - {fileID: 2100000, guid: 51242184c2a5f1647bb93206000def81, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4992,8 +4992,8 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7c932706b9a247a4aa327735d0edfaa7, type: 2}
-  - {fileID: 2100000, guid: b4edf26f9f9bd3a4bacb1d976dabf15c, type: 2}
-  - {fileID: 2100000, guid: 821ee654ed5f89b4bac8236302776b70, type: 2}
+  - {fileID: 2100000, guid: a03e3713a3713aa4888c68b8575e8a54, type: 2}
+  - {fileID: 2100000, guid: e418c1ba3b67d6c429ccc03641720cc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

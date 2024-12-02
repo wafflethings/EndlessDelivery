@@ -122,7 +122,7 @@ public class Present : MonoBehaviour
     public void Deliver(Chimney chimney)
     {
         chimney.Room.Deliver(VariantColour);
-        GameManager.Instance.AddTime(6, $"<color=#{ColorUtility.ToHtmlStringRGB(_colour)}>DELIVERY</color>");
+        GameManager.Instance.AddTime(5, $"<color=#{ColorUtility.ToHtmlStringRGB(_colour)}>DELIVERY</color>");
         CreateParticles();
         Destroyed = true;
 

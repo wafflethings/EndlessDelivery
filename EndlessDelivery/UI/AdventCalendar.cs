@@ -38,7 +38,7 @@ public class AdventCalendar : MonoBehaviour
     public void Claim()
     {
         _ownedDays.Add(OnlineFunctionality.LastFetchedContent.CurrentCalendarReward.Id);
-        _claimButtonText.text = OnlineFunctionality.LastFetchedContent.GetLocalisedString("game_ui.calendar_claimed");
+        _claimButtonText.text = OnlineFunctionality.LastFetchedContent.GetString("game_ui.calendar_claimed");
         _claimButton.interactable = false;
         Task.Run(async () =>
         {
@@ -58,22 +58,22 @@ public class AdventCalendar : MonoBehaviour
         yield return new WaitUntil(() => loadIcon.IsDone);
 
         _iconImage.sprite = loadIcon.Result;
-        _nameTitle.text = cms.GetLocalisedString(reward.Name);
-        _descriptionText.text = cms.GetLocalisedString(reward.Description);
-        _subtitleText.text = cms.GetLocalisedString(reward.Subtitle);
+        _nameTitle.text = cms.GetString(reward.Name);
+        _descriptionText.text = cms.GetString(reward.Description);
+        _subtitleText.text = cms.GetString(reward.Subtitle);
 
         bool isClaimed = _ownedDays.Contains(dayId);
         _claimButton.interactable = !isClaimed && dayId == cms.CurrentCalendarReward?.Id;
 
         string unclaimedString = dayId == cms.CurrentCalendarReward?.Id ? "game_ui.calendar_unclaimed" : "game_ui.calendar_missed";
-        _claimButtonText.text = cms.GetLocalisedString(isClaimed ? "game_ui.calendar_claimed" : unclaimedString);
+        _claimButtonText.text = cms.GetString(isClaimed ? "game_ui.calendar_claimed" : unclaimedString);
 
         _claimPage.SetActive(true);
     }
 
     private void Awake()
     {
-        _timeRemainingString = OnlineFunctionality.LastFetchedContent.GetLocalisedString("game_ui.shop_remaining_time");
+        _timeRemainingString = OnlineFunctionality.LastFetchedContent.GetString("game_ui.shop_remaining_time");
         StartCoroutine(Refresh());
     }
 

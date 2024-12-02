@@ -54,14 +54,14 @@ public class AchievementManager
             return;
         }
 
-        OwnedAchievements.Data ??= new();
-
-        if (OwnedAchievements.Data.Contains(id))
+        if (!OnlineFunctionality.LastFetchedContent.Achievements.TryGetValue(id, out Achievement achievement) || achievement.Disabled)
         {
             return;
         }
 
-        if (!OnlineFunctionality.LastFetchedContent.Achievements.TryGetValue(id, out Achievement achievement) || achievement.Disabled)
+        OwnedAchievements.Data ??= new();
+
+        if (OwnedAchievements.Data.Contains(id))
         {
             return;
         }

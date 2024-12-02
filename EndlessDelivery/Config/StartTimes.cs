@@ -56,7 +56,6 @@ public class StartTimes
 
         public void SetValues(int wave, float time)
         {
-            Plugin.Log.LogMessage($"SetValues(wave {wave}, time {time}) | {string.Join(",", UnlockedStartTimes)}");
             if (!UnlockedStartTimes.Contains(0))
             {
                 UnlockedStartTimes.Add(0);
@@ -77,19 +76,15 @@ public class StartTimes
                 }
             }
 
-            Plugin.Log.LogMessage("Foreach");
             foreach (int startableWave in StartableWaves)
             {
-                Plugin.Log.LogMessage($"Check if {wave} != {startableWave * 2}");
                 if (wave != startableWave * 2)
                 {
-                    Plugin.Log.LogMessage("Continue");
                     continue;
                 }
 
                 if (!UnlockedStartTimes.Contains(startableWave))
                 {
-                    Plugin.Log.LogMessage($"Added {startableWave}");
                     UnlockedStartTimes.Add(startableWave);
                 }
             }

@@ -21,9 +21,9 @@ public static class SettingsElements
     public static void AppendSocialSettings(this HtmlContentBuilder builder, UserModel userModel)
     {
         builder.AppendHtml("<form action=\"/api/users/update_socials\" method=\"get\" autocomplete=\"off\">");
-        builder.AppendSocialLink(ContentController.CurrentContent.GetLocalisedString("settings.youtube"), UserLinks.YoutubeRoot, "youtube", "youtube-transparent.png", userModel.Links.Youtube);
-        builder.AppendSocialLink(ContentController.CurrentContent.GetLocalisedString("settings.twitter"), UserLinks.TwitterRoot, "twitter", "twitter-transparent.png", userModel.Links.Twitter);
-        builder.AppendSocialLink(ContentController.CurrentContent.GetLocalisedString("settings.discord"), UserLinks.DiscordRoot, "discord", "discord-transparent.png", userModel.Links.Discord);
+        builder.AppendSocialLink(ContentController.CurrentContent.GetString("settings.youtube"), UserLinks.YoutubeRoot, "youtube", "youtube-transparent.png", userModel.Links.Youtube);
+        builder.AppendSocialLink(ContentController.CurrentContent.GetString("settings.twitter"), UserLinks.TwitterRoot, "twitter", "twitter-transparent.png", userModel.Links.Twitter);
+        builder.AppendSocialLink(ContentController.CurrentContent.GetString("settings.discord"), UserLinks.DiscordRoot, "discord", "discord-transparent.png", userModel.Links.Discord);
         builder.AppendHtml("<input type=\"submit\" value=\"Submit\" class=\"button\">");
         builder.AppendHtml("</form>");
     }

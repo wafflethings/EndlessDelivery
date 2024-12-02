@@ -32,17 +32,17 @@
         },
         "day3_2024": {
             "Date": "2024-12-03T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.banner_redcane",
+            "Description": "calendar.day3_desc",
+            "Subtitle": "category.banner",
             "Icon": {
                 "AssetUri": "/Resources/UI/default-icon.png",
                 "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
             },
             "Id": "day3_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "banner_redcane",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day4_2024": {
@@ -1012,7 +1012,10 @@
             "Length": "2.00:00:00"
         }
     ],
-    "LocalisedStrings": {
+    "Strings": {
+        "constants.discord" : "https://discord.gg/atrEb3qHV6",
+        "constants.website" : "https://delivery.wafflethings.dev",
+        "constants.website_users" : "https://delivery.wafflethings.dev/users/{0}",
         "achievement.firstplace": "DELIVERY DIVINITY",
         "achievement.firstplace_desc": "Earn first place on the leaderboard.",
         "achievement.top25": "PREMIER POSTMAN",
@@ -1032,6 +1035,7 @@
         "calendar.500stars": "500 STARS",
         "calendar.day1_desc": "Five hundred free <color=orange>stars</color> to spend in the shop. More interesting rewards are coming, this is just because hardly anyone will play on the first day.\n\nReward for day 1.",
         "calendar.day2_desc": "A snowman-themed <color=orange>shotgun</color> which smiles idly as it watches you consume the blood of your enemies. Textured by <color=orange>zelzmiy</color> and <color=orange>Fri</color>.\n\nReward for day 2.",
+        "calendar.day3_desc": "A candy cane patterned <color=orange>banner</color>. By the way, I forgot to implement a <color=orange>update notification</color>, so if you are on the first version (2.0.1) please update.\\n\\nReward for day 3.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -1104,5 +1108,5 @@
         "item.shotgun_silver": "Deluxe (Silver)",
         "item.shotgun_gold": "Deluxe (Gold)"
     },
-    "LastUpdate": "2024-12-01T23:21:06.3684074Z"
+    "LastUpdate": "2024-12-02T22:15:06.3684074Z"
 }

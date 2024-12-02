@@ -21,10 +21,10 @@ public class Cms
     public Dictionary<string, WeaponSkinItem> Rockets = new();
     public Dictionary<string, WeaponSkinItem> Presents = new();
     public List<ShopRotation> ShopRotations = new();
-    public Dictionary<string, string> LocalisedStrings = new();
+    public Dictionary<string, string> Strings = new();
     public DateTime LastUpdate;
 
-    public string GetLocalisedString(string id) => LocalisedStrings.ContainsKey(id) ? LocalisedStrings[id] : id;
+    public string GetString(string id) => Strings.ContainsKey(id) ? Strings[id] : id;
 
     public bool TryGetItem(string id, out Item item)
     {

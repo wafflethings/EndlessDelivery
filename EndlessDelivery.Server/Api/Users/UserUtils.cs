@@ -27,15 +27,8 @@ public static class UserUtils
         }
     }
 
-    public static async Task CheckOnlineAchievements(this UserModel user)
+    public static async Task CheckOnlineAchievements(this UserModel user, OnlineScore score)
     {
-        OnlineScore? score = await user.GetBestScore();
-
-        if (score == null)
-        {
-            return;
-        }
-
         foreach (ServerSideAchievement serverAchievement in ServerSideAchievement.AllAchievements)
         {
             if (!ContentController.CurrentContent.Achievements.TryGetValue(serverAchievement.Id, out Achievement? achievement) || achievement == null)

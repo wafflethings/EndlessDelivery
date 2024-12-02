@@ -32,7 +32,7 @@ public class PageController : Controller
 
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
-        builder.AppendEmbed(HttpContext, ContentController.CurrentContent.GetLocalisedString("page_title.index"), ContentController.CurrentContent.GetLocalisedString("page_desc.index"));
+        builder.AppendEmbed(HttpContext, ContentController.CurrentContent.GetString("page_title.index"), ContentController.CurrentContent.GetString("page_desc.index"));
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/leaderboard.css\">");
         builder.AppendHtml("</head>");
 
@@ -49,7 +49,7 @@ public class PageController : Controller
         builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/build/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
-        builder.Append(ContentController.CurrentContent.GetLocalisedString("page_title.index"));
+        builder.Append(ContentController.CurrentContent.GetString("page_title.index"));
         builder.AppendHtml("</title>");
 
         await using StringWriter writer = new();
@@ -80,8 +80,8 @@ public class PageController : Controller
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/user.css\">");
-        builder.AppendEmbed(HttpContext, string.Format(ContentController.CurrentContent.GetLocalisedString("page_title.user"), player.PersonaName),
-            string.Format(ContentController.CurrentContent.GetLocalisedString("page_desc.user"), player.PersonaName), "/api/users/embed/" + player.SteamId);
+        builder.AppendEmbed(HttpContext, string.Format(ContentController.CurrentContent.GetString("page_title.user"), player.PersonaName),
+            string.Format(ContentController.CurrentContent.GetString("page_desc.user"), player.PersonaName), "/api/users/embed/" + player.SteamId);
         builder.AppendHtml("</head>");
 
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
@@ -122,7 +122,7 @@ public class PageController : Controller
                         achievements.Add(achievement);
                     }
 
-                    builder.AppendAchievements(achievements.OrderBy(x => ContentController.CurrentContent.GetLocalisedString(x.Name)));
+                    builder.AppendAchievements(achievements.OrderBy(x => ContentController.CurrentContent.GetString(x.Name)));
                 });
             });
         }
@@ -134,7 +134,7 @@ public class PageController : Controller
         builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/build/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
-        builder.Append(string.Format(ContentController.CurrentContent.GetLocalisedString("page_title.user"), player.PersonaName));
+        builder.Append(string.Format(ContentController.CurrentContent.GetString("page_title.user"), player.PersonaName));
         builder.AppendHtml("</title>");
 
         await using StringWriter writer = new();
@@ -163,7 +163,7 @@ public class PageController : Controller
         builder.AppendHtml("</head>");
 
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
-        builder.AppendSettingSection(ContentController.CurrentContent.GetLocalisedString("settings.links"), () => builder.AppendSocialSettings(userModel));
+        builder.AppendSettingSection(ContentController.CurrentContent.GetString("settings.links"), () => builder.AppendSocialSettings(userModel));
         builder.AppendHtml("</div>");
 
         builder.AppendHtml("</body>");
@@ -171,7 +171,7 @@ public class PageController : Controller
         builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/build/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
-        builder.Append(ContentController.CurrentContent.GetLocalisedString("page_title.settings"));
+        builder.Append(ContentController.CurrentContent.GetString("page_title.settings"));
         builder.AppendHtml("</title>");
 
         await using StringWriter writer = new();
@@ -197,7 +197,7 @@ public class PageController : Controller
 
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
-        builder.AppendEmbed(HttpContext, ContentController.CurrentContent.GetLocalisedString("page_title.shop"), ContentController.CurrentContent.GetLocalisedString("page_desc.shop"));
+        builder.AppendEmbed(HttpContext, ContentController.CurrentContent.GetString("page_title.shop"), ContentController.CurrentContent.GetString("page_desc.shop"));
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/shop.css\">");
         builder.AppendHtml("</head>");
 
@@ -216,7 +216,7 @@ public class PageController : Controller
         builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/build/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
-        builder.Append(ContentController.CurrentContent.GetLocalisedString("page_title.shop"));
+        builder.Append(ContentController.CurrentContent.GetString("page_title.shop"));
         builder.AppendHtml("</title>");
 
         await using StringWriter writer = new();
@@ -250,7 +250,7 @@ public class PageController : Controller
         builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/build/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
-        builder.Append(ContentController.CurrentContent.GetLocalisedString("page_title.admin"));
+        builder.Append(ContentController.CurrentContent.GetString("page_title.admin"));
         builder.AppendHtml("</title>");
 
         await using StringWriter writer = new();
@@ -267,8 +267,8 @@ public class PageController : Controller
 
         builder.AppendHtml("<head>");
         builder.AppendGenericHeadContent();
-        builder.AppendEmbed(HttpContext, string.Format(ContentController.CurrentContent.GetLocalisedString("page_title.error"), statusCode),
-            ContentController.CurrentContent.GetLocalisedString("page_desc.error"));
+        builder.AppendEmbed(HttpContext, string.Format(ContentController.CurrentContent.GetString("page_title.error"), statusCode),
+            ContentController.CurrentContent.GetString("page_desc.error"));
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/error_page.css\">");
         builder.AppendHtml("</head>");
 
@@ -276,7 +276,7 @@ public class PageController : Controller
         builder.AppendHtml("<script type=\"module\" src=\"/Resources/Scripts/src/misc.js\"></script>");
 
         builder.AppendHtml("<title>");
-        builder.Append(string.Format(ContentController.CurrentContent.GetLocalisedString("page_title.error"), statusCode));
+        builder.Append(string.Format(ContentController.CurrentContent.GetString("page_title.error"), statusCode));
         builder.AppendHtml("</title>");
 
         builder.AppendHtml("<div class=\"full-page-box error-page-box\">");

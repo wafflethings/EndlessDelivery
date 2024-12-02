@@ -134,6 +134,6 @@ public class LeaderboardEntry : MonoBehaviour
 
     public void OpenProfile()
     {
-        Application.OpenURL("https://delivery.wafflethings.dev/users/" + _user.Id);
+        Application.OpenURL(string.Format(OnlineFunctionality.LastFetchedContent.GetString("constants.website_users"), _user.Id));
     }
 }
