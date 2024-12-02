@@ -1,20 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace EndlessDelivery.UI
-{
-    public class UnityText : MonoBehaviour, IText
-    {
-        private Text _text;
+namespace EndlessDelivery.UI;
 
-        public void SetText(string text)
+public class UnityText : MonoBehaviour, IText
+{
+    private Text _text;
+
+    public void SetText(string text)
+    {
+        if (_text == null)
         {
-            if (_text == null)
-            {
-                _text = GetComponent<Text>();
-            }
-            
-            _text.text = text;
+            _text = GetComponent<Text>();
         }
+
+        _text.text = text;
     }
 }

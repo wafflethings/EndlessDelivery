@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Globalization;
 
-namespace EndlessDelivery.Utils
+namespace EndlessDelivery.Utils;
+
+public static class TimeUtils
 {
-    public static class TimeUtils
+    public static string Formatted(this TimeSpan span)
     {
-        public static string Formatted(this TimeSpan span)
-        {
-            return span.ToString(@"mm\:ss\:fff", new CultureInfo("en-US"));
-        }
+        return span.ToString(@"mm\:ss\:fff", new CultureInfo("en-US"));
     }
 }

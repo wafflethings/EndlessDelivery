@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -963672351, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: Present Fumo
+  m_EditorClassIdentifier: 
+  Id: present_v1fumo
+  Material: {fileID: 2100000, guid: 7c8520f3255d1d64d9aabc05be2d8a5a, type: 2}
+  Materials:
+  - {fileID: 2100000, guid: 7c8520f3255d1d64d9aabc05be2d8a5a, type: 2}
+  Mesh: {fileID: -40613086119768410, guid: abb06832242e0454ab6feebe5513e065, type: 3}

@@ -1,23 +1,20 @@
-﻿using EndlessDelivery.Utils;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using EndlessDelivery.Utils;
 using UnityEngine;
 
-namespace EndlessDelivery.Components
+namespace EndlessDelivery.Components;
+
+public class RandomToggler : MonoBehaviour
 {
-    public class RandomToggler : MonoBehaviour
+    public List<GameObject> Objects;
+
+    private void Start()
     {
-        public List<GameObject> Objects;
-
-        private void Start()
+        foreach (GameObject go in Objects)
         {
-            foreach (GameObject go in Objects)
-            {
-                go.SetActive(false);
-            }
-
-            Objects.Pick().SetActive(true);
+            go.SetActive(false);
         }
+
+        Objects.Pick().SetActive(true);
     }
 }

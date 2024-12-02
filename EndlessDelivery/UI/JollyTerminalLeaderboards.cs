@@ -1,112 +1,167 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Threading.Tasks;
-using EndlessDelivery.Scores;
-using EndlessDelivery.Scores.Server;
+using EndlessDelivery.Api.Exceptions;
+using EndlessDelivery.Api.Requests;
+using EndlessDelivery.Common.Communication.Scores;
+using EndlessDelivery.Online;
+using Steamworks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace EndlessDelivery.UI
+namespace EndlessDelivery.UI;
+
+public class JollyTerminalLeaderboards : MonoBehaviour
 {
-    public class JollyTerminalLeaderboards : MonoBehaviour
+    public Button[] PageButtons;
+    public Button JumpToSelfButton;
+    public LeaderboardEntry[] Entries;
+    public LeaderboardEntry OwnEntry;
+    public TMP_Text PageText;
+    private OnlineScore[] _pageScores;
+    private int _page;
+    private int? _pageAmount = null;
+    private Coroutine? _lastRefresh;
+    private OnlineScore? _ownScore;
+
+    private async Task SetStuff()
     {
-        public Button[] PageButtons;
-        public LeaderboardEntry[] Entries;
-        public TMP_Text PageText;
-        private List<ScoreResult> _pageScores;
-        private bool _hasLoadedScores;
-        private int _page = 0;
-        private int _pageAmount;
-        
-        public void Start()
+        if (!await OnlineFunctionality.Context.ServerOnline())
         {
-            SetStuff();
+            return;
         }
 
-        private async void SetStuff()
+        _pageAmount = Mathf.CeilToInt(await OnlineFunctionality.Context.GetLeaderboardLength() / (float)Entries.Length);
+        RefreshPageText();
+
+        try
         {
-            _pageAmount = Mathf.CeilToInt(await Endpoints.GetScoreAmount() / 5f);
+            _ownScore = await OnlineFunctionality.Context.GetLeaderboardScore(SteamClient.SteamId);
         }
-        
-        public void OnEnable()
+        catch (NotFoundException)
         {
-            if (!_hasLoadedScores)
-            {
-                foreach (LeaderboardEntry entry in Entries)
-                {
-                    entry.gameObject.SetActive(false);
-                }
-                
-                RefreshPage();
-            }
+            _ownScore = null;
         }
 
-        public void ScrollPage(int amount)
+        OwnEntry.SetValuesAndEnable(this, _ownScore);
+
+        if (_ownScore == null)
         {
-            if ((_page + amount) >= 0 && (_page + amount) <= _pageAmount - 1)
-            {
-                _page += amount;
-            }
+            JumpToSelfButton.interactable = false;
+        }
+    }
 
-            PageText.text = (_page + 1).ToString();
-
-            RefreshPage();
+    public void OnEnable()
+    {
+        foreach (LeaderboardEntry entry in Entries)
+        {
+            entry.gameObject.SetActive(false);
         }
 
-        public void Refresh()
+        _lastRefresh = StartCoroutine(RefreshPage());
+    }
+
+    public void ScrollPage(int amount)
+    {
+        if ((_page + amount) < 0 || (_page + amount) > _pageAmount - 1)
         {
-            //unity events cant call asnyc funcs
-            RefreshAsync();
+            return;
         }
 
-        private async void RefreshAsync()
+        RefreshPageText();
+        SetPage(_page + amount);
+    }
+
+    public void SetPage(int page)
+    {
+        _page = page;
+
+        _lastRefresh = StartCoroutine(RefreshPage());
+    }
+
+    private void RefreshPageText()
+    {
+        PageText.text = (_page + 1) + " / " + (_pageAmount == null ? "-" : _pageAmount.ToString());
+    }
+
+    public void JumpToSelf()
+    {
+        if (_ownScore == null)
         {
-            transform.parent.gameObject.SetActive(false);
-            await Score.GetServerScoreAndSetIfHigher();
-            GetComponentInParent<JollyTerminal>().AssignScoreText();
-            transform.parent.gameObject.SetActive(true);
+            Plugin.Log.LogWarning("JumpToSelf with null _ownScore - should be impossible");
+            return;
         }
-        
-        public async Task RefreshPage()
+
+        int pageWithPlayer = Mathf.FloorToInt(_ownScore.Index / (float)Entries.Length);
+        SetPage(pageWithPlayer);
+    }
+
+    private static async Task<OnlineScore[]> GetPage(int pageIndex, int pageSize)
+    {
+        int scoreCount = await OnlineFunctionality.Context.GetLeaderboardLength();
+        int startIndex = pageIndex * pageSize;
+        int amount = Mathf.Min(scoreCount - startIndex, pageSize);
+        return await OnlineFunctionality.Context.GetScoreRange(pageIndex * pageSize, amount);
+    }
+
+    public void OpenWebsite()
+    {
+        Application.OpenURL(OnlineFunctionality.LastFetchedContent.GetString("constants.website"));
+    }
+
+    public void JoinDiscord()
+    {
+        Application.OpenURL(OnlineFunctionality.LastFetchedContent.GetString("constants.discord"));
+    }
+
+    private IEnumerator RefreshPage()
+    {
+        if (_lastRefresh != null)
         {
-            if (!await Endpoints.IsServerOnline())
-            {
-                HudMessageReceiver.Instance.SendHudMessage("Server offline!");
-                gameObject.SetActive(false);
-                return;
-            }
-            
-            foreach (Button button in PageButtons)
-            {
-                button.interactable = false;
-            }
+            StopCoroutine(_lastRefresh);
+        }
 
-            try
-            {
-                _pageScores = await Endpoints.GetScoreRange((_page * 5), 5);
+        Task<bool> onlineTask = OnlineFunctionality.Context.ServerOnline();
+        yield return new WaitUntil(() => onlineTask.IsCompleted);
 
-                for (int i = 0; i < 5; i++)
-                {
-                    if (i < _pageScores.Count)
-                    {
-                        Entries[i].SetValuesAndEnable(_pageScores[i]);
-                    }
-                    else
-                    {
-                        Entries[i].gameObject.SetActive(false);
-                    }
-                }
-            }
-            catch (Exception ex)
+        if (!onlineTask.Result)
+        {
+            HudMessageReceiver.Instance.SendHudMessage("Server offline!");
+            gameObject.SetActive(false);
+            yield break;
+        }
+
+        bool jumpToSelfWasEnabled = JumpToSelfButton.interactable;
+        foreach (Button button in PageButtons)
+        {
+            button.interactable = false;
+        }
+
+        Task<OnlineScore[]> scoreTask = GetPage(_page, Entries.Length);
+        Task setStuff = SetStuff();
+        yield return new WaitUntil(() => scoreTask.IsCompleted && setStuff.IsCompleted);
+        _pageScores = scoreTask.Result;
+
+        for (int i = 0; i < Entries.Length; i++)
+        {
+            if (i < _pageScores.Length)
             {
-                Endpoints.DisplayError("Failed to load scores!!" + ex);
+                Entries[i].SetValuesAndEnable(this, _pageScores[i]);
             }
-            
-            foreach (Button button in PageButtons)
+            else
             {
-                button.interactable = true;
+                Entries[i].gameObject.SetActive(false);
             }
+        }
+
+        foreach (Button button in PageButtons)
+        {
+            button.interactable = true;
+        }
+
+        if (!jumpToSelfWasEnabled)
+        {
+            JumpToSelfButton.interactable = jumpToSelfWasEnabled;
         }
     }
 }

@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Mod Core
+  m_EditorClassIdentifier: 
+  m_GroupName: Mod Core
+  m_Data:
+    m_SerializedData: []
+  m_GUID: ed93eec7149a80548b300c3cf75852e5
+  m_SerializeEntries:
+  - m_GUID: f6f2c28f43d832b4c97e9295d8e0bc73
+    m_Address: Assets/Delivery/Prefabs
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b55755ea950f6274fb98b872f5379153
+    m_Address: Assets/Delivery/Scenes
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 222b8dac4e694614b9d7ebc2615ab305
+    m_Address: Assets/Delivery/ScriptableObjects
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b63f4970147b90a4fa40aebc5d629d64
+    m_Address: Assets/Delivery/Textures/currency-reward.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 2a337ff27534e164b86034852d6c1576, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: ae32fed0916feb74a87ab341a889a4eb, type: 2}

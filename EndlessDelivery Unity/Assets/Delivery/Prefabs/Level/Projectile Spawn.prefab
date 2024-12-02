@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2804506730133485937}
   - component: {fileID: 5470245850821784125}
-  m_Layer: 0
+  - component: {fileID: 1542929084861012981}
+  - component: {fileID: 4268854537011943385}
+  m_Layer: 16
   m_Name: Projectile Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: d6a7f4252e67ae74a958a67e61a7ae9a, type: 3}
@@ -27,8 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.75, y: -10, z: 5.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6158220880322024643}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -45,55 +46,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Class: 1
+  BannedEnemies: 
+  Fallback: 3
   Enemy: {fileID: 0}
---- !u!1 &3523010349968537130
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6158220880322024643}
-  - component: {fileID: 7830856265190743832}
-  - component: {fileID: 6715116153613751984}
-  - component: {fileID: 7316700446641103029}
-  m_Layer: 16
-  m_Name: Cube
-  m_TagString: EditorOnly
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6158220880322024643
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3523010349968537130}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
-  m_Children: []
-  m_Father: {fileID: 2804506730133485937}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &7830856265190743832
+  Room: {fileID: 0}
+--- !u!33 &1542929084861012981
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3523010349968537130}
-  m_Mesh: {fileID: -1283820568726516060, guid: 06c3b585c5da8bb4faa58a741007714c, type: 3}
---- !u!23 &6715116153613751984
+  m_GameObject: {fileID: 2124695295281704362}
+  m_Mesh: {fileID: -7929665542823436400, guid: 80e8e325084050d4b961eb91e7fb85d0, type: 3}
+--- !u!23 &4268854537011943385
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3523010349968537130}
+  m_GameObject: {fileID: 2124695295281704362}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -126,36 +97,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &7316700446641103029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3523010349968537130}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebc7f2d30648aed44a1281ca9533bf5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  oneTime: 1
-  disableOnExit: 0
-  dontActivateOnEnable: 0
-  reactivateOnEnable: 0
-  forEnemies: 0
-  notIfEnemiesDisabled: 0
-  onlyIfPlayerIsAlive: 0
-  delay: 0
-  ignoreColliders: []
-  obac: {fileID: 0}
-  onlyCheckObacOnce: 0
-  events:
-    toActivateObjects: []
-    toDisActivateObjects:
-    - {fileID: 3523010349968537130}
-    onActivate:
-      m_PersistentCalls:
-        m_Calls: []
-    onDisActivate:
-      m_PersistentCalls:
-        m_Calls: []
