@@ -54,7 +54,7 @@
                 "AssetUri": "/Resources/UI/default-icon.png",
                 "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
             },
-            "Id": "day3_2024",
+            "Id": "day4_2024",
             "HasItem": false,
             "ItemId": "",
             "HasCurrency": true,
@@ -1010,6 +1010,12 @@
             ],
             "Start": "2024-12-03T00:00:00+00:00",
             "Length": "2.00:00:00"
+        },
+        {
+            "ItemIds": [
+            ],
+            "Start": "2024-12-05T00:00:00+00:00",
+            "Length": "100000.00:00:00"
         }
     ],
     "Strings": {
