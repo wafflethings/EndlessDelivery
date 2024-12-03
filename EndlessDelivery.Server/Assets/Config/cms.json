@@ -36,8 +36,8 @@
             "Description": "calendar.day3_desc",
             "Subtitle": "category.banner",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Banners/redcane-preview.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Red Cane/redcane-preview.png"
             },
             "Id": "day3_2024",
             "HasItem": true,
@@ -1004,7 +1004,7 @@
         },
         {
             "ItemIds": [
-                "banner_redcane",
+                "banner_hell",
                 "altrevolver_jumper",
                 "shotgun_gingerbread"
             ],
