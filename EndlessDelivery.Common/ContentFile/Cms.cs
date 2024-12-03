@@ -72,6 +72,6 @@ public class Cms
             }
         }
 
-        return null;
+        return ShopRotations[1]; //todo dont
     }
 }
