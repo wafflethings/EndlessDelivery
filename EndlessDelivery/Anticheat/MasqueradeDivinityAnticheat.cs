@@ -5,19 +5,19 @@ namespace EndlessDelivery.Anticheat;
 
 public class MasqueradeDivinityAnticheat : Anticheat
 {
-    public const string GUID = "maranara_project_prophet";
+    public const string Guid = "maranara_project_prophet";
 
-    protected override bool ShouldSubmit
+    protected override bool ShouldSubmit(out string reason)
     {
-        get
-        {
-            if (!Chainloader.PluginInfos.ContainsKey(GUID))
-            {
-                return true;
-            }
+        reason = string.Empty;
 
-            return GabeOn();
+        if (Chainloader.PluginInfos.ContainsKey(Guid) && GabeOn())
+        {
+            reason = "Masquerade Divinity gabe mode is enabled";
+            return false;
         }
+
+        return true;
     }
 
     [MethodImpl(MethodImplOptions.NoInlining)]

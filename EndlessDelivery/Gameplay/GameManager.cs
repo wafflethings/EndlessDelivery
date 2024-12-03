@@ -36,7 +36,7 @@ public class GameManager : MonoSingleton<GameManager>
     public Room PreviousRoom { get; private set; }
     public bool TimerActive { get; private set; }
     public int PointsPerWave { get; private set; }
-    public Score CurrentScore => new(RoomsComplete, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed);
+    public Score CurrentScore => new(RoomsComplete, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed, StartTimes.Instance.Data.CurrentTimes.SelectedWave);
 
     public delegate void RoomEvent(Room room);
     public event RoomEvent RoomStarted;
@@ -209,7 +209,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         //if more rooms, or more deliveries
 
-        if (ScoreManager.CanSubmit)
+        if (ScoreManager.CanSubmit(out List<string> reasons))
         {
             if (!ScoreManager.LocalHighscores.Data.ContainsKey(difficulty) || CurrentScore > ScoreManager.LocalHighscores.Data[difficulty])
             {
@@ -221,7 +221,7 @@ public class GameManager : MonoSingleton<GameManager>
         }
         else
         {
-            HudMessageReceiver.Instance.SendHudMessage("Score not submitting due to other mods, or cheats enabled.");
+            HudMessageReceiver.Instance.SendHudMessage($"Score not submitting due to other mods, or cheats enabled. {string.Join(", ", reasons)}");
             EndScreen.Instance.Appear();
         }
     }
@@ -233,7 +233,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (onlineTask.Result)
         {
-            Task<bool> updateRequiredTask = OnlineFunctionality.Context.UpdateRequired(Plugin.Version);
+            Task<bool> updateRequiredTask = OnlineFunctionality.Context.UpdateRequired();
             yield return new WaitUntil(() => updateRequiredTask.IsCompleted);
 
             if (!updateRequiredTask.Result)

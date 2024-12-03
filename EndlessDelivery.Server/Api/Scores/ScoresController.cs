@@ -88,9 +88,14 @@ namespace EndlessDelivery.Server.Api.Scores
                 return StatusCode(StatusCodes.Status400BadRequest, "Null body");
             }
 
-            if (scoreRequest.Version != Plugin.Version)
+            if (!Request.IsOnLatestUpdate())
             {
                 return StatusCode(StatusCodes.Status426UpgradeRequired, $"Delivery version {Plugin.Version} is required");
+            }
+
+            if (Request.UserModded())
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Disable mods");
             }
 
             if (!HttpContext.TryGetLoggedInPlayer(out SteamUser steamUser))
@@ -144,7 +149,8 @@ namespace EndlessDelivery.Server.Api.Scores
             await SetIndexes();
 
             OnlineScore score = await user.GetBestScore();
-            await user.CheckOnlineAchievements(score);
+            await using DeliveryDbContext dbContext2 = new(); // this sucks TODO replace this
+            await user.CheckOnlineAchievements(score, dbContext2.Users.Find(user.SteamId).LifetimeStats);
             return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(score));
         }
 

@@ -16,6 +16,14 @@ public class UpdateScreen : MonoBehaviour
         CoroutineRunner.Instance.StartCoroutine(EnableIfNeeded());
     }
 
+    private void Update()
+    {
+        NewMovement.Instance.enabled = false;
+        GunControl.Instance.enabled = false;
+        FistControl.Instance.enabled = false;
+        Time.timeScale = 0;
+    }
+
     private IEnumerator EnableIfNeeded()
     {
         Task<bool> onlineTask = OnlineFunctionality.Context.ServerOnline();
@@ -26,13 +34,13 @@ public class UpdateScreen : MonoBehaviour
             yield break;
         }
 
-        Task<bool> updateRequiredTask = OnlineFunctionality.Context.UpdateRequired(Plugin.Version);
+        Task<bool> updateRequiredTask = OnlineFunctionality.Context.UpdateRequired();
         yield return new WaitUntil(() => updateRequiredTask.IsCompleted);
 
         if (updateRequiredTask.Result)
         {
             gameObject.SetActive(true);
-            GameStateManager.Instance.RegisterState(new GameState("pause", [gameObject])
+            GameStateManager.Instance.RegisterState(new GameState("pause_updscreen", [gameObject])
             {
                 cursorLock = LockMode.Unlock,
                 cameraInputLock = LockMode.Lock,

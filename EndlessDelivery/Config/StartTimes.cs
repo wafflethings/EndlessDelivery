@@ -31,7 +31,7 @@ public class StartTimes
 
     public void UpdateAllLowerDifficulty(int wave, float time)
     {
-        if (!ScoreManager.CanSubmit)
+        if (!ScoreManager.CanSubmit())
         {
             return;
         }
@@ -49,7 +49,7 @@ public class StartTimes
     [Serializable]
     public class StartTime
     {
-        public static readonly int[] StartableWaves = [0, 5, 10, 25, 50, 75];
+        public static readonly int[] StartableWaves = [0, 5, 10, 15, 25, 50];
         public Dictionary<int, float> WaveToTime = new() { { 0, GameManager.StartTime } };
         public List<int> UnlockedStartTimes = new();
         public int SelectedWave;

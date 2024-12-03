@@ -27,7 +27,7 @@ public static class UserUtils
         }
     }
 
-    public static async Task CheckOnlineAchievements(this UserModel user, OnlineScore score)
+    public static async Task CheckOnlineAchievements(this UserModel user, OnlineScore score, Score lifetimeStats)
     {
         foreach (ServerSideAchievement serverAchievement in ServerSideAchievement.AllAchievements)
         {
@@ -36,7 +36,7 @@ public static class UserUtils
                 continue;
             }
 
-            if (user.OwnedAchievements.All(x => x.Id != serverAchievement.Id) && serverAchievement.ShouldGrant(score) && !achievement.Disabled)
+            if (user.OwnedAchievements.All(x => x.Id != serverAchievement.Id) && serverAchievement.ShouldGrant(score, lifetimeStats) && !achievement.Disabled)
             {
                 await using DeliveryDbContext dbContext = new();
                 user.GetAchievement(achievement);

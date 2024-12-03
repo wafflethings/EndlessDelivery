@@ -97,6 +97,26 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a0825d5908189c34e994b4fc68e42a5b
+    m_Address: Assets/Delivery/Cosmetics/Presents/Florp/florp-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59284b93d729ca9408522623efe42df8
+    m_Address: Assets/Delivery/Cosmetics/Revolver/Silver/silver-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5413a698ed1bdb644adb074b4070cc9f
+    m_Address: Assets/Delivery/Cosmetics/Revolver/Gold/gold-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 740b6cc86e63c9f4d9fa25a983bcd500
+    m_Address: Assets/Delivery/Cosmetics/Revolver/Bronze/bronze-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2a337ff27534e164b86034852d6c1576, type: 2}
   m_SchemaSet:

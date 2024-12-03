@@ -2866,7 +2866,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: BANNER
+  m_text: PRESENT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07de9bdbdea06f542aa1ed988a79c533, type: 2}
   m_sharedMaterial: {fileID: -5045613266839568270, guid: 07de9bdbdea06f542aa1ed988a79c533,
@@ -3000,7 +3000,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 81dddd15f11966a41bde3a3915c190d9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a0825d5908189c34e994b4fc68e42a5b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 0
@@ -3554,9 +3554,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A candy cane patterned <color=orange>banner</color>. By the way, I forgot
-    to implement a <color=orange>update notification</color>, so if you are on the
-    first version (2.0.1) please update.\n\nReward for day 3.
+  m_text: <color=orange>Florp</color>.\n\n\n\n\nReward for day 4.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c665f735df1f4db43a715b3cb44a57c0, type: 2}
   m_sharedMaterial: {fileID: -5045613266839568270, guid: c665f735df1f4db43a715b3cb44a57c0,
@@ -3928,7 +3926,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: CANDY CANE
+  m_text: FLORP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07de9bdbdea06f542aa1ed988a79c533, type: 2}
   m_sharedMaterial: {fileID: -5045613266839568270, guid: 07de9bdbdea06f542aa1ed988a79c533,

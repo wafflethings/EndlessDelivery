@@ -62,6 +62,16 @@ namespace EndlessDelivery.Server.Api.Users
         [HttpPost("grant_achievement")]
         public async Task<ObjectResult> GrantAchievement()
         {
+            if (!Request.IsOnLatestUpdate())
+            {
+                return StatusCode(StatusCodes.Status426UpgradeRequired, $"Delivery version {Plugin.Version} is required");
+            }
+
+            if (Request.UserModded())
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, "Disable mods");
+            }
+
             if (!Request.HttpContext.TryGetLoggedInPlayer(out SteamUser? steamUser))
             {
                 return StatusCode(StatusCodes.Status401Unauthorized, "Not logged in");
@@ -125,6 +135,24 @@ namespace EndlessDelivery.Server.Api.Users
             }
 
             return StatusCode(StatusCodes.Status200OK, steamUser.PersonaName);
+        }
+
+        [HttpGet("lifetime_stats")]
+        public async Task<ObjectResult> GetStats(ulong steamId)
+        {
+            if (!SteamUser.TryGetPlayer(steamId, out SteamUser steamUser))
+            {
+                return StatusCode(StatusCodes.Status404NotFound, $"Player {steamId} not found");
+            }
+
+            UserModel? userModel = await steamUser.GetUserModel();
+
+            if (userModel == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server couldn't find usermodel for {steamId}");
+            }
+
+            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(userModel.LifetimeStats));
         }
 
         [HttpGet("clear_token")]

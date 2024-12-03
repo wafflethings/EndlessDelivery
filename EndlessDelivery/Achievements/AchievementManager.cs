@@ -15,9 +15,9 @@ public class AchievementManager
 {
     public static SaveFile<List<string>> OwnedAchievements = SaveFile.RegisterFile(new SaveFile<List<string>>("dont_show_achs.json", Plugin.Name));
 
-    public static void CheckOnline(OnlineScore score)
+    public static void CheckOnline(OnlineScore score, Score lifetimeStats)
     {
-        if (!ScoreManager.CanSubmit)
+        if (!ScoreManager.CanSubmit())
         {
             return;
         }
@@ -39,7 +39,7 @@ public class AchievementManager
                 continue;
             }
 
-            if (!OwnedAchievements.Data.Contains(serverAchievement.Id) && serverAchievement.ShouldGrant(score))
+            if (!OwnedAchievements.Data.Contains(serverAchievement.Id) && serverAchievement.ShouldGrant(score, lifetimeStats))
             {
                 OwnedAchievements.Data.Add(serverAchievement.Id);
                 AchievementHud.Instance.AddAchievement(achievement);
@@ -49,7 +49,7 @@ public class AchievementManager
 
     public static void ShowAndGiveLocal(string id)
     {
-        if (!ScoreManager.CanSubmit)
+        if (!ScoreManager.CanSubmit())
         {
             return;
         }

@@ -9,7 +9,7 @@ public class PositionAchievement : ServerSideAchievement
 
     public override string Id => _id;
 
-    public override bool ShouldGrant(OnlineScore score) => score.Index <= _minIndex;
+    public override bool ShouldGrant(OnlineScore score, Score lifetimeStats) => score.Index <= _minIndex;
 
     public PositionAchievement(string id, int minIndex)
     {

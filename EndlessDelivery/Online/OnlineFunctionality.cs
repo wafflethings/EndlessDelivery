@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using AtlasLib.Saving;
 using AtlasLib.Utils;
+using BepInEx.Bootstrap;
 using EndlessDelivery.Api;
 using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common.ContentFile;
@@ -17,7 +19,7 @@ namespace EndlessDelivery.Online;
 
 public static class OnlineFunctionality
 {
-    public static readonly ApiContext Context = new(new HttpClient(), GetTicket);
+    public static readonly ApiContext Context = new(new HttpClient(), GetTicket, new Uri("http://localhost:7048/api/"));
     private static SaveFile<Cms?> s_cmsData = SaveFile.RegisterFile(new SaveFile<Cms?>("content.json", Plugin.Name));
 
     public static Cms? LastFetchedContent => s_cmsData.Data;
@@ -35,9 +37,11 @@ public static class OnlineFunctionality
             yield return null;
         }
 
+        Context.Client.DefaultRequestHeaders.Add("DdVersion", Plugin.Version);
+        Context.Client.DefaultRequestHeaders.Add("DdMods", string.Join(",", Chainloader.PluginInfos.Values.Select(x => x.Metadata.GUID.Replace(",", string.Empty))));
+
         Task loginTask = Task.Run(Context.Login);
         yield return new WaitUntil(() => loginTask.IsCompleted);
-        Plugin.Log.LogMessage("Logged in!");
 
         Task.Run(GetContent);
         Task.Run(CosmeticManager.FetchLoadout);
@@ -52,7 +56,7 @@ public static class OnlineFunctionality
 
     public static async Task<Cms> GetContent()
     {
-        if (await Context.ContentUpdateRequired(s_cmsData.Data?.LastUpdate ?? DateTime.MinValue))
+        if (await Context.ContentUpdateRequired(s_cmsData.Data?.Hash ?? string.Empty))
         {
             Cms? downloaded = await Context.DownloadCms();
 

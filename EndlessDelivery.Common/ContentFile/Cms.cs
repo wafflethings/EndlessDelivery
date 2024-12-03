@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using EndlessDelivery.Common.Inventory.Items;
 using Newtonsoft.Json;
 
@@ -22,7 +24,19 @@ public class Cms
     public Dictionary<string, WeaponSkinItem> Presents = new();
     public List<ShopRotation> ShopRotations = new();
     public Dictionary<string, string> Strings = new();
-    public DateTime LastUpdate;
+    public Dictionary<string, string> BannedMods = new();
+
+    [JsonIgnore] public string Hash
+    {
+        get
+        {
+            using MD5 md5 = MD5.Create();
+            string jsonContent = JsonConvert.SerializeObject(this, Formatting.None);
+            byte[] bytes = Encoding.UTF8.GetBytes(jsonContent);
+            byte[] hash = md5.ComputeHash(bytes);
+            return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+        }
+    }
 
     public string GetString(string id) => Strings.ContainsKey(id) ? Strings[id] : id;
 
@@ -53,25 +67,16 @@ public class Cms
 
     public ShopRotation GetActiveShopRotation()
     {
-        List<ShopRotation> allRotations = new();
-        allRotations.AddRange(ShopRotations);
-
-        for (int i = 0; i < allRotations.Count; i++)
+        foreach (ShopRotation rotation in ShopRotations)
         {
-            ShopRotation rotation = allRotations[i];
-
-            if (rotation.End < DateTime.UtcNow)
+            if (rotation.Start > DateTime.UtcNow || (rotation.Start + rotation.Length) < DateTime.UtcNow)
             {
-                allRotations.Remove(rotation);
                 continue;
             }
 
-            if (rotation.Start <= DateTime.UtcNow)
-            {
-                return rotation;
-            }
+            return rotation;
         }
 
-        return ShopRotations[1]; //todo dont
+        return null;
     }
 }

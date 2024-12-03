@@ -20,7 +20,7 @@ public class AllRooms : MonoBehaviour
     {
         GameManager.Instance.RoomComplete += _ =>
         {
-            if (!ScoreManager.CanSubmit)
+            if (!ScoreManager.CanSubmit())
             {
                 return;
             }

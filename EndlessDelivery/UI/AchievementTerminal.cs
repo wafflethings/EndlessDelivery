@@ -40,7 +40,7 @@ public class AchievementTerminal : MonoBehaviour
         Cms cms = cmsTask.Result;
         List<string> ownedAchievementIds = achievementsTask.Result.Select(x => x.Id).ToList();
 
-        foreach (Achievement achievement in cms.Achievements.Values.OrderBy(x => !ownedAchievementIds.Contains(x.Id)).ThenBy(x => cms.GetString(x.Id)))
+        foreach (Achievement achievement in cms.Achievements.Values.OrderBy(x => !ownedAchievementIds.Contains(x.Id)))
         {
             if (achievement.Disabled)
             {
