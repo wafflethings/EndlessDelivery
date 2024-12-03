@@ -45,7 +45,7 @@ public static class TimeBonusPatches
 
         if (HugeKillEnemies.Contains(identifier.enemyType))
         {
-            GameManager.Instance.AddTime(4f, "<color=orange>HUGE KILL</color>");
+            GameManager.Instance.AddTime(3f, "<color=orange>HUGE KILL</color>");
         }
     }
 }

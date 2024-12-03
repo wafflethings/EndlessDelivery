@@ -40,7 +40,7 @@ public class AchievementTerminal : MonoBehaviour
         Cms cms = cmsTask.Result;
         List<string> ownedAchievementIds = achievementsTask.Result.Select(x => x.Id).ToList();
 
-        foreach (Achievement achievement in cms.Achievements.Values.OrderBy(x => !ownedAchievementIds.Contains(x.Id)).ThenBy(x => cms.GetLocalisedString(x.Id)))
+        foreach (Achievement achievement in cms.Achievements.Values.OrderBy(x => !ownedAchievementIds.Contains(x.Id)).ThenBy(x => cms.GetString(x.Id)))
         {
             if (achievement.Disabled)
             {
@@ -61,8 +61,8 @@ public class AchievementTerminal : MonoBehaviour
     public void SetAchievement(Achievement? achievement)
     {
         Cms cms = OnlineFunctionality.LastFetchedContent;
-        _achievementNameText.text = achievement == null ? "-" : cms.GetLocalisedString(achievement.Name);
-        _achievementDescText.text = achievement == null ? "-" : achievement.HideDetails ? cms.GetLocalisedString("game_ui.hidden_achievement") : cms.GetLocalisedString(achievement.Description);
+        _achievementNameText.text = achievement == null ? "-" : cms.GetString(achievement.Name);
+        _achievementDescText.text = achievement == null ? "-" : achievement.HideDetails ? cms.GetString("game_ui.hidden_achievement") : cms.GetString(achievement.Description);
 
         if (achievement == null)
         {
@@ -81,7 +81,7 @@ public class AchievementTerminal : MonoBehaviour
             items.Add(item);
         }
 
-        string unlocksString = items.Count != 0 ? string.Join(", ", items.Select(x => cms.GetLocalisedString(x.Descriptor.Name))) : cms.GetLocalisedString("game_ui.achievement_unlocks_nothing");
-        _achievementUnlocksText.text = string.Format(cms.GetLocalisedString("game_ui.achievement_unlocks"), unlocksString);
+        string unlocksString = items.Count != 0 ? string.Join(", ", items.Select(x => cms.GetString(x.Descriptor.Name))) : cms.GetString("game_ui.achievement_unlocks_nothing");
+        _achievementUnlocksText.text = string.Format(cms.GetString("game_ui.achievement_unlocks"), unlocksString);
     }
 }

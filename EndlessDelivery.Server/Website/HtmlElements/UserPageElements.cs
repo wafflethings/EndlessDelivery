@@ -92,7 +92,7 @@ public static class UserPageElements
         }
 
         builder.AppendHtml("<p class=\"profile-score-text\">");
-        builder.AppendHtml(string.Format(ContentController.CurrentContent.GetLocalisedString("profile.score_box_content"), score?.Rooms ?? 0, score?.Deliveries ?? 0, time, score?.Kills ?? 0));
+        builder.AppendHtml(string.Format(ContentController.CurrentContent.GetString("profile.score_box_content"), score?.Rooms ?? 0, score?.Deliveries ?? 0, time, score?.Kills ?? 0));
         builder.AppendHtml("</p>");
     }
 
@@ -118,7 +118,7 @@ public static class UserPageElements
         builder.AppendHtml("<div class=\"achievement-box\">");
         builder.AppendHtml($"<img class=\"achievement-icon pixel-perfect\" src=\"{achievement.Icon.AssetUri}\"/>");
         builder.AppendHtml("<p class=\"achievement-text\">");
-        builder.Append(ContentController.CurrentContent.GetLocalisedString(achievement.Name));
+        builder.Append(ContentController.CurrentContent.GetString(achievement.Name));
         builder.AppendHtml("</p>");
         builder.AppendHtml("</div>");
     }

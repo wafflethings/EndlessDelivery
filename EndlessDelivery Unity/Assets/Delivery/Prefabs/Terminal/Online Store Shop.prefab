@@ -2866,7 +2866,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SHOTGUN
+  m_text: BANNER
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07de9bdbdea06f542aa1ed988a79c533, type: 2}
   m_sharedMaterial: {fileID: -5045613266839568270, guid: 07de9bdbdea06f542aa1ed988a79c533,
@@ -3000,7 +3000,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f331bd42a3dc6964e81cee3eeaff6398, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 81dddd15f11966a41bde3a3915c190d9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 0
@@ -3554,9 +3554,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A snowman-themed <color=orange>shotgun</color> which smiles idly as it
-    watches you consume the blood of your enemies. Textured by <color=orange>zelzmiy</color>
-    and <color=orange>Fri</color>.\n\nReward for day 2.
+  m_text: A candy cane patterned <color=orange>banner</color>. By the way, I forgot
+    to implement a <color=orange>update notification</color>, so if you are on the
+    first version (2.0.1) please update.\n\nReward for day 3.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c665f735df1f4db43a715b3cb44a57c0, type: 2}
   m_sharedMaterial: {fileID: -5045613266839568270, guid: c665f735df1f4db43a715b3cb44a57c0,
@@ -3928,7 +3928,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: FROSTY THE SHOTGUN
+  m_text: CANDY CANE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 07de9bdbdea06f542aa1ed988a79c533, type: 2}
   m_sharedMaterial: {fileID: -5045613266839568270, guid: 07de9bdbdea06f542aa1ed988a79c533,
@@ -3956,7 +3956,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.05
+  m_fontSize: 45
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

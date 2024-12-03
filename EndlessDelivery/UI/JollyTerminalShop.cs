@@ -34,6 +34,7 @@ public class JollyTerminalShop : MonoBehaviour
     private int _counterMoney = 0;
     private DateTime _endTime;
     private string _timeRemainingString = "{0}";
+    private Coroutine? _lastMoneyRefresher;
 
     private void OnEnable()
     {
@@ -88,7 +89,7 @@ public class JollyTerminalShop : MonoBehaviour
         Task<Cms> cmsTask = OnlineFunctionality.GetContent();
         yield return new WaitUntil(() => shopTask.IsCompleted && cmsTask.IsCompleted);
 
-        _timeRemainingString = cmsTask.Result.GetLocalisedString("game_ui.shop_remaining_time");
+        _timeRemainingString = cmsTask.Result.GetString("game_ui.shop_remaining_time");
         _endTime = shopTask.Result.End;
         foreach (string itemId in shopTask.Result.ItemIds)
         {
@@ -129,7 +130,12 @@ public class JollyTerminalShop : MonoBehaviour
 
     public void RefreshMoney(int targetMoney)
     {
-        StartCoroutine(RefreshMoneyCoroutine(targetMoney));
+        if (_lastMoneyRefresher != null)
+        {
+            StopCoroutine(_lastMoneyRefresher);
+        }
+
+        _lastMoneyRefresher = StartCoroutine(RefreshMoneyCoroutine(targetMoney));
     }
 
     private IEnumerator RefreshMoneyCoroutine(int targetMoney)

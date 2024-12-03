@@ -100,7 +100,7 @@ public class LoadoutHud : MonoBehaviour
         yield return new WaitUntil(() => cmsTask.IsCompleted);
         Cms cms = cmsTask.Result;
 
-        _categoryTitle.text = cms.GetLocalisedString("category." + _currentItemType.ToString().ToLower());
+        _categoryTitle.text = cms.GetString("category." + _currentItemType.ToString().ToLower());
 
         List<Item> itemList = new();
         foreach (string itemId in CosmeticManager.AllOwned)
@@ -118,7 +118,7 @@ public class LoadoutHud : MonoBehaviour
             Destroy(oldItemButton);
         }
 
-        IEnumerable<Item> orderedList =  itemList.OrderBy(x => CosmeticLoadout.DefaultItems.Contains(x.Descriptor.Id) ? string.Empty : cms.GetLocalisedString(x.Descriptor.Name)); // sucks but string.empty makes defaults always first
+        IEnumerable<Item> orderedList =  itemList.OrderBy(x => CosmeticLoadout.DefaultItems.Contains(x.Descriptor.Id) ? string.Empty : cms.GetString(x.Descriptor.Name)); // sucks but string.empty makes defaults always first
         foreach (Item item in orderedList)
         {
             AddItem(item);
@@ -158,7 +158,7 @@ public class LoadoutHud : MonoBehaviour
 
     public void SetItem(Item? item)
     {
-        _itemNameText.text = item != null ? OnlineFunctionality.LastFetchedContent.GetLocalisedString(item.Descriptor.Name) : "-";
+        _itemNameText.text = item != null ? OnlineFunctionality.LastFetchedContent.GetString(item.Descriptor.Name) : "-";
         _selectedItem = item;
         UpdateEquipButtons(item);
     }
@@ -188,12 +188,12 @@ public class LoadoutHud : MonoBehaviour
         if (item != null)
         {
             string equippedOrUnequipped = GetEquippedItemId(_currentItemType) == item.Descriptor.Id ? "equipped" : "unequipped";
-            _equipButtonText.text = OnlineFunctionality.LastFetchedContent.GetLocalisedString("shop." + equippedOrUnequipped);
+            _equipButtonText.text = OnlineFunctionality.LastFetchedContent.GetString("shop." + equippedOrUnequipped);
             _equipButton.interactable = true;
         }
         else
         {
-            _equipButtonText.text = OnlineFunctionality.LastFetchedContent.GetLocalisedString("shop.unequipped");
+            _equipButtonText.text = OnlineFunctionality.LastFetchedContent.GetString("shop.unequipped");
             _equipButton.interactable = false;
         }
     }

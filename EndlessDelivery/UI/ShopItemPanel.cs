@@ -38,10 +38,10 @@ public class ShopItemPanel : MonoBehaviour
         yield return new WaitUntil(() => cmsTask.IsCompleted);
         Cms cms = cmsTask.Result;
 
-        _ownedString = cms.GetLocalisedString("shop.owned");
-        _itemName.text = cms.GetLocalisedString(_itemDescriptor.Name);
+        _ownedString = cms.GetString("shop.owned");
+        _itemName.text = cms.GetString(_itemDescriptor.Name);
         _itemCost.text = _itemDescriptor.ShopPrice.ToString();
-        _itemType.text = cms.GetLocalisedString("category." + _itemDescriptor.Type.ToString().ToLower());
+        _itemType.text = cms.GetString("category." + _itemDescriptor.Type.ToString().ToLower());
 
         if (CosmeticManager.AllOwned.Contains(_itemDescriptor.Id))
         {

@@ -20,8 +20,7 @@ public class QuickClearChecker : MonoBehaviour
         {
             if (Time.time - _enteredTime < TimeAmount)
             {
-                AchievementHud.Instance.AddAchievement(OnlineFunctionality.LastFetchedContent.Achievements[AchId]);
-                Task.Run(() => OnlineFunctionality.Context.GrantAchievement(AchId));
+                AchievementManager.ShowAndGiveLocal(AchId);
             }
         };
     }

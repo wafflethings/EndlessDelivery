@@ -128,7 +128,7 @@ namespace EndlessDelivery.Server.Api.Scores
             if (userOnlineScore != null && userOnlineScore.Score > scoreRequest.Score || newScore.Difficulty < 3)
             {
                 await dbContext.SaveChangesAsync();
-                return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));
+                return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(userOnlineScore));
             }
 
             if (await dbContext.Scores.AnyAsync(score => score.SteamId == user.SteamId))
@@ -142,8 +142,10 @@ namespace EndlessDelivery.Server.Api.Scores
 
             await dbContext.SaveChangesAsync();
             await SetIndexes();
-            user.CheckOnlineAchievements();
-            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));
+
+            OnlineScore score = await user.GetBestScore();
+            await user.CheckOnlineAchievements(score);
+            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(score));
         }
 
         [HttpGet("force_reset_indexes")]

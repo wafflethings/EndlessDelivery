@@ -36,7 +36,7 @@ public static class GenericElements
         builder.AppendHtml("<div class=\"top-bar-group\">");
         builder.AppendHtml("<img src=\"/Resources/UI/logo-transparent.png\" class=\"top-bar-icon pixel-perfect\">");
         builder.AppendHtml("<a href=\"/\" class=\"top-bar-title-text\">");
-        builder.Append(ContentController.CurrentContent.GetLocalisedString("navbar.mod_name"));
+        builder.Append(ContentController.CurrentContent.GetString("navbar.mod_name"));
         builder.AppendHtml("</a>");
         // builder.AppendHtml("<a href=\"/\">");
         // builder.AppendHtml("<img src=\"/Resources/UI/wordmark.png\" class=\"top-bar-wordmark\"/>");
@@ -44,10 +44,10 @@ public static class GenericElements
         builder.AppendHtml("</div>");
         builder.AppendHtml("<div class=\"top-bar-group\">");
         builder.AppendHtml("<a href=\"/shop\">");
-        builder.Append(ContentController.CurrentContent.GetLocalisedString("navbar.shop_link"));
+        builder.Append(ContentController.CurrentContent.GetString("navbar.shop_link"));
         builder.AppendHtml("</a>");
         builder.AppendHtml("<a href=\"https://thunderstore.io/c/ultrakill/p/Waff1e/Divine_Delivery/\">");
-        builder.Append(ContentController.CurrentContent.GetLocalisedString("navbar.download_link"));
+        builder.Append(ContentController.CurrentContent.GetString("navbar.download_link"));
         builder.AppendHtml("</a>");
 
         bool loggedIn = context.TryGetLoggedInPlayer(out SteamUser player);
@@ -69,26 +69,26 @@ public static class GenericElements
             if (loggedIn && userModel.Admin)
             {
                 builder.AppendHtml("<a href=\"/admin_panel\">");
-                builder.Append(ContentController.CurrentContent.GetLocalisedString("sidebar.admin"));
+                builder.Append(ContentController.CurrentContent.GetString("sidebar.admin"));
                 builder.AppendHtml("</a>");
             }
 
             builder.AppendHtml($"<a href=\"/users/{steamUser.SteamId}\">");
-            builder.Append(ContentController.CurrentContent.GetLocalisedString("sidebar.profile"));
+            builder.Append(ContentController.CurrentContent.GetString("sidebar.profile"));
             builder.AppendHtml("</a>");
 
             builder.AppendHtml("<a href=\"/account_settings\">");
-            builder.Append(ContentController.CurrentContent.GetLocalisedString("sidebar.acc_settings"));
+            builder.Append(ContentController.CurrentContent.GetString("sidebar.acc_settings"));
             builder.AppendHtml("</a>");
 
             builder.AppendHtml("<a href=\"#\" id=\"log-out-link\">");
-            builder.Append(ContentController.CurrentContent.GetLocalisedString("sidebar.logout"));
+            builder.Append(ContentController.CurrentContent.GetString("sidebar.logout"));
             builder.AppendHtml("</a>");
         }
         else
         {
             builder.AppendHtml($"<a href=\"{SteamApi.BuildOpenIdLogin(context, "/api/auth/steam/return_url")}/\">");
-            builder.Append(ContentController.CurrentContent.GetLocalisedString("sidebar.login"));
+            builder.Append(ContentController.CurrentContent.GetString("sidebar.login"));
             builder.AppendHtml("</a>");
         }
 

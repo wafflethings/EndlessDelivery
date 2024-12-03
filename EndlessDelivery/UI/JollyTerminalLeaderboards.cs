@@ -20,20 +20,19 @@ public class JollyTerminalLeaderboards : MonoBehaviour
     public TMP_Text PageText;
     private OnlineScore[] _pageScores;
     private int _page;
-    private int _pageAmount;
+    private int? _pageAmount = null;
     private Coroutine? _lastRefresh;
     private OnlineScore? _ownScore;
-    private bool _initialized;
 
-    private async void SetStuff()
+    private async Task SetStuff()
     {
         if (!await OnlineFunctionality.Context.ServerOnline())
         {
             return;
         }
 
-        _initialized = true;
         _pageAmount = Mathf.CeilToInt(await OnlineFunctionality.Context.GetLeaderboardLength() / (float)Entries.Length);
+        RefreshPageText();
 
         try
         {
@@ -54,11 +53,6 @@ public class JollyTerminalLeaderboards : MonoBehaviour
 
     public void OnEnable()
     {
-        if (!_initialized)
-        {
-            SetStuff();
-        }
-
         foreach (LeaderboardEntry entry in Entries)
         {
             entry.gameObject.SetActive(false);
@@ -74,14 +68,20 @@ public class JollyTerminalLeaderboards : MonoBehaviour
             return;
         }
 
+        RefreshPageText();
         SetPage(_page + amount);
     }
 
     public void SetPage(int page)
     {
         _page = page;
-        PageText.text = (_page + 1) + " / " + _pageAmount;
+
         _lastRefresh = StartCoroutine(RefreshPage());
+    }
+
+    private void RefreshPageText()
+    {
+        PageText.text = (_page + 1) + " / " + (_pageAmount == null ? "-" : _pageAmount.ToString());
     }
 
     public void JumpToSelf()
@@ -106,12 +106,12 @@ public class JollyTerminalLeaderboards : MonoBehaviour
 
     public void OpenWebsite()
     {
-        Application.OpenURL("https://delivery.wafflethings.dev/");
+        Application.OpenURL(OnlineFunctionality.LastFetchedContent.GetString("constants.website"));
     }
 
     public void JoinDiscord()
     {
-        Application.OpenURL("https://discord.gg/RFwAcDaH");
+        Application.OpenURL(OnlineFunctionality.LastFetchedContent.GetString("constants.discord"));
     }
 
     private IEnumerator RefreshPage()
@@ -138,7 +138,8 @@ public class JollyTerminalLeaderboards : MonoBehaviour
         }
 
         Task<OnlineScore[]> scoreTask = GetPage(_page, Entries.Length);
-        yield return new WaitUntil(() => scoreTask.IsCompleted);
+        Task setStuff = SetStuff();
+        yield return new WaitUntil(() => scoreTask.IsCompleted && setStuff.IsCompleted);
         _pageScores = scoreTask.Result;
 
         for (int i = 0; i < Entries.Length; i++)

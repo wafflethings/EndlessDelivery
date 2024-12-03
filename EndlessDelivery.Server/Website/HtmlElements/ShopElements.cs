@@ -28,11 +28,11 @@ public static class ShopElements
         builder.AppendHtml("<div class=\"item-titles-holder\">");
 
         builder.AppendHtml("<p class=\"item-title scale-font-to-fit\">");
-        builder.Append(ContentController.CurrentContent.GetLocalisedString(item.Descriptor.Name));
+        builder.Append(ContentController.CurrentContent.GetString(item.Descriptor.Name));
         builder.AppendHtml("</p>");
 
         builder.AppendHtml("<p class=\"item-category\">");
-        builder.Append(ContentController.CurrentContent.GetLocalisedString("category." + item.Descriptor.Type.ToString().ToLower()));
+        builder.Append(ContentController.CurrentContent.GetString("category." + item.Descriptor.Type.ToString().ToLower()));
         builder.AppendHtml("</p>");
         builder.AppendHtml("</div>");
 
@@ -54,7 +54,7 @@ public static class ShopElements
         builder.AppendHtml($"<div id=\"owned-price-text\" style=\"{ownedStyle}\">");
         builder.AppendHtml("<div class=\"price-holder\">");
         builder.AppendHtml("<p class=\"price-text\">");
-        builder.Append(ContentController.CurrentContent.GetLocalisedString("shop.owned"));
+        builder.Append(ContentController.CurrentContent.GetString("shop.owned"));
         builder.AppendHtml("</p>");
         builder.AppendHtml("</div>");
         builder.AppendHtml("</div>");
