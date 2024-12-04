@@ -42,8 +42,9 @@ public class ScoreManager
         try
         {
             OnlineScore submittedScore = await OnlineFunctionality.Context.SubmitScore(new SubmitScoreData(score, difficulty));
+            OnlineScore bestScore = await OnlineFunctionality.Context.GetBestScore(SteamClient.SteamId);
             Score lifetimeStats = await OnlineFunctionality.Context.GetLifetimeStats(SteamClient.SteamId);
-            AchievementManager.CheckOnline(submittedScore, lifetimeStats);
+            AchievementManager.CheckOnline(submittedScore, bestScore, lifetimeStats);
             return submittedScore;
         }
         catch (Exception ex)

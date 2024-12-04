@@ -76,4 +76,6 @@ public class Score
     public static bool operator <(Score a, Score b) => IsLargerThanOtherScore(b, a);
 
     [JsonIgnore] public int MoneyGain => ((Deliveries / 4) * 10) + (Kills / 5);
+
+    public override string ToString() => $"[Score {Rooms} {Kills} {Deliveries} {Time}]";
 }

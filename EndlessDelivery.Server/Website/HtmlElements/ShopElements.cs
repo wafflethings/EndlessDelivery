@@ -10,7 +10,7 @@ public static class ShopElements
     public static void AppendShopRotation(this HtmlContentBuilder builder, UserModel user)
     {
         builder.AppendHtml("<div class=\"item-card-holder\">");
-        foreach (string itemId in ContentController.CurrentContent.GetActiveShopRotation().ItemIds)
+        foreach (string itemId in ContentController.CurrentContent.ActiveShopRotation.ItemIds)
         {
             if (ContentController.CurrentContent.TryGetItem(itemId, out Item item))
             {

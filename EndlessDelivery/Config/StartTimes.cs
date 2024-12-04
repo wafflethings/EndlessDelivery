@@ -65,6 +65,7 @@ public class StartTimes
             {
                 if (WaveToTime.ContainsKey(wave))
                 {
+
                     if (time > WaveToTime[wave])
                     {
                         WaveToTime[wave] = time;
@@ -95,6 +96,11 @@ public class StartTimes
             if (!StartableWaves.Contains(room))
             {
                 throw new Exception("Room needs to be in startablewaves.");
+            }
+
+            if (WaveToTime[room] > GameManager.MaxTime)
+            {
+                WaveToTime[room] = GameManager.MaxTime;
             }
 
             return WaveToTime[room];

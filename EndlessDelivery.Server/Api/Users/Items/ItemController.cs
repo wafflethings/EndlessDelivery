@@ -81,7 +81,7 @@ public class ItemController : ControllerBase
     }
 
     [HttpGet("active_shop")]
-    public async Task<string> ActiveShopRotation() => JsonConvert.SerializeObject(ContentController.CurrentContent.GetActiveShopRotation());
+    public async Task<string> ActiveShopRotation() => JsonConvert.SerializeObject(ContentController.CurrentContent.ActiveShopRotation);
 
     [HttpPost("buy_item")]
     public async Task<ObjectResult> BuyItem()
@@ -97,7 +97,7 @@ public class ItemController : ControllerBase
             return StatusCode(StatusCodes.Status400BadRequest, $"Item not found with id {itemId}");
         }
 
-        if (!ContentController.CurrentContent.GetActiveShopRotation().ItemIds.Contains(itemId))
+        if (!ContentController.CurrentContent.ActiveShopRotation.ItemIds.Contains(itemId))
         {
             return StatusCode(StatusCodes.Status400BadRequest, "Item ID not in active rotation.");
         }

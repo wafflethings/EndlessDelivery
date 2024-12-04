@@ -15,7 +15,7 @@ public class AchievementManager
 {
     public static SaveFile<List<string>> OwnedAchievements = SaveFile.RegisterFile(new SaveFile<List<string>>("dont_show_achs.json", Plugin.Name));
 
-    public static void CheckOnline(OnlineScore score, Score lifetimeStats)
+    public static void CheckOnline(OnlineScore score, OnlineScore bestScore, Score lifetimeStats)
     {
         if (!ScoreManager.CanSubmit())
         {
@@ -32,14 +32,14 @@ public class AchievementManager
 
         foreach (ServerSideAchievement serverAchievement in ServerSideAchievement.AllAchievements)
         {
-            Plugin.Log.LogInfo($"Checking ach: {serverAchievement.Id}");
+            Plugin.Log.LogInfo($"Checking ach: {serverAchievement.Id}, {score.Score.MoneyGain}");
 
             if (!OnlineFunctionality.LastFetchedContent.Achievements.TryGetValue(serverAchievement.Id, out Achievement? achievement) || achievement == null || achievement.Disabled)
             {
                 continue;
             }
 
-            if (!OwnedAchievements.Data.Contains(serverAchievement.Id) && serverAchievement.ShouldGrant(score, lifetimeStats))
+            if (!OwnedAchievements.Data.Contains(serverAchievement.Id) && serverAchievement.ShouldGrant(score, bestScore, lifetimeStats))
             {
                 OwnedAchievements.Data.Add(serverAchievement.Id);
                 AchievementHud.Instance.AddAchievement(achievement);

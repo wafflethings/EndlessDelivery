@@ -155,6 +155,24 @@ namespace EndlessDelivery.Server.Api.Users
             return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(userModel.LifetimeStats));
         }
 
+        [HttpGet("get_best_score")]
+        public async Task<ObjectResult> GetBestScore(ulong steamId)
+        {
+            if (!SteamUser.TryGetPlayer(steamId, out SteamUser steamUser))
+            {
+                return StatusCode(StatusCodes.Status404NotFound, $"Player {steamId} not found");
+            }
+
+            UserModel? userModel = await steamUser.GetUserModel();
+
+            if (userModel == null)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, $"Server couldn't find usermodel for {steamId}");
+            }
+
+            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(userModel.GetBestScore()));
+        }
+
         [HttpGet("clear_token")]
         public async Task<StatusCodeResult> ClearToken()
         {

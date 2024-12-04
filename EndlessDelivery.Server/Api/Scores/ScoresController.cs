@@ -120,20 +120,27 @@ namespace EndlessDelivery.Server.Api.Scores
                 SteamId = user.SteamId,
                 Score = scoreRequest.Score,
                 Difficulty = scoreRequest.Difficulty,
-                Date = DateTime.UtcNow
+                Date = DateTime.UtcNow,
+                Index = int.MaxValue,
+                CountryIndex = int.MaxValue
             };
 
-            user.LifetimeStats += newScore.Score;
+            user.LifetimeStats += newScore.Score - new Score(newScore.Score.StartRoom, 0, 0, 0);
             user.Country = HttpContext.GetCountry();
             user.PremiumCurrency += newScore.Score.MoneyGain;
             await using DeliveryDbContext dbContext = new();
             dbContext.Users.Update(user);
 
-            OnlineScore? userOnlineScore = await user.GetBestScore();
+            OnlineScore? userOnlineScore = await user.GetBestScore() ?? newScore;
+
             if (userOnlineScore != null && userOnlineScore.Score > scoreRequest.Score || newScore.Difficulty < 3)
             {
+                if (userOnlineScore != null)
+                {
+                    user.CheckOnlineAchievements(newScore, userOnlineScore, user.LifetimeStats);
+                }
                 await dbContext.SaveChangesAsync();
-                return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(userOnlineScore));
+                return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(newScore));
             }
 
             if (await dbContext.Scores.AnyAsync(score => score.SteamId == user.SteamId))
@@ -144,14 +151,11 @@ namespace EndlessDelivery.Server.Api.Scores
             {
                 dbContext.Scores.Add(newScore);
             }
-
             await dbContext.SaveChangesAsync();
-            await SetIndexes();
 
-            OnlineScore score = await user.GetBestScore();
-            await using DeliveryDbContext dbContext2 = new(); // this sucks TODO replace this
-            await user.CheckOnlineAchievements(score, dbContext2.Users.Find(user.SteamId).LifetimeStats);
-            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(score));
+            await SetIndexes();
+            user.CheckOnlineAchievements(newScore, userOnlineScore, user.LifetimeStats);
+            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(userOnlineScore));
         }
 
         [HttpGet("force_reset_indexes")]

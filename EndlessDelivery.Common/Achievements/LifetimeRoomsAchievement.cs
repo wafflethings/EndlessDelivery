@@ -9,7 +9,7 @@ public class LifetimeRoomsAchievement : ServerSideAchievement
 
     public override string Id => _id;
 
-    public override bool ShouldGrant(OnlineScore score, Score lifetimeStats) => lifetimeStats.Rooms >= _rooms;
+    public override bool ShouldGrant(OnlineScore score, OnlineScore bestScore, Score lifetimeStats) => lifetimeStats.Rooms >= _rooms;
 
     public LifetimeRoomsAchievement(string id, int rooms)
     {

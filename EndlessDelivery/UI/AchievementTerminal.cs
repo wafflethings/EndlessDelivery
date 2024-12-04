@@ -81,7 +81,14 @@ public class AchievementTerminal : MonoBehaviour
             items.Add(item);
         }
 
-        string unlocksString = items.Count != 0 ? string.Join(", ", items.Select(x => cms.GetString(x.Descriptor.Name))) : cms.GetString("game_ui.achievement_unlocks_nothing");
+        string nothingString = cms.GetString("game_ui.achievement_unlocks_nothing");
+        string individualTemplate = cms.GetString("game_ui.achievement_unlock_individual");
+        string unlocksString = items.Count != 0 ? string.Join(", ", items.Select(x =>
+        {
+            string category = cms.GetString("category." + x.Descriptor.Type.ToString().ToLower()).ToLower();
+            string itemName = cms.GetString(x.Descriptor.Name);
+            return string.Format(individualTemplate, itemName, category);
+        })) : cms.GetString(nothingString);
         _achievementUnlocksText.text = string.Format(cms.GetString("game_ui.achievement_unlocks"), unlocksString);
     }
 }
