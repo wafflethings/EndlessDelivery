@@ -1,4 +1,6 @@
-﻿using EndlessDelivery.Common.ContentFile;
+﻿using System.Security.Cryptography;
+using System.Text;
+using EndlessDelivery.Common.ContentFile;
 using EndlessDelivery.Server.Api.Steam;
 using EndlessDelivery.Server.Website;
 using Microsoft.AspNetCore.Mvc;
@@ -29,18 +31,20 @@ public class ContentController : Controller
     }
 
     [HttpGet("update_required")]
-    public StatusCodeResult ShouldUpdateContent(DateTime lastUpdate)
+    public StatusCodeResult ShouldUpdateContent(string hash)
     {
-        if (lastUpdate < CurrentContent.LastUpdate)
+        if (hash != CurrentContent.Hash)
         {
+            Console.WriteLine("Update");
             return StatusCode(StatusCodes.Status426UpgradeRequired);
         }
 
+        Console.WriteLine("OK");
         return StatusCode(StatusCodes.Status200OK);
     }
 
     [HttpGet("content")]
-    public async Task<ObjectResult> GetContent() => StatusCode(StatusCodes.Status200OK, await Task.Run(() => JsonConvert.SerializeObject(CurrentContent)));
+    public async Task<ObjectResult> GetContent() => StatusCode(StatusCodes.Status200OK, await Task.Run(() => JsonConvert.SerializeObject(CurrentContent, Formatting.None)));
 
     [HttpPost("update")]
     public async Task<ObjectResult> UpdateContent()
@@ -61,8 +65,6 @@ public class ContentController : Controller
         {
             return StatusCode(StatusCodes.Status400BadRequest, "CMS is null on deserialization.");
         }
-
-        deserialized.LastUpdate = DateTime.UtcNow;
 
         CurrentContent = deserialized;
         return StatusCode(StatusCodes.Status204NoContent, null);

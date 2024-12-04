@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Assets;
 using EndlessDelivery.Common;
+using EndlessDelivery.Common.ContentFile;
 using EndlessDelivery.Config;
 using EndlessDelivery.Gameplay.EnemyGeneration;
 using EndlessDelivery.Online;
@@ -13,6 +14,7 @@ using EndlessDelivery.UI;
 using EndlessDelivery.Utils;
 using HarmonyLib;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.AI;
 
 namespace EndlessDelivery.Gameplay;
@@ -20,8 +22,9 @@ namespace EndlessDelivery.Gameplay;
 [HarmonyPatch]
 public class GameManager : MonoSingleton<GameManager>
 {
-    public const float StartTime = 50;
+    public const float StartTime = 45;
     public const float TimeAddLength = 0.5f;
+    public const float MaxTime = 90;
 
     public AudioSource TimeAddSound;
     public RoomPool RoomPool;
@@ -36,7 +39,7 @@ public class GameManager : MonoSingleton<GameManager>
     public Room PreviousRoom { get; private set; }
     public bool TimerActive { get; private set; }
     public int PointsPerWave { get; private set; }
-    public Score CurrentScore => new(RoomsComplete, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed);
+    public Score CurrentScore => new(RoomsComplete, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed, StartTimes.Instance.Data.CurrentTimes.SelectedWave);
 
     public delegate void RoomEvent(Room room);
     public event RoomEvent RoomStarted;
@@ -67,6 +70,28 @@ public class GameManager : MonoSingleton<GameManager>
         EnemyHack.AddToPools(EnemyGroup.Groups[DeliveryEnemyClass.Projectile], EnemyGroup.Groups[DeliveryEnemyClass.Uncommon], EnemyGroup.Groups[DeliveryEnemyClass.Special], EnemyGroup.Groups[DeliveryEnemyClass.Melee]);
     }
 
+    private void SetRoomPool()
+    {
+        DatedRoomPool? pool = OnlineFunctionality.LastFetchedContent.CurrentRoomPool;
+
+        if (pool == null)
+        {
+            Plugin.Log.LogWarning("Pool was null, using fallback");
+            return;
+        }
+
+        string path = OnlineFunctionality.LastFetchedContent.CurrentRoomPool.AssetPath;
+        RoomPool loadedPool = Addressables.LoadAssetAsync<RoomPool>(path).WaitForCompletion();
+
+        if (loadedPool == null)
+        {
+            Plugin.Log.LogWarning($"Loaded pool at {path} was null, using fallback");
+            return;
+        }
+
+        RoomPool = loadedPool;
+    }
+
     private void Update()
     {
         if (GameStarted && GunControl.Instance.activated)
@@ -91,6 +116,11 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void AddTime(float seconds, string reason)
     {
+        if (TimeLeft + seconds > MaxTime)
+        {
+            seconds = Mathf.Round(MaxTime - TimeLeft);
+        }
+
         TimeAddSound?.Play();
         TimerActive = false;
 
@@ -100,9 +130,7 @@ public class GameManager : MonoSingleton<GameManager>
         }
 
         _pauseCoroutine = StartCoroutine(UnpauseTimer());
-
         StyleHUD.Instance.AddPoints(5, $"{reason} <size=20>({seconds}s)</size>");
-
         TimeLeft += seconds;
     }
 
@@ -179,6 +207,7 @@ public class GameManager : MonoSingleton<GameManager>
             return;
         }
 
+        SetRoomPool();
         PresentTimeHud.Instance.gameObject.SetActive(true);
         StatsManager.Instance.GetComponentInChildren<MusicManager>(true).gameObject.SetActive(true);
         MusicManager.Instance.StartMusic();
@@ -209,7 +238,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         //if more rooms, or more deliveries
 
-        if (ScoreManager.CanSubmit)
+        if (ScoreManager.CanSubmit(out List<string> reasons))
         {
             if (!ScoreManager.LocalHighscores.Data.ContainsKey(difficulty) || CurrentScore > ScoreManager.LocalHighscores.Data[difficulty])
             {
@@ -221,7 +250,7 @@ public class GameManager : MonoSingleton<GameManager>
         }
         else
         {
-            HudMessageReceiver.Instance.SendHudMessage("Score not submitting due to other mods, or cheats enabled.");
+            HudMessageReceiver.Instance.SendHudMessage($"Score not submitting due to other mods, or cheats enabled. {string.Join(", ", reasons)}");
             EndScreen.Instance.Appear();
         }
     }
@@ -233,7 +262,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (onlineTask.Result)
         {
-            Task<bool> updateRequiredTask = OnlineFunctionality.Context.UpdateRequired(Plugin.Version);
+            Task<bool> updateRequiredTask = OnlineFunctionality.Context.UpdateRequired();
             yield return new WaitUntil(() => updateRequiredTask.IsCompleted);
 
             if (!updateRequiredTask.Result)

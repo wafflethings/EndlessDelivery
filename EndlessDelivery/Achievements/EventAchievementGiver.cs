@@ -11,7 +11,7 @@ public class EventAchievementGiver : MonoBehaviour
 {
     public void Give(string id)
     {
-        if (!ScoreManager.CanSubmit)
+        if (!ScoreManager.CanSubmit())
         {
             return;
         }

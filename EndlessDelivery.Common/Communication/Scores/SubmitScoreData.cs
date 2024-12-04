@@ -4,12 +4,10 @@ public class SubmitScoreData
 {
     public Score Score;
     public short Difficulty;
-    public string Version;
 
-    public SubmitScoreData(Score score, short difficulty, string version)
+    public SubmitScoreData(Score score, short difficulty)
     {
         Score = score;
         Difficulty = difficulty;
-        Version = version;
     }
 }

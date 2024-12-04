@@ -8,12 +8,12 @@ namespace EndlessDelivery.Api.Requests;
 public static class Content
 {
     private const string CmsRoot = "cms/";
-    private const string UpdateRequiredEndpoint = "update_required?lastUpdate={0}";
+    private const string UpdateRequiredEndpoint = "update_required?hash={0}";
     private const string DownloadCmsEndpoint = "content";
 
-    public static async Task<bool> ContentUpdateRequired(this ApiContext context, DateTime lastDownload)
+    public static async Task<bool> ContentUpdateRequired(this ApiContext context, string hash)
     {
-        HttpResponseMessage response = await context.Client.GetAsync(context.BaseUri + CmsRoot + string.Format(UpdateRequiredEndpoint, lastDownload.ToString("O")));
+        HttpResponseMessage response = await context.Client.GetAsync(context.BaseUri + CmsRoot + string.Format(UpdateRequiredEndpoint, hash));
 
         if (response.IsSuccessStatusCode)
         {

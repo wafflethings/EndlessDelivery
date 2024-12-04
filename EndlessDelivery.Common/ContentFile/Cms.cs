@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
+using System.Text;
 using EndlessDelivery.Common.Inventory.Items;
 using Newtonsoft.Json;
 
@@ -8,6 +10,7 @@ namespace EndlessDelivery.Common.ContentFile;
 
 public class Cms
 {
+    public List<DatedRoomPool> RoomPools = new();
     public Dictionary<string, CalendarReward> CalendarRewards = new();
     public Dictionary<string, Achievement> Achievements = new();
     public Dictionary<string, Banner> Banners = new();
@@ -22,7 +25,60 @@ public class Cms
     public Dictionary<string, WeaponSkinItem> Presents = new();
     public List<ShopRotation> ShopRotations = new();
     public Dictionary<string, string> Strings = new();
-    public DateTime LastUpdate;
+    public Dictionary<string, string> BannedMods = new();
+
+    [JsonIgnore]
+    public string Hash
+    {
+        get
+        {
+            using MD5 md5 = MD5.Create();
+            string jsonContent = JsonConvert.SerializeObject(this, Formatting.None);
+            byte[] bytes = Encoding.UTF8.GetBytes(jsonContent);
+            byte[] hash = md5.ComputeHash(bytes);
+            return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+        }
+    }
+
+    [JsonIgnore] public CalendarReward CurrentCalendarReward => CalendarRewards.FirstOrDefault(x => x.Value.Date == DateTime.UtcNow.Date).Value;
+
+    [JsonIgnore]
+    public ShopRotation ActiveShopRotation
+    {
+        get
+        {
+            foreach (ShopRotation rotation in ShopRotations)
+            {
+                if (rotation.Start > DateTime.UtcNow || (rotation.Start + rotation.Length) < DateTime.UtcNow)
+                {
+                    continue;
+                }
+
+                return rotation;
+            }
+
+            return null;
+        }
+    }
+
+    [JsonIgnore]
+    public DatedRoomPool? CurrentRoomPool
+    {
+        get
+        {
+            DatedRoomPool? selectedPool = null;
+
+            foreach (DatedRoomPool roomPool in RoomPools)
+            {
+                if (selectedPool == null || (roomPool.After > selectedPool.After) && roomPool.After <= DateTime.UtcNow)
+                {
+                    selectedPool = roomPool;
+                }
+            }
+
+            return selectedPool;
+        }
+    }
 
     public string GetString(string id) => Strings.ContainsKey(id) ? Strings[id] : id;
 
@@ -47,31 +103,5 @@ public class Cms
 
         item = null;
         return false;
-    }
-
-    [JsonIgnore] public CalendarReward CurrentCalendarReward => CalendarRewards.FirstOrDefault(x => x.Value.Date == DateTime.UtcNow.Date).Value;
-
-    public ShopRotation GetActiveShopRotation()
-    {
-        List<ShopRotation> allRotations = new();
-        allRotations.AddRange(ShopRotations);
-
-        for (int i = 0; i < allRotations.Count; i++)
-        {
-            ShopRotation rotation = allRotations[i];
-
-            if (rotation.End < DateTime.UtcNow)
-            {
-                allRotations.Remove(rotation);
-                continue;
-            }
-
-            if (rotation.Start <= DateTime.UtcNow)
-            {
-                return rotation;
-            }
-        }
-
-        return ShopRotations[1]; //todo dont
     }
 }

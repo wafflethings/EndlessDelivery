@@ -20,7 +20,7 @@ public class GoblinPortrait : MonoBehaviour
 
     public void OnBreak()
     {
-        if (!ScoreManager.CanSubmit)
+        if (!ScoreManager.CanSubmit())
         {
             return;
         }

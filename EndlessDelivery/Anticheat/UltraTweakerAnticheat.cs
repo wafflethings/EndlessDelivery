@@ -7,24 +7,24 @@ namespace EndlessDelivery.Anticheat;
 
 public class UltraTweakerAnticheat : Anticheat
 {
-    private const string GUID = "waffle.ultrakill.ultratweaker";
+    private const string Guid = "waffle.ultrakill.ultratweaker";
 
-    protected override bool ShouldSubmit
+    protected override bool ShouldSubmit(out string reason)
     {
-        get
+        reason = string.Empty;
+
+        if (!Chainloader.PluginInfos.ContainsKey(Guid))
         {
-            if (!Chainloader.PluginInfos.ContainsKey(GUID))
-            {
-                return true;
-            }
-
-            if (HasBadTweaks())
-            {
-                return false;
-            }
-
             return true;
         }
+
+        if (HasBadTweaks())
+        {
+            reason = "Banned UltraTweaker tweak enabled";
+            return false;
+        }
+
+        return true;
     }
 
     [MethodImpl(MethodImplOptions.NoInlining)]
@@ -32,7 +32,7 @@ public class UltraTweakerAnticheat : Anticheat
     {
         foreach (Tweak tweak in UltraTweaker.UltraTweaker.AllTweaks.Values)
         {
-            TweakMetadata meta = Attribute.GetCustomAttribute(tweak.GetType(), typeof(TweakMetadata)) as TweakMetadata;
+            TweakMetadata? meta = Attribute.GetCustomAttribute(tweak.GetType(), typeof(TweakMetadata)) as TweakMetadata;
             if (tweak.IsEnabled && !(meta?.AllowCG ?? false))
             {
                 return true;
