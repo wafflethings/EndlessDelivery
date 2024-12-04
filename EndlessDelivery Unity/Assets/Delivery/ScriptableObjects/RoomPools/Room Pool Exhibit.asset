@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 2071588819, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
-  m_Name: Room Pool
+  m_Name: Room Pool Exhibit
   m_EditorClassIdentifier: 
   Rooms:
   - {fileID: 11400000, guid: ee3eb973cd702bc4aaf249ad835018db, type: 2}
-  - {fileID: 11400000, guid: 26b53189f2ae74e4192e4628cdd2ba7e, type: 2}
+  - {fileID: 11400000, guid: b60c8aa2a1f9f4344b4038eb99d579b5, type: 2}
   - {fileID: 11400000, guid: fde2c6efd7f07214aaf38d2a424564d2, type: 2}
   - {fileID: 11400000, guid: 603b9f15b90366b49af9fe639c0d64b1, type: 2}
   - {fileID: 11400000, guid: e5b7f82f009f7504bbc9eeae94b1cff0, type: 2}
@@ -26,3 +26,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dd35ceba3ffc2f74283eed3e591ae128, type: 2}
   - {fileID: 11400000, guid: 13d846925eb721f41b0a511674d240d4, type: 2}
   - {fileID: 11400000, guid: c60bf4df3aff5d44ea07552a07db2062, type: 2}
+  - {fileID: 11400000, guid: 26b53189f2ae74e4192e4628cdd2ba7e, type: 2}
