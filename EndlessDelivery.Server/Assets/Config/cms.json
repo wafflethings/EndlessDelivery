@@ -912,7 +912,7 @@
             "Descriptor": {
                 "Type": 1,
                 "Id": "revolver_gold",
-                "Name": "item.revolver_gold",
+                "Name": "item.misc_gold",
                 "ShopPrice": 0,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Revolvers/gold-icon.png",
@@ -924,7 +924,7 @@
             "Descriptor": {
                 "Type": 1,
                 "Id": "revolver_silver",
-                "Name": "item.revolver_silver",
+                "Name": "item.misc_silver",
                 "ShopPrice": 0,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Revolvers/silver-icon.png",
@@ -936,7 +936,7 @@
             "Descriptor": {
                 "Type": 1,
                 "Id": "revolver_bronze",
-                "Name": "item.revolver_bronze",
+                "Name": "item.misc_bronze",
                 "ShopPrice": 0,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Revolvers/bronze-icon.png",
