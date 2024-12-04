@@ -170,7 +170,7 @@ namespace EndlessDelivery.Server.Api.Users
                 return StatusCode(StatusCodes.Status500InternalServerError, $"Server couldn't find usermodel for {steamId}");
             }
 
-            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(userModel.GetBestScore()));
+            return StatusCode(StatusCodes.Status200OK, JsonConvert.SerializeObject(await userModel.GetBestScore()));
         }
 
         [HttpGet("clear_token")]
