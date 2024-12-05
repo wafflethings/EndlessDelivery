@@ -840,7 +840,7 @@
                 "Type": 0,
                 "Id": "banner_grotto",
                 "Name": "item.banner_grotto",
-                "ShopPrice": 0,
+                "ShopPrice": 150,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Banners/grotto-preview.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Grotto/grotto-preview.png"
@@ -1337,9 +1337,9 @@
         "calendar.500stars": "500 STARS",
         "calendar.day1_desc": "Five hundred free <color=orange>stars</color> to spend in the shop. More interesting rewards are coming, this is just because hardly anyone will play on the first day.\n\nReward for day 1.",
         "calendar.day2_desc": "A snowman-themed <color=orange>shotgun</color> which smiles idly as it watches you consume the blood of your enemies. Textured by <color=orange>zelzmiy</color> and <color=orange>Fri</color>.\n\nReward for day 2.",
-        "calendar.day3_desc": "A candy cane patterned <color=orange>banner</color>. By the way, I forgot to implement a <color=orange>update notification</color>, so if you are on the first version (2.0.1) please update.\\n\\nReward for day 3.",
+        "calendar.day3_desc": "A candy cane patterned <color=orange>banner</color>. By the way, I forgot to implement a <color=orange>update notification</color>, so if you are on the first version (2.0.1) please update.\n\nReward for day 3.",
         "calendar.day4_desc": "<color=orange>Florp</color>.\n\n\n\n\nReward for day 4.",
-        "calendar.day5_desc": "Exhibit is level designed by <color=orange>Fri</color>, where you search for presents in a fine art gallery. A <color=orange>banner</color> of the level is included.\\n\\nReward for day 5.",
+        "calendar.day5_desc": "Exhibit is level designed by <color=orange>Fri</color>, where you search for presents in a fine art gallery. A <color=orange>banner</color> of the level is included.\n\nReward for day 5.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
