@@ -14,6 +14,7 @@ public class EnemySpawnPoint : MonoBehaviour
 
     [HideInInspector] public GameObject Enemy;
     [HideInInspector] public Room Room;
+    [HideInInspector] public bool Radiant;
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class EnemySpawnPoint : MonoBehaviour
 
     private void OnEnable()
     {
-        Room.Enemies.Add(Instantiate(Enemy, transform).GetComponent<EnemyIdentifier>());
+        EnemyIdentifier enemy = Instantiate(Enemy, transform).GetComponent<EnemyIdentifier>();
+        GameManager.Instance.RegisterEnemySpawned(enemy);
     }
 }

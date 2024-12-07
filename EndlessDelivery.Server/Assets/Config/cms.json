@@ -93,33 +93,33 @@
         "day6_2024": {
             "IsLastDay": false,
             "Date": "2024-12-06T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "calendar.500stars",
+            "Description": "calendar.day6_desc",
+            "Subtitle": "category.currency",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/currency-reward.png",
+                "AddressablePath": "Assets/Delivery/Textures/currency-reward.png"
             },
             "Id": "day6_2024",
             "HasItem": false,
             "ItemId": "",
             "HasCurrency": true,
-            "CurrencyAmount": 0
+            "CurrencyAmount": 500
         },
         "day7_2024": {
             "IsLastDay": false,
             "Date": "2024-12-07T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.misc_gingerbread",
+            "Description": "calendar.day7_desc",
+            "Subtitle": "category.rail",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Railcannons/gingerbread-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Railcannon/Gingerbread/gingerbread-icon.png"
             },
             "Id": "day7_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "railcannon_gingerbread",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day8_2024": {
@@ -1295,8 +1295,17 @@
             "Length": "2.00:00:00"
         },
         {
-            "ItemIds": [],
+            "ItemIds": [
+                "banner_screenfield",
+                "banner_greencane",
+                "nailgun_gingerbread"
+            ],
             "Start": "2024-12-07T00:00:00Z",
+            "Length": "2.00:00:00"
+        },
+        {
+            "ItemIds": [],
+            "Start": "2024-12-09T00:00:00Z",
             "Length": "100000.00:00:00"
         }
     ],
@@ -1340,6 +1349,8 @@
         "calendar.day3_desc": "A candy cane patterned <color=orange>banner</color>. By the way, I forgot to implement a <color=orange>update notification</color>, so if you are on the first version (2.0.1) please update.\n\nReward for day 3.",
         "calendar.day4_desc": "<color=orange>Florp</color>.\n\n\n\n\nReward for day 4.",
         "calendar.day5_desc": "Exhibit is level designed by <color=orange>Fri</color>, where you search for presents in a fine art gallery. A <color=orange>banner</color> of the level is included.\n\nReward for day 5.",
+        "calendar.day6_desc": "Five hundred free <color=orange>stars</color> to spend in the shop. It's boring filler, but if I do all the skins at once I'll run out. Better things will be tomorrow.\n\nReward for day 6.",
+        "calendar.day7_desc": "A sweet railcannon skin designed by <color=orange>Takovic</color>, made entirely out of gingerbread and candy canes, and covered in multicoloured sprinkes.\n\nReward for day 7.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",

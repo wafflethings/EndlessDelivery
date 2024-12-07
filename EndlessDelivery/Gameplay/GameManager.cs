@@ -8,6 +8,7 @@ using EndlessDelivery.Common;
 using EndlessDelivery.Common.ContentFile;
 using EndlessDelivery.Config;
 using EndlessDelivery.Gameplay.EnemyGeneration;
+using EndlessDelivery.Gameplay.SpecialWaves;
 using EndlessDelivery.Online;
 using EndlessDelivery.ScoreManagement;
 using EndlessDelivery.UI;
@@ -22,9 +23,12 @@ namespace EndlessDelivery.Gameplay;
 [HarmonyPatch]
 public class GameManager : MonoSingleton<GameManager>
 {
+    private static SpecialWave[] s_specialWaves = [new Radiant(), new FireworkWave()];
     public const float StartTime = 45;
     public const float TimeAddLength = 0.5f;
     public const float MaxTime = 90;
+    public const int SpecialWaveStart = 25;
+    public const int SpecialWaveInterval = 5;
 
     public AudioSource TimeAddSound;
     public RoomPool RoomPool;
@@ -42,13 +46,18 @@ public class GameManager : MonoSingleton<GameManager>
     public Score CurrentScore => new(RoomsComplete, StatsManager.Instance.kills, DeliveredPresents, TimeElapsed, StartTimes.Instance.Data.CurrentTimes.SelectedWave);
 
     public delegate void RoomEvent(Room room);
-    public event RoomEvent RoomStarted;
-    public event RoomEvent RoomCleared;
-    public event RoomEvent RoomComplete;
+    public event RoomEvent? RoomStarted;
+    public event RoomEvent? RoomCleared;
+    public event RoomEvent? RoomComplete;
+
+    public delegate void EnemyEvent(EnemyIdentifier enemy);
+
+    public event EnemyEvent? EnemySpawned;
 
     [SerializeField] private Vector3 _baseRoomPosition = new(0, 0, 100);
     private Coroutine _pauseCoroutine;
     private List<RoomData> _remainingRooms = new();
+    private List<SpecialWave> _remainingSpecialWaves = new();
 
     private const int StartingPoints = 15;
     private const int MaxPointGain = 15;
@@ -112,6 +121,22 @@ public class GameManager : MonoSingleton<GameManager>
                 AddTime(6, "<color=orange>FULL CLEAR</color>");
             }
         }
+    }
+
+    public void RegisterEnemySpawned(EnemyIdentifier enemy)
+    {
+        CurrentRoom.Enemies.Add(enemy);
+        EnemySpawned?.Invoke(enemy);
+    }
+
+    public SpecialWave PickSpecialWave()
+    {
+        if (_remainingSpecialWaves.Count == 0)
+        {
+            _remainingSpecialWaves.AddRange(s_specialWaves);
+        }
+
+        return _remainingSpecialWaves.Pick();
     }
 
     public void AddTime(float seconds, string reason)
