@@ -4,6 +4,7 @@ using System.Linq;
 using AtlasLib.Utils;
 using EndlessDelivery.Components;
 using EndlessDelivery.Gameplay.EnemyGeneration;
+using EndlessDelivery.Gameplay.SpecialWaves;
 using EndlessDelivery.Utils;
 using HarmonyLib;
 using UnityEngine;
@@ -37,7 +38,8 @@ public class Room : MonoBehaviour
     private int _pointsLeft;
     private int _meleeSpawnsUsed;
     private int _projectileSpawnsUsed;
-    private int _wavesSinceSpecial;
+    private int _wavesSinceSpecial; // this is special ENEMIES
+    private SpecialWave? _specialWave;
 
     public bool AllEnemiesSpawned => Arena.currentEnemy == Arena.enemies.Length;
     public bool ChimneysDone => AmountDelivered.All(kvp => PresentColourAmounts[(int)kvp.Key] <= kvp.Value);
@@ -58,6 +60,11 @@ public class Room : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        _specialWave?.End();
+    }
+
     private void CompleteRoom()
     {
         foreach (Chimney chimney in AllChimneys.Values)
@@ -73,8 +80,11 @@ public class Room : MonoBehaviour
             PresentColourAmounts = GenerationEquations.DistributeBetween(4, GenerationEquations.PresentAmount(GameManager.Instance.RoomsComplete));
         }
 
+        _pointsLeft = GameManager.Instance.PointsPerWave;
+
         DecideChimneyColours();
         DecidePresentColours();
+        DecideSpecialWave();
         DecideSpawnPointEnemies();
 
         for (int i = 0; i < PresentColourAmounts.Length; i++)
@@ -99,6 +109,18 @@ public class Room : MonoBehaviour
                 EnvColliders.Add(col);
             }
         }
+    }
+
+    private void DecideSpecialWave()
+    {
+        if (GameManager.Instance.RoomsComplete - 1 < GameManager.SpecialWaveStart || GameManager.Instance.RoomsComplete % GameManager.SpecialWaveInterval != 0)
+        {
+            return;
+        }
+
+        _specialWave = GameManager.Instance.PickSpecialWave();
+        _specialWave.Start();
+        _pointsLeft -= _specialWave.Cost;
     }
 
     private void DecideChimneyColours()
@@ -147,8 +169,6 @@ public class Room : MonoBehaviour
 
     private void DecideSpawnPointEnemies()
     {
-        _pointsLeft = GameManager.Instance.PointsPerWave;
-
         List<EnemySpawnPoint> projectileSpawns = SpawnPoints.Where(sp => sp.Class == DeliveryEnemyClass.Projectile).ShuffleAndToList();
         List<EnemySpawnPoint> meleeSpawns = SpawnPoints.Where(sp => sp.Class == DeliveryEnemyClass.Melee).ShuffleAndToList();
 

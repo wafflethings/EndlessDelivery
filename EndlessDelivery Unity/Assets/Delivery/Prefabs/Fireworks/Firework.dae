@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.2.0 commit date:2022-06-08, commit time:10:22, hash:e05e1e369187</authoring_tool>
+    </contributor>
+    <created>2024-12-07T19:52:34</created>
+    <modified>2024-12-07T19:52:34</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="Projectile-effect">
+      <profile_COMMON>
+        <newparam sid="newfirework_png-surface">
+          <surface type="2D">
+            <init_from>newfirework_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="newfirework_png-sampler">
+          <sampler2D>
+            <source>newfirework_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="newfirework_png-sampler" texcoord="UVChannel_1"/>
+            </diffuse>
+            <reflectivity>
+              <float sid="specular">1</float>
+            </reflectivity>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+    <effect id="AltarUnlitRed-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <color sid="diffuse">0.1137255 0.1137255 0.1137255 1</color>
+            </diffuse>
+            <reflectivity>
+              <float sid="specular">1</float>
+            </reflectivity>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="newfirework_png" name="newfirework_png">
+      <init_from>newfirework.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="Projectile-material" name="Projectile">
+      <instance_effect url="#Projectile-effect"/>
+    </material>
+    <material id="AltarUnlitRed-material" name="AltarUnlitRed">
+      <instance_effect url="#AltarUnlitRed-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Mesh-mesh" name="Mesh">
+      <mesh>
+        <source id="Mesh-mesh-positions">
+          <float_array id="Mesh-mesh-positions-array" count="78">-4.71421e-6 -0.07556653 0.6349049 -4.72742e-6 0.07556653 0.6349049 0.07556486 0 0.02348935 0 0 0 0.3078955 1.98969e-7 1.710526 0 1.48126e-7 2.257897 0 0.3078957 1.710526 -0.07556813 0 0.02348935 -0.3078955 1.45135e-7 1.710526 0 -0.3078956 1.710526 0.07556486 0 0.6349049 -0.07556813 0 0.6349049 0.07556486 0 0.6330423 -1.65261e-6 0.07556658 0.6330423 0.196875 0 0.6237017 0 0.1968752 0.6237017 -0.07556813 0 0.6330423 -0.196875 0 0.6237017 -1.6394e-6 -0.07556647 0.6330423 0 -0.196875 0.6237017 0.196875 1.82413e-7 1.675001 0 0.1968752 1.675001 -0.196875 1.47991e-7 1.675001 0 -0.1968749 1.675001 -4.71421e-6 -0.07556647 0.02348935 -4.73342e-6 0.07556653 0.02348935</float_array>
+          <technique_common>
+            <accessor source="#Mesh-mesh-positions-array" count="26" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Mesh-mesh-normals">
+          <float_array id="Mesh-mesh-normals-array" count="123">0.2968398 0 -0.9549273 1.62876e-5 -2.85459e-7 -1 -9.40673e-6 0.2968333 -0.9549293 -0.296828 -1.78011e-7 -0.954931 -9.35051e-6 -0.2968338 -0.9549292 0.6570416 0.6570414 0.3695848 -0.6570416 0.6570414 0.3695849 -0.6570415 -0.6570415 0.3695849 0.6570419 -0.6570412 0.3695848 0.7070924 0.7071213 0 0.7070925 0.7071211 0 0.7070925 0.7071211 0 0.7070924 0.7071213 0 -0.7071213 0.7070923 0 -0.7071213 0.7070924 0 -0.7071214 0.7070923 0 -0.7071213 0.7070922 0 -0.7071212 -0.7070924 0 -0.7071214 -0.7070922 0 -0.7071214 -0.7070922 0 -0.7071212 -0.7070924 0 0.7070928 -0.7071208 0 0.7070928 -0.7071208 0 0.7070927 -0.707121 0 0.7070927 -0.707121 0 0.6466878 0 -0.7627549 0.8014882 0 -0.5980108 0 0.8014881 -0.598011 -7.56196e-7 0.6466867 -0.7627558 -0.8014877 0 -0.5980113 -0.646687 1.51239e-7 -0.7627556 -5.10432e-7 -0.6466868 -0.7627557 0 -0.8014882 -0.5980108 0.3657129 3.13371e-5 -0.9307278 3.35872e-5 -0.3671807 -0.9301497 3.25739e-5 0.3671807 -0.9301497 -0.3696254 3.15905e-5 -0.9291809 0.3047635 0 -0.9524282 -7.77107e-7 -0.3047631 -0.9524283 -1.13289e-6 0.3047632 -0.9524282 -0.304763 0 -0.9524282</float_array>
+          <technique_common>
+            <accessor source="#Mesh-mesh-normals-array" count="41" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Mesh-mesh-map-0">
+          <float_array id="Mesh-mesh-map-0-array" count="240">0.3583028 0.600013 0.3054168 0.5471252 0.3583028 0.4942354 0.3583028 0.4942354 0.3054168 0.5471252 0.2525288 0.4942356 0.2525288 0.4942356 0.3054168 0.5471252 0.2525253 0.6000096 0.2525253 0.6000096 0.3054168 0.5471252 0.3583028 0.600013 0.7602111 0.5744469 0.5613372 0.9989179 0.3624635 0.5744469 0.7602111 0.5744469 0.5613372 0.9989179 0.3624635 0.5744469 0.7602111 0.5744469 0.5613372 0.9989179 0.3624635 0.5744469 0.7602111 0.5744469 0.5613372 0.9989179 0.3624635 0.5744469 0.2524524 0.9999062 0.2524524 0.5999061 0.3585184 0.5999061 0.3585184 0.5999061 0.3585184 0.9999062 0.2524524 0.9999062 0.3585184 0.9999062 0.2524524 0.9999062 0.2524524 0.5999061 0.2524524 0.5999061 0.3585184 0.5999061 0.3585184 0.9999062 0.3585184 0.5999061 0.3585184 0.9999062 0.2524524 0.9999062 0.2524524 0.9999062 0.2524524 0.5999061 0.3585184 0.5999061 0.3585184 0.9999062 0.2524524 0.9999062 0.2524524 0.5999061 0.2524524 0.5999061 0.3585184 0.5999061 0.3585184 0.9999062 0 0.9999313 0 0.2504975 0.2493366 0.2504975 0.2493366 0.2504975 0.2493367 0.9999315 0 0.9999313 0 0.9999313 0 0.2504975 0.2501118 0.2504975 0.2501118 0.2504975 0.2501118 0.9999315 0 0.9999313 0.2495828 0.9999315 0 0.9999313 0 0.2504975 0 0.2504975 0.2495828 0.2504975 0.2495828 0.9999315 0.2508869 0.9999315 0 0.9999313 0 0.2504975 0 0.2504975 0.2508869 0.2504975 0.2508869 0.9999315 0.1725164 0.1729387 2.25e-4 0.2499266 0.07710456 0.1728703 0.2494952 5.26428e-4 0.1725563 0.1728391 0.1724604 0.0774281 3.44569e-4 7.27296e-4 0.172464 0.07748246 0.07727664 0.07763767 0.07710456 0.1728703 3.0117e-4 7.72238e-4 0.07723325 0.07768249 0.4375874 0.2551253 0.3615279 0.5760647 0.3615279 0.1770972 0.3615279 0.5760647 0.6843798 0.498989 0.7604395 0.5770173 0.6843798 0.498989 0.7604395 0.1780498 0.7604395 0.5770173 0.7604395 0.1780498 0.4375874 0.2551253 0.3615279 0.1770972 0.1725164 0.1729387 0.2495261 0.2499266 2.25e-4 0.2499266 0.2494952 5.26428e-4 0.2495661 0.2498271 0.1725563 0.1728391 3.44569e-4 7.27296e-4 0.2494985 5.81145e-4 0.172464 0.07748246 0.07710456 0.1728703 2.25e-4 0.2499266 3.0117e-4 7.72238e-4 0.4375874 0.2551253 0.4394161 0.5000252 0.3615279 0.5760647 0.3615279 0.5760647 0.4394161 0.5000252 0.6843798 0.498989 0.6843798 0.498989 0.682551 0.2540896 0.7604395 0.1780498 0.7604395 0.1780498 0.682551 0.2540896 0.4375874 0.2551253</float_array>
+          <technique_common>
+            <accessor source="#Mesh-mesh-map-0-array" count="120" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Mesh-mesh-vertices">
+          <input semantic="POSITION" source="#Mesh-mesh-positions"/>
+        </vertices>
+        <triangles material="Projectile-material" count="40">
+          <input semantic="VERTEX" source="#Mesh-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Mesh-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#Mesh-mesh-map-0" offset="2" set="0"/>
+          <p>2 0 0 3 1 1 25 2 2 25 2 3 3 1 4 7 3 5 7 3 6 3 1 7 24 4 8 24 4 9 3 1 10 2 0 11 6 5 12 5 5 13 4 5 14 8 6 15 5 6 16 6 6 17 9 7 18 5 7 19 8 7 20 4 8 21 5 8 22 9 8 23 10 9 24 2 10 25 25 11 26 25 11 27 1 12 28 10 9 29 11 13 30 1 14 31 25 15 32 25 15 33 7 16 34 11 13 35 24 17 36 0 18 37 11 19 38 11 19 39 7 20 40 24 17 41 10 21 42 0 22 43 24 23 44 24 23 45 2 24 46 10 21 47 20 25 48 14 26 49 15 27 50 15 27 51 21 28 52 20 25 53 21 28 54 15 27 55 17 29 56 17 29 57 22 30 58 21 28 59 23 31 60 22 30 61 17 29 62 17 29 63 19 32 64 23 31 65 20 25 66 23 31 67 19 32 68 19 32 69 14 26 70 20 25 71 12 33 72 19 32 73 18 34 74 15 27 75 12 33 76 13 35 77 17 29 78 13 35 79 16 36 80 18 34 81 17 29 82 16 36 83 23 31 84 4 37 85 9 38 86 4 37 87 21 28 88 6 39 89 21 28 90 8 40 91 6 39 92 8 40 93 23 31 94 9 38 95 12 33 96 14 26 97 19 32 98 15 27 99 14 26 100 12 33 101 17 29 102 15 27 103 13 35 104 18 34 105 19 32 106 17 29 107 23 31 108 20 25 109 4 37 110 4 37 111 20 25 112 21 28 113 21 28 114 22 30 115 8 40 116 8 40 117 22 30 118 23 31 119</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Rocket" name="Rocket" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#Mesh-mesh" name="Rocket">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="Projectile-material" target="#Projectile-material">
+                <bind_vertex_input semantic="UVChannel_1" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+              <instance_material symbol="AltarUnlitRed-material" target="#AltarUnlitRed-material">
+                <bind_vertex_input semantic="UVChannel_1" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

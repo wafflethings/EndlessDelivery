@@ -16,5 +16,6 @@ public static class CheatManager
 
         __instance.RegisterExternalCheat(new CompleteRoom());
         __instance.RegisterExternalCheat(new InfiniteTime());
+        __instance.RegisterExternalCheat(new ClearRoom());
     }
 }
