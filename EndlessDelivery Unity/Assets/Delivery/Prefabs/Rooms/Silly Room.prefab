@@ -12074,9 +12074,9 @@ GameObject:
   - component: {fileID: 1331017726474316267}
   - component: {fileID: 2919651560165299086}
   - component: {fileID: 2950642653408333208}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (13)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12089,7 +12089,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754802754787641645}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -15.5, y: 7.375, z: 0.875}
+  m_LocalPosition: {x: -15.5, y: 7.5, z: 0.875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6691919887818320653}
@@ -22335,8 +22335,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 45, y: 25, z: 65}
-  m_Center: {x: 1, y: 2, z: 22}
+  m_Size: {x: 48, y: 40, z: 64}
+  m_Center: {x: 1, y: 8, z: 22}
 --- !u!114 &6697040441629577983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55972,6 +55972,16 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 480569039647132796, guid: 992343c46dcac0f4fb308769f1577e59,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406713847645046527, guid: 992343c46dcac0f4fb308769f1577e59,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2860088389047155754, guid: 992343c46dcac0f4fb308769f1577e59,
         type: 3}
       propertyPath: m_Mesh
@@ -56057,6 +56067,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: WinterTree
       objectReference: {fileID: 0}
+    - target: {fileID: 4094634861224132397, guid: 992343c46dcac0f4fb308769f1577e59,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4234114986091515205, guid: 992343c46dcac0f4fb308769f1577e59,
         type: 3}
       propertyPath: m_Mesh
@@ -56111,6 +56126,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5261499296962556465, guid: 992343c46dcac0f4fb308769f1577e59,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8375883599592979526, guid: 992343c46dcac0f4fb308769f1577e59,
         type: 3}
