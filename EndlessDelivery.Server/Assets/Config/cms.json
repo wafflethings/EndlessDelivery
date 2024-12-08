@@ -141,17 +141,17 @@
         "day9_2024": {
             "IsLastDay": false,
             "Date": "2024-12-09T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.banner_radiant",
+            "Description": "calendar.day9_desc",
+            "Subtitle": "category.banner",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Banners/radiant-preview.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Radiant/radiant-preview.png"
             },
             "Id": "day9_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "banner_radiant",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day10_2024": {
@@ -910,6 +910,70 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Exhibit/exhibit-preview.png"
                 }
             }
+        },
+        "banner_contained": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/exhibit.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Exhibit/exhibit.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_contained",
+                "Name": "item.banner_contained",
+                "ShopPrice": 150,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/contained-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Contained/contained-preview.png"
+                }
+            }
+        },
+        "banner_gnieswood": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/gnieswood.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gnieswood/gnieswood.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_gnieswood",
+                "Name": "item.banner_gnieswood",
+                "ShopPrice": 150,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/gnieswood-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gnieswood/gnieswood-preview.png"
+                }
+            }
+        },
+        "banner_radiant": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/radiant.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Radiant/radiant.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_radiant",
+                "Name": "item.banner_radiant",
+                "ShopPrice": 150,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/radiant-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Radiant/radiant-preview.png"
+                }
+            }
+        },
+        "banner_thepit": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/thepit.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/TDP/thepit.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_thepit",
+                "Name": "item.banner_thepit",
+                "ShopPrice": 150,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/thepit-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/TDP/thepit-preview.png"
+                }
+            }
         }
     },
     "Revolvers": {
@@ -1202,6 +1266,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
+        },
+        "rocket_frosty": {
+            "Descriptor": {
+                "Type": 5,
+                "Id": "rocket_frosty",
+                "Name": "item.misc_frosty",
+                "ShopPrice": 300,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Rockets/frosty-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Rocket/Frosty/frosty-icon.png"
+                }
+            }
         }
     },
     "Presents": {
@@ -1304,6 +1380,15 @@
             "Length": "2.00:00:00"
         },
         {
+            "ItemIds": [
+                "banner_thepit",
+                "present_maurice",
+                "rocket_frosty"
+            ],
+            "Start": "2024-12-09T00:00:00Z",
+            "Length": "2.00:00:00"
+        },
+        {
             "ItemIds": [],
             "Start": "2024-12-09T00:00:00Z",
             "Length": "100000.00:00:00"
@@ -1352,6 +1437,7 @@
         "calendar.day6_desc": "Five hundred free <color=orange>stars</color> to spend in the shop. It's boring filler, but if I do all the skins at once I'll run out. Better things will be tomorrow.\n\nReward for day 6.",
         "calendar.day7_desc": "A sweet railcannon skin designed by <color=orange>Takovic</color>, made entirely out of gingerbread and candy canes, and covered in multicoloured sprinkes.\n\nReward for day 7.",
         "calendar.day8_desc": "A gingerbread slab revolver skin designed by <color=orange>Takovic</color>, coated in icing. New content update tomorrow, by the way, as long as I finish it.\n\nReward for day 8.",
+        "calendar.day9_desc": "A radiant candy cane banner to celebrate <color=orange>DD 2.1</color>, which adds special waves, such as radiance, fireworks, and idol wards, all after room 20.\n\nReward for day 9.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -1418,6 +1504,10 @@
         "item.banner_sunset": "Sunset",
         "item.banner_abyss": "Abyss",
         "item.banner_exhibit": "Exhibit",
+        "item.banner_gnieswood": "Gniesbert",
+        "item.banner_contained": "Contained",
+        "item.banner_radiant": "Canebow",
+        "item.banner_thepit": "The Pit.",
         "item.misc_default": "Default",
         "item.misc_gingerbread": "Gingerbread",
         "item.misc_jumper": "Sweater",
@@ -1427,6 +1517,7 @@
         "item.present_florp": "Florp",
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty the Shotgun",
+        "item.misc_frosty": "Frosty",
         "item.misc_bronze": "Deluxe (Bronze)",
         "item.misc_silver": "Deluxe (Silver)",
         "item.misc_gold": "Deluxe (Gold)"

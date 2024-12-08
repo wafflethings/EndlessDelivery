@@ -36,11 +36,13 @@ public class Ward : MonoBehaviour
                 continue;
             }
 
-            if (eid == null)
+            if (eid == null || eid.dead)
             {
                 line.enabled = false;
+                continue;
             }
 
+            line.enabled = true;
             line.SetPosition(0, transform.position);
             line.SetPosition(1, centre);
         }
@@ -69,6 +71,7 @@ public class Ward : MonoBehaviour
 
     private void OnDestroy()
     {
+        GameManager.Instance.AddTime(2, "<color=#6ebae6>WARD FREED</color>");
         List<EnemyIdentifier> enemiesNew = new();
         enemiesNew.AddRange(_enemies); // Prevent collection modified tbh
 

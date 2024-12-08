@@ -5,7 +5,7 @@ namespace EndlessDelivery.Gameplay.SpecialWaves;
 
 public class WardWave : SpecialWave
 {
-    public override string Name => "WARDED";
+    public override string Name => "DIVINE WARDS";
     public override int Cost => 15;
 
     public override void Start()

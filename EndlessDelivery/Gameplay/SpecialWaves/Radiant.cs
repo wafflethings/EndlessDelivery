@@ -6,7 +6,7 @@ namespace EndlessDelivery.Gameplay.SpecialWaves;
 public class Radiant : SpecialWave
 {
     public override string Name => "RADIANT";
-    public override int Cost => 15;
+    public override int Cost => 10;
 
 
     private static Dictionary<EnemyType, float> s_typeOdds = new()
