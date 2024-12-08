@@ -40,6 +40,11 @@ public class Radiant : SpecialWave
 
     private void OnEnemySpawned(EnemyIdentifier enemy)
     {
+        if (enemy == null)
+        {
+            return;
+        }
+
         if (!s_typeOdds.TryGetValue(enemy.enemyType, out float odds) || Random.value <= odds)
         {
             return;

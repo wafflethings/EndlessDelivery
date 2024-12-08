@@ -152,8 +152,12 @@ public static class CosmeticManager
         return true;
     }
 
-    private static void SetSkin(GameObject weapon, string skinId, bool hasSkin)
+    private static void SetSkin(GameObject weapon, string skinId, bool hasSkin) => SetSkin(weapon, skinId, hasSkin, out _);
+
+    private static void SetSkin(GameObject weapon, string skinId, bool hasSkin, out BaseSkin? skin)
     {
+        skin = null;
+
         if (!hasSkin)
         {
             foreach (GunColorGetter colouredObject in weapon.GetComponentsInChildren<GunColorGetter>())
@@ -162,13 +166,16 @@ public static class CosmeticManager
                 {
                     continue;
                 }
-                renderer.materials = colouredObject.defaultMaterials;
+
+                bool hasCustom = colouredObject.GetPreset() != 0 || colouredObject.hasCustomColors;
+                renderer.materials = hasCustom ? colouredObject.coloredMaterials : colouredObject.defaultMaterials;
             }
 
             return;
         }
 
-        Material? material = SkinDb.GetSkin(skinId)?.Material;
+        skin = SkinDb.GetSkin(skinId);
+        Material? material = skin?.Material;
         Plugin.Log.LogMessage($"Material is {material?.name ?? "null"}");
 
         if (material == null)
@@ -199,7 +206,16 @@ public static class CosmeticManager
     private static void SetShotgunSkin(Shotgun __instance)
     {
         bool hasSkin = WeaponHasSkin(GunType.Shotgun, __instance.variation, out string id);
-        SetSkin(__instance.gameObject, id, hasSkin);
+        SetSkin(__instance.gameObject, id, hasSkin, out BaseSkin? skin);
+
+        if (skin == null)
+        {
+            return;
+        }
+
+        Material[] materials = __instance.heatSinkSMR.materials;
+        materials[2] = skin.Material;
+        __instance.heatSinkSMR.materials = materials;
     }
 
     [HarmonyPatch(typeof(ShotgunHammer), nameof(ShotgunHammer.OnEnable)), HarmonyPostfix]
@@ -213,7 +229,18 @@ public static class CosmeticManager
     private static void SetNailgunSkin(Nailgun __instance)
     {
         bool hasSkin = WeaponHasSkin(__instance.altVersion ? GunType.AltNailgun : GunType.Nailgun, __instance.variation, out string id);
-        SetSkin(__instance.gameObject, id, hasSkin);
+        SetSkin(__instance.gameObject, id, hasSkin, out BaseSkin? skin);
+
+        if (skin == null)
+        {
+            return;
+        }
+
+        if (__instance.altVersion && skin is AltNailgunSkin sawSkin)
+        {
+            SkinnedMeshRenderer sawRenderer = __instance.transform.Find("Sawblade Launcher/Armature/Base/Blade").GetComponent<SkinnedMeshRenderer>();
+            sawRenderer.material = sawSkin.SawMaterial;
+        }
     }
 
     [HarmonyPatch(typeof(Railcannon), nameof(Railcannon.OnEnable)), HarmonyPostfix]

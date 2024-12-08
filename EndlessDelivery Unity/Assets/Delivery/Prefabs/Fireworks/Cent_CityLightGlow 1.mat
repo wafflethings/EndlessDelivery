@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Cent_CityLightGlow 1
-  m_Shader: {fileID: 4800000, guid: 33cb0e104e715d14d9bea6a87f60adfd, type: 3}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 4800000, guid: 52a14b7f869f0034793f7db901e127e3, type: 3}
+  m_ShaderKeywords: _SHOULDFORCEOUTLINES_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -57,6 +57,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
+    - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -66,15 +67,17 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _OpacScale: 1
+    - _OpacScale: 0.205
     - _Parallax: 0.02
+    - _ShouldForceOutlines: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Strength: 1
     - _UVSec: 0
     - _VertexWarpScale: 1
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _TintColor: {r: 1, g: 0.19356273, b: 0.18396229, a: 0.07058824}
+    - _Color: {r: 0.5943396, g: 0.011653719, b: 0, a: 0.7647059}
+    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _TintColor: {r: 1, g: 1, b: 1, a: 0.07058824}

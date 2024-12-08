@@ -27,7 +27,7 @@ public class GameManager : MonoSingleton<GameManager>
     public const float StartTime = 45;
     public const float TimeAddLength = 0.5f;
     public const float MaxTime = 90;
-    public const int SpecialWaveStart = 25;
+    public const int SpecialWaveStart = 20;
     public const int SpecialWaveInterval = 5;
 
     public AudioSource TimeAddSound;

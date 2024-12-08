@@ -7,42 +7,55 @@ namespace EndlessDelivery.Gameplay.Firework;
 
 public class Firework : MonoBehaviour
 {
-    [SerializeField] private Collider _collider;
+    [SerializeField] private SphereCollider _collider;
+    [SerializeField] private Rigidbody _rigidbody;
     [SerializeField] private GameObject _warningPrefab;
     [SerializeField] private float _speed;
+    private GameObject _warning;
+    private Vector3 _raycastPoint;
 
     private void Awake()
     {
         float timeLeft = Vector3.Distance(transform.position, NewMovement.Instance.transform.position) / _speed;
-        Vector3 targetPos = PlayerTracker.Instance.PredictPlayerPosition(timeLeft);
+        Vector3 targetPos = PlayerTracker.Instance.PredictPlayerPosition(timeLeft) + new Vector3(UnityEngine.Random.Range(-4f, 4f), 0, UnityEngine.Random.Range(-4f, 4f));
+        timeLeft = Vector3.Distance(transform.position, targetPos) / _speed;
         transform.forward = targetPos - transform.position;
-        GameObject warning = Instantiate(_warningPrefab);
-        warning.GetComponent<ScaleNFade>().fadeSpeed = 1f / timeLeft;
-        warning.transform.position = targetPos;
-        SetEnvCollisions(false);
-    }
 
-    private void SetEnvCollisions(bool collide)
-    {
-        foreach (Collider collider in GameManager.Instance.CurrentRoom.EnvColliders)
+        if (Physics.SphereCast(transform.position + transform.forward * 3, _collider.radius, transform.forward, out RaycastHit hit, 100, 1 << 8))
         {
-            if (collider == null)
-            {
-                continue;
-            }
-
-            Physics.IgnoreCollision(_collider, collider, !collide);
+            Plugin.Log.LogMessage($"Spherecast hit {hit.point}, obj {hit.collider.gameObject.name}");
+            _warning = Instantiate(_warningPrefab);
+            _warning.GetComponent<ScaleNFade>().scaleSpeed = (-1f / timeLeft) * _warning.transform.localScale.x * 0.9f;
+            _raycastPoint = hit.point;
+            _warning.transform.position = _raycastPoint;
         }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        SetEnvCollisions(false);
     }
 
     private void Update()
     {
-        transform.position += transform.forward * (Time.deltaTime * _speed);
+        _rigidbody.velocity = transform.forward * _speed;
+
+        if ((transform.position - _raycastPoint).sqrMagnitude < 0.25)
+        {
+            GetComponent<Grenade>().Explode();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(_warning);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 0 || other.GetComponent<Room>() == null)
+        if (other.GetComponent<Room>() == null)
         {
             return;
         }
@@ -52,7 +65,15 @@ public class Firework : MonoBehaviour
 
     private IEnumerator EnableAfterTime()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.4f);
         SetEnvCollisions(true);
+    }
+
+    private void SetEnvCollisions(bool collisionsEnabled)
+    {
+        foreach (Collider collider in GameManager.Instance.CurrentRoom.EnvColliders)
+        {
+            Physics.IgnoreCollision(_collider, collider, !collisionsEnabled);
+        }
     }
 }

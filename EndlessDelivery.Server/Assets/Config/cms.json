@@ -125,17 +125,17 @@
         "day8_2024": {
             "IsLastDay": false,
             "Date": "2024-12-08T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.misc_gingerbread",
+            "Description": "calendar.day8_desc",
+            "Subtitle": "category.altrevolver",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Alt Revolvers/slab-gingerbread-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Slab/Gingerbread/slab-gingerbread-icon.png"
             },
             "Id": "day8_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "altrevolver_gingerbread",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day9_2024": {
@@ -1004,7 +1004,7 @@
                 "Type": 7,
                 "Id": "altrevolver_gingerbread",
                 "Name": "item.misc_gingerbread",
-                "ShopPrice": 300,
+                "ShopPrice": 0,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Alt Revolvers/slab-gingerbread-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Slab/Gingerbread/slab-gingerbread-icon.png"
@@ -1351,6 +1351,7 @@
         "calendar.day5_desc": "Exhibit is level designed by <color=orange>Fri</color>, where you search for presents in a fine art gallery. A <color=orange>banner</color> of the level is included.\n\nReward for day 5.",
         "calendar.day6_desc": "Five hundred free <color=orange>stars</color> to spend in the shop. It's boring filler, but if I do all the skins at once I'll run out. Better things will be tomorrow.\n\nReward for day 6.",
         "calendar.day7_desc": "A sweet railcannon skin designed by <color=orange>Takovic</color>, made entirely out of gingerbread and candy canes, and covered in multicoloured sprinkes.\n\nReward for day 7.",
+        "calendar.day8_desc": "A gingerbread slab revolver skin designed by <color=orange>Takovic</color>, coated in icing. New content update tomorrow, by the way, as long as I finish it.\n\nReward for day 8.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
