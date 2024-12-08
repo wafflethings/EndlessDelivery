@@ -140,7 +140,7 @@ public class Room : MonoBehaviour
         ResetNamePopup();
         LevelNamePopup popup = LevelNamePopup.Instance;
         popup.nameString = _specialWave.Name;
-        popup.layerString = "-- SPECIAL WAVE-- ";
+        popup.layerString = "-- SPECIAL WAVE --";
         popup.NameAppear();
     }
 
