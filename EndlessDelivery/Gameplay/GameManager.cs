@@ -23,7 +23,7 @@ namespace EndlessDelivery.Gameplay;
 [HarmonyPatch]
 public class GameManager : MonoSingleton<GameManager>
 {
-    private static SpecialWave[] s_specialWaves = [new Radiant(), new FireworkWave()];
+    private static SpecialWave[] s_specialWaves = [new Radiant(), new FireworkWave(), new WardWave()];
     public const float StartTime = 45;
     public const float TimeAddLength = 0.5f;
     public const float MaxTime = 90;

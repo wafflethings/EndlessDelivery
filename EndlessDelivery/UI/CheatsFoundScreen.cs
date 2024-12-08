@@ -24,6 +24,8 @@ public class CheatsFoundScreen : MonoBehaviour
 
     private void Update()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
         NewMovement.Instance.enabled = false;
         GunControl.Instance.enabled = false;
         FistControl.Instance.enabled = false;

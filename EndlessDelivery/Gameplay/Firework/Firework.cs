@@ -17,25 +17,33 @@ public class Firework : MonoBehaviour
     private void Awake()
     {
         float timeLeft = Vector3.Distance(transform.position, NewMovement.Instance.transform.position) / _speed;
-        Vector3 targetPos = PlayerTracker.Instance.PredictPlayerPosition(timeLeft) + new Vector3(UnityEngine.Random.Range(-4f, 4f), 0, UnityEngine.Random.Range(-4f, 4f));
-        timeLeft = Vector3.Distance(transform.position, targetPos) / _speed;
+        Vector3 targetPos = PlayerTracker.Instance.PredictPlayerPosition(timeLeft) + new Vector3(UnityEngine.Random.Range(-3f, 3f), 0, UnityEngine.Random.Range(-3f, 3f));
         transform.forward = targetPos - transform.position;
 
-        if (Physics.SphereCast(transform.position + transform.forward * 3, _collider.radius, transform.forward, out RaycastHit hit, 100, 1 << 8))
+        if (Physics.SphereCast(transform.position + transform.forward * 3, _collider.radius, transform.forward, out RaycastHit hit, 100, LayerMaskDefaults.Get(LMD.Environment)))
         {
+            _raycastPoint = hit.point;
+            timeLeft = Vector3.Distance(transform.position, _raycastPoint) / _speed;
+            StartCoroutine(DestroyWarning(timeLeft));
             Plugin.Log.LogMessage($"Spherecast hit {hit.point}, obj {hit.collider.gameObject.name}");
             _warning = Instantiate(_warningPrefab);
             _warning.GetComponent<ScaleNFade>().scaleSpeed = (-1f / timeLeft) * _warning.transform.localScale.x * 0.9f;
-            _raycastPoint = hit.point;
             _warning.transform.position = _raycastPoint;
         }
         else
         {
+            FireworkManager.Instance.DeletedErrorFirework();
             Destroy(gameObject);
             return;
         }
 
         SetEnvCollisions(false);
+    }
+
+    private IEnumerator DestroyWarning(float afterTime)
+    {
+        yield return new WaitForSeconds(afterTime);
+        Destroy(_warning);
     }
 
     private void Update()

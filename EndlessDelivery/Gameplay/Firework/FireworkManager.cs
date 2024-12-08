@@ -7,7 +7,7 @@ namespace EndlessDelivery.Gameplay.Firework;
 [ConfigureSingleton(SingletonFlags.NoAutoInstance)]
 public class FireworkManager : MonoSingleton<FireworkManager>
 {
-    private const float FireworkInterval = 1.5f;
+    public static float FireworkInterval = 1.5f;
     [SerializeField] private GameObject _firework;
     [SerializeField] private float _spawnDistance = 5;
     [SerializeField] private float _heightOverPlayer = 15;
@@ -33,6 +33,11 @@ public class FireworkManager : MonoSingleton<FireworkManager>
             SpawnFirework();
             _timer = 0;
         }
+    }
+
+    public void DeletedErrorFirework()
+    {
+        _timer = FireworkInterval - 0.25f;
     }
 
     private void SpawnFirework()
