@@ -3554,9 +3554,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exhibit is level designed by <color=orange>Fri</color> , where you search
-    for presents in a fine art gallery. A <color=orange>banner</color> of the level
-    is included.\n\nReward for day 5.
+  m_text: A present skin themed after a <color=orange>TV</color>. I have no idea
+    how they stay on without any power.\n\n\nReward for day 10.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c665f735df1f4db43a715b3cb44a57c0, type: 2}
   m_sharedMaterial: {fileID: -5045613266839568270, guid: c665f735df1f4db43a715b3cb44a57c0,

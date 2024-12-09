@@ -65,7 +65,7 @@
             "Description": "calendar.day4_desc",
             "Subtitle": "category.present",
             "Icon": {
-                "AssetUri": "/Resources/UI/Banners/florp-icon.png",
+                "AssetUri": "/Resources/UI/Presents/florp-icon.png",
                 "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Florp/florp-icon.png"
             },
             "Id": "day4_2024",
@@ -157,17 +157,17 @@
         "day10_2024": {
             "IsLastDay": false,
             "Date": "2024-12-10T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.present_tv",
+            "Description": "calendar.day10_desc",
+            "Subtitle": "category.present",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Presents/tv-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Presents/TV/tv-icon.png"
             },
             "Id": "day10_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "present_tv",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day11_2024": {
@@ -1340,6 +1340,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Florp/florp-icon.png"
                 }
             }
+        },
+        "present_tv": {
+            "Descriptor": {
+                "Type": 6,
+                "Id": "present_tv",
+                "Name": "item.present_tv",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Presents/tv-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Presents/TV/tv-icon.png"
+                }
+            }
         }
     },
     "ShopRotations": [
@@ -1438,6 +1450,7 @@
         "calendar.day7_desc": "A sweet railcannon skin designed by <color=orange>Takovic</color>, made entirely out of gingerbread and candy canes, and covered in multicoloured sprinkes.\n\nReward for day 7.",
         "calendar.day8_desc": "A gingerbread slab revolver skin designed by <color=orange>Takovic</color>, coated in icing. New content update tomorrow, by the way, as long as I finish it.\n\nReward for day 8.",
         "calendar.day9_desc": "A radiant candy cane banner to celebrate <color=orange>DD 2.1</color>, which adds special waves, such as radiance, fireworks, and idol wards, all after room 20.\n\nReward for day 9.",
+        "calendar.day10_desc": "A present skin themed after a <color=orange>TV</color>. I have no idea how they stay on without any power.\\n\\n\\nReward for day 10.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -1515,6 +1528,7 @@
         "item.present_skull": "Encased Skull",
         "item.present_maurice": "Maurice",
         "item.present_florp": "Florp",
+        "item.present_tv": "TV",
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty the Shotgun",
         "item.misc_frosty": "Frosty",

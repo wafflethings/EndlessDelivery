@@ -7,6 +7,7 @@ namespace EndlessDelivery.Gameplay.Ward;
 public class WardTracker : MonoBehaviour
 {
     private EnemyIdentifier _eid;
+    private Ward? _previousWard;
 
     private void Awake()
     {
@@ -17,10 +18,20 @@ public class WardTracker : MonoBehaviour
     {
         if (_eid == null)
         {
-            Destroy(this);
+            return;
         }
-    }
 
+        Vector3 centre = _eid.GetCenter()?.position ?? transform.position;
+        Ward? currentWard = WardManager.Instance.AllWards.FirstOrDefault(x => x.InsideWard(centre));
+
+        if (currentWard != _previousWard)
+        {
+            _previousWard?.RemoveEnemy(_eid);
+            currentWard?.AddEnemy(_eid);
+        }
+
+        _previousWard = currentWard;
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (!other.TryGetComponent(out Ward ward))

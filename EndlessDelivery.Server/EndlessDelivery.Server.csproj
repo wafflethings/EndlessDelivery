@@ -34,11 +34,13 @@
         <CopyToPublishDirectory>Never</CopyToPublishDirectory>
       </Content>
       <None Include="$(SolutionDir)\EndlessDelivery.Server\Assets\**" CopyToOutputDirectory="Always"  />
+      <None Update="Assets\Resources\UI\Presents\tv-icon.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Assets\Resources\DiscordIcons\" />
-      <Folder Include="Assets\Resources\UI\Presents\" />
       <Folder Include="Assets\Resources\UI\Rockets\" />
     </ItemGroup>
 

@@ -27,6 +27,16 @@ public class Ward : MonoBehaviour
 
         for (int i = 0; i < _enemies.Count; i++)
         {
+            while (_enemies[i] == null)
+            {
+                _enemies.RemoveAt(i);
+            }
+
+            while (_lines[i] == null)
+            {
+                _lines.RemoveAt(i);
+            }
+
             EnemyIdentifier? eid = _enemies[i];
             LineRenderer line = _lines[i];
             Vector3 centre = eid.GetCenter()?.position ?? eid.transform.position;
@@ -48,30 +58,35 @@ public class Ward : MonoBehaviour
         }
     }
 
-    // public bool InsideWard(Vector3 point)
-    // {
-    //     return (transform.position - point).sqrMagnitude < (Mathf.Pow(_sphereCollider.radius * transform.localScale.x, 2));
-    // }
+    public bool InsideWard(Vector3 point)
+    {
+         return (transform.position - point).sqrMagnitude < (Mathf.Pow(_sphereCollider.radius * transform.localScale.x, 2));
+    }
 
     public void AddEnemy(EnemyIdentifier eid)
     {
-        LineRenderer line = Instantiate(_lineTemplate).GetComponent<LineRenderer>();
-        _lines.Add(line);
         _enemies.Add(eid);
         eid.Bless();
+        LineRenderer line = Instantiate(_lineTemplate).GetComponent<LineRenderer>();
+        _lines.Add(line);
     }
 
     public void RemoveEnemy(EnemyIdentifier eid)
     {
-        Destroy(_lines[0].gameObject);
-        _lines.RemoveAt(0);
         _enemies.Remove(eid);
-        eid.Unbless();
+        eid?.Unbless();
+
+        if (_lines[0] != null && _lines[0].gameObject != null)
+        {
+            Destroy(_lines[0]?.gameObject);
+        }
+
+        _lines.RemoveAt(0);
     }
 
     private void OnDestroy()
     {
-        GameManager.Instance.AddTime(2, "<color=#6ebae6>WARD FREED</color>");
+        // GameManager.Instance.AddTime(2, "<color=#6ebae6>WARD FREED</color>");
         List<EnemyIdentifier> enemiesNew = new();
         enemiesNew.AddRange(_enemies); // Prevent collection modified tbh
 
