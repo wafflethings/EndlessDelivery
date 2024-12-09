@@ -88,13 +88,16 @@ public class PageController : Controller
         await builder.AppendPlayerHeader(player, userModel);
 
         OnlineScore? bestScore = await userModel.GetBestScore();
-        builder.AppendUnderBannerBoxHolder(() =>
+        if (bestScore != null)
         {
-            builder.AppendUnderBannerBox($"Best Score - #{bestScore.Index}", () =>
+            builder.AppendUnderBannerBoxHolder(() =>
             {
-                builder.AppendUnderBannerBoxScoreContent(bestScore?.Score);
+                builder.AppendUnderBannerBox($"Best Score - #{bestScore.Index+1}", () =>
+                {
+                    builder.AppendUnderBannerBoxScoreContent(bestScore?.Score);
+                });
             });
-        });
+        }
 
         builder.AppendUnderBannerBoxHolder(() =>
         {
