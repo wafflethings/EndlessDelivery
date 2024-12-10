@@ -34,7 +34,7 @@ public static class Scores
 
         if (response.StatusCode == HttpStatusCode.NotFound)
         {
-            throw new NotFoundException(response.ReasonPhrase);
+            throw new NotFoundException(await response.Content.ReadAsStringAsync());
         }
 
         string content = await response.Content.ReadAsStringAsync();

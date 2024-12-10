@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using EndlessDelivery.Api.Requests;
 using EndlessDelivery.Common;
 using EndlessDelivery.Common.ContentFile;
+using EndlessDelivery.Common.Inventory.Items;
 using EndlessDelivery.Cosmetics;
 using EndlessDelivery.Online;
 using TMPro;
@@ -34,15 +35,37 @@ public class AdventCalendar : MonoBehaviour
     private List<GameObject> _buttons = new();
     private string _timeRemainingString = "{0}";
     private DateTime _endTime;
+    private Item? _selectedItem;
+    private bool _rewardIsToday;
 
     public void Claim()
     {
-        _ownedDays.Add(OnlineFunctionality.LastFetchedContent.CurrentCalendarReward.Id);
+        if (_rewardIsToday)
+        {
+            _ownedDays.Add(OnlineFunctionality.LastFetchedContent.CurrentCalendarReward.Id);
+        }
+
         _claimButtonText.text = OnlineFunctionality.LastFetchedContent.GetString("game_ui.calendar_claimed");
         _claimButton.interactable = false;
         Task.Run(async () =>
         {
-            await OnlineFunctionality.Context.ClaimDailyReward();
+            if (_rewardIsToday)
+            {
+                await OnlineFunctionality.Context.ClaimDailyReward();
+            }
+            else
+            {
+                Plugin.Log.LogInfo($"buying item {_selectedItem.Descriptor.Id}");
+                try
+                {
+                    await OnlineFunctionality.Context.BuyItem(_selectedItem.Descriptor.Id);
+                }
+                catch (Exception ex)
+                {
+                    Plugin.Log.LogError(ex.ToString());
+                }
+            }
+
             await CosmeticManager.FetchLoadout();
         });
     }
@@ -54,6 +77,12 @@ public class AdventCalendar : MonoBehaviour
         Cms cms = OnlineFunctionality.LastFetchedContent;
         CalendarReward reward = cms.CalendarRewards[dayId];
 
+        if ((!cms.TryGetItem(reward.ItemId, out _selectedItem) || _selectedItem == null) && reward.HasItem)
+        {
+            Plugin.Log.LogWarning($"{reward.ItemId} has no item despite HasItem being true, calendar not showing (how has this happened)");
+            yield break;
+        }
+
         AsyncOperationHandle<Sprite> loadIcon = Addressables.LoadAssetAsync<Sprite>(reward.Icon.AddressablePath);
         yield return new WaitUntil(() => loadIcon.IsDone);
 
@@ -62,10 +91,12 @@ public class AdventCalendar : MonoBehaviour
         _descriptionText.text = cms.GetString(reward.Description);
         _subtitleText.text = cms.GetString(reward.Subtitle);
 
-        bool isClaimed = _ownedDays.Contains(dayId);
-        _claimButton.interactable = !isClaimed && dayId == cms.CurrentCalendarReward?.Id;
+        bool isClaimed = _ownedDays.Contains(dayId) || (_selectedItem == null || CosmeticManager.AllOwned.Contains(_selectedItem.Descriptor.Id));
+        _rewardIsToday = dayId == cms.CurrentCalendarReward?.Id;
+        _claimButton.interactable = !isClaimed && (_rewardIsToday || reward.HasItem);
 
-        string unclaimedString = dayId == cms.CurrentCalendarReward?.Id ? "game_ui.calendar_unclaimed" : "game_ui.calendar_missed";
+        string missedString = reward.HasItem ? string.Format(cms.GetString("game_ui.calendar_buy"), _selectedItem.Descriptor.ShopPrice) : cms.GetString("game_ui.calendar_missed");
+        string unclaimedString = _rewardIsToday ? "game_ui.calendar_unclaimed" : missedString;
         _claimButtonText.text = cms.GetString(isClaimed ? "game_ui.calendar_claimed" : unclaimedString);
 
         _claimPage.SetActive(true);

@@ -92,7 +92,7 @@ public class PageController : Controller
         {
             builder.AppendUnderBannerBoxHolder(() =>
             {
-                builder.AppendUnderBannerBox($"Best Score - #{bestScore.Index+1}", () =>
+                builder.AppendUnderBannerBox($"Best Score - #{bestScore.Index + 1}", () =>
                 {
                     builder.AppendUnderBannerBoxScoreContent(bestScore?.Score);
                 });
