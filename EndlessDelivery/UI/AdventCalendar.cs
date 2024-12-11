@@ -91,7 +91,7 @@ public class AdventCalendar : MonoBehaviour
         _descriptionText.text = cms.GetString(reward.Description);
         _subtitleText.text = cms.GetString(reward.Subtitle);
 
-        bool isClaimed = _ownedDays.Contains(dayId) || (_selectedItem == null || CosmeticManager.AllOwned.Contains(_selectedItem.Descriptor.Id));
+        bool isClaimed = _ownedDays.Contains(dayId) || (_selectedItem != null && CosmeticManager.AllOwned.Contains(_selectedItem.Descriptor.Id));
         _rewardIsToday = dayId == cms.CurrentCalendarReward?.Id;
         _claimButton.interactable = !isClaimed && (_rewardIsToday || reward.HasItem);
 
