@@ -87,14 +87,17 @@ public class PageController : Controller
         builder.AppendHtml("<div class=\"full-page-box hide-until-js\">");
         await builder.AppendPlayerHeader(player, userModel);
 
-        // OnlineScore? bestScore = await userModel.GetBestScore();
-        // builder.AppendUnderBannerBoxHolder(() =>
-        // {
-        //     builder.AppendUnderBannerBox("Best Score", () =>
-        //     {
-        //         builder.AppendUnderBannerBoxScoreContent(bestScore?.Score);
-        //     });
-        // });
+        OnlineScore? bestScore = await userModel.GetBestScore();
+        if (bestScore != null)
+        {
+            builder.AppendUnderBannerBoxHolder(() =>
+            {
+                builder.AppendUnderBannerBox($"Best Score - #{bestScore.Index + 1}", () =>
+                {
+                    builder.AppendUnderBannerBoxScoreContent(bestScore?.Score);
+                });
+            });
+        }
 
         builder.AppendUnderBannerBoxHolder(() =>
         {

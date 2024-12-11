@@ -117,6 +117,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 226c48db4c15a9a4db8ec035d70d7676
+    m_Address: Assets/Delivery/Cosmetics/Rocket/Frosty/frosty-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f185f56e64856b2478b0f948d1a22df6
+    m_Address: Assets/Delivery/Cosmetics/Presents/TV/tv-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0b302037b9f293e42914157cced0075f
+    m_Address: Assets/Delivery/Cosmetics/Nailgun/Frosty/frosty-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2a337ff27534e164b86034852d6c1576, type: 2}
   m_SchemaSet:

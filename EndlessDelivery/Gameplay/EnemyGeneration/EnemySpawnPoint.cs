@@ -23,7 +23,7 @@ public class EnemySpawnPoint : MonoBehaviour
 
     private void OnEnable()
     {
-        EnemyIdentifier enemy = Instantiate(Enemy, transform).GetComponent<EnemyIdentifier>();
+        EnemyIdentifier enemy = Instantiate(Enemy, transform).GetComponentInChildren<EnemyIdentifier>(true);
         GameManager.Instance.RegisterEnemySpawned(enemy);
     }
 }

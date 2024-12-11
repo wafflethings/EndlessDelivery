@@ -29,7 +29,7 @@ public static class Users
 
         if (response.StatusCode == HttpStatusCode.BadRequest)
         {
-            throw new BadRequestException(response.ReasonPhrase);
+            throw new BadRequestException(await response.Content.ReadAsStringAsync());
         }
 
         string content = await response.Content.ReadAsStringAsync();
@@ -81,7 +81,7 @@ public static class Users
 
         if (response.StatusCode == HttpStatusCode.BadRequest)
         {
-            throw new BadRequestException(response.ReasonPhrase);
+            throw new BadRequestException(await response.Content.ReadAsStringAsync());
         }
     }
 

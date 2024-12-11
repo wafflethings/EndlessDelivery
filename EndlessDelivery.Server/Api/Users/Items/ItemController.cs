@@ -97,7 +97,7 @@ public class ItemController : ControllerBase
             return StatusCode(StatusCodes.Status400BadRequest, $"Item not found with id {itemId}");
         }
 
-        if (!ContentController.CurrentContent.ActiveShopRotation.ItemIds.Contains(itemId))
+        if (!ContentController.CurrentContent.ActiveShopRotation.ItemIds.Contains(itemId) && ContentController.CurrentContent.CalendarRewards.Values.All(x => x.ItemId != itemId))
         {
             return StatusCode(StatusCodes.Status400BadRequest, "Item ID not in active rotation.");
         }

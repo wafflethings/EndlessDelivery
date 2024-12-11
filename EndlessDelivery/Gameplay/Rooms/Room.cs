@@ -62,15 +62,29 @@ public class Room : MonoBehaviour
 
     private void OnDestroy()
     {
-        _specialWave?.End();
+        if (_specialWave != null)
+        {
+            EndSpecialWave();
+        }
     }
 
     private void CompleteRoom()
     {
+        if (_specialWave != null)
+        {
+            EndSpecialWave();
+        }
+
         foreach (Chimney chimney in AllChimneys.Values)
         {
             chimney?.JumpPad.gameObject.SetActive(false);
         }
+    }
+
+    private void EndSpecialWave()
+    {
+        _specialWave?.End();
+        _specialWave = null;
     }
 
     public void Initialize()
@@ -113,7 +127,8 @@ public class Room : MonoBehaviour
 
     private void DecideSpecialWave()
     {
-        if (GameManager.Instance.RoomsComplete - 1 < GameManager.SpecialWaveStart || GameManager.Instance.RoomsComplete % GameManager.SpecialWaveInterval != 0)
+        Plugin.Log.LogMessage($"Deciding: {GameManager.Instance.RoomsComplete >= GameManager.SpecialWaveStart} && {GameManager.Instance.RoomsComplete % GameManager.SpecialWaveInterval} == 0");
+        if (GameManager.Instance.RoomsComplete < GameManager.SpecialWaveStart || GameManager.Instance.RoomsComplete % GameManager.SpecialWaveInterval != 0)
         {
             return;
         }
@@ -121,6 +136,22 @@ public class Room : MonoBehaviour
         _specialWave = GameManager.Instance.PickSpecialWave();
         _specialWave.Start();
         _pointsLeft -= _specialWave.Cost;
+
+        ResetNamePopup();
+        LevelNamePopup popup = LevelNamePopup.Instance;
+        popup.nameString = _specialWave.Name;
+        popup.layerString = "-- SPECIAL WAVE --";
+        popup.NameAppear();
+    }
+
+    private void ResetNamePopup()
+    {
+        LevelNamePopup popup = LevelNamePopup.Instance;
+        popup.layerText.color = Color.white;
+        popup.nameText.color = Color.white;
+        popup.layerText.text = string.Empty;
+        popup.nameText.text = string.Empty;
+        popup.activated = false;
     }
 
     private void DecideChimneyColours()

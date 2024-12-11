@@ -23,11 +23,11 @@ namespace EndlessDelivery.Gameplay;
 [HarmonyPatch]
 public class GameManager : MonoSingleton<GameManager>
 {
-    private static SpecialWave[] s_specialWaves = [new Radiant(), new FireworkWave()];
+    private static SpecialWave[] s_specialWaves = [new Radiant(), new FireworkWave(), new WardWave()];
     public const float StartTime = 45;
     public const float TimeAddLength = 0.5f;
     public const float MaxTime = 90;
-    public const int SpecialWaveStart = 25;
+    public const int SpecialWaveStart = 20;
     public const int SpecialWaveInterval = 5;
 
     public AudioSource TimeAddSound;
@@ -59,10 +59,10 @@ public class GameManager : MonoSingleton<GameManager>
     private List<RoomData> _remainingRooms = new();
     private List<SpecialWave> _remainingSpecialWaves = new();
 
-    private const int StartingPoints = 15;
+    private const int StartingPoints = 10;
     private const int MaxPointGain = 15;
 
-    public static int GetRoomPoints(int roomNumber)
+    public static int GetRoomPoints(int roomNumber) // https://www.desmos.com/calculator/kgcftdqyvs
     {
         int points = StartingPoints;
 
@@ -198,6 +198,9 @@ public class GameManager : MonoSingleton<GameManager>
             AddTime(8, "<color=orange>ROOM CLEAR</color>");
             PointsPerWave += Mathf.Min(3 + RoomsComplete / 3, StartingPoints);
             StartTimes.Instance.Data.UpdateAllLowerDifficulty(RoomsComplete, TimeLeft);
+            NewMovement.Instance.ResetHardDamage();
+            NewMovement.Instance.GetHealth(100, true, false);
+            NewMovement.Instance.FullStamina();
         }
         else if (!GameStarted)
         {

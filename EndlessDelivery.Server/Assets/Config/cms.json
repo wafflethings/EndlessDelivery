@@ -65,7 +65,7 @@
             "Description": "calendar.day4_desc",
             "Subtitle": "category.present",
             "Icon": {
-                "AssetUri": "/Resources/UI/Banners/florp-icon.png",
+                "AssetUri": "/Resources/UI/Presents/florp-icon.png",
                 "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Florp/florp-icon.png"
             },
             "Id": "day4_2024",
@@ -125,66 +125,66 @@
         "day8_2024": {
             "IsLastDay": false,
             "Date": "2024-12-08T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.misc_gingerbread",
+            "Description": "calendar.day8_desc",
+            "Subtitle": "category.altrevolver",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Alt Revolvers/slab-gingerbread-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Slab/Gingerbread/slab-gingerbread-icon.png"
             },
             "Id": "day8_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "altrevolver_gingerbread",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day9_2024": {
             "IsLastDay": false,
             "Date": "2024-12-09T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.banner_radiant",
+            "Description": "calendar.day9_desc",
+            "Subtitle": "category.banner",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Banners/radiant-preview.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Radiant/radiant-preview.png"
             },
             "Id": "day9_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "banner_radiant",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day10_2024": {
             "IsLastDay": false,
-            "Date": "2024-12-10T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Date": "2024-12-11T00:00:00Z",
+            "Name": "item.present_tv",
+            "Description": "calendar.day10_desc",
+            "Subtitle": "category.present",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Presents/tv-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Presents/TV/tv-icon.png"
             },
             "Id": "day10_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "present_tv",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day11_2024": {
             "IsLastDay": false,
             "Date": "2024-12-11T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "calendar.500stars",
+            "Description": "calendar.day11_desc",
+            "Subtitle": "category.currency",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/currency-reward.png",
+                "AddressablePath": "Assets/Delivery/Textures/currency-reward.png"
             },
             "Id": "day11_2024",
             "HasItem": false,
             "ItemId": "",
             "HasCurrency": true,
-            "CurrencyAmount": 0
+            "CurrencyAmount": 500
         },
         "day12_2024": {
             "IsLastDay": false,
@@ -760,7 +760,7 @@
                 "Type": 0,
                 "Id": "banner_redcane",
                 "Name": "item.banner_redcane",
-                "ShopPrice": 150,
+                "ShopPrice": 1000,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Banners/redcane-preview.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Red Cane/redcane-preview.png"
@@ -904,10 +904,106 @@
                 "Type": 0,
                 "Id": "banner_exhibit",
                 "Name": "item.banner_exhibit",
-                "ShopPrice": 0,
+                "ShopPrice": 1000,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Banners/exhibit-preview.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Exhibit/exhibit-preview.png"
+                }
+            }
+        },
+        "banner_contained": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/exhibit.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Exhibit/exhibit.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_contained",
+                "Name": "item.banner_contained",
+                "ShopPrice": 150,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/contained-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Contained/contained-preview.png"
+                }
+            }
+        },
+        "banner_gnieswood": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/gnieswood.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gnieswood/gnieswood.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_gnieswood",
+                "Name": "item.banner_gnieswood",
+                "ShopPrice": 150,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/gnieswood-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gnieswood/gnieswood-preview.png"
+                }
+            }
+        },
+        "banner_radiant": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/radiant.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Radiant/radiant.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_radiant",
+                "Name": "item.banner_radiant",
+                "ShopPrice": 1000,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/radiant-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Radiant/radiant-preview.png"
+                }
+            }
+        },
+        "banner_thepit": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/thepit.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/TDP/thepit.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_thepit",
+                "Name": "item.banner_thepit",
+                "ShopPrice": 150,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/thepit-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/TDP/thepit-preview.png"
+                }
+            }
+        },
+        "banner_dinner": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/dinner.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Dinner/dinner.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_dinner",
+                "Name": "item.banner_dinner",
+                "ShopPrice": 150,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/dinner-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Dinner/dinner-preview.png"
+                }
+            }
+        },
+        "banner_campfire": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/campfire.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Campfire/campfire.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_campfire",
+                "Name": "item.banner_campfire",
+                "ShopPrice": 150,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/campfire-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Campfire/campfire-preview.png"
                 }
             }
         }
@@ -1004,7 +1100,7 @@
                 "Type": 7,
                 "Id": "altrevolver_gingerbread",
                 "Name": "item.misc_gingerbread",
-                "ShopPrice": 300,
+                "ShopPrice": 1000,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Alt Revolvers/slab-gingerbread-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Slab/Gingerbread/slab-gingerbread-icon.png"
@@ -1042,7 +1138,7 @@
                 "Type": 2,
                 "Id": "shotgun_zelzmiy",
                 "Name": "item.shotgun_zelzmiy",
-                "ShopPrice": 0,
+                "ShopPrice": 1000,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Shotguns/frosty-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Shotgun/Frosty/frosty-icon.png"
@@ -1148,6 +1244,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Nailgun/Gingerbread/gingerbread-icon.png"
                 }
             }
+        },
+        "nailgun_frosty": {
+            "Descriptor": {
+                "Type": 3,
+                "Id": "nailgun_frosty",
+                "Name": "item.misc_frosty",
+                "ShopPrice": 300,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Nailguns/frosty-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Nailgun/Frosty/frosty-icon.png"
+                }
+            }
         }
     },
     "AltNailguns": {
@@ -1182,7 +1290,7 @@
                 "Type": 4,
                 "Id": "railcannon_gingerbread",
                 "Name": "item.misc_gingerbread",
-                "ShopPrice": 300,
+                "ShopPrice": 1000,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Railcannons/gingerbread-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Railcannon/Gingerbread/gingerbread-icon.png"
@@ -1200,6 +1308,18 @@
                 "Icon": {
                     "AssetUri": "/Resources/UI/default-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                }
+            }
+        },
+        "rocket_frosty": {
+            "Descriptor": {
+                "Type": 5,
+                "Id": "rocket_frosty",
+                "Name": "item.misc_frosty",
+                "ShopPrice": 300,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Rockets/frosty-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Rocket/Frosty/frosty-icon.png"
                 }
             }
         }
@@ -1258,10 +1378,22 @@
                 "Type": 6,
                 "Id": "present_florp",
                 "Name": "item.present_florp",
-                "ShopPrice": 0,
+                "ShopPrice": 1000,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Presents/florp-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Florp/florp-icon.png"
+                }
+            }
+        },
+        "present_tv": {
+            "Descriptor": {
+                "Type": 6,
+                "Id": "present_tv",
+                "Name": "item.present_tv",
+                "ShopPrice": 1000,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Presents/tv-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Presents/TV/tv-icon.png"
                 }
             }
         }
@@ -1301,6 +1433,24 @@
                 "nailgun_gingerbread"
             ],
             "Start": "2024-12-07T00:00:00Z",
+            "Length": "2.00:00:00"
+        },
+        {
+            "ItemIds": [
+                "banner_thepit",
+                "present_maurice",
+                "rocket_frosty"
+            ],
+            "Start": "2024-12-09T00:00:00Z",
+            "Length": "2.00:00:00"
+        },
+        {
+            "ItemIds": [
+                "banner_contained",
+                "revolver_jumper",
+                "nailgun_frosty"
+            ],
+            "Start": "2024-12-11T00:00:00Z",
             "Length": "2.00:00:00"
         },
         {
@@ -1351,6 +1501,10 @@
         "calendar.day5_desc": "Exhibit is level designed by <color=orange>Fri</color>, where you search for presents in a fine art gallery. A <color=orange>banner</color> of the level is included.\n\nReward for day 5.",
         "calendar.day6_desc": "Five hundred free <color=orange>stars</color> to spend in the shop. It's boring filler, but if I do all the skins at once I'll run out. Better things will be tomorrow.\n\nReward for day 6.",
         "calendar.day7_desc": "A sweet railcannon skin designed by <color=orange>Takovic</color>, made entirely out of gingerbread and candy canes, and covered in multicoloured sprinkes.\n\nReward for day 7.",
+        "calendar.day8_desc": "A gingerbread slab revolver skin designed by <color=orange>Takovic</color>, coated in icing. New content update tomorrow, by the way, as long as I finish it.\n\nReward for day 8.",
+        "calendar.day9_desc": "A radiant candy cane banner to celebrate <color=orange>DD 2.1</color>, which adds special waves, such as radiance, fireworks, and idol wards, all after room 20.\n\nReward for day 9.",
+        "calendar.day10_desc": "A present skin themed after a <color=orange>TV</color>. I have no idea how they stay on without any power.\n\n\nReward for day 10.",
+        "calendar.day11_desc": "Previous advent calendar rewards have become <color=orange>purchasable</color> for 1000 stars. Here's 500 stars to get you started on buying anything you missed.\n\nReward for day 11.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -1399,6 +1553,7 @@
         "game_ui.calendar_unclaimed": "CLAIM",
         "game_ui.calendar_claimed": "CLAIMED",
         "game_ui.calendar_missed": "MISSED",
+        "game_ui.calendar_buy": "BUY FOR {0}",
         "game_ui.hidden_achievement": "Details will be revealed when the achievement is unlocked.",
         "game_ui.shop_remaining_time": "NEW ITEMS IN <color=orange>{0}",
         "item.banner_gniesbert": "My Shitty Dog",
@@ -1417,6 +1572,12 @@
         "item.banner_sunset": "Sunset",
         "item.banner_abyss": "Abyss",
         "item.banner_exhibit": "Exhibit",
+        "item.banner_gnieswood": "Gniesbert",
+        "item.banner_contained": "Contained",
+        "item.banner_radiant": "Canebow",
+        "item.banner_thepit": "The Pit",
+        "item.banner_campfire": "Warmth",
+        "item.banner_dinner": "Congregation",
         "item.misc_default": "Default",
         "item.misc_gingerbread": "Gingerbread",
         "item.misc_jumper": "Sweater",
@@ -1424,8 +1585,10 @@
         "item.present_skull": "Encased Skull",
         "item.present_maurice": "Maurice",
         "item.present_florp": "Florp",
+        "item.present_tv": "TV",
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty the Shotgun",
+        "item.misc_frosty": "Frosty",
         "item.misc_bronze": "Deluxe (Bronze)",
         "item.misc_silver": "Deluxe (Silver)",
         "item.misc_gold": "Deluxe (Gold)"
@@ -1457,6 +1620,10 @@
         "AlwaysFresh.adry.ultrakill": "Always Fresh",
         "com.10-days-till-xmas.ultrastrafe": "UltraStrafe",
         "Kajaz.InfiniteRocketRide": "infiniteRocketRide",
-        "com.sinai.unityexplorer": "UnityExplorer"
+        "com.sinai.unityexplorer": "UnityExplorer",
+        "GabrielAlly.adry.ultrakill": "GabrielAlly",
+        "QuickPunches.mod.ultrakill": "QuickPunches",
+        "UKButYouAreV2.adry.ultrakill": "UKButYouAreV2",
+        "LargerCoin.adry.ultrakill": "LargerCoin"
     }
 }
