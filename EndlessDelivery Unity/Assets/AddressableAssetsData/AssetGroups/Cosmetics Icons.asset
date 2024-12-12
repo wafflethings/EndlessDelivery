@@ -137,6 +137,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ffda04ca47c7bf74bbac911fdc0968b7
+    m_Address: Assets/Delivery/Cosmetics/Revolver/Gingerbread/gingerbread-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bfca989593ad1145bfb2febc0fc1f8d
+    m_Address: Assets/Delivery/Cosmetics/Rocket/Frosty 1/gingerbread-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2a337ff27534e164b86034852d6c1576, type: 2}
   m_SchemaSet:
