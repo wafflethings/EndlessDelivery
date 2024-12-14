@@ -221,17 +221,17 @@
         "day14_2024": {
             "IsLastDay": false,
             "Date": "2024-12-14T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.misc_gingerbread",
+            "Description": "calendar.day14_desc",
+            "Subtitle": "category.rocket",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Rockets/gingerbread-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Rocket/Frosty 1/gingerbread-icon.png"
             },
             "Id": "day14_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "rocket_gingerbread",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day15_2024": {
@@ -1371,7 +1371,7 @@
                 "ShopPrice": 300,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Rockets/gingerbread-icon.png",
-                    "AddressablePath": "Assets/Delivery/Cosmetics/Rocket/Gingerbread/gingerbread-icon.png"
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Rocket/Frosty 1/gingerbread-icon.png"
                 }
             }
         }
@@ -1568,6 +1568,7 @@
         "calendar.day11_desc": "Previous advent calendar rewards have become <color=orange>purchasable</color> for 1000 stars. Here's 500 stars to get you started on buying anything you missed.\n\nReward for day 11.",
         "calendar.day12_desc": "The first <color=orange>sawblade launcher skin</color> in the mod, created by Fri. It is themed after an ugly Christmas sweater.\n\n\nReward for day 12.",
         "calendar.day13_desc": "An evil and malicious collection of <color=orange>killer robots</color>. This banner contains V1, V2, V3, and V4, all together.\n\n\nReward for day 13.",
+        "calendar.day14_desc": "A gingerbread themed skin for the <color=orange>rocket launcher</color>. Sorry that the reward is late, I overslept and didn't wake up until four hours calendar reset.\n\nReward for day 14.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
