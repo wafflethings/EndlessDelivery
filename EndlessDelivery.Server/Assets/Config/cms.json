@@ -7,6 +7,10 @@
         {
             "After": "2024-12-05T00:00:00Z",
             "AssetPath": "Assets/Delivery/ScriptableObjects/RoomPools/Room Pool Exhibit.asset"
+        },
+        {
+            "After": "2024-12-15T00:00:00Z",
+            "AssetPath": "Assets/Delivery/ScriptableObjects/RoomPools/Room Pool Craggy.asset"
         }
     ],
     "CalendarRewards": {
@@ -237,17 +241,17 @@
         "day15_2024": {
             "IsLastDay": false,
             "Date": "2024-12-15T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.banner_craggy",
+            "Description": "calendar.day15_desc",
+            "Subtitle": "category.room",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/DiscordIcons/craggy.png",
+                "AddressablePath": "Assets/Delivery/Calendar Map Icons/craggy.png"
             },
             "Id": "day15_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "banner_craggy",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day16_2024": {
@@ -1022,6 +1026,22 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gang/gang-preview.png"
                 }
             }
+        },
+        "banner_craggy": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/gang.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Craggy/craggy.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_craggy",
+                "Name": "item.banner_craggy",
+                "ShopPrice": 1000,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/craggy-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Craggy/craggy-preview.png"
+                }
+            }
         }
     },
     "Revolvers": {
@@ -1448,6 +1468,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Presents/TV/tv-icon.png"
                 }
             }
+        },
+        "present_crate": {
+            "Descriptor": {
+                "Type": 6,
+                "Id": "present_crate",
+                "Name": "item.present_crate",
+                "ShopPrice": 200,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Presents/crate-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Crate/crate-icon.png"
+                }
+            }
         }
     },
     "ShopRotations": [
@@ -1515,8 +1547,17 @@
             "Length": "2.00:00:00"
         },
         {
-            "ItemIds": [],
+            "ItemIds": [
+                "banner_campfire",
+                "present_crate",
+                "shotgun_gingerbread"
+            ],
             "Start": "2024-12-15T00:00:00Z",
+            "Length": "2.00:00:00"
+        },
+        {
+            "ItemIds": [],
+            "Start": "2024-12-17T00:00:00Z",
             "Length": "100000.00:00:00"
         }
     ],
@@ -1569,6 +1610,7 @@
         "calendar.day12_desc": "The first <color=orange>sawblade launcher skin</color> in the mod, created by Fri. It is themed after an ugly Christmas sweater.\n\n\nReward for day 12.",
         "calendar.day13_desc": "An evil and malicious collection of <color=orange>killer robots</color>. This banner contains V1, V2, V3, and V4, all together.\n\n\nReward for day 13.",
         "calendar.day14_desc": "A gingerbread themed skin for the <color=orange>rocket launcher</color>. Sorry that the reward is late, I overslept and didn't wake up until four hours calendar reset.\n\nReward for day 14.",
+        "calendar.day15_desc": "The fifteenth room for DD, a valley surrounded by cliffs and created by <color=orange>Fri</color>. A <color=orange>banner</color> of the level is included.\n\nReward for day 15.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -1643,6 +1685,7 @@
         "item.banner_campfire": "Warmth",
         "item.banner_dinner": "Congregation",
         "item.banner_gang": "Gang",
+        "item.banner_craggy": "Craggy Cliffs",
         "item.misc_default": "Default",
         "item.misc_gingerbread": "Gingerbread",
         "item.misc_jumper": "Sweater",
@@ -1651,6 +1694,7 @@
         "item.present_maurice": "Maurice",
         "item.present_florp": "Florp",
         "item.present_tv": "TV",
+        "item.present_crate": "Crate",
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty the Shotgun",
         "item.misc_frosty": "Frosty",

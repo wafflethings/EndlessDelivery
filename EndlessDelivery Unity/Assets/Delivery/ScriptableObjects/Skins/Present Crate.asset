@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -963672351, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: Present Crate
+  m_EditorClassIdentifier: 
+  Id: present_crate
+  Material: {fileID: 2100000, guid: 29952705f5f55c8439ddd3ba948fb0fb, type: 2}
+  Materials:
+  - {fileID: 2100000, guid: 29952705f5f55c8439ddd3ba948fb0fb, type: 2}
+  Mesh: {fileID: -5495902117074765545, guid: d57042c48ec6fd54eb5929a2276760c4, type: 3}
