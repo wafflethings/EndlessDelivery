@@ -156,7 +156,7 @@
         },
         "day10_2024": {
             "IsLastDay": false,
-            "Date": "2024-12-11T00:00:00Z",
+            "Date": "2024-12-10T00:00:00Z",
             "Name": "item.present_tv",
             "Description": "calendar.day10_desc",
             "Subtitle": "category.present",
@@ -189,49 +189,49 @@
         "day12_2024": {
             "IsLastDay": false,
             "Date": "2024-12-12T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.misc_jumper",
+            "Description": "calendar.day12_desc",
+            "Subtitle": "category.altnailgun",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Sawblades/jumper-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Sawblade/Jumper/jumper-icon.png"
             },
             "Id": "day12_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "altnailgun_jumper",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day13_2024": {
             "IsLastDay": false,
             "Date": "2024-12-13T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.banner_gang",
+            "Description": "calendar.day13_desc",
+            "Subtitle": "category.banner",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Banners/gang-preview.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gang/gang-preview.png"
             },
             "Id": "day13_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "banner_gang",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day14_2024": {
             "IsLastDay": false,
             "Date": "2024-12-14T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.misc_gingerbread",
+            "Description": "calendar.day14_desc",
+            "Subtitle": "category.rocket",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Rockets/gingerbread-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Rocket/Frosty 1/gingerbread-icon.png"
             },
             "Id": "day14_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "rocket_gingerbread",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day15_2024": {
@@ -1006,6 +1006,22 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Campfire/campfire-preview.png"
                 }
             }
+        },
+        "banner_gang": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/gang.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gang/gang.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_gang",
+                "Name": "item.banner_gang",
+                "ShopPrice": 1000,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/gang-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Gang/gang-preview.png"
+                }
+            }
         }
     },
     "Revolvers": {
@@ -1078,6 +1094,18 @@
                 "Icon": {
                     "AssetUri": "/Resources/UI/Revolvers/bronze-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Revolver/Bronze/bronze-icon.png"
+                }
+            }
+        },
+        "revolver_gingerbread": {
+            "Descriptor": {
+                "Type": 1,
+                "Id": "revolver_gingerbread",
+                "Name": "item.misc_gingerbread",
+                "ShopPrice": 300,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Revolvers/gingerbread-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Revolver/Gingerbread/gingerbread-icon.png"
                 }
             }
         }
@@ -1270,6 +1298,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
                 }
             }
+        },
+        "altnailgun_jumper": {
+            "Descriptor": {
+                "Type": 9,
+                "Id": "altnailgun_jumper",
+                "Name": "item.misc_jumper",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Sawblades/jumper-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Sawblade/Jumper/jumper-icon.png"
+                }
+            }
         }
     },
     "Railcannons": {
@@ -1320,6 +1360,18 @@
                 "Icon": {
                     "AssetUri": "/Resources/UI/Rockets/frosty-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Rocket/Frosty/frosty-icon.png"
+                }
+            }
+        },
+        "rocket_gingerbread": {
+            "Descriptor": {
+                "Type": 5,
+                "Id": "rocket_gingerbread",
+                "Name": "item.misc_gingerbread",
+                "ShopPrice": 300,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Rockets/gingerbread-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Rocket/Frosty 1/gingerbread-icon.png"
                 }
             }
         }
@@ -1454,8 +1506,17 @@
             "Length": "2.00:00:00"
         },
         {
+            "ItemIds": [
+                "banner_dinner",
+                "altshotgun_gingerbread",
+                "revolver_gingerbread"
+            ],
+            "Start": "2024-12-13T00:00:00Z",
+            "Length": "2.00:00:00"
+        },
+        {
             "ItemIds": [],
-            "Start": "2024-12-09T00:00:00Z",
+            "Start": "2024-12-15T00:00:00Z",
             "Length": "100000.00:00:00"
         }
     ],
@@ -1505,6 +1566,9 @@
         "calendar.day9_desc": "A radiant candy cane banner to celebrate <color=orange>DD 2.1</color>, which adds special waves, such as radiance, fireworks, and idol wards, all after room 20.\n\nReward for day 9.",
         "calendar.day10_desc": "A present skin themed after a <color=orange>TV</color>. I have no idea how they stay on without any power.\n\n\nReward for day 10.",
         "calendar.day11_desc": "Previous advent calendar rewards have become <color=orange>purchasable</color> for 1000 stars. Here's 500 stars to get you started on buying anything you missed.\n\nReward for day 11.",
+        "calendar.day12_desc": "The first <color=orange>sawblade launcher skin</color> in the mod, created by Fri. It is themed after an ugly Christmas sweater.\n\n\nReward for day 12.",
+        "calendar.day13_desc": "An evil and malicious collection of <color=orange>killer robots</color>. This banner contains V1, V2, V3, and V4, all together.\n\n\nReward for day 13.",
+        "calendar.day14_desc": "A gingerbread themed skin for the <color=orange>rocket launcher</color>. Sorry that the reward is late, I overslept and didn't wake up until four hours calendar reset.\n\nReward for day 14.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -1578,6 +1642,7 @@
         "item.banner_thepit": "The Pit",
         "item.banner_campfire": "Warmth",
         "item.banner_dinner": "Congregation",
+        "item.banner_gang": "Gang",
         "item.misc_default": "Default",
         "item.misc_gingerbread": "Gingerbread",
         "item.misc_jumper": "Sweater",

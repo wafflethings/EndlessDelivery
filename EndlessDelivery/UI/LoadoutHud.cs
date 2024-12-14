@@ -274,7 +274,7 @@ public class LoadoutHud : MonoBehaviour
                 return CosmeticManager.Loadout.NailgunIds;
 
             case StoreItemType.AltNailgun:
-                return CosmeticManager.Loadout.NailgunIds;
+                return CosmeticManager.Loadout.AltNailgunIds;
 
             case StoreItemType.Rail:
                 return CosmeticManager.Loadout.RailcannonIds;

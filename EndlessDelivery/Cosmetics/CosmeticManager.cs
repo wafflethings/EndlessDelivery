@@ -238,7 +238,7 @@ public static class CosmeticManager
 
         if (__instance.altVersion && skin is AltNailgunSkin sawSkin)
         {
-            SkinnedMeshRenderer sawRenderer = __instance.transform.Find("Sawblade Launcher/Armature/Base/Blade").GetComponent<SkinnedMeshRenderer>();
+            MeshRenderer sawRenderer = __instance.transform.Find("Sawblade Launcher/Armature/Base/Blade").GetComponent<MeshRenderer>();
             sawRenderer.material = sawSkin.SawMaterial;
         }
     }

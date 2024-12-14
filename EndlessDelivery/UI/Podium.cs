@@ -27,22 +27,30 @@ public class Podium : MonoBehaviour
         int index = 0;
         foreach (OnlineScore score in scoresTask.Result)
         {
-            Task<Steamworks.Data.Image?> imageTask = new Friend(score.SteamId).GetLargeAvatarAsync();
-            yield return new WaitUntil(() => imageTask.IsCompleted);
-            Texture2D texture2D = new((int)imageTask.Result.Value.Width, (int)imageTask.Result.Value.Height, TextureFormat.RGBA32, false);
-            texture2D.LoadRawTextureData(imageTask.Result.Value.Data);
-            texture2D.Apply();
+            StartCoroutine(SetPfp(score.SteamId, index));
 
             Task<string> usernameTask = OnlineFunctionality.Context.GetUsername(score.SteamId);
             yield return new WaitUntil(() => usernameTask.IsCompleted);
             _nameTexts[index].text = $"#{index + 1} - " + usernameTask.Result.ToUpperInvariant();
 
+            index++;
+        }
+    }
+
+    private IEnumerator SetPfp(ulong steamId, int index)
+    {
+        Task<Steamworks.Data.Image?> imageTask = new Friend(steamId).GetLargeAvatarAsync();
+        float startTime = Time.time;
+        yield return new WaitUntil(() => imageTask == null || imageTask.IsCompleted || imageTask.IsFaulted || imageTask.IsCanceled || startTime - Time.time > 10);
+        if (imageTask?.Result != null)
+        {
+            Texture2D texture2D = new((int)imageTask.Result.Value.Width, (int)imageTask.Result.Value.Height, TextureFormat.RGBA32, false);
+            texture2D.LoadRawTextureData(imageTask.Result.Value.Data);
+            texture2D.Apply();
             Material[] materialArray = _pfpRenderers[index].materials;
             materialArray[1].mainTextureScale = new Vector2(1, -1);
             materialArray[1].mainTexture = texture2D;
             _pfpRenderers[index].materials = materialArray;
-
-            index++;
         }
     }
 }

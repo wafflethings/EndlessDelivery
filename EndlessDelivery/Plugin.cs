@@ -15,7 +15,7 @@ public class Plugin : BaseUnityPlugin
 {
     public static ManualLogSource Log;
     public const string Name = "Divine Delivery";
-    public const string Version = "2.1.3";
+    public const string Version = "2.1.8";
     public const string Guid = "waffle.ultrakill.christmasdelivery";
 
     private void Start()
