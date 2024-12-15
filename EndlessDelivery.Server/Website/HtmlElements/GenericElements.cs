@@ -7,7 +7,7 @@ namespace EndlessDelivery.Server.Website.HtmlElements;
 
 public static class GenericElements
 {
-    public static void AppendGenericHeadContent(this HtmlContentBuilder builder)
+    public static void AppendGenericHeadContent(this HtmlContentBuilder builder, HttpContext context)
     {
         builder.AppendHtml("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">");
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/misc.css\">");
@@ -18,14 +18,19 @@ public static class GenericElements
         builder.AppendHtml("<link rel=\"icon\" type=\"image/png\" sizes=\"192x192\" href=\"/Resources/Icons/favicon-192x192.png\">");
         builder.AppendHtml("<link rel=\"icon\" type=\"image/png\" sizes=\"256x256\" href=\"/Resources/Icons/favicon-256x256.png\">");
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200\"/>");
+        builder.AppendHtml($"<link rel=\"canonical\" href=\"https://delivery.wafflethings.dev{context.Request.Path}\">");
     }
 
     public static void AppendEmbed(this HtmlContentBuilder builder, HttpContext context, string title, string desc, string image = "/Resources/UI/embed-thumb.png")
     {
         builder.AppendHtml($"<meta property=\"og:url\" content=\"{context.Request.Path}\" />");
         builder.AppendHtml($"<meta property=\"og:image\" content=\"{image}\" />");
-        builder.AppendHtml($"<meta property=\"og:title\" content=\"{title}\">");
-        builder.AppendHtml($"<meta property=\"og:description\" content=\"{desc}\">");
+        builder.AppendHtml($"<meta property=\"og:title\" content=\"");
+        builder.Append(title);
+        builder.AppendHtml("\">");
+        builder.AppendHtml("<meta property=\"og:description\" content=\"");
+        builder.Append(desc);
+        builder.AppendHtml("\">");
         builder.AppendHtml("<meta name=\"twitter:card\" content=\"summary_large_image\">");
         builder.AppendHtml("<meta name=\"theme-color\" content=\"#BC2B3E\">");
     }

@@ -1324,7 +1324,7 @@
         "Type": 9,
         "Id": "altnailgun_jumper",
         "Name": "item.misc_jumper",
-        "ShopPrice": 0,
+        "ShopPrice": 1000,
         "Icon": {
           "AssetUri": "/Resources/UI/Sawblades/jumper-icon.png",
           "AddressablePath": "Assets/Delivery/Cosmetics/Sawblade/Jumper/jumper-icon.png"

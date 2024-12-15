@@ -31,7 +31,7 @@ public class PageController : Controller
         await builder.AppendHeader(HttpContext);
 
         builder.AppendHtml("<head>");
-        builder.AppendGenericHeadContent();
+        builder.AppendGenericHeadContent(HttpContext);
         builder.AppendEmbed(HttpContext, ContentController.CurrentContent.GetString("page_title.index"), ContentController.CurrentContent.GetString("page_desc.index"));
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/leaderboard.css\">");
         builder.AppendHtml("</head>");
@@ -78,7 +78,7 @@ public class PageController : Controller
         await builder.AppendHeader(HttpContext);
 
         builder.AppendHtml("<head>");
-        builder.AppendGenericHeadContent();
+        builder.AppendGenericHeadContent(HttpContext);
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/user.css\">");
         builder.AppendEmbed(HttpContext, string.Format(ContentController.CurrentContent.GetString("page_title.user"), player.PersonaName),
             string.Format(ContentController.CurrentContent.GetString("page_desc.user"), player.PersonaName), "/api/users/embed/" + player.SteamId);
@@ -161,7 +161,7 @@ public class PageController : Controller
         await builder.AppendHeader(HttpContext);
 
         builder.AppendHtml("<head>");
-        builder.AppendGenericHeadContent();
+        builder.AppendGenericHeadContent(HttpContext);
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/settings.css\">");
         builder.AppendHtml("</head>");
 
@@ -199,7 +199,7 @@ public class PageController : Controller
         await builder.AppendHeader(HttpContext);
 
         builder.AppendHtml("<head>");
-        builder.AppendGenericHeadContent();
+        builder.AppendGenericHeadContent(HttpContext);
         builder.AppendEmbed(HttpContext, ContentController.CurrentContent.GetString("page_title.shop"), ContentController.CurrentContent.GetString("page_desc.shop"));
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/shop.css\">");
         builder.AppendHtml("</head>");
@@ -241,7 +241,7 @@ public class PageController : Controller
         await builder.AppendHeader(HttpContext);
 
         builder.AppendHtml("<head>");
-        builder.AppendGenericHeadContent();
+        builder.AppendGenericHeadContent(HttpContext);
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/settings.css\">");
         builder.AppendHtml("</head>");
 
@@ -269,7 +269,7 @@ public class PageController : Controller
         await builder.AppendHeader(HttpContext);
 
         builder.AppendHtml("<head>");
-        builder.AppendGenericHeadContent();
+        builder.AppendGenericHeadContent(HttpContext);
         builder.AppendEmbed(HttpContext, string.Format(ContentController.CurrentContent.GetString("page_title.error"), statusCode),
             ContentController.CurrentContent.GetString("page_desc.error"));
         builder.AppendHtml("<link rel=\"stylesheet\" href=\"/Resources/Stylesheets/error_page.css\">");
