@@ -6,9 +6,9 @@ namespace EndlessDelivery.Gameplay.SpecialWaves;
 
 public class WardWave : SpecialWave
 {
-    private const int MaxWards = 5;
+    private const int MaxWards = 3;
     public override string Name => "DIVINE WARDS";
-    public override int Cost => 15;
+    public override int Cost => 10;
 
     public override void Start()
     {
