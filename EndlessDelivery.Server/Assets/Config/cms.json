@@ -274,7 +274,7 @@
             "IsLastDay": false,
             "Date": "2024-12-17T00:00:00Z",
             "Name": "item.banner_snow",
-            "Description": "calendar.day16_desc",
+            "Description": "calendar.day17_desc",
             "Subtitle": "category.banner",
             "Icon": {
                 "AssetUri": "/Resources/UI/Banners/snow-preview.png",
@@ -289,17 +289,17 @@
         "day18_2024": {
             "IsLastDay": false,
             "Date": "2024-12-18T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.present_star",
+            "Description": "calendar.day18_desc",
+            "Subtitle": "category.present",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Presents/star-preview.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Star/star-preview.png"
             },
             "Id": "day18_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "present_star",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day19_2024": {
@@ -1520,6 +1520,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Chair/chair-icon.png"
                 }
             }
+        },
+        "present_star": {
+            "Descriptor": {
+                "Type": 6,
+                "Id": "present_star",
+                "Name": "item.present_star",
+                "ShopPrice": 200,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Presents/star-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Star/star-icon.png"
+                }
+            }
         }
     },
     "ShopRotations": [
@@ -1588,16 +1600,25 @@
         },
         {
             "ItemIds": [
-                "banner_thepit",
-                "present_chair",
-                "altnailgun_gingerbread"
+                "banner_campfire",
+                "present_crate",
+                "shotgun_gingerbread"
             ],
             "Start": "2024-12-15T00:00:00Z",
             "Length": "2.00:00:00"
         },
         {
-            "ItemIds": [],
+            "ItemIds": [
+                "banner_thepit",
+                "present_chair",
+                "altnailgun_gingerbread"
+            ],
             "Start": "2024-12-17T00:00:00Z",
+            "Length": "2.00:00:00"
+        },
+        {
+            "ItemIds": [],
+            "Start": "2024-12-19T00:00:00Z",
             "Length": "100000.00:00:00"
         }
     ],
@@ -1653,6 +1674,7 @@
         "calendar.day15_desc": "The fifteenth room for DD, a valley surrounded by cliffs and created by <color=orange>Fri</color>. A <color=orange>banner</color> of the level is included.\n\nReward for day 15.",
         "calendar.day16_desc": "Your weekly reward of 500 <color=orange>stars</color> to spend in the shop and get something nice with. You could probably argue that this is filler.\n\nReward for day 16.",
         "calendar.day17_desc": "A banner of the <color=orange>snow texture</color> used in the mod. You could probably argue that this is also filler.\n\nReward for day 17.",
+        "calendar.day18_desc": "A present skin of a <color=orange>fallen star</color>. Despite being another star reward, this one actually isn't filler.\n\nReward for day 18.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -1728,6 +1750,7 @@
         "item.banner_dinner": "Congregation",
         "item.banner_gang": "Gang",
         "item.banner_craggy": "Craggy Cliffs",
+        "item.banner_snow": "Snow",
         "item.misc_default": "Default",
         "item.misc_gingerbread": "Gingerbread",
         "item.misc_jumper": "Sweater",
@@ -1738,6 +1761,7 @@
         "item.present_tv": "TV",
         "item.present_crate": "Crate",
         "item.present_chair": "Lawnchair",
+        "item.present_star": "Star",
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty the Shotgun",
         "item.misc_frosty": "Frosty",
