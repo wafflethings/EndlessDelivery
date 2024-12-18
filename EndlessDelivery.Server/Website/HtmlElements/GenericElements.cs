@@ -31,6 +31,9 @@ public static class GenericElements
         builder.AppendHtml("<meta property=\"og:description\" content=\"");
         builder.Append(desc);
         builder.AppendHtml("\">");
+        builder.AppendHtml("<meta property=\"description\" content=\"");
+        builder.Append(desc);
+        builder.AppendHtml("\">");
         builder.AppendHtml("<meta name=\"twitter:card\" content=\"summary_large_image\">");
         builder.AppendHtml("<meta name=\"theme-color\" content=\"#BC2B3E\">");
     }

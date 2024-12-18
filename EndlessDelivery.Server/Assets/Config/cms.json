@@ -293,8 +293,8 @@
             "Description": "calendar.day18_desc",
             "Subtitle": "category.present",
             "Icon": {
-                "AssetUri": "/Resources/UI/Presents/star-preview.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Star/star-preview.png"
+                "AssetUri": "/Resources/UI/Presents/star-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Star/star-icon.png"
             },
             "Id": "day18_2024",
             "HasItem": true,
@@ -305,17 +305,17 @@
         "day19_2024": {
             "IsLastDay": false,
             "Date": "2024-12-19T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.rocket_star",
+            "Description": "calendar.day19_desc",
+            "Subtitle": "category.rocket",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Rockets/star-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Rocket/Star/star-icon.png"
             },
             "Id": "day19_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "rocket_star",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day20_2024": {
@@ -1052,10 +1052,26 @@
                 "Type": 0,
                 "Id": "banner_snow",
                 "Name": "item.banner_snow",
-                "ShopPrice": 150,
+                "ShopPrice": 1000,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Banners/snow-preview.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Snow/snow-preview.png"
+                }
+            }
+        },
+        "banner_container": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/container.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Container/container.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_container",
+                "Name": "item.banner_container",
+                "ShopPrice": 150,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/container-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Container/container-preview.png"
                 }
             }
         }
@@ -1422,6 +1438,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Rocket/Frosty 1/gingerbread-icon.png"
                 }
             }
+        },
+        "rocket_star": {
+            "Descriptor": {
+                "Type": 5,
+                "Id": "rocket_star",
+                "Name": "item.misc_star",
+                "ShopPrice": 1000,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Rockets/star-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Rocket/Star/star-icon.png"
+                }
+            }
         }
     },
     "Presents": {
@@ -1617,8 +1645,17 @@
             "Length": "2.00:00:00"
         },
         {
-            "ItemIds": [],
+            "ItemIds": [
+                "banner_container",
+                "nailgun_gingerbread",
+                "altrevolver_jumper"
+            ],
             "Start": "2024-12-19T00:00:00Z",
+            "Length": "2.00:00:00"
+        },
+        {
+            "ItemIds": [],
+            "Start": "2024-12-21T00:00:00Z",
             "Length": "100000.00:00:00"
         }
     ],
@@ -1673,8 +1710,9 @@
         "calendar.day14_desc": "A gingerbread themed skin for the <color=orange>rocket launcher</color>. Sorry that it's late, I overslept and didn't wake up until four hours before the reset.\n\nReward for day 14.",
         "calendar.day15_desc": "The fifteenth room for DD, a valley surrounded by cliffs and created by <color=orange>Fri</color>. A <color=orange>banner</color> of the level is included.\n\nReward for day 15.",
         "calendar.day16_desc": "Your weekly reward of 500 <color=orange>stars</color> to spend in the shop and get something nice with. You could probably argue that this is filler.\n\nReward for day 16.",
-        "calendar.day17_desc": "A banner of the <color=orange>snow texture</color> used in the mod. You could probably argue that this is also filler.\n\nReward for day 17.",
-        "calendar.day18_desc": "A present skin of a <color=orange>fallen star</color>. Despite being another star reward, this one actually isn't filler.\n\nReward for day 18.",
+        "calendar.day17_desc": "A banner of the <color=orange>snow texture</color> used in the mod. You could probably argue that this is also filler.\n\n\nReward for day 17.",
+        "calendar.day18_desc": "A present skin of a <color=orange>fallen star</color>. Despite being another star reward, this one actually isn't filler.\n\n\nReward for day 18.",
+        "calendar.day19_desc": "A rocket launcher skin, covered with various constellations of stars, and designed by <color=orange>me, Waffle</color>.\n\n\nReward for day 19.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -1713,9 +1751,9 @@
         "page_title.shop": "Divine Delivery - Shop",
         "page_title.admin": "Divine Delivery - Admin Panel",
         "page_title.error": "Divine Delivery - Error {0}",
-        "page_desc.index": "The leaderboard of Divine Delivery scores.",
-        "page_desc.user": "{0}'s personal account page.",
-        "page_desc.shop": "The items currently available for purchase.",
+        "page_desc.index": "The leaderboard of Divine Delivery scores, a modded ULTRAKILL gamemode.",
+        "page_desc.user": "{0}'s personal account page on Divine Delivery, a modded ULTRAKILL gamemode.",
+        "page_desc.shop": "The items currently available for purchase on Divine Delivery, a modded ULTRAKILL gamemode.",
         "page_desc.error": "No idea why you're here, but it's probably my fault.",
         "game_ui.achievement_unlocks": "Unlocks {0}.",
         "game_ui.achievement_unlock_individual": "<i>{0}</i> {1}",
@@ -1751,6 +1789,7 @@
         "item.banner_gang": "Gang",
         "item.banner_craggy": "Craggy Cliffs",
         "item.banner_snow": "Snow",
+        "item.banner_container": "Container",
         "item.misc_default": "Default",
         "item.misc_gingerbread": "Gingerbread",
         "item.misc_jumper": "Sweater",
@@ -1765,6 +1804,7 @@
         "item.revolver_awesometest": "Awesome Test",
         "item.shotgun_zelzmiy": "Frosty the Shotgun",
         "item.misc_frosty": "Frosty",
+        "item.misc_star": "Constellation",
         "item.misc_bronze": "Deluxe (Bronze)",
         "item.misc_silver": "Deluxe (Silver)",
         "item.misc_gold": "Deluxe (Gold)"
