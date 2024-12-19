@@ -13,7 +13,7 @@ namespace EndlessDelivery.ScoreManagement;
 
 public class ScoreManager
 {
-    public static SaveFile<Dictionary<int, Score>> LocalHighscores = SaveFile.RegisterFile(new SaveFile<Dictionary<int, Score>>("local_scores.json", Plugin.Name));
+    public static SaveFile<Dictionary<int, Score>> LocalHighscores = SaveFile.RegisterFile(new SaveFile<Dictionary<int, Score>>("local_scores.json", Plugin.Name, new()));
     public static Score CurrentDifficultyHighscore => LocalHighscores.Data.TryGetValue(PrefsManager.Instance.GetInt("difficulty"), out Score score) ? score : new Score(0,0,0,0);
 
     public static bool CanSubmit() => CanSubmit(out _);

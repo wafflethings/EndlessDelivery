@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using EndlessDelivery.Config;
 using EndlessDelivery.Gameplay;
 using EndlessDelivery.UI;
 using EndlessDelivery.Utils;
@@ -25,7 +26,7 @@ public class Chimney : MonoBehaviour
     private Coroutine _currentAnimation;
     private bool _chimneyEntered;
 
-    private Color _color => ColourSetter.DefaultColours[(int)VariantColour];
+    private Color _color => ConfigFile.Instance.Data.GetColour((int)VariantColour);
 
     private void Start()
     {

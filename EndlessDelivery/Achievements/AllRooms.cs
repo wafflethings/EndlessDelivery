@@ -13,7 +13,7 @@ namespace EndlessDelivery.Achievements;
 
 public class AllRooms : MonoBehaviour
 {
-    public static readonly EncryptedSaveFile<List<string>> Instance = SaveFile.RegisterFile(new EncryptedSaveFile<List<string>>("cleared_rooms.ddenc")) as EncryptedSaveFile<List<string>> ?? throw new();
+    public static readonly EncryptedSaveFile<List<string>> Instance = SaveFile.RegisterFile(new EncryptedSaveFile<List<string>>("cleared_rooms.ddenc", [])) as EncryptedSaveFile<List<string>> ?? throw new();
     private const string AchId = "ach_every_room";
 
     private void Awake()

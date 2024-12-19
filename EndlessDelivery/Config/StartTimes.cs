@@ -10,7 +10,7 @@ namespace EndlessDelivery.Config;
 
 public class StartTimes
 {
-    [JsonIgnore] public static readonly EncryptedSaveFile<StartTimes> Instance = SaveFile.RegisterFile(new EncryptedSaveFile<StartTimes>("times.ddenc")) as EncryptedSaveFile<StartTimes> ?? throw new();
+    [JsonIgnore] public static readonly EncryptedSaveFile<StartTimes> Instance = SaveFile.RegisterFile(new EncryptedSaveFile<StartTimes>("times.ddenc", new())) as EncryptedSaveFile<StartTimes> ?? throw new();
     public Dictionary<int, StartTime> DifficultyToTimes = new();
 
     [JsonIgnore]

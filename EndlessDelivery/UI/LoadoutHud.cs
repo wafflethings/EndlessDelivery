@@ -35,6 +35,7 @@ public class LoadoutHud : MonoBehaviour
     [SerializeField] private Button _equipButton;
     [SerializeField] private TMP_Text _equipButtonText;
     [SerializeField] private LoadoutHudVariantButton[] _variantButtons;
+    [SerializeField] private GameObject _presentConfigButton;
     private List<GameObject> _currentItemButtons = new();
     private Item? _selectedItem;
     private StoreItemType _currentItemType;
@@ -145,6 +146,7 @@ public class LoadoutHud : MonoBehaviour
         }
 
         _alternateButton.SetActive(HasAlternates(_currentItemType));
+        _presentConfigButton.SetActive(_currentItemType == StoreItemType.Present);
 
         _page.SetActive(true);
     }

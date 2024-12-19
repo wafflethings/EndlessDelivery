@@ -13,7 +13,7 @@ namespace EndlessDelivery.Achievements;
 
 public class AchievementManager
 {
-    public static SaveFile<List<string>> OwnedAchievements = SaveFile.RegisterFile(new SaveFile<List<string>>("dont_show_achs.json", Plugin.Name));
+    public static SaveFile<List<string>> OwnedAchievements = SaveFile.RegisterFile(new SaveFile<List<string>>("dont_show_achs.json", Plugin.Name, []));
 
     public static void CheckOnline(OnlineScore score, OnlineScore bestScore, Score lifetimeStats)
     {

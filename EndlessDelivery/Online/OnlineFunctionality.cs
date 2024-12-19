@@ -20,7 +20,7 @@ namespace EndlessDelivery.Online;
 public static class OnlineFunctionality
 {
     public static readonly ApiContext Context = new(new HttpClient(), GetTicket);
-    private static SaveFile<Cms?> s_cmsData = SaveFile.RegisterFile(new SaveFile<Cms?>("content.json", Plugin.Name));
+    private static SaveFile<Cms?> s_cmsData = SaveFile.RegisterFile(new SaveFile<Cms?>("content.json", Plugin.Name, default));
 
     public static Cms? LastFetchedContent => s_cmsData.Data;
 

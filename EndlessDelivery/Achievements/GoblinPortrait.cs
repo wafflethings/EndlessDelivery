@@ -14,7 +14,7 @@ namespace EndlessDelivery.Components;
 
 public class GoblinPortrait : MonoBehaviour
 {
-    public static readonly EncryptedSaveFile<List<string>> Instance = SaveFile.RegisterFile(new EncryptedSaveFile<List<string>>("gob.ddenc")) as EncryptedSaveFile<List<string>> ?? throw new();
+    public static readonly EncryptedSaveFile<List<string>> Instance = SaveFile.RegisterFile(new EncryptedSaveFile<List<string>>("gob.ddenc", [])) as EncryptedSaveFile<List<string>> ?? throw new();
     private const int RequiredCount = 10;
     private const string AchId = "ach_gobstopper";
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using EndlessDelivery.Assets;
 using EndlessDelivery.Common.Inventory.Items;
+using EndlessDelivery.Config;
 using EndlessDelivery.Cosmetics;
 using EndlessDelivery.Cosmetics.Skins;
 using EndlessDelivery.Gameplay;
@@ -31,7 +32,7 @@ public class Present : MonoBehaviour
     [SerializeField] private MeshRenderer _meshRenderer;
     [SerializeField] private MeshFilter _meshFilter;
 
-    private Color _colour => ColourSetter.DefaultColours[(int)VariantColour];
+    private Color _colour => ConfigFile.Instance.Data.GetColour((int)VariantColour);
 
     private void Start()
     {
