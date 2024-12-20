@@ -305,7 +305,7 @@
         "day19_2024": {
             "IsLastDay": false,
             "Date": "2024-12-19T00:00:00Z",
-            "Name": "item.rocket_star",
+            "Name": "item.misc_star",
             "Description": "calendar.day19_desc",
             "Subtitle": "category.rocket",
             "Icon": {
@@ -1448,7 +1448,7 @@
                 "Type": 5,
                 "Id": "rocket_gingerbread",
                 "Name": "item.misc_gingerbread",
-                "ShopPrice": 300,
+                "ShopPrice": 1000,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Rockets/gingerbread-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Rocket/Frosty 1/gingerbread-icon.png"
@@ -1570,7 +1570,7 @@
                 "Type": 6,
                 "Id": "present_star",
                 "Name": "item.present_star",
-                "ShopPrice": 200,
+                "ShopPrice": 1000,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Presents/star-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Star/star-icon.png"
