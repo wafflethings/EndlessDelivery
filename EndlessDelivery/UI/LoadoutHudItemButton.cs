@@ -27,7 +27,6 @@ public class LoadoutHudItemButton : MonoBehaviour
         if (iconLoad.Result == null)
         {
             Plugin.Log.LogWarning($"Couldn't load icon for item {item.Descriptor.Id}. Not showing button");
-            yield break;
         }
 
         _iconImage.sprite = iconLoad.Result;
