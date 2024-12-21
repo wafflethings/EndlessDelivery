@@ -305,7 +305,7 @@
         "day19_2024": {
             "IsLastDay": false,
             "Date": "2024-12-19T00:00:00Z",
-            "Name": "item.rocket_star",
+            "Name": "item.misc_star",
             "Description": "calendar.day19_desc",
             "Subtitle": "category.rocket",
             "Icon": {
@@ -337,17 +337,17 @@
         "day21_2024": {
             "IsLastDay": false,
             "Date": "2024-12-21T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.misc_jumper",
+            "Description": "calendar.day21_desc",
+            "Subtitle": "category.banner",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Banners/jumper-preview.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Jumper/jumper-preview.png"
             },
             "Id": "day21_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "banner_jumper",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day22_2024": {
@@ -1075,7 +1075,7 @@
                 }
             }
         },
-        "banner_container": {
+        "banner_kitr": {
             "Asset": {
                 "AssetUri": "/Resources/UI/Banners/kitr.png",
                 "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Kitr/kitr.png"
@@ -1088,6 +1088,22 @@
                 "Icon": {
                     "AssetUri": "/Resources/UI/Banners/kitr-preview.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Kitr/kitr-preview.png"
+                }
+            }
+        },
+        "banner_jumper": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/jumper.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Jumper/jumper.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_jumper",
+                "Name": "item.misc_jumper",
+                "ShopPrice": 150,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/jumper-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Jumper/jumper-preview.png"
                 }
             }
         }
@@ -1288,6 +1304,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Shotgun/Deluxe Bronze/bronze-icon.png"
                 }
             }
+        },
+        "shotgun_star": {
+            "Descriptor": {
+                "Type": 2,
+                "Id": "shotgun_star",
+                "Name": "item.misc_star",
+                "ShopPrice": 300,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Shotguns/star-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Shotgun/Star/star-icon.png"
+                }
+            }
         }
     },
     "AltShotguns": {
@@ -1448,7 +1476,7 @@
                 "Type": 5,
                 "Id": "rocket_gingerbread",
                 "Name": "item.misc_gingerbread",
-                "ShopPrice": 300,
+                "ShopPrice": 1000,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Rockets/gingerbread-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Rocket/Frosty 1/gingerbread-icon.png"
@@ -1570,7 +1598,7 @@
                 "Type": 6,
                 "Id": "present_star",
                 "Name": "item.present_star",
-                "ShopPrice": 200,
+                "ShopPrice": 1000,
                 "Icon": {
                     "AssetUri": "/Resources/UI/Presents/star-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Presents/Star/star-icon.png"
@@ -1670,8 +1698,17 @@
             "Length": "2.00:00:00"
         },
         {
-            "ItemIds": [],
+            "ItemIds": [
+                "banner_greencane",
+                "rocket_frosty",
+                "shotgun_star"
+            ],
             "Start": "2024-12-21T00:00:00Z",
+            "Length": "2.00:00:00"
+        },
+        {
+            "ItemIds": [],
+            "Start": "2024-12-23T00:00:00Z",
             "Length": "100000.00:00:00"
         }
     ],
@@ -1730,6 +1767,7 @@
         "calendar.day18_desc": "A present skin of a <color=orange>fallen star</color>. Despite being another star reward, this one actually isn't filler.\n\n\nReward for day 18.",
         "calendar.day19_desc": "A rocket launcher skin, covered with various constellations of stars, and designed by <color=orange>me, Waffle</color>.\n\n\nReward for day 19.",
         "calendar.day20_desc": "A banner of an occult worship event of the cursed one, <color=orange>KITR</color>. Visit Split 2 and join the summoning, if you wish to survive.\n\nReward for day 20.",
+        "calendar.day21_desc": "A banner themed after an <color=orange>ugly Christmas sweater</color>. By the way, a new content update should (hopefully) be coming soon.\n\nReward for day 21.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
