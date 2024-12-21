@@ -2,7 +2,7 @@
 
 public class TutorialData
 {
-    public bool ShowDeliverPresents;
-    public bool ShowJumpThroughChimney;
-    public bool ShowSelectStartRoom;
+    public bool ShowDeliverPresents = true;
+    public bool ShowJumpThroughChimney = true;
+    public bool ShowSelectStartRoom = true;
 }

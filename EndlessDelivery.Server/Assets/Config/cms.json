@@ -11,6 +11,10 @@
         {
             "After": "2024-12-15T00:00:00Z",
             "AssetPath": "Assets/Delivery/ScriptableObjects/RoomPools/Room Pool Craggy.asset"
+        },
+        {
+            "After": "2024-12-22T00:00:00Z",
+            "AssetPath": "Assets/Delivery/ScriptableObjects/RoomPools/Room Pool Fracture.asset"
         }
     ],
     "CalendarRewards": {
@@ -353,17 +357,17 @@
         "day22_2024": {
             "IsLastDay": false,
             "Date": "2024-12-22T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.banner_fracture",
+            "Description": "calendar.day22_desc",
+            "Subtitle": "category.room",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/DiscordIcons/fracture.png",
+                "AddressablePath": "Assets/Delivery/Calendar Map Icons/fracture.png"
             },
             "Id": "day22_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "banner_fracture",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day23_2024": {
@@ -1106,6 +1110,22 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Jumper/jumper-preview.png"
                 }
             }
+        },
+        "banner_fracture": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/fracture.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Fracture/fracture.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_fracture",
+                "Name": "item.banner_fracture",
+                "ShopPrice": 0,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/fracture-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Fracture/fracture-preview.png"
+                }
+            }
         }
     },
     "Revolvers": {
@@ -1768,6 +1788,7 @@
         "calendar.day19_desc": "A rocket launcher skin, covered with various constellations of stars, and designed by <color=orange>me, Waffle</color>.\n\n\nReward for day 19.",
         "calendar.day20_desc": "A banner of an occult worship event of the cursed one, <color=orange>KITR</color>. Visit Split 2 and join the summoning, if you wish to survive.\n\nReward for day 20.",
         "calendar.day21_desc": "A banner themed after an <color=orange>ugly Christmas sweater</color>. By the way, a new content update should (hopefully) be coming soon.\n\nReward for day 21.",
+        "calendar.day22_desc": "The 16th room for DD, two different chambers connected by a prelude-themed section in the middle. A <color=orange>banner</color> of the level is included.\n\nReward for day 22.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -1846,6 +1867,7 @@
         "item.banner_snow": "Snow",
         "item.banner_container": "Container",
         "item.banner_kitr": "Summoning",
+        "item.banner_fracture": "Fracture",
         "item.misc_default": "Default",
         "item.misc_gingerbread": "Gingerbread",
         "item.misc_jumper": "Sweater",

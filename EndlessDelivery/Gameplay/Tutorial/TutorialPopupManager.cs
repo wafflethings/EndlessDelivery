@@ -10,48 +10,47 @@ namespace EndlessDelivery.Gameplay.Tutorial;
 
 public class TutorialPopupManager : MonoBehaviour
 {
-    public static SaveFile<TutorialData> TutorialData = SaveFile.RegisterFile(new SaveFile<TutorialData>("tutorial_data.json", Plugin.Name, new()));
+    private static SaveFile<TutorialData> s_tutorialData = SaveFile.RegisterFile(new SaveFile<TutorialData>("tutorial_data.json", Plugin.Name, new()));
 
     private void Awake()
     {
-        return;
         IEnumerable<Score> scores = ScoreManagement.ScoreManager.LocalHighscores.Data.Values;
 
         if (scores.Any(score => score.Deliveries > 0))
         {
-            TutorialData.Data.ShowDeliverPresents = false;
+            s_tutorialData.Data.ShowDeliverPresents = false;
         }
 
         if (scores.Any(score => score.Rooms > 0))
         {
-            TutorialData.Data.ShowJumpThroughChimney = false;
+            s_tutorialData.Data.ShowJumpThroughChimney = false;
         }
 
         if (StartTimes.Instance.Data.DifficultyToTimes.Values.Any(startTime => startTime.SelectedWave != 0))
         {
-            TutorialData.Data.ShowSelectStartRoom = false;
+            s_tutorialData.Data.ShowSelectStartRoom = false;
         }
     }
 
     private void FixedUpdate()
     {
-        if (GameManager.Instance.GameStarted && TutorialData.Data.ShowDeliverPresents)
+        if (s_tutorialData.Data.ShowDeliverPresents && GameManager.Instance.GameStarted)
         {
             HudMessageReceiver.Instance.SendHudMessage("DELIVER PRESENTS INTO CHIMNEYS OF THE SAME COLOUR");
-            TutorialData.Data.ShowDeliverPresents = false;
+            s_tutorialData.Data.ShowDeliverPresents = false;
         }
 
-        if (GameManager.Instance.GameStarted && GameManager.Instance.CurrentRoom.RoomCleared && TutorialData.Data.ShowJumpThroughChimney)
+        if (s_tutorialData.Data.ShowJumpThroughChimney && GameManager.Instance.GameStarted && GameManager.Instance.CurrentRoom.ChimneysDone)
         {
             HudMessageReceiver.Instance.SendHudMessage("JUMP THROUGH ANY CHIMNEY TO PROCEED");
-            TutorialData.Data.ShowJumpThroughChimney = false;
+            s_tutorialData.Data.ShowJumpThroughChimney = false;
         }
 
         StartTimes.StartTime current = StartTimes.Instance.Data.CurrentTimes;
-        if (current.UnlockedStartTimes.Any(startWave => startWave != 0) && current.SelectedWave == 0)
+        if (s_tutorialData.Data.ShowSelectStartRoom && current.UnlockedStartTimes.Any(startWave => startWave != 0) && current.SelectedWave == 0)
         {
-            HudMessageReceiver.Instance.SendHudMessage("YOU HAVE UNLOCKED A NEW STARTING ROOM.\nSELECT IT IN THE GREEN TERMINAL, IN THE OPTIONS MENU");
-            TutorialData.Data.ShowJumpThroughChimney = false;
+            HudMessageReceiver.Instance.SendHudMessage("YOU HAVE UNLOCKED A NEW STARTING ROOM.\nSELECT IT IN THE OPTIONS MENU OF THE GREEN TERMINAL");
+            s_tutorialData.Data.ShowSelectStartRoom = false;
         }
     }
 }
