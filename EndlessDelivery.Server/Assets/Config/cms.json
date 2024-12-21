@@ -917,8 +917,8 @@
         },
         "banner_contained": {
             "Asset": {
-                "AssetUri": "/Resources/UI/Banners/exhibit.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Exhibit/exhibit.png"
+                "AssetUri": "/Resources/UI/Banners/contained.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Contained/contained.png"
             },
             "Descriptor": {
                 "Type": 0,
