@@ -1126,6 +1126,22 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Fracture/fracture-preview.png"
                 }
             }
+        },
+        "banner_present": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/present.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Present/present.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_present",
+                "Name": "item.banner_present",
+                "ShopPrice": 150,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/present-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Present/present-preview.png"
+                }
+            }
         }
     },
     "Revolvers": {
@@ -1360,6 +1376,18 @@
                 "Icon": {
                     "AssetUri": "/Resources/UI/Hammers/gingerbread-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Hammer/Gingerbread/gingerbread-icon.png"
+                }
+            }
+        },
+        "altshotgun_jumper": {
+            "Descriptor": {
+                "Type": 8,
+                "Id": "altshotgun_jumper",
+                "Name": "item.misc_jumper",
+                "ShopPrice": 1000,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Hammers/jumper-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Hammer/Jumper/jumper-icon.png"
                 }
             }
         }
@@ -1739,8 +1767,17 @@
             "Length": "2.00:00:00"
         },
         {
-            "ItemIds": [],
+            "ItemIds": [
+                "banner_present",
+                "nailgun_frosty",
+                "railcannon_star"
+            ],
             "Start": "2024-12-23T00:00:00Z",
+            "Length": "2.00:00:00"
+        },
+        {
+            "ItemIds": [],
+            "Start": "2024-12-25T00:00:00Z",
             "Length": "100000.00:00:00"
         }
     ],
@@ -1801,6 +1838,7 @@
         "calendar.day20_desc": "A banner of an occult worship event of the cursed one, <color=orange>KITR</color>. Visit Split 2 and join the summoning, if you wish to survive.\n\nReward for day 20.",
         "calendar.day21_desc": "A banner themed after an <color=orange>ugly Christmas sweater</color>. By the way, a new content update should (hopefully) be coming soon.\n\nReward for day 21.",
         "calendar.day22_desc": "The 16th room for DD, two different chambers connected by a prelude-themed section in the middle. A <color=orange>banner</color> of the level is included.\n\nReward for day 22.",
+        "calendar.day23_desc": "Another ugly Christmas sweater themed skin created by <color=orange>Fri</color>, this time for the Impact Hammer.\n\n\nReward for day 23.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -1880,6 +1918,7 @@
         "item.banner_container": "Container",
         "item.banner_kitr": "Summoning",
         "item.banner_fracture": "Fracture",
+        "item.banner_present": "Present Stack",
         "item.misc_default": "Default",
         "item.misc_gingerbread": "Gingerbread",
         "item.misc_jumper": "Sweater",

@@ -23,6 +23,16 @@ public class Radiant : SpecialWave
         { EnemyType.Stray, 0.2f },
         { EnemyType.Schism, 0.2f },
     };
+    private static Dictionary<EnemyType, int> s_typeCaps = new()
+    {
+        { EnemyType.Ferryman, 2 },
+        { EnemyType.Gutterman, 2 },
+        { EnemyType.Guttertank, 2 },
+        { EnemyType.Mindflayer, 2 },
+        { EnemyType.Swordsmachine, 3 },
+    };
+
+    private Dictionary<EnemyType, int> _currentAmounts = new();
     private const float StartCost = 4.5f;
     private float _remainingCost;
 
@@ -32,6 +42,11 @@ public class Radiant : SpecialWave
     public override void Start()
     {
         _remainingCost = StartCost;
+        _currentAmounts.Clear();
+        foreach (EnemyType type in s_typeCaps.Keys)
+        {
+            _currentAmounts.Add(type, 0);
+        }
         GameManager.Instance.EnemySpawned += OnEnemySpawned;
     }
 
@@ -56,6 +71,13 @@ public class Radiant : SpecialWave
         {
             return;
         }
+
+        if (s_typeCaps.ContainsKey(enemy.enemyType) && _currentAmounts[enemy.enemyType] >= s_typeCaps[enemy.enemyType])
+        {
+            return;
+        }
+
+        s_typeCaps[enemy.enemyType]++;
 
         Plugin.Log.LogMessage($"Spawned {enemy.enemyType}, remaining {_remainingCost}");
         _remainingCost -= cost;
