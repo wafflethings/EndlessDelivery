@@ -10,7 +10,7 @@ public class Radiant : SpecialWave
         { EnemyType.Cerberus, 0.4f },
         { EnemyType.Ferryman, 1f },
         { EnemyType.Gutterman, 1.2f },
-        { EnemyType.Guttertank, 1.5f },
+        { EnemyType.Guttertank, 2f },
         { EnemyType.Idol, 0 },
         { EnemyType.Stalker, 0},
         { EnemyType.MaliciousFace, 0.4f },
@@ -27,7 +27,7 @@ public class Radiant : SpecialWave
     {
         { EnemyType.Ferryman, 2 },
         { EnemyType.Gutterman, 2 },
-        { EnemyType.Guttertank, 2 },
+        { EnemyType.Guttertank, 1 },
         { EnemyType.Mindflayer, 2 },
         { EnemyType.Swordsmachine, 3 },
     };
