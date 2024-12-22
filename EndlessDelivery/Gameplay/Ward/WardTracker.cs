@@ -32,23 +32,4 @@ public class WardTracker : MonoBehaviour
 
         _previousWard = currentWard;
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!other.TryGetComponent(out Ward ward))
-        {
-            return;
-        }
-
-        ward.AddEnemy(_eid);
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (!other.TryGetComponent(out Ward ward))
-        {
-            return;
-        }
-
-        ward.RemoveEnemy(_eid);
-    }
 }

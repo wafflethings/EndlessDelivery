@@ -23,18 +23,13 @@ public class JollyTerminalShop : MonoBehaviour
     [SerializeField] private Transform _panelHolder;
     [SerializeField] private AudioSource _buySound;
     [SerializeField] private AudioSource _buyError;
-    [SerializeField] private TMP_Text _moneyCounter;
     [SerializeField] private TMP_Text _timeRemainingText;
-    [SerializeField] private AudioSource _moneyDecreaseTick;
-    [SerializeField] private float _moneyTickInterval;
-    [SerializeField] private float _moneyDecreaseInterval;
+    [SerializeField] private MoneyCounter _moneyCounter;
     private List<ShopItemPanel> _panels = new();
     private bool _hasInitialized = false;
     private int _totalMoney = 0;
-    private int _counterMoney = 0;
     private DateTime _endTime;
     private string _timeRemainingString = "{0}";
-    private Coroutine? _lastMoneyRefresher;
 
     private void OnEnable()
     {
@@ -103,6 +98,16 @@ public class JollyTerminalShop : MonoBehaviour
         }
     }
 
+    private IEnumerator SetInitialMoneyCoroutine()
+    {
+        Task<int> moneyTask = OnlineFunctionality.Context.GetCurrencyAmount();
+        yield return new WaitUntil(() => moneyTask.IsCompleted);
+
+        _totalMoney = moneyTask.Result;
+        _moneyCounter.SetValue(moneyTask.Result);
+        _hasInitialized = true;
+    }
+
     private void AddItem(ItemDescriptor item)
     {
         GameObject panelObject = Instantiate(_templatePanel, _panelHolder);
@@ -110,62 +115,6 @@ public class JollyTerminalShop : MonoBehaviour
         ShopItemPanel panel = panelObject.GetComponent<ShopItemPanel>();
         _panels.Add(panel);
         panel.SetUp(this, item);
-    }
-
-    private void SetCounter(int amount)
-    {
-        _counterMoney = amount;
-        _moneyCounter.text = amount.ToString();
-    }
-
-    private IEnumerator SetInitialMoneyCoroutine()
-    {
-        Task<int> moneyTask = OnlineFunctionality.Context.GetCurrencyAmount();
-        yield return new WaitUntil(() => moneyTask.IsCompleted);
-
-        _totalMoney = moneyTask.Result;
-        SetCounter(moneyTask.Result);
-        _hasInitialized = true;
-    }
-
-    public void RefreshMoney(int targetMoney)
-    {
-        if (_lastMoneyRefresher != null)
-        {
-            StopCoroutine(_lastMoneyRefresher);
-        }
-
-        _lastMoneyRefresher = StartCoroutine(RefreshMoneyCoroutine(targetMoney));
-    }
-
-    private IEnumerator RefreshMoneyCoroutine(int targetMoney)
-    {
-        while (!_hasInitialized)
-        {
-            yield return null;
-        }
-
-        float timeSinceTick = 0;
-        float timeSinceDecrease = 0;
-
-        while (_counterMoney != targetMoney)
-        {
-            timeSinceTick += Time.deltaTime;
-            timeSinceDecrease += Time.deltaTime;
-
-            if (timeSinceTick > _moneyTickInterval)
-            {
-                _moneyDecreaseTick.Play();
-                timeSinceTick = 0;
-            }
-
-            if (timeSinceDecrease > _moneyDecreaseInterval)
-            {
-                SetCounter(--_counterMoney);
-            }
-
-            yield return null;
-        }
     }
 
     public void BuyItem(ItemDescriptor item)
@@ -195,7 +144,7 @@ public class JollyTerminalShop : MonoBehaviour
 
         _buySound.Play();
         _totalMoney -= item.ShopPrice;
-        RefreshMoney(_totalMoney);
+        _moneyCounter.RefreshMoney(_totalMoney);
 
         foreach (ShopItemPanel itemPanel in _panels)
         {
