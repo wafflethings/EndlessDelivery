@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -801265311, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
-  m_Name: Gold Revolver
+  m_Script: {fileID: 1563237860, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: Saw Jumper
   m_EditorClassIdentifier: 
-  Id: revolver_gold
-  Material: {fileID: 2100000, guid: 4f7a1de821360b640a9572e54b7b987c, type: 2}
+  Id: altnailgun_jumper
+  Material: {fileID: 2100000, guid: c42692616bf9a8b488d4e53f0f09afbf, type: 2}
+  SawMaterial: {fileID: 2100000, guid: 1bbbc8231fc4285449f42987b9582ba9, type: 2}

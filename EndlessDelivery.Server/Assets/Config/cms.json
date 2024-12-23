@@ -389,17 +389,17 @@
         "day24_2024": {
             "IsLastDay": false,
             "Date": "2024-12-24T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.misc_frosty",
+            "Description": "calendar.day24_desc",
+            "Subtitle": "category.revolver",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Revolvers/frosty-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Revolver/Frosty/frosty-icon.png"
             },
             "Id": "day24_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "revolver_frosty",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day25_2024": {
@@ -1228,6 +1228,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Revolver/Gingerbread/gingerbread-icon.png"
                 }
             }
+        },
+        "revolver_frosty": {
+            "Descriptor": {
+                "Type": 1,
+                "Id": "revolver_frosty",
+                "Name": "item.misc_frosty",
+                "ShopPrice": 1000,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Revolvers/frosty-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Revolver/Frosty/frosty-icon.png"
+                }
+            }
         }
     },
     "AltRevolvers": {
@@ -1839,6 +1851,8 @@
         "calendar.day21_desc": "A banner themed after an <color=orange>ugly Christmas sweater</color>. By the way, a new content update should (hopefully) be coming soon.\n\nReward for day 21.",
         "calendar.day22_desc": "The 16th room for DD, two different chambers connected by a prelude-themed section in the middle. A <color=orange>banner</color> of the level is included.\n\nReward for day 22.",
         "calendar.day23_desc": "Another ugly Christmas sweater themed skin created by <color=orange>Fri</color>, this time for the Impact Hammer.\n\n\nReward for day 23.",
+        "calendar.day24_desc": "A revolver skin created by <color=orange>Fri</color>, themed after a snowman and covered in snowflakes. Make sure to check in tomorrow for a special Christmas surprise!\n\nReward for day 24.",
+        "calendar.day25_desc": "Ascent is a new level with a floating island, and a <color=orange>banner</color> of it is included. Make sure to check the shop today for your <color=orange>free Christmas items!</color>\n\nReward for day 25.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",

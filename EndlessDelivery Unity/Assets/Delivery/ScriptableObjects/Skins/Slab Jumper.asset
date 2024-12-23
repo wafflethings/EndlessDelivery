@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -1460650763, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
-  m_Name: Gold Shotgun
+  m_Script: {fileID: 472750489, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: Slab Jumper
   m_EditorClassIdentifier: 
-  Id: shotgun_gold
-  Material: {fileID: 2100000, guid: e80dbd85dd2afdb4786b9259b2180459, type: 2}
+  Id: altrevolver_jumper
+  Material: {fileID: 2100000, guid: aae39278754969a4babd9f22c8733656, type: 2}

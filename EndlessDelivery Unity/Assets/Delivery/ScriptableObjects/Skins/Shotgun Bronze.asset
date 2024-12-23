@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1545676994, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
-  m_Name: Gingerbread Nail
+  m_Script: {fileID: -1460650763, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: Shotgun Bronze
   m_EditorClassIdentifier: 
-  Id: nailgun_gingerbread
-  Material: {fileID: 2100000, guid: 84fb9e18320172c44aa35d606df50186, type: 2}
+  Id: shotgun_bronze
+  Material: {fileID: 2100000, guid: f1233da42653a8d479df74ec9cde208e, type: 2}
