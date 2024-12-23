@@ -72,12 +72,15 @@ public class Radiant : SpecialWave
             return;
         }
 
-        if (s_typeCaps.ContainsKey(enemy.enemyType) && _currentAmounts[enemy.enemyType] >= s_typeCaps[enemy.enemyType])
+        if (s_typeCaps.TryGetValue(enemy.enemyType, out int cap))
         {
-            return;
-        }
+            if (_currentAmounts[enemy.enemyType] >= cap)
+            {
+                return;
+            }
 
-        s_typeCaps[enemy.enemyType]++;
+            s_typeCaps[enemy.enemyType]++;
+        }
 
         Plugin.Log.LogMessage($"Spawned {enemy.enemyType}, remaining {_remainingCost}");
         _remainingCost -= cost;

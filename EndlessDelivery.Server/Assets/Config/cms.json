@@ -373,17 +373,17 @@
         "day23_2024": {
             "IsLastDay": false,
             "Date": "2024-12-23T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.misc_jumper",
+            "Description": "day23_2024",
+            "Subtitle": "category.altshotgun",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Hammers/jumper-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Hammer/Jumper/jumper-icon.png"
             },
             "Id": "day23_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "altshotgun_jumper",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day24_2024": {
