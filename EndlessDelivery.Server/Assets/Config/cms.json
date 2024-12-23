@@ -11,6 +11,10 @@
         {
             "After": "2024-12-15T00:00:00Z",
             "AssetPath": "Assets/Delivery/ScriptableObjects/RoomPools/Room Pool Craggy.asset"
+        },
+        {
+            "After": "2024-12-22T00:00:00Z",
+            "AssetPath": "Assets/Delivery/ScriptableObjects/RoomPools/Room Pool Fracture.asset"
         }
     ],
     "CalendarRewards": {
@@ -353,33 +357,33 @@
         "day22_2024": {
             "IsLastDay": false,
             "Date": "2024-12-22T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.banner_fracture",
+            "Description": "calendar.day22_desc",
+            "Subtitle": "category.room",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/DiscordIcons/fracture.png",
+                "AddressablePath": "Assets/Delivery/Calendar Map Icons/fracture.png"
             },
             "Id": "day22_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "banner_fracture",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day23_2024": {
             "IsLastDay": false,
             "Date": "2024-12-23T00:00:00Z",
-            "Name": "reward name - replace",
-            "Description": "reward desc - replace",
-            "Subtitle": "reward sub - replace",
+            "Name": "item.misc_jumper",
+            "Description": "day23_2024",
+            "Subtitle": "category.altshotgun",
             "Icon": {
-                "AssetUri": "/Resources/UI/default-icon.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/default-icon.png"
+                "AssetUri": "/Resources/UI/Hammers/jumper-icon.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Hammer/Jumper/jumper-icon.png"
             },
             "Id": "day23_2024",
-            "HasItem": false,
-            "ItemId": "",
-            "HasCurrency": true,
+            "HasItem": true,
+            "ItemId": "altshotgun_jumper",
+            "HasCurrency": false,
             "CurrencyAmount": 0
         },
         "day24_2024": {
@@ -917,8 +921,8 @@
         },
         "banner_contained": {
             "Asset": {
-                "AssetUri": "/Resources/UI/Banners/exhibit.png",
-                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Exhibit/exhibit.png"
+                "AssetUri": "/Resources/UI/Banners/contained.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Contained/contained.png"
             },
             "Descriptor": {
                 "Type": 0,
@@ -1104,6 +1108,38 @@
                 "Icon": {
                     "AssetUri": "/Resources/UI/Banners/jumper-preview.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Jumper/jumper-preview.png"
+                }
+            }
+        },
+        "banner_fracture": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/fracture.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Fracture/fracture.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_fracture",
+                "Name": "item.banner_fracture",
+                "ShopPrice": 1000,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/fracture-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Fracture/fracture-preview.png"
+                }
+            }
+        },
+        "banner_present": {
+            "Asset": {
+                "AssetUri": "/Resources/UI/Banners/present.png",
+                "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Present/present.png"
+            },
+            "Descriptor": {
+                "Type": 0,
+                "Id": "banner_present",
+                "Name": "item.banner_present",
+                "ShopPrice": 150,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Banners/present-preview.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Banners/Present/present-preview.png"
                 }
             }
         }
@@ -1342,6 +1378,18 @@
                     "AddressablePath": "Assets/Delivery/Cosmetics/Hammer/Gingerbread/gingerbread-icon.png"
                 }
             }
+        },
+        "altshotgun_jumper": {
+            "Descriptor": {
+                "Type": 8,
+                "Id": "altshotgun_jumper",
+                "Name": "item.misc_jumper",
+                "ShopPrice": 1000,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Hammers/jumper-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Hammer/Jumper/jumper-icon.png"
+                }
+            }
         }
     },
     "Nailguns": {
@@ -1442,6 +1490,18 @@
                 "Icon": {
                     "AssetUri": "/Resources/UI/Railcannons/gingerbread-icon.png",
                     "AddressablePath": "Assets/Delivery/Cosmetics/Railcannon/Gingerbread/gingerbread-icon.png"
+                }
+            }
+        },
+        "railcannon_star": {
+            "Descriptor": {
+                "Type": 4,
+                "Id": "railcannon_star",
+                "Name": "item.misc_star",
+                "ShopPrice": 300,
+                "Icon": {
+                    "AssetUri": "/Resources/UI/Railcannons/star-icon.png",
+                    "AddressablePath": "Assets/Delivery/Cosmetics/Railcannon/Star/star-icon.png"
                 }
             }
         }
@@ -1707,8 +1767,17 @@
             "Length": "2.00:00:00"
         },
         {
-            "ItemIds": [],
+            "ItemIds": [
+                "banner_present",
+                "nailgun_frosty",
+                "railcannon_star"
+            ],
             "Start": "2024-12-23T00:00:00Z",
+            "Length": "2.00:00:00"
+        },
+        {
+            "ItemIds": [],
+            "Start": "2024-12-25T00:00:00Z",
             "Length": "100000.00:00:00"
         }
     ],
@@ -1717,17 +1786,17 @@
         "constants.website": "https://delivery.wafflethings.dev",
         "constants.website_users": "https://delivery.wafflethings.dev/users/{0}",
         "achievement.firstplace": "DELIVERY DIVINITY",
-        "achievement.firstplace_desc": "Reach 60 rooms.",
+        "achievement.firstplace_desc": "Reach a best score of 60 rooms.",
         "achievement.top25": "PREMIER POSTMAN",
-        "achievement.top25_desc": "Reach 45 rooms.",
+        "achievement.top25_desc": "Reach a best score of 45 rooms.",
         "achievement.top50": "MAILING MASTERY",
-        "achievement.top50_desc": "Reach 35 rooms.",
+        "achievement.top50_desc": "Reach a best score of 35 rooms.",
         "achievement.100rooms": "GET THE SNOW ON THE ROAD",
-        "achievement.100rooms_desc": "Complete 100 rooms.",
+        "achievement.100rooms_desc": "Complete a lifetime total 100 rooms.",
         "achievement.500rooms": "BREAKING THE ICE",
-        "achievement.500rooms_desc": "Complete 500 rooms.",
+        "achievement.500rooms_desc": "Complete a lifetime total 500 rooms.",
         "achievement.1000rooms": "DIVINE DEDICATION",
-        "achievement.1000rooms_desc": "Complete 1000 rooms.",
+        "achievement.1000rooms_desc": "Complete a lifetime total 1000 rooms.",
         "achievement.2hours": "SANTA'S LITTLE HELPER",
         "achievement.2hours_desc": "Play for 2 hours.",
         "achievement.10hours": "SANTA'S BIG HELPER",
@@ -1735,7 +1804,7 @@
         "achievement.20hours": "GO OUTSIDE",
         "achievement.20hours_desc": "Play for 20 hours.",
         "achievement.gobstopper": "GOBSTOPPER",
-        "achievement.gobstopper_desc": "Destroy 10 different paintings of Goblin, the mysterious black cat.",
+        "achievement.gobstopper_desc": "Use a revolver beam to destroy 10 different paintings of Goblin, the mysterious black cat.",
         "achievement.nodamage": "FLAWLESS",
         "achievement.nodamage_desc": "Complete five consecutive rooms without taking damage.",
         "achievement.quick_clear": "NEXT DAY DELIVERY",
@@ -1743,14 +1812,14 @@
         "achievement.every_room": "COLD TOURIST DESTINATIONS",
         "achievement.every_room_desc": "Complete every room.",
         "achievement.reunited": "REUNITED",
-        "achievement.reunited_desc": "Bring Florp his trapped friend.",
+        "achievement.reunited_desc": "Bring Florp his trapped friend on <i>Salty Springs</i>.",
         "achievement.money1": "HIGH ROLLER",
         "achievement.money1_desc": "Earn 300 stars in one run.",
         "calendar.500stars": "500 STARS",
         "calendar.day1_desc": "Five hundred free <color=orange>stars</color> to spend in the shop. More interesting rewards are coming, this is just because hardly anyone will play on the first day.\n\nReward for day 1.",
         "calendar.day2_desc": "A snowman-themed <color=orange>shotgun</color> which smiles idly as it watches you consume the blood of your enemies. Textured by <color=orange>zelzmiy</color> and <color=orange>Fri</color>.\n\nReward for day 2.",
         "calendar.day3_desc": "A candy cane patterned <color=orange>banner</color>. By the way, I forgot to implement a <color=orange>update notification</color>, so if you are on the first version (2.0.1) please update.\n\nReward for day 3.",
-        "calendar.day4_desc": "<color=orange>Florp</color>.\n\n\n\n\nReward for day 4.",
+        "calendar.day4_desc": "<color=orange>Florp</color>.\n\n\n\nReward for day 4.",
         "calendar.day5_desc": "Exhibit is level designed by <color=orange>Fri</color>, where you search for presents in a fine art gallery. A <color=orange>banner</color> of the level is included.\n\nReward for day 5.",
         "calendar.day6_desc": "Five hundred free <color=orange>stars</color> to spend in the shop. It's boring filler, but if I do all the skins at once I'll run out. Better things will be tomorrow.\n\nReward for day 6.",
         "calendar.day7_desc": "A sweet railcannon skin designed by <color=orange>Takovic</color>, made entirely out of gingerbread and candy canes, and covered in multicoloured sprinkes.\n\nReward for day 7.",
@@ -1758,16 +1827,18 @@
         "calendar.day9_desc": "A radiant candy cane banner to celebrate <color=orange>DD 2.1</color>, which adds special waves, such as radiance, fireworks, and idol wards, all after room 20.\n\nReward for day 9.",
         "calendar.day10_desc": "A present skin themed after a <color=orange>TV</color>. I have no idea how they stay on without any power.\n\n\nReward for day 10.",
         "calendar.day11_desc": "Previous advent calendar rewards have become <color=orange>purchasable</color> for 1000 stars. Here's 500 stars to get you started on buying anything you missed.\n\nReward for day 11.",
-        "calendar.day12_desc": "The first <color=orange>sawblade launcher skin</color> in the mod, created by Fri. It is themed after an ugly Christmas sweater.\n\n\nReward for day 12.",
-        "calendar.day13_desc": "An evil and malicious collection of <color=orange>killer robots</color>. This banner contains V1, V2, V3, and V4, all together.\n\n\nReward for day 13.",
+        "calendar.day12_desc": "The first <color=orange>sawblade launcher skin</color> in the mod, created by Fri. It is themed after an ugly Christmas sweater.\n\nReward for day 12.",
+        "calendar.day13_desc": "An evil and malicious collection of <color=orange>killer robots</color>. This banner contains V1, V2, V3, and V4, all together.\n\nReward for day 13.",
         "calendar.day14_desc": "A gingerbread themed skin for the <color=orange>rocket launcher</color>. Sorry that it's late, I overslept and didn't wake up until four hours before the reset.\n\nReward for day 14.",
         "calendar.day15_desc": "The fifteenth room for DD, a valley surrounded by cliffs and created by <color=orange>Fri</color>. A <color=orange>banner</color> of the level is included.\n\nReward for day 15.",
         "calendar.day16_desc": "Your weekly reward of 500 <color=orange>stars</color> to spend in the shop and get something nice with. You could probably argue that this is filler.\n\nReward for day 16.",
         "calendar.day17_desc": "A banner of the <color=orange>snow texture</color> used in the mod. You could probably argue that this is also filler.\n\n\nReward for day 17.",
-        "calendar.day18_desc": "A present skin of a <color=orange>fallen star</color>. Despite being another star reward, this one actually isn't filler.\n\n\nReward for day 18.",
-        "calendar.day19_desc": "A rocket launcher skin, covered with various constellations of stars, and designed by <color=orange>me, Waffle</color>.\n\n\nReward for day 19.",
+        "calendar.day18_desc": "A present skin of a <color=orange>fallen star</color>. Despite being another star reward, this one actually isn't filler.\n\nReward for day 18.",
+        "calendar.day19_desc": "A rocket launcher skin, covered with various constellations of stars, and designed by <color=orange>me, Waffle</color>.\n\nReward for day 19.",
         "calendar.day20_desc": "A banner of an occult worship event of the cursed one, <color=orange>KITR</color>. Visit Split 2 and join the summoning, if you wish to survive.\n\nReward for day 20.",
         "calendar.day21_desc": "A banner themed after an <color=orange>ugly Christmas sweater</color>. By the way, a new content update should (hopefully) be coming soon.\n\nReward for day 21.",
+        "calendar.day22_desc": "The 16th room for DD, two different chambers connected by a prelude-themed section in the middle. A <color=orange>banner</color> of the level is included.\n\nReward for day 22.",
+        "calendar.day23_desc": "Another ugly Christmas sweater themed skin created by <color=orange>Fri</color>, this time for the Impact Hammer.\n\n\nReward for day 23.",
         "navbar.mod_name": "DIVINE DELIVERY",
         "navbar.shop_link": "SHOP",
         "navbar.download_link": "DOWNLOAD",
@@ -1846,6 +1917,8 @@
         "item.banner_snow": "Snow",
         "item.banner_container": "Container",
         "item.banner_kitr": "Summoning",
+        "item.banner_fracture": "Fracture",
+        "item.banner_present": "Present Stack",
         "item.misc_default": "Default",
         "item.misc_gingerbread": "Gingerbread",
         "item.misc_jumper": "Sweater",

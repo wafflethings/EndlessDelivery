@@ -5,31 +5,48 @@ namespace EndlessDelivery.Gameplay.SpecialWaves;
 
 public class Radiant : SpecialWave
 {
-    public override string Name => "RADIANT";
-    public override int Cost => 10;
-
-
-    private static Dictionary<EnemyType, float> s_typeOdds = new()
+    private static Dictionary<EnemyType, float> s_typeCost = new()
     {
-        { EnemyType.Cerberus, 0.8f },
-        { EnemyType.Ferryman, 0.4f },
-        { EnemyType.Gutterman, 0.6f },
-        { EnemyType.Guttertank, 0.4f },
-        { EnemyType.Idol, 1 },
-        { EnemyType.Stalker, 1},
-        { EnemyType.MaliciousFace, 0.8f },
-        { EnemyType.Mindflayer, 0.6f },
-        { EnemyType.Swordsmachine, 0.8f },
+        { EnemyType.Cerberus, 0.4f },
+        { EnemyType.Ferryman, 1f },
+        { EnemyType.Gutterman, 1.2f },
+        { EnemyType.Guttertank, 2f },
+        { EnemyType.Idol, 0 },
+        { EnemyType.Stalker, 0},
+        { EnemyType.MaliciousFace, 0.4f },
+        { EnemyType.Mindflayer, 1.5f },
+        { EnemyType.Swordsmachine, 0.4f },
 
         { EnemyType.Virtue, 0.6f },
         { EnemyType.Turret, 0.6f },
-        { EnemyType.Filth, 0.5f },
-        { EnemyType.Stray, 0.5f },
-        { EnemyType.Schism, 0.5f },
+        { EnemyType.Filth, 0.1f },
+        { EnemyType.Stray, 0.2f },
+        { EnemyType.Schism, 0.2f },
     };
+    private static Dictionary<EnemyType, int> s_typeCaps = new()
+    {
+        { EnemyType.Ferryman, 2 },
+        { EnemyType.Gutterman, 2 },
+        { EnemyType.Guttertank, 1 },
+        { EnemyType.Mindflayer, 2 },
+        { EnemyType.Swordsmachine, 3 },
+    };
+
+    private Dictionary<EnemyType, int> _currentAmounts = new();
+    private const float StartCost = 4.5f;
+    private float _remainingCost;
+
+    public override string Name => "RADIANCE";
+    public override int Cost => 15;
 
     public override void Start()
     {
+        _remainingCost = StartCost;
+        _currentAmounts.Clear();
+        foreach (EnemyType type in s_typeCaps.Keys)
+        {
+            _currentAmounts.Add(type, 0);
+        }
         GameManager.Instance.EnemySpawned += OnEnemySpawned;
     }
 
@@ -45,10 +62,28 @@ public class Radiant : SpecialWave
             return;
         }
 
-        if (!s_typeOdds.TryGetValue(enemy.enemyType, out float odds) || Random.value <= odds)
+        if (!s_typeCost.TryGetValue(enemy.enemyType, out float cost))
         {
             return;
         }
+
+        if (_remainingCost - cost < 0)
+        {
+            return;
+        }
+
+        if (s_typeCaps.TryGetValue(enemy.enemyType, out int cap))
+        {
+            if (_currentAmounts[enemy.enemyType] >= cap)
+            {
+                return;
+            }
+
+            s_typeCaps[enemy.enemyType]++;
+        }
+
+        Plugin.Log.LogMessage($"Spawned {enemy.enemyType}, remaining {_remainingCost}");
+        _remainingCost -= cost;
 
         enemy.HealthBuff();
         enemy.SpeedBuff();

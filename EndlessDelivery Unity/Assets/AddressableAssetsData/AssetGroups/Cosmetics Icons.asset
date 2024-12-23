@@ -177,6 +177,26 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbfca1a08c8b4d74d83ae26b14a7c6ae
+    m_Address: Assets/Delivery/Cosmetics/Railcannon/Star/star-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13515acbf0f6c384e8e546a84fc4b4bd
+    m_Address: Assets/Delivery/Cosmetics/Hammer/Jumper/Jumper Hammer.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f09b115ffbeb5364d8957886342d63a2
+    m_Address: Assets/Delivery/Cosmetics/Railcannon/Star/rail star.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b4b6df77b236544438484068b63002de
+    m_Address: Assets/Delivery/Cosmetics/Hammer/Jumper/jumper-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2a337ff27534e164b86034852d6c1576, type: 2}
   m_SchemaSet:

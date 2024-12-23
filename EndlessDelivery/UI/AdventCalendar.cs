@@ -31,18 +31,21 @@ public class AdventCalendar : MonoBehaviour
     [SerializeField] private Button _claimButton;
     [SerializeField] private TMP_Text _claimButtonText;
     [SerializeField] private TMP_Text _timeRemainingText;
+    [SerializeField] private MoneyCounter _moneyCounter;
     private List<string> _ownedDays = new();
     private List<GameObject> _buttons = new();
     private string _timeRemainingString = "{0}";
     private DateTime _endTime;
     private Item? _selectedItem;
     private bool _rewardIsToday;
+    private int _cachedCurrencyAmount;
 
     public void Claim()
     {
+        CalendarReward todayReward = OnlineFunctionality.LastFetchedContent.CurrentCalendarReward;
         if (_rewardIsToday)
         {
-            _ownedDays.Add(OnlineFunctionality.LastFetchedContent.CurrentCalendarReward.Id);
+            _ownedDays.Add(todayReward.Id);
         }
 
         _claimButtonText.text = OnlineFunctionality.LastFetchedContent.GetString("game_ui.calendar_claimed");
@@ -52,6 +55,12 @@ public class AdventCalendar : MonoBehaviour
             if (_rewardIsToday)
             {
                 await OnlineFunctionality.Context.ClaimDailyReward();
+
+                if (todayReward.HasCurrency)
+                {
+                    _cachedCurrencyAmount += todayReward.CurrencyAmount;
+                    _moneyCounter.RefreshMoney(_cachedCurrencyAmount);
+                }
             }
             else
             {
@@ -84,7 +93,10 @@ public class AdventCalendar : MonoBehaviour
         }
 
         AsyncOperationHandle<Sprite> loadIcon = Addressables.LoadAssetAsync<Sprite>(reward.Icon.AddressablePath);
-        yield return new WaitUntil(() => loadIcon.IsDone);
+        Task<int> getCurrency = OnlineFunctionality.Context.GetCurrencyAmount();
+        yield return new WaitUntil(() => loadIcon.IsDone && getCurrency.IsCompleted);
+        _cachedCurrencyAmount = getCurrency.Result;
+        _moneyCounter.SetValue(_cachedCurrencyAmount);
 
         _iconImage.sprite = loadIcon.Result;
         _nameTitle.text = cms.GetString(reward.Name);
@@ -93,7 +105,7 @@ public class AdventCalendar : MonoBehaviour
 
         bool isClaimed = _ownedDays.Contains(dayId) || (_selectedItem != null && CosmeticManager.AllOwned.Contains(_selectedItem.Descriptor.Id));
         _rewardIsToday = dayId == cms.CurrentCalendarReward?.Id;
-        _claimButton.interactable = !isClaimed && (_rewardIsToday || reward.HasItem);
+        _claimButton.interactable = !isClaimed && (_rewardIsToday || (reward.HasItem && _selectedItem.Descriptor.ShopPrice <= _cachedCurrencyAmount));
 
         string missedString = reward.HasItem ? string.Format(cms.GetString("game_ui.calendar_buy"), _selectedItem.Descriptor.ShopPrice) : cms.GetString("game_ui.calendar_missed");
         string unclaimedString = _rewardIsToday ? "game_ui.calendar_unclaimed" : missedString;

@@ -30,6 +30,13 @@ public static class CosmeticManager
         Task.Run(() => OnlineFunctionality.Context.SetLoadout(Loadout));
     }
 
+    private static int NailgunVariation(int variation) => variation switch
+    {
+        0 => 1,
+        1 => 0,
+        _ => variation
+    };
+
     private static bool WeaponHasSkin(GunType gunType, int variationIndex) => WeaponHasSkin(gunType, variationIndex, out _);
 
     private static bool WeaponHasSkin(GunType gunType, int variationIndex, out string skinId)
@@ -134,7 +141,7 @@ public static class CosmeticManager
         Nailgun? nailgun = __instance.GetComponentInParent<Nailgun>();
         if (nailgun != null)
         {
-            return !WeaponHasSkin(nailgun.altVersion ? GunType.AltNailgun : GunType.Nailgun, nailgun.variation);
+            return !WeaponHasSkin(nailgun.altVersion ? GunType.AltNailgun : GunType.Nailgun, NailgunVariation(nailgun.variation));
         }
 
         Railcannon? railcannon = __instance.GetComponentInParent<Railcannon>();
@@ -228,7 +235,7 @@ public static class CosmeticManager
     [HarmonyPatch(typeof(Nailgun), nameof(Nailgun.OnEnable)), HarmonyPostfix]
     private static void SetNailgunSkin(Nailgun __instance)
     {
-        bool hasSkin = WeaponHasSkin(__instance.altVersion ? GunType.AltNailgun : GunType.Nailgun, __instance.variation, out string id);
+        bool hasSkin = WeaponHasSkin(__instance.altVersion ? GunType.AltNailgun : GunType.Nailgun, NailgunVariation(__instance.variation), out string id);
         SetSkin(__instance.gameObject, id, hasSkin, out BaseSkin? skin);
 
         if (skin == null)

@@ -39,8 +39,8 @@ public class Ward : MonoBehaviour
 
             EnemyIdentifier? eid = _enemies[i];
             LineRenderer line = _lines[i];
-            Vector3 centre = eid.GetCenter()?.position ?? eid.transform.position;
 
+            Vector3 centre = eid.GetCenter()?.position ?? eid.transform.position;
             if (line == null)
             {
                 continue;

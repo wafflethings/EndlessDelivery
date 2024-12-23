@@ -28,13 +28,16 @@ public class Podium : MonoBehaviour
         foreach (OnlineScore score in scoresTask.Result)
         {
             StartCoroutine(SetPfp(score.SteamId, index));
-
-            Task<string> usernameTask = OnlineFunctionality.Context.GetUsername(score.SteamId);
-            yield return new WaitUntil(() => usernameTask.IsCompleted);
-            _nameTexts[index].text = $"#{index + 1} - " + usernameTask.Result.ToUpperInvariant();
-
+            StartCoroutine(SetUsername(score.SteamId, index));
             index++;
         }
+    }
+
+    private IEnumerator SetUsername(ulong steamId, int index)
+    {
+        Task<string> usernameTask = OnlineFunctionality.Context.GetUsername(steamId);
+        yield return new WaitUntil(() => usernameTask.IsCompleted);
+        _nameTexts[index].text = $"#{index + 1} - " + usernameTask.Result.ToUpperInvariant();
     }
 
     private IEnumerator SetPfp(ulong steamId, int index)
