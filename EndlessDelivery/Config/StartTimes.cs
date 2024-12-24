@@ -49,7 +49,7 @@ public class StartTimes
     [Serializable]
     public class StartTime
     {
-        public static readonly int[] StartableWaves = [0, 5, 10, 15, 25, 50];
+        public static readonly int[] StartableWaves = [0, 5, 10, 15, 20, 25, 35, 40, 45];
         public Dictionary<int, float> WaveToTime = new() { { 0, GameManager.StartTime } };
         public List<int> UnlockedStartTimes = new();
         public int SelectedWave;
@@ -79,7 +79,7 @@ public class StartTimes
 
             foreach (int startableWave in StartableWaves)
             {
-                if (wave != startableWave * 2)
+                if (wave < startableWave * 2)
                 {
                     continue;
                 }

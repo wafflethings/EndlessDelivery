@@ -202,6 +202,26 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a9c7d25d78605f441ac45efbfbd0125c
+    m_Address: Assets/Delivery/Calendar Map Icons/ascent.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 236930bdfb45dd94ebda5010abd3b7ce
+    m_Address: Assets/Delivery/Cosmetics/Shotgun/Jumper/jumper-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d13527d44faed864c8dc7c24b4629184
+    m_Address: Assets/Delivery/Cosmetics/Nailgun/Star/star-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 503a1465d5f4f5141825647b1fac7cf0
+    m_Address: Assets/Delivery/Cosmetics/Presents/PS5/ps5-icon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 2a337ff27534e164b86034852d6c1576, type: 2}
   m_SchemaSet:

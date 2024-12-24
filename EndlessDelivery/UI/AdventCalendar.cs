@@ -59,7 +59,6 @@ public class AdventCalendar : MonoBehaviour
                 if (todayReward.HasCurrency)
                 {
                     _cachedCurrencyAmount += todayReward.CurrencyAmount;
-                    _moneyCounter.RefreshMoney(_cachedCurrencyAmount);
                 }
             }
             else
@@ -67,6 +66,7 @@ public class AdventCalendar : MonoBehaviour
                 Plugin.Log.LogInfo($"buying item {_selectedItem.Descriptor.Id}");
                 try
                 {
+                    _cachedCurrencyAmount -= _selectedItem.Descriptor.ShopPrice;
                     await OnlineFunctionality.Context.BuyItem(_selectedItem.Descriptor.Id);
                 }
                 catch (Exception ex)
@@ -76,6 +76,7 @@ public class AdventCalendar : MonoBehaviour
             }
 
             await CosmeticManager.FetchLoadout();
+            _moneyCounter.RefreshMoney(_cachedCurrencyAmount);
         });
     }
 
