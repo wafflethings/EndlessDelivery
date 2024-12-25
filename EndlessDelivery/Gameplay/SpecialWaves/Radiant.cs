@@ -33,11 +33,11 @@ public class Radiant : SpecialWave
     };
 
     private Dictionary<EnemyType, int> _currentAmounts = new();
-    private const float StartCost = 4.5f;
+    private const float StartCost = 3.5f;
     private float _remainingCost;
 
     public override string Name => "RADIANCE";
-    public override int Cost => 15;
+    public override int Cost => 10;
 
     public override void Start()
     {
