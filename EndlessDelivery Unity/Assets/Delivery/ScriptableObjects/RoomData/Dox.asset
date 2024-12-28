@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 2071588819, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
-  m_Name: Room Pool Ascent
+  m_Script: {fileID: 1630573294, guid: f1bb1b15732ffde44a6b3ca46a10c9b0, type: 3}
+  m_Name: Dox
   m_EditorClassIdentifier: 
-  Rooms:
-  - {fileID: 11400000, guid: 1cce22faad977a449b15099df281a793, type: 2}
+  Name: Dox
+  Author: Fri
+  Id: dox
+  Prefab: {fileID: 5142735560282619816, guid: 9dbe75e1b60161b4fb7f8c8439b74ead, type: 3}
