@@ -19,6 +19,10 @@
         {
             "After": "2024-12-25T00:00:00Z",
             "AssetPath": "Assets/Delivery/ScriptableObjects/RoomPools/Room Pool Ascent.asset"
+        },
+        {
+            "After": "2024-12-29T00:00:00Z",
+            "AssetPath": "Assets/Delivery/ScriptableObjects/RoomPools/Room Pool Dox.asset"
         }
     ],
     "CalendarRewards": {

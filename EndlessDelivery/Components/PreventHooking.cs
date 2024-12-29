@@ -13,7 +13,7 @@ public class PreventItemHooking : MonoBehaviour
             return;
         }
 
-        if (Vector3.Distance(transform.position, NewMovement.instance.transform.position) <= EnableWhippingAtDistance)
+        if (Mathf.Abs((transform.position - NewMovement.Instance.transform.position).sqrMagnitude) <= EnableWhippingAtDistance * EnableWhippingAtDistance)
         {
             gameObject.layer = 22; // layer item
             return;
