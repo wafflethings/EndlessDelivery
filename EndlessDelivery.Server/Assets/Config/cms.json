@@ -23,6 +23,10 @@
         {
             "After": "2024-12-29T00:00:00Z",
             "AssetPath": "Assets/Delivery/ScriptableObjects/RoomPools/Room Pool Dox.asset"
+        },
+        {
+            "After": "2025-01-01T00:00:00Z",
+            "AssetPath": "Assets/Delivery/ScriptableObjects/RoomPools/Room Pool Slopbox.asset"
         }
     ],
     "CalendarRewards": {
@@ -1884,8 +1888,17 @@
             "Length": "2.00:00:00"
         },
         {
+            "ItemIds": [
+                "present_maurice",
+                "altrevolver_jumper",
+                "shotgun_gingerbread"
+            ],
+            "Start": "2025-01-02T00:00:00Z",
+            "Length": "2.00:00:00"
+        },
+        {
             "ItemIds": [],
-            "Start": "2024-01-02T00:00:00Z",
+            "Start": "2025-01-04T00:00:00Z",
             "Length": "100000.00:00:00"
         }
     ],
