@@ -1875,8 +1875,17 @@
             "Length": "2.00:00:00"
         },
         {
-            "ItemIds": [],
+            "ItemIds": [
+                "banner_campfire",
+                "banner_contained",
+                "nailgun_frosty"
+            ],
             "Start": "2024-12-31T00:00:00Z",
+            "Length": "2.00:00:00"
+        },
+        {
+            "ItemIds": [],
+            "Start": "2024-01-02T00:00:00Z",
             "Length": "100000.00:00:00"
         }
     ],
