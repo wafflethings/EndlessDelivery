@@ -95,7 +95,7 @@ public class GameManager : MonoSingleton<GameManager>
         if (loadedPool == null)
         {
             Plugin.Log.LogWarning($"Loaded pool at {path} was null, using fallback");
-            return;
+            loadedPool = Addressables.LoadAssetAsync<RoomPool>("Assets/Delivery/ScriptableObjects/RoomPools/Room Pool.asset").WaitForCompletion();
         }
 
         RoomPool = loadedPool;

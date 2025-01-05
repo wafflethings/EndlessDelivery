@@ -27,6 +27,10 @@
         {
             "After": "2025-01-01T00:00:00Z",
             "AssetPath": "Assets/Delivery/ScriptableObjects/RoomPools/Room Pool Slopbox.asset"
+        },
+        {
+            "After": "2025-01-05T00:00:00Z",
+            "AssetPath": "Assets/Delivery/ScriptableObjects/RoomPools/Room Pool Dusty.asset"
         }
     ],
     "CalendarRewards": {
